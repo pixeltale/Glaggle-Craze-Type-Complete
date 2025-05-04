@@ -1,0 +1,142 @@
+[Data]
+life = 900
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 14
+ground.front = 14
+air.back = 6
+air.front = 6
+height = 34
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -68
+mid.pos = 0, -40
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.625
+walk.back = -2.5
+run.fwd  = 6.25, 0
+run.back = -7.5,-1.5
+jump.neu = 0,-9
+jump.back = -3
+jump.fwd = 3
+runjump.fwd = 4,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 5
+BC.VoiceBankWeakKO = 4
+BC.VoiceBankHeartBreaker = 4
+BC.VoiceBankCrazeCancel = 3
+BC.VoiceBankPain = 16
+BC.VoiceBankGuardBreak = 3
+BC.VoiceBankThrowTech = 6
+BC.VoiceBankExert = 11
+
+[Quotes]
+victory0  = "I hope you wouldn't mind promoting us next time you get back up, m'kay? I did win fair and square after all!"
+victory1  = "I see a lot of different people from across the world, and I love experiencing their different styles! Thank you for the battle!"
+victory2  = "The Hattori Clan Style of Ninjutsu, now with a new and improved flavor!"
+victory3  = "Sorry, you only get an autograph if you WIN against me, unless you wanna try again?"
+victory4  = "We're not opening up for new band members right now. Plus, with that performance, I can't imagine you with any instrument other than the triangle!"
+victory5  = "'Phenomena Becomes Emptiness. Emptiness Becomes Phenomena'. Is that too long for an album title?"
+victory6  = "If I'm too quick for you, then you better keep up! I'm here for one night only!"
+victory7  = "You can't keep those guitar picks I threw at you! Give them back, or they're $4.99 a piece!"
+victory8  = "As swift as wind, as gentle as a forest. As fierce as fire, as unshakable as a mountain. Four things which you are not!"
+victory9  = "Come see DEATH-X, live in concert in your area soon! Thank you!"
+victory10 = "No one has time on their side. Even the future is fleeting." ; AJIT
+victory11 = "I understand, it isn't easy to flirt with girls whose beauty dazzles the eyes! Why don't we start over with some lunch?" ; TSUG
+victory12 = "Hey, I can hook you up with some J-pop recommendations, but you don't have to be rude to my J-rock, alright?" ; TSUK
+victory13 = "GROSS! Keep away, you creep! Unless you want another taste of this sword!" ; SHER
+victory14 = "Living illusion. With evil intent and sin. Cut you in pieces." ; SHEX
+victory15 = "Stalwart like a nurikabe, fierce like an oni. Two things which aren't faster than me!" ; WALL
+victory16 = "I knew my smoke machine was delivered to the wrong address! I'm sorry, was that too mean?" ; REAP
+victory17 = "GROSS! Keep away, you creep! Unless you want another taste of this sword!" ; REAK
+victory18 = "Heard you could break swords with nothing but your passion. Guess that ain't true!" ; JUST
+victory19 = "I'm not that familiar with the BWF. Sorry!" ; JUSK
+victory20 = "Whaddya mean I'm not stealthy enough? I can disappear in a blink! Watch this!" ; BOUN
+victory21 = "GROSS! Keep away, you creep! Unless you want another taste of this sword!" ; BAXT
+victory22 = "GROSS! Keep away, you creep! Unless you want another taste of this sword!" ; CICI
+victory23 = "I'm sorry for putting what are probably your cousins against each other in beetle wrestling! I didn't know there were fellas as big as you out there!" ; GOLI
+victory24 = "Why not put your feelings to music? That's at least what I do!" ; NECC
+victory25 = "I appreciate the fanaticism, although you should tone it down. Pretending to be me is, really creeping me out!" ; EMIC
+victory26 = "Doesn't seem like you know us up close. If you do have a backstage pass, I can tell you more about my life!" ; LUCY
+victory27 = "Living illusion. With evil intent and sin. Cut you in pieces." ; GABB
+victory28 = "We should clash swords again sometime! Maybe offer you a backstage tour for free- I mean, a discount!" ; ISAB
+victory29 = "A powerful symphony, but no rival to the power of rock!" ; TYRA
+victory30 = "Such an unorthodox style of swordplay! You gotta teach me some of your tricks, if we encounter each other again." ; IKUE
+victory31 = "The ears are real? That's adorable! Would you like it if I scritched your ears just a bit?" ; TERI
+victory32 = "I've seen plenty of cute frogs in my life and this one definitely makes the list!" ; BERN
+victory33 = "You're different from other yokai I've seen. Just kick the habit of explosives and we should be fine!" ; JANE
+victory97 = "I'll make sure you'll never make any more copies! I don't want you to profit off my fame after I pass from this world!" ; EMIK
+victory98 = "Y'know, clay is easier to cut than tatami mats. Then again, my sword now has globs of clay on it, ew." ; KAHL
+victory99 = "Living illusion. With evil intent and sin. Cut you in pieces." ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 18  -  Craze Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 40  -  [EMIC] Charge Motion L Length
+; 41  -  [EMIC] Charge Motion L Release
+; 42  -  [EMIC] Charge Motion R Length
+; 43  -  [EMIC] Charge Motion R Release
+; 44  -  [EMIC] Charge Motion D Length
+; 45  -  [EMIC] Charge Motion D Release
+; 46  -  [EMIK] Soul Distance X
+; 47  -  [EMIK] Soul Distance Y
+; 48  -  [EMIK] Soul Type
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 58  -  Am I SHIFT?
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

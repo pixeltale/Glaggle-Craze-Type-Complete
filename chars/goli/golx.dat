@@ -1,0 +1,61 @@
+<#603830>:Unique Trait:</>		"Static Cling"
+Goliath's Craze Technique applies Static Cling to his opponent.
+While they are charged:
+- Goliath moves towards his opponent faster
+- Thunder Shoot follows the opponent and is active longer
+- Thunder Struck pulls the opponent in
+- Special moves have increased advantage on contact, but 
+consume the charge
+
+<#603830>:Craze Technique:</>
+Thunder Ball		^CT
+_! Thunder Shoot		^P
+_! Thunder Struck		^K
+_! Jolt Dash		_B_Bor_F_F
+
+<#603830>:Throws:</>
+Grub Buster		^GP
+Apex Thrash		_B^GP
+Beetle Basher		_AO^GP
+
+<#603830>:Command Normals:</>
+Crawl		_DF
+Raw Claw		_F^LP
+Exo-Headbutt		_F^SP
+_! Exo-Fakeout		Hold^SP
+
+<#603830>:Special Moves:</>
+Volt Lancer		~B^P
+Volt Javelin		~B^K
+_! Volt Slicer		_F^K
+Volt Riser		~D^P
+Volt Halberd		~D^K
+Volt Zweihander		_AO~U^K
+
+<#603830>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Volt Flamberge		_QCF_QCF^P
+Lightning Bunker		_AA_QCF_QCF^K
+
+<#603830>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Thunder Kaiser		_QCB_QCB^2P
+
+<#603830>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+King of Voltage		_QCB_QCB^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

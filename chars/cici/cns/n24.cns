@@ -1,0 +1,621 @@
+[statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = EnemyNear,Map(WinQuoteNum)
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "WALL" && EnemyNear,Name != "WALX" && EnemyNear,Name != "WALK"
+trigger1 = EnemyNear,Name != "REAP" && EnemyNear,Name != "REAX"
+trigger1 = EnemyNear,Name != "CICI" && EnemyNear,Name != "CICX" && EnemyNear,Name != "CICK"
+trigger1 = EnemyNear,Name != "GOLI" && EnemyNear,Name != "GOLX" && EnemyNear,Name != "GOLK"
+trigger1 = EnemyNear,Name != "LUCY" && EnemyNear,Name != "LUCX" && EnemyNear,Name != "LUCK"
+trigger1 = EnemyNear,Name != "TYRA" && EnemyNear,Name != "TYRX" && EnemyNear,Name != "TYRK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "CICI" && EnemyNear,Name != "CICX" && EnemyNear,Name != "CICK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+;============================
+; GUARD FX
+;============================
+
+[State 0, Explod Guard FX Start]
+type = Explod
+triggerall = GameTime%2 = 0
+triggerall = !(Name = "CICK" && NumHelper(4000))
+trigger1 = Anim = [120,121]
+trigger2 = Anim = [140,141]
+anim = 122
+pos = 0,17 * (Anim%10=1)
+postype = p1
+bindtime = 1
+removetime = 1
+sprpriority = 2
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+[State 0, Explod Guard FX]
+type = Explod
+triggerall = !(Name = "CICK" && NumHelper(4000))
+trigger1 = Anim = [130,131]
+trigger1 = GameTime%2 = 0
+anim = 132 + floor(0.5*(GameTime%4))
+pos = 0,17 * (Anim%10=1)
+postype = p1
+bindtime = 1
+removetime = 1
+sprpriority = 2
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+[State 0, Explod Guard FX Start]
+type = Explod
+triggerall = !(Name = "CICK" && NumHelper(4000))
+triggerall = GameTime%2 = 0
+trigger1 = Anim = [150,151]
+anim = 152
+pos = 0,17 * (Anim%10=1)
+postype = p1
+bindtime = 1
+removetime = 1
+sprpriority = 2
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 200, 2]
+type = PlaySnd
+triggerall = Anim = 160
+trigger1 = AnimElem = 4
+value = F0, 3
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 5325 || Anim = 5326
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 7
+trigger3 = AnimElem = 8
+trigger4 = AnimTime = 0
+x = 8
+
+;============================
+; FX COLOR
+;============================
+
+[State 0, Map FXColor]
+type = MapSet
+trigger1 = RoundState >= 1 && Map(FXColor) = 0
+map = "FXColor"
+value = ifelse(Var(59)=1,4249848,ifelse(Var(59)=2,14180416,ifelse(Var(59)=3,2633888,ifelse(Var(59)=4,4253888,ifelse(Var(59)=5,15257728,ifelse(Var(59)=6,12615928,ifelse(Var(59)=7,13689064,ifelse(Var(59)=8,6316160,ifelse(Var(59)=9,16294080,ifelse(Var(59)=10,4235360,ifelse(Var(59)=11,16285744,ifelse(Var(59)=12,8438008,ifelse(Var(59)=13,4253904,ifelse(Var(59)=14,5251200,ifelse(Var(59)=15,8917024,ifelse(Var(59)=16,15783984,ifelse(Var(59)=17,1585208,ifelse(Var(59)=18,9449632,ifelse(Var(59)=19,6303824,ifelse(Var(59)=20,11010080,ifelse(Var(59)=21,7872632,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15253512,43040)))))))))))))))))))))))
+
+[State 0, Map Water FX Time]
+type = MapAdd
+trigger1 = Map(CiciGlow) != (Map(CicxMoist)*0.5)
+trigger1 = MoveType != H && Var(54) = 0 || StateNo = [120,160)
+map = "CiciGlow"
+value = ifelse(Map(CiciGlow)>Map(CicxMoist)*0.5,-0.5,0.5)
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Map(CiciGlow) > 0
+trigger1 = MoveType = H && StateNo != [120,160)
+trigger2 = Var(54)
+map = "CiciGlow"
+value = max(0,Map(CiciGlow)-1)
+
+[State 0, Pal FX Wetness]
+type = PalFX
+trigger1 = Map(CiciGlow) > 0
+trigger1 = MoveType != H || StateNo = [120,160)
+time = 2
+add = floor((Map(FXColor)%16777216)*0.0000152587890625*0.05*Map(CiciGlow)),floor((Map(FXColor)%65536)*0.00390625*0.05*Map(CiciGlow)),floor((Map(FXColor)%256)*0.05*Map(CiciGlow))
+mul = 256 - 32 * Map(CiciGlow) + floor((Map(FXColor)%16777216)*0.0000152587890625*0.125*Map(CiciGlow)),256 - 32 * Map(CiciGlow) + floor((Map(FXColor)%65536)*0.00390625*0.125*Map(CiciGlow)),256 - 32 * Map(CiciGlow) + floor((Map(FXColor)%256)*0.125*Map(CiciGlow))
+color = 256 - 32 * Map(CiciGlow)
+ignorehitpause = 1
+
+[State 0, Explod Drippy]
+type = Explod
+triggerall = RoundState = 2
+trigger1 = Map(CicxMoist) > 0 && Map(CiciGlow) > 0 
+trigger1 = MoveType != H && StateNo != [2000,3000)
+trigger1 = GameTime % (16 - 2 * Map(CicxMoist)) = 0
+anim = 924 + random % (1 + floor(0.35 * (Map(CicxMoist))))
+ID = 3000
+pos = -20 + (gametime*4)%41,-32 - (gametime*4)%33
+postype = p1
+vel = 0,0.001 * random
+accel = 0,1
+removetime = ceil(abs(-32 - (gametime*4)%33 + Pos Y)**0.575)
+supermovetime = 666
+sprpriority = random%5
+;shadow = -1
+ownpal = 1
+ignorehitpause = 1
+
+;========================================================
+; VAR 40 - POSEIDON
+;========================================================
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = NumHelper(4010)
+trigger2 = Name = "CICK" && Map(CickPosBusy)
+flag = nostandguard
+flag2 = nocrouchguard
+
+[State 0, Map Poseidon Distance]
+type = MapSet
+trigger1 = RoundState < 2
+trigger1 = Map(Puddle2Dist) != 666
+map = "Puddle1Dist"
+value = 666
+[State 0, Map Poseidon Distance]
+type = MapSet
+trigger1 = RoundState < 2
+trigger1 = Map(Puddle2Dist) != 666
+map = "Puddle2Dist"
+value = 666
+
+;========================================================
+; MAPS - MOIST PAN
+;========================================================
+
+[State 0, Map Moist Reset]
+type = MapSet
+triggerall = Map(CicxMoist)
+trigger1 = RoundState != 2
+map = "CicxMoist"
+value = 0
+
+[State 0, VelMul]
+type = VelMul
+trigger1 = StateNo = [0,800] || StateNo = [900,1000) || StateNo = 1010 || StateNo = 1500 || StateNo = 1600
+trigger1 = StateNo != 105 && StateNo != 215 && Anim != 310 && StateNo != 510
+trigger1 = StateType != A
+trigger1 = Name = "CICX"
+x = 0.75 + 0.0325 * Map(CicxMoist)
+
+;========================================================
+; MAPS - CI-CI THE CURSED
+;========================================================
+
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "CICK"
+trigger1 = !Var(54) && !EnemyNear,Var(54)
+trigger1 = Map(CickMoist) < 6 && Map(CickRegen) > 0
+map = "CickMoist"
+value = min(6,Map(CickMoist)+(0.005+0.00125*(!NumHelper(4000)&&!Map(CickPosBusy)))*Map(CickRegen)+(RoundState<2))
+ignorehitpause = 1
+[State 0, Map Poseidon Unbusy]
+type = MapSet
+triggerall = Name = "CICK"
+trigger1 = Map(CickPosBusy)
+trigger1 = !NumHelper(4000)
+map = "CickPosBusy"
+value = 0
+ignorehitpause = 1
+[State 0, Map Poseidon Regen Guard]
+type = MapSet
+triggerall = Name = "CICK" && Map(CickRegen) > 0
+trigger1 = MoveGuarded || EnemyNear,StateNo = [150,160)
+map = "CickRegen"
+value = 0
+ignorehitpause = 1
+[State 0, Map Poseidon Regen Reset]
+type = MapSet
+triggerall = Name = "CICK" && Map(CickRegen) < 1
+trigger1 = !Map(CickPosBusy) || !NumHelper(4000)
+map = "CickRegen"
+value = Map(CickRegen)+1
+ignorehitpause = 1
+[State 0, Map Poseidon Regen Reset]
+type = MapSet
+triggerall = Name = "CICK" && Map(CickRegen) < 16
+trigger1 = !Var(51)
+trigger1 = !MoveGuarded && EnemyNear,StateNo != [120,160)
+map = "CickRegen"
+value = Map(CickRegen)+1
+ignorehitpause = 1
+
+[State 0, Map Moist Raise]
+type = MapSet
+triggerall = Name = "CICK"
+triggerall = Map(CicxMoist) < Map(CickMoist)
+trigger1 = MoveType != H && !Var(54) || StateNo = [120,160)
+trigger1 = !NumHelper(4000) && !Map(CickPosBusy)
+map = "CicxMoist"
+value = min(Map(CickMoist),Map(CicxMoist)+1)
+[State 0, Map Moist Lose]
+type = MapSet
+triggerall = Name = "CICK"
+triggerall = Map(CicxMoist) > 0
+trigger1 = MoveType = H && StateNo != [120,160) || Var(54)
+trigger2 = NumHelper(4000) || Map(CickPosBusy)
+trigger3 = RoundState > 2
+map = "CicxMoist"
+value = max(0,Map(CicxMoist)-1)
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) < 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 210 || StateNo = 215 || StateNo = 220 || StateNo = 225
+trigger2 = StateNo = 310
+trigger3 = StateNo = 410 || StateNo = 415 || StateNo = 420
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610 || StateNo = 615
+trigger6 = StateNo = 710
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 1000 || StateNo = 1050
+trigger2 = StateNo = 1110 || StateNo = 1130
+trigger3 = StateNo = 1200
+trigger4 = StateNo = 1600
+trigger5 = StateNo = 940
+trigger6 = StateNo = 1700 || StateNo = 1750
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S X]
+type = VarSet
+trigger1 = StateNo = 1510 && Time = 61
+trigger2 = StateNo = 2710 && Time = 81
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 3000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+fv = 15
+value = 0.5
+ignorehitpause = 1
+
+;========================================================
+; FVAR 20 - PASSIVE MULTIPLY EFFECT
+;========================================================
+
+[State 0, Var CiCi Multiplier]
+type = VarSet
+trigger1 = fvar(20) != 1.0
+fv = 20
+value = 1.0
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "%d";  %d %f"
+params = floor(Map(CickRegen))
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+triggerall = IsHelper
+trigger1 = StateNo = [4000,5000)
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+triggerall = StateNo = [4000,5000)
+trigger1 = Root,NumHelper(4000) > 2 && Time
+trigger1 = Var(5) = 1
+trigger1 = Abs(Root,Map(Puddle2Dist)) > Abs(Root,Map(Puddle1Dist))
+trigger1 = Abs(Root,Map(Puddle1Dist)) < 100 || Abs(Root,Map(Puddle1P2Dist)) < 100
+trigger2 = Root,NumHelper(4000) > 2 && Time
+trigger2 = Var(5) = 2
+trigger2 = Abs(Root,Map(Puddle1Dist)) > Abs(Root,Map(Puddle2Dist))
+trigger2 = Abs(Root,Map(Puddle2Dist)) < 100 || Abs(Root,Map(Puddle2P2Dist)) < 100
+trigger3 = Root,NumHelper(4000) > 2 && Time
+trigger3 = Var(5) = 1
+trigger3 = Abs(Root,Map(Puddle1Dist)) > 100 && Abs(Root,Map(Puddle1P2Dist)) > 100
+trigger4 = Root,NumHelper(4000) > 2 && Time
+trigger4 = Var(5) = 2
+trigger4 = Abs(Root,Map(Puddle2Dist)) > 100 && Abs(Root,Map(Puddle2P2Dist)) > 100
+trigger5 = !NumHelper(4009)
+trigger5 = Root,NumHelper(4000) = 2
+trigger5 = Ctrl && Root,StateNo = [800,2000)
+trigger5 = Abs(Root,Map(Puddle1Dist)) < 32 && Abs(Root,Map(Puddle2Dist)) < 32
+trigger6 = !NumHelper(4009)
+trigger6 = Root,StateNo = [110,112] && Root,PrevStateNo != 1100 || Root,StateNo = 1000 && Root,Var(5) >= 2 || Root,StateNo = 1100 && Root,Var(5) >= 4 || (Root,StateNo = 2000 || Root,StateNo = 2200 || Root,StateNo = 2300) && Root,Var(5) || Root,StateNo = 2100 && Root,Var(5) = 0 && Root,NumHelper(4000) > 1
+trigger6 = Root,Time = 1
+trigger6 = Var(5) = 1 && Abs(Root,Map(Puddle1Dist)) < Abs(Root,Map(Puddle2Dist)) && Root,NumHelper(4000) >= 2 || Var(5) = 2 && Abs(Root,Map(Puddle2Dist)) < Abs(Root,Map(Puddle1Dist)) && Root,NumHelper(4000) >= 2 || Root,NumHelper(4000) = 1 && Var(5) = 1
+trigger7 = Root,StateNo = 2500
+trigger8 = Root,StateNo = 2100 && Root,Time = 6 && Root,Var(5)
+trigger8 = Root,Map(PuddlePos) = Var(5)
+trigger9 = Ctrl
+trigger9 = !(BackEdgeDist >= -40 && FrontEdgeDist >= -40)
+v = 5
+value = Var(5) * -1
+[State 0, Helper Despawn]
+type = Helper
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000)
+trigger1 = Var(5) < 0
+name = "im weak and im dying"
+ID = 4009
+stateno = 4009
+pos = 0,-Pos Y
+postype = p1
+facing = facing
+supermovetime = 40 * (Root,StateNo=[2000,3000])
+ownpal = 1
+[State 0, Map Poseidon Distance]
+type = ParentMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000)
+trigger1 = Var(5) = -1
+map = "Puddle1Dist"
+value = 666
+[State 0, Map Poseidon Distance]
+type = ParentMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000)
+trigger1 = Var(5) = -2
+map = "Puddle2Dist"
+value = 666
+[State 0, Map Poseidon Distance]
+type = ParentMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000)
+trigger1 = Var(5) = -1
+map = "Puddle1P2Dist"
+value = 666
+[State 0, Map Poseidon Distance]
+type = ParentMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000)
+trigger1 = Var(5) = -2
+map = "Puddle2P2Dist"
+value = 666
+[State 0, Puddle Despawn]
+type = DestroySelf
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000)
+trigger1 = Var(5) < 0
+
+[State 0, MapSet]
+type = MapSet
+triggerall = !IsHelper && Name = "CICI"
+triggerall = Map(Puddle1Ctrl) > 0
+trigger1 = NumHelper(4000) < 1
+map = "Puddle1Ctrl"
+value = 0
+[State 0, MapSet]
+type = MapSet
+triggerall = !IsHelper && Name = "CICI"
+triggerall = Map(Puddle2Ctrl) > 0
+trigger1 = NumHelper(4000) < 2
+map = "Puddle2Ctrl"
+value = 0
+
+[State 0, Map Poseidon Ctrl]
+type = RootMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000) && Var(5) = 1
+trigger1 = Root,Map(Puddle1Ctrl) != ctrl
+map = "Puddle1Ctrl"
+value = ctrl
+[State 0, Map Poseidon Ctrl]
+type = RootMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000) && Var(5) = 2
+trigger1 = Root,Map(Puddle2Ctrl) != ctrl
+map = "Puddle2Ctrl"
+value = ctrl
+[State 0, Map Poseidon Distance]
+type = ParentMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000) && Var(5) = 1
+map = "Puddle1Dist"
+value = RootDist X
+[State 0, Map Poseidon Distance]
+type = ParentMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000) && Var(5) = 2
+map = "Puddle2Dist"
+value = RootDist X
+[State 0, Map Poseidon P2Dist]
+type = ParentMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000) && Var(5) = 1
+map = "Puddle1P2Dist"
+value = P2Dist X
+[State 0, Map Poseidon P2Dist]
+type = ParentMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,5000) && Var(5) = 2
+map = "Puddle2P2Dist"
+value = P2Dist X
+[State 0, Map Poseidon P2Dist]
+type = ParentMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+triggerall = StateNo = [4000,5000)
+triggerall = Root,Map(PuddlePos) = Var(5)
+trigger1 = NumHelper(4010)
+map = "PuddlePos"
+value = 0
+[State 0, Map Poseidon P2Dist]
+type = ParentMapSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+triggerall = StateNo = [4000,5000)
+triggerall = !NumHelper(4010)
+trigger1 = Var(5) = 1
+trigger1 = Abs(P2Dist X) < Abs(Root,Map(Puddle2P2Dist))
+trigger2 = Var(5) = 2
+trigger2 = Abs(P2Dist X) < Abs(Root,Map(Puddle1P2Dist))
+trigger3 = Var(5) = 1
+trigger3 = NumHelper(4000) = 1
+map = "PuddlePos"
+value = Var(5)
+
+[State 0, VarSet]
+type = VarSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,4009)
+trigger1 = Var(5) = 2
+trigger1 = NumHelper(4000) < 2
+v = 5
+value = 1
+[State 0, VarSet]
+type = VarSet
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,4009)
+trigger1 = Var(5) = 0
+trigger1 = NumHelper(4000) < 3
+v = 5
+value = ifelse(Root,Map(Puddle1Dist)=666,1,2)
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+trigger1 = StateNo = [4000,4009)
+trigger1 = Root,Map(PuddlePos) = Var(5)
+trigger1 = Root,StateNo = 1300 || Root,StateNo = 1400
+trigger1 = Root,Time <= 1
+trigger1 = !NumHelper(4010)
+value = 4008
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+triggerall = StateNo = [4000,4009)
+trigger1 = Parent,StateNo = 2100 && Parent,Time <= 1 && Parent,PrevStateNo != 2101
+trigger1 = Abs(P2Dist X) < 16
+x = (16 - Abs(P2Dist X)) * (1 - 2 * (ParentDist X<0))
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+triggerall = cond(IsHelper,Root,Name="CICI",0)
+triggerall = StateNo = [4000,5000)
+trigger1 = EnemyNear,Map(Cutscene)
+flag = invisible
+
+[State 0, Explod]
+type = Explod
+triggerall = cond(IsHelper,Root,Name="CICI"||Root,Name="CICK",0)
+triggerall = (Parent,Name = "CICI" || Parent,Name = "CICK") && (EnemyNear,Name = "CICI" || EnemyNear,Name = "CICK")
+trigger1 = StateNo = [4000,4009)
+anim = F700 + (TeamSide=2)
+ID = 995
+pos = 0,-8
+postype = p1
+sprpriority = -9
+ownpal = 1

@@ -1,0 +1,58 @@
+<#606090>:Unique Trait:</>		"Toiling Point"
+Burn moves builds Jane's Heat gauge, and cause the opponent
+to slowly take damage on hit or block. Each level of Heat
+adds more Burn stacks, and higher levels of Heat add new
+properties to her Specials.
+When the Heat gauge is maxed out, Jane explodes, and the
+gauge is instantly reduced to 0. During a combo, this
+explosion is an attack that will consume all Burn stacks to
+deal additional damage.
+
+<#606090>:Craze Technique:</>
+Out to Fry		_CH^CT
+
+<#606090>:Throws:</>
+Cheshire Chewsday		^GP
+Frankensteiner's Monster		_B^GP
+Broom-schtick		_AO^GP
+
+<#606090>:Command Normals:</>
+Yacky Sack		_B^LK
+Trick Kick		_F^LK
+Singe Snap		_F^LP
+
+<#606090>:Special Moves:</>
+Pyro-uette		_CH_QCF^P
+Pyro-aired		_AO_QCF^P
+Backburner		_AO_CH_QCB^P
+Flarespin		_QCB^P
+Rigor Repulse		_QCB^K
+
+<#606090>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Burning Brouhaha		_QCF_QCF^P
+Scary Loathe		_QCF_QCF^K
+Mistress of Broilty		_QCB_QCB^K
+
+<#606090>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Trouble and Boil		_AA_D_D^2K
+
+<#606090>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Freaks’ Finale		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

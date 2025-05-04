@@ -1,0 +1,61 @@
+<#4820c0>:Unique Trait:</>		"Portal Magic"
+Boundary can create portals, which are utilized in_BPmoves.
+Using a Craze Cancel without a set portal will automatically 
+create one.
+
+<#4820c0>:Craze Technique:</>
+Portal Set		_AA^CT
+Fall of Atenism		_AAHold^CT
+
+<#4820c0>:Throws:</>
+De-Facer		^GP
+Parallel Suplex		_B^GP
+Descent		_AO^GP
+
+<#4820c0>:Command Normals:</>
+Sobek Slash		_Bor_F^SP
+Sidewinder		_DF^SK
+
+<#4820c0>:Special Moves:</>
+Portal Distort		_CH_D_D^PK
+Portal Implode _BP		_AA_QCB^LP
+Vacuum Implode _BP		_AA_QCB^SP
+Journey of Ra _BP		_CH_AA_QCB^LK
+_! Deceit of Set		^P
+Revenge of Horus _BP		_CH_AA_QCB^SK
+_! Deceit of Set		^P
+Vertical Swing		_DP^K
+_! Portal Set		^CT
+_! Fall of Atenism _BP		^CT
+_! Portal Implode _BP		_QCB^LP
+_! Vacuum Implode _BP		_QCB^SP
+_! Journey of Ra _BP		_CH_QCB^LK
+_! Revenge of Horus _BP		_CH_QCB^SK
+
+<#4820c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Soulless Journey		_QCF_QCF^P
+Fallen Heroes		_QCB_QCB^K
+
+<#4820c0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Down the Parapets		_D_D^2P
+
+<#4820c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Field Corruption		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

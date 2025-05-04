@@ -1,0 +1,364 @@
+[statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = EnemyNear,Map(WinQuoteNum)
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "GOLI" && EnemyNear,Name != "GOLX" && EnemyNear,Name != "GOLK"
+trigger1 = EnemyNear,Name != "GABB" && EnemyNear,Name != "GABX" && EnemyNear,Name != "GABK"
+trigger1 = EnemyNear,Name != "JANE" && EnemyNear,Name != "JANX" && EnemyNear,Name != "JANK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "JANE" && EnemyNear,Name != "JANX" && EnemyNear,Name != "JANK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 200, 2]
+type = PlaySnd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 3
+value = F0, 30
+
+;============================
+; RUN SOUND
+;============================
+
+[State 0, Snd Run Step]
+type = PlaySnd
+triggerall = Anim = 100
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 7
+trigger3 = AnimElem = 11
+value = F2,2
+channel = 2
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimElem = 7
+trigger2 = AnimElem = 8
+x = 8
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 5
+x = 16
+
+;============================
+; FX COLOR
+;============================
+
+[State 0, MapSet]
+type = MapSet
+triggerall = Name != "JANK"
+trigger1 = RoundState >= 1 && Map(FXColor) = 0
+map = "FXColor"
+value = ifelse(Var(59)=1,16293904,ifelse(Var(59)=2,16277536,ifelse(Var(59)=3,14733512,ifelse(Var(59)=4,10510584,ifelse(Var(59)=5,5261392,ifelse(Var(59)=6,12642552,ifelse(Var(59)=7,4235496,ifelse(Var(59)=8,12642552,ifelse(Var(59)=9,13123768,ifelse(Var(59)=10,4239480,ifelse(Var(59)=11,4247736,ifelse(Var(59)=12,16293904,ifelse(Var(59)=13,16277632,ifelse(Var(59)=14,2132216,ifelse(Var(59)=15,16298048,ifelse(Var(59)=16,10531032,ifelse(Var(59)=17,7868448,ifelse(Var(59)=18,14156024,ifelse(Var(59)=19,6303824,ifelse(Var(59)=20,11010112,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15777800,43072)))))))))))))))))))))))
+
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "JANK"
+trigger1 = RoundState >= 1 && Map(FXColor) = 0
+map = "FXColor"
+value = ifelse(Var(59)=1,11059448,ifelse(Var(59)=2,9476328,ifelse(Var(59)=3,8438008,ifelse(Var(59)=4,49400,ifelse(Var(59)=5,16302248,ifelse(Var(59)=6,12626168,ifelse(Var(59)=7,11577536,ifelse(Var(59)=8,11059448,ifelse(Var(59)=9,15239384,ifelse(Var(59)=10,11065576,ifelse(Var(59)=11,4247736,ifelse(Var(59)=12,11059448,ifelse(Var(59)=13,16302248,ifelse(Var(59)=14,49400,ifelse(Var(59)=15,4231376,ifelse(Var(59)=16,8945856,ifelse(Var(59)=17,4243520,ifelse(Var(59)=18,12582944,ifelse(Var(59)=19,4730976,ifelse(Var(59)=20,8425664,ifelse(Var(59)=21,2130048,ifelse(Var(59)=22,6815848,ifelse(Var(59)=23,563416,9486464)))))))))))))))))))))))
+
+;============================
+; JANX - TROUBLE AND BOIL
+;============================
+
+[State 0, Var AfterImage Turn On]
+type = VarSet
+triggerall = Name = "JANX"
+triggerall = Var(30) < 7 && StateNo != [2000,3000)
+trigger1 = Var(44) >= 1
+v = 30
+value = 7
+[State 0, Var Heat Max]
+type = VarSet
+triggerall = Name = "JANX"
+trigger1 = Var(44) && Var(43) != (4 + (Var(44)=1))
+trigger2 = Var(43) > 4 && MoveType = H
+v = 43
+value = (4 + (Var(44)=1))
+
+[State 0, Var Timer]
+type = VarAdd
+triggerall = Name = "JANX"
+triggerall = Var(44) > 1
+trigger1 = Var(54) = 0
+v = 44
+value = -1
+ignorehitpause = 1
+[State 0, Var Timer]
+type = VarSet
+triggerall = Name = "JANX"
+triggerall = Var(44) > 1
+triggerall = Time = 8
+trigger1 = StateNo = 215
+trigger2 = StateNo = 920
+trigger3 = StateNo = 1000
+trigger4 = StateNo = 1100
+trigger5 = StateNo = 1200
+v = 44
+value = max(1,Var(44)-12-13*!!Var(51))
+ignorehitpause = 1
+
+;============================
+; VAR 30 - AFTERIMAGE
+;============================
+
+[State 0, Var AfterImage Turn Off]
+type = VarSet
+triggerall = Var(30) 
+trigger1 = Var(30) > 1 && StateNo != [2000,3000) && Var(44) <= 0
+trigger2 = MoveType = H
+trigger3 = Var(30) = 1 && !Var(11)
+trigger4 = Var(30) = 3 && !Var(41) && StateNo != [2000,3000)
+trigger5 = Var(30) != 0 && RoundState != 2
+v = 30
+value = 0
+
+;============================
+; VAR 31 - PROJECTILE DIST
+;============================
+
+[State 0, Var Reset]
+type = VarSet
+trigger1 = Var(31) != 0
+v = 31
+value = Var(31) * (NumHelper(1010)>0)
+
+;========================================================
+; VAR 40, 41, 42 - BURN / FROST GAUGE
+;========================================================
+
+[State 0, Var Gauge Max]
+type = VarSet
+trigger1 = Var(40) > 600
+trigger1 = Name != "JANX"
+v = 40
+value = 600
+ignorehitpause = 1
+
+[State 0, Var Burn Gauge Reduce]
+type = VarAdd
+triggerall = !Var(54) && !EnemyNear,Var(54)
+trigger1 = Var(40) > 0
+trigger1 = Var(41) <= 0 && Name = "JANK" || EnemyNear,Var(23) <= 0
+trigger1 = Name != "JANX"
+trigger1 = (GameTime%3 = 1) || MoveType = H
+v = 40
+value = ifelse(Name="JANE",-2,-1)
+ignorehitpause = 1
+
+[State 0, Var Front Reduce Extra]
+type = ParentVarAdd
+triggerall = !Var(54) && !EnemyNear,Var(54)
+triggerall = Var(41) > 0
+trigger1 = Name = "JANK"
+trigger1 = MoveType = H
+v = 41
+value = -1
+
+[State 0, Snd Confirm]
+type = PlaySnd
+trigger1 = Var(42) >= 594; && !Var(54)
+value = S930,(Name="JANK")
+ignorehitpause = 1
+[State 0, Snd Confirm Explode]
+type = PlaySnd
+trigger1 = Name = "JANE"
+trigger1 = Var(42) >= 594 ; && !Var(54)
+value = S2400,0
+channel = 2
+ignorehitpause = 1
+[State 0, Explod]
+type = Explod
+trigger1 = Name = "JANE"
+trigger1 = Var(42) >= 594; && !Var(54)
+trigger1 = !NumExplod(2405)
+anim = 2405
+id = 2405
+pos = -12,54+enemynear,const(size.mid.pos.y)
+postype = p2
+sprpriority = -1
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Var Limiter Countdown]
+type = VarAdd
+trigger1 = Var(42) > 6
+trigger2 = Var(42) > 0 && (!Var(51) || EnemyNear,StateNo = 5095 || EnemyNear,StateNo = [5120,5200])
+v = 42
+value = -6
+ignorehitpause = 1
+;[State 0, Var Limiter Off]
+;type = VarSet
+;trigger1 = Var(40) > Var(42)
+;v = 42
+;value = 0
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) != 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 210
+trigger2 = StateNo = 310
+trigger3 = StateNo = 410
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610
+trigger6 = StateNo = 710
+trigger7 = StateNo = 315
+trigger8 = StateNo = 320
+trigger9 = StateNo = 215
+trigger10 = StateNo = 4000 && PrevStateNo != [2000,3000)
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 1100
+trigger2 = StateNo = 1200
+trigger3 = StateNo = 1300
+trigger4 = StateNo = 920
+trigger5 = StateNo = 4000 && PrevStateNo = [2000,3000)
+trigger6 = StateNo = 955
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0 && StateNo != 2010 
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+fv = 15
+value = 0.5
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "%d";  %d %f"
+params = var(44)
+ignorehitpause = 1
+
+;========================================================
+; FVAR 20, 21 - TOILING POINT
+;========================================================
+
+[State 0, Var Damage Bonus Other]
+type = VarSet
+triggerall = !IsHelper || StateNo = [1000,2990)
+trigger1 = fvar(20) != 1.0
+fv = 20
+value = 1.0

@@ -1,0 +1,1439 @@
+;---------------------------------------------------------------------------
+; Fwd Dash (Side-L)
+[Statedef 110]
+type    = S
+movetype = I
+physics = N
+anim = 110
+velset = 0,0
+ctrl = 0
+sprpriority = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+trigger1 = PrevStateNo != 115
+v = 5
+value = 0
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 6
+value = 2
+[State 0, VarSet]
+type = VarSet
+triggerall = Time < 8
+triggerall = Var(6) = 2
+trigger1 = command != "holdfwd" && command != "holdback"
+v = 6
+value = 1
+[State 0, VarSet]
+type = VarSet
+triggerall = Time < 8
+triggerall = Var(6) != 0
+trigger1 = command = "holdback" && !Var(5)
+trigger2 = command = "holdfwd" && Var(5)
+v = 6
+value = 0
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 7
+value = 0
+[State 0, VarSet]
+type = VarSet
+triggerall = Time < 8
+triggerall = Var(7) = 0
+trigger1 = command = "holdup"
+v = 7
+value = 1
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 110
+trigger1 = statetype != A
+trigger1 = AnimElem = 4
+trigger1 = p2dist x = [-enemynear,const(size.ground.back),enemynear,const(size.ground.back)]
+x = p2dist x + enemynear,const(size.ground.back);,-enemynear,const(size.ground.front)-16)
+
+[State 0, NotHitBy]
+type = NotHitBy
+triggerall = Anim = 110
+trigger1 = !Time
+value = ,NA,SA,HA,NP,SP,HP,NT,ST
+time = 6
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time = 6
+trigger2 = Anim = 100
+trigger2 = Time = 0
+value = ,NP,SP,HP
+time = 12
+
+[State 0, Explod SLAYER]
+type = Explod
+trigger1 = Anim = 110
+trigger1 = AnimElem = 2
+trigger2 = Time = 20 ;AnimElem = 4 
+anim = 111 + (Var(7)&&Time>8)*7 + (Var(5)&&Var(7))
+ID = 3000
+postype = p1
+shadow = -1
+removetime = 4
+removeongethit = 1
+[State 0, Explod SLAYER]
+type = Explod
+triggerall = Anim = 110
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 3, 12 
+anim = 112 + (Var(7)&&Time>8)*5
+ID = 3000
+pos = ifelse(Var(5),12,-12) * (Time<=8),0
+postype = p1
+facing = ifelse(Var(7)&&Time>8&&Var(5),-1,1)
+vel = ifelse(Var(5),-8,8),0
+shadow = -1
+removeongethit = 1
+[State 0, Explod BigDust FX]
+type = Explod
+trigger1 = Time = 3
+anim = F85
+postype = p1
+facing = ifelse(Var(5),-1,1)
+ownpal = 1
+sprpriority = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Anim = 110
+trigger1 = AnimElem = 3
+x = ifelse(Var(5),-3,4.25)
+[State 0, VelMul]
+type = VelMul
+trigger1 = Anim = 110
+trigger1 = AnimElem = 3, 4
+x = 0.50 + 0.50 * Var(6)
+[State 0, VelMul]
+type = VelMul
+;trigger1 = Anim = 110
+trigger1 = AnimElem = 4
+x = 0.5
+y = 0.5
+[State 0, VelMul]
+type = VelMul
+trigger1 = Anim = 110
+trigger1 = AnimElemNo(0) >= 4
+x = 0.8
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 8
+trigger1 = Var(7)
+y = -9
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = Var(7)
+trigger1 = Time = 8
+statetype = A
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = Var(7)
+trigger1 = Time = 12
+physics = A
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = Anim = 110
+triggerall = Var(7)
+trigger1 = AnimElem = 5
+value = 42 + (Var(5))
+elem = 5
+
+[State 0, PlayerPush]
+type = PlayerPush
+triggerall = Anim = 110
+trigger1 = AnimElemNo(0) = [3,4]
+value = 0
+
+[State 0, Snd DashStart]
+type = PlaySnd
+trigger1 = !Time
+value = S1300,0
+channel = 1
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = Anim = 110
+trigger1 = AnimElem = 5
+trigger2 = Anim = [41,43]
+trigger2 = !Ctrl
+value = 1
+
+[State 100, 4]
+type = ChangeState
+trigger1 = StateType != A
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Back Dash (Side-L)
+[Statedef 115]
+type    = S
+movetype= I
+physics = S
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = !Time
+value = 110
+
+;---------------------------------------------------------------------------
+; Taunt
+[Statedef 165]
+type = S
+ctrl = 0
+anim = 165 + (Anim=1&&AnimElemNo(0) <= 28)
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = 1
+[State 0, VarSet]
+type = VarSet
+triggerall = command != "holds"
+trigger1 = Time >= 32
+v = 5
+value = 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = Var(5)
+triggerall = Anim = 165
+trigger1 = AnimElem = 15
+value = Anim
+elem = 9
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = command = "holds"
+triggerall = Anim = 166
+trigger1 = AnimElem = 8
+value = Anim
+elem = 7
+
+[State 0, Explod RUN THE]
+type = Explod
+triggerall = !Var(58)
+triggerall = !Var(5)
+triggerall = Anim = 165
+trigger1 = Time = (64,122)
+trigger1 = NumExplod(3000)
+trigger1 = !NumExplod(3002)
+anim = 16502
+id = 3002
+postype = p1
+sprpriority = -1
+ownpal = 1
+[State 0, Explod JULES]
+type = Explod
+triggerall = !Var(58)
+triggerall = Var(5)
+trigger1 = Time = 64
+trigger1 = Anim = 165
+anim = 16500
+ID = 3000
+postype = p1
+bindtime = 666
+sprpriority = -1
+ownpal = 1
+removeongethit = 1
+[State 0, RemoveExplod]
+type = RemoveExplod
+triggerall = Var(5)
+triggerall = Anim = 165
+trigger1 = Time > 64
+id = 3001
+[State 0, Explod RUN THE]
+type = Explod
+triggerall = !Var(58)
+triggerall = Var(5)
+triggerall = Anim = 165
+trigger1 = Time > 64
+trigger1 = !NumExplod(3000) || Time = [122,124]
+anim = 16501
+ID = 3001
+postype = p1
+sprpriority = -1
+ownpal = 1
+[State 0, RemoveExplod]
+type = RemoveExplod
+triggerall = !Var(5)
+triggerall = Anim = 165
+trigger1 = Time <= 122
+id = 3000
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 6 && Anim = 165
+trigger2 = AnimElem = 4 && Anim = 166
+v = 33
+value = Anim
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 6 && Anim = 165
+trigger2 = AnimElem = 4 && Anim = 166
+v = 34
+value = random%4
+
+[State 195, 1]
+type = CtrlSet
+trigger1 = AnimElem = 16
+value = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+trigger1 = Anim = 166
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Time Out
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170
+velset = 0,0
+
+[State 180, Lose as Copy]
+type = ChangeState
+trigger1 = !Time
+trigger1 = Var(58)
+value = ifelse(Var(58)=3,3683,3696)
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = !Time
+v = 33
+value = 170
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = !Time
+v = 34
+value = random%2
+
+[State 170, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+; Win 1 - paint me like
+[Statedef 180]
+type = S
+velset = 0,0
+ctrl = 0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = !Time
+y = 0
+[State 0, VarSet]
+type = VarAdd
+trigger1 = !Time
+v = 55
+value = 1
+
+[State 180, Win as Copy]
+type = ChangeState
+triggerall = Time = 0
+triggerall = Var(58)
+trigger1 = MatchOver && !TeamMode = Turns
+trigger2 = Random >= 500
+trigger2 = TeamMode = Turns
+value = ifelse(Var(58)=3,3682,3695)
+[State 180, Win E]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = Var(22) >= LifeMax && Life > LifeMax * 0.8 || LifeMax * 0.15 > (Var(22)*0.2 + Life)
+value = 182
+[State 180, Win 2]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = MatchOver && !TeamMode = Turns
+trigger2 = Random >= 500
+trigger2 = TeamMode = Turns
+value = 181
+[State 180, Win Cici]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = EnemyNear,Name = "CICI" || EnemyNear,Name = "CICX" || EnemyNear,Name = "CICK"
+value = 183
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = !Time
+value = 180
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = Random < 750
+trigger1 = AnimElem = 11
+trigger2 = AnimElem = 11, 5
+trigger3 = AnimElem = 12
+trigger4 = AnimElem = 12, 5
+trigger5 = AnimElem = 13
+trigger6 = AnimElem = 13, 5
+value = 180
+elem = 10 + random%4
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 5
+v = 33
+value = 180
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 5
+v = 34
+value = random%4
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 0, VarSet I Win!]
+type = VarSet
+trigger1 = Time = 112
+trigger1 = MatchOver && Win
+v = 32
+value = 59
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time < 112 + (MatchOver * 96)
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; Win 2 - lets go
+[Statedef 181]
+type = S
+ctrl = 0
+anim = 181
+velset = 0,0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = !Time
+trigger1 = Var(58)
+value = 182
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 410, Snd Dash]
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = S1300, 0
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 33
+value = 181
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 34
+value = random%5
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 6
+statetype = A
+
+[State 0, VarSet I Win!]
+type = VarSet
+trigger1 = Time = 96
+trigger1 = MatchOver && Win
+v = 32
+value = 59
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time < 128 + (MatchOver * 64)
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; Win 3 - get out bart
+[Statedef 182]
+type = S
+ctrl = 0
+anim = 182
+velset = 0,0
+
+[State 181, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 410, Snd Dash]
+type = PlaySnd
+triggerall = !Var(58)
+trigger1 = Time = 24
+value = S1300, 0
+[State 410, Snd Land]
+type = PlaySnd
+triggerall = !Var(58)
+trigger1 = Time = 24 + 64
+value = F7, 0
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 33
+value = 182
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 34
+value = random%4
+
+[State 0, Explod JULES]
+type = Explod
+triggerall = !Var(58)
+trigger1 = Time = 24
+anim = 18200
+postype = p1
+bindtime = 666
+sprpriority = 5
+ownpal = 1
+shadow = -1
+removeongethit = 1
+[State 0, Explod Dust Fwd]
+type = Explod
+triggerall = !Var(58)
+trigger1 = Time = 24 + 64
+anim = F84
+pos = -12,4
+postype = p1
+facing = -1+(2*random%2)
+vel = (20+random%10)*0.1,(-20-random%10)*0.1
+accel = -0.05,0.15
+sprpriority = 4
+ownpal = 1
+
+[State 0, Explod Dust Back]
+type = Explod
+triggerall = !Var(58)
+trigger1 = Time = 24 + 64
+anim = F84
+pos = -36,4
+postype = p1
+facing = -1+(2*random%2)
+vel = (-20-random%10)*0.1,(-20-random%10)*0.1
+accel = 0.05,0.15
+sprpriority = 4
+ownpal = 1
+
+[State 0, VarSet]
+type = VarSet
+triggerall = !Var(58)
+trigger1 = Time = 24 + 64
+v = 9
+value = 4
+
+[State 0, Kahl]
+type = Explod
+trigger1 = Var(58) = 3
+trigger1 = Time = 24
+anim = F6601
+pos = 24,0
+postype = p1
+removetime = -1
+sprpriority = -1
+shadow = -1
+ownpal = 1
+[State 0, Snd Kahl Laugh]
+type = PlaySnd
+trigger1 = Var(58) = 3
+trigger1 = Time = 24 + 28
+value = F10190,random%2
+channel = 0
+[State 0, Snd Kahl Whoosh]
+type = PlaySnd
+trigger1 = Var(58) = 3
+trigger1 = Time = 24
+value = F10190,2
+channel = 1
+
+[State 0, VarSet I Win!]
+type = VarSet
+trigger1 = Time = 152
+trigger1 = MatchOver && Win
+v = 32
+value = 59
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time < 160 + (MatchOver * 96)
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; Win vs Cici - Wetworked
+[Statedef 183]
+type = S
+ctrl = 0
+anim = 183
+sprpriority = 0
+
+[State 0, Explod Jules]
+type = Explod
+trigger1 = AnimElem = 10
+anim = 11830
+pos = -2,0
+postype = p1
+sprpriority = -1
+bindtime = -1
+shadow = -1
+ownpal = 0
+
+[State 0, Snd Dash]
+type = PlaySnd
+trigger1 = AnimElem = 10
+value = S1300,0
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 5
+trigger3 = AnimElem = 8
+value = F0,3
+channel = 1
+[State 0, Snd Poof]
+type = PlaySnd
+trigger1 = AnimElem = 14
+value = S183,0
+
+[State 0, Offset]
+type = Offset
+trigger1 = AnimElemNo(0) = 14
+x = (4 - AnimElemTime(14)) * (1 - 2 * (GameTime%2))
+
+[State 0, VarSet I Win!]
+type = VarSet
+trigger1 = Time = 112
+trigger1 = MatchOver && Win
+v = 32
+value = 59
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time < 112 + (MatchOver * 96)
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; Intro - necko
+[Statedef 190]
+type = S
+ctrl = 0
+velset = 0,0
+
+[State 180, 1]
+type = ChangeState
+trigger1 = Time = 0
+trigger1 = Anim != 190
+trigger1 = Random >= 500
+trigger1 = EnemyNear,Name != "TSUG" && EnemyNear,Name != "TSUX" && EnemyNear,Name != "TSUK"
+value = 191
+[State 191, 1]
+type = ChangeAnim
+trigger1 = !Time
+value = 190
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 33
+value = 190
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 34
+value = random%5
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+trigger1 = EnemyNear,Name = "TSUG" || EnemyNear,Name = "TSUX" || EnemyNear,Name = "TSUK"
+v = 34
+value = 10 + random%2
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = !Time
+id = 3000
+[State 0, Explod JEWELS]
+type = Explod
+trigger1 = !Time
+anim = 19000
+ID = 3000
+postype = p1
+sprpriority = -1
+shadow = -1
+ownpal = 1
+[State 0, Explod book em]
+type = Explod
+trigger1 = Time = 84
+anim = 19001
+ID = 3000
+pos = 64,-32
+postype = p1
+removetime = 128
+vel = (100+random%301)*0.01,(-300-random%201)*0.01
+accel = 0,0.25
+sprpriority = 9
+;shadow = -1
+ownpal = 1
+
+[State 0, Var Intro TimeStart]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = 128
+[State 0, Var Intro Timer]
+type = VarAdd
+trigger1 = Var(5)
+v = 5
+value = -1
+[State 191, Intro Flag]
+type = AssertSpecial
+trigger1 = Var(5)
+flag = Intro
+[State 0, ChangeState]
+type = ChangeState
+triggerall = Time = 1; || RoundState = 0
+triggerall = !((EnemyNear,Name = "TSUG" || EnemyNear,Name = "TSUX" || EnemyNear,Name = "TSUK") && EnemyNear,StateNo = 190)
+trigger1 = TeamSide = 2
+trigger1 = EnemyNear,Var(5) > 48
+value = StateNo
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+elem = 26
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - i WAS having a good day
+[Statedef 191]
+type = S
+ctrl = 0
+anim = 666
+sprpriority = 0
+velset = 0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time <= 8
+id = 19100
+[State 0, Explod THE JULESTER]
+type = Explod
+trigger1 = Time <= 8
+anim = 19100
+ID = 19100
+postype = p1
+sprpriority = -9
+shadow = -1
+ownpal = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time >= 2 && NumExplod(19101)
+trigger2 = RoundState = 0
+id = 19101
+[State 0, Explod sketchers]
+type = Explod
+trigger1 = !NumExplod(19101)
+trigger1 = !Time
+trigger2 = RoundState = 0
+anim = 19101
+ID = 19101
+postype = p1
+sprpriority = 2
+removetime = 666
+shadow = -1
+ownpal = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = RoundState = 0
+trigger2 = AnimElem = 19
+id = 19102
+[State 0, Explod an easel for your memes]
+type = Explod
+trigger1 = RoundState = 0
+anim = 19102
+ID = 19102
+postype = p1
+sprpriority = -8
+removetime = 666
+shadow = -1
+ownpal = 1
+[State 0, Explod keep this]
+type = Explod
+trigger1 = AnimElem = 19
+anim = 19103
+ID = 1922
+postype = p1
+sprpriority = -8
+removetime = -1
+shadow = -1
+ownpal = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = RoundState = 0
+trigger2 = AnimElem = 25
+id = 19104
+[State 0, Explod throne-like chair]
+type = Explod
+trigger1 = RoundState = 0
+anim = 19104
+ID = 19104
+postype = p1
+sprpriority = -1
+removetime = 666
+shadow = -1
+ownpal = 1
+[State 0, Explod chair tilt]
+type = Explod
+trigger1 = AnimElem = 25
+anim = 19105
+ID = 19105
+postype = p1
+sprpriority = -1
+shadow = -1
+ownpal = 1
+
+[State 0, Explod THE CHAIR! THE CHAIR!]
+type = Explod
+trigger1 = AnimElem = 27
+anim = 19106
+pos = 40,-24
+vel = 8,-5
+accel = 0,0.5
+removetime = 64
+postype = p1
+shadow = -1
+
+[State 0, Explod HitSpark M]
+type = Explod
+trigger1 = AnimElem = 27
+anim = F5 + random%4
+pos = 48,-40
+postype = p1
+sprpriority = 9
+ontop = 1
+ownpal = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time = 1
+value = 191
+
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 26
+value = F0,2
+[State 0, Snd Get Out]
+type = PlaySnd
+trigger1 = Time = 73 + 8
+value = S1300,0
+[State 0, Snd Kick]
+type = PlaySnd
+trigger1 = AnimElem = 27
+value = F1,1
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 11
+v = 33
+value = 191
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 11
+v = 34
+value = random%6
+
+[State 0, Var Intro TimeStart]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = 192
+[State 0, Var Intro Timer]
+type = VarAdd
+trigger1 = Var(5)
+v = 5
+value = -1
+[State 191, Intro Flag]
+type = AssertSpecial
+trigger1 = Var(5)
+flag = Intro
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Time = 1
+trigger1 = TeamSide = 2
+trigger1 = EnemyNear,Var(5) > 92
+value = StateNo
+
+[State 200, 3]
+type = ChangeState
+trigger1 = Anim = 191
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - FIND ME
+[Statedef 192]
+type = A
+ctrl = 0
+anim = 192
+velset = 0,0
+
+[State 0, Explod That Woman]
+type = Explod
+trigger1 = Time = 128
+anim = 19200
+pos = -64,0
+postype = p1
+sprpriority = 1
+shadow = -1
+ownpal = 1
+
+[State 0, Explod SLAYER]
+type = Explod
+trigger1 = Time = 152
+anim = 951
+ID = 3000
+pos = -48,0
+postype = p1
+vel = 8,0
+shadow = -1
+removeongethit = 1
+[State 0, Explod By God]
+type = Explod
+trigger1 = Time = 154
+anim = 19201
+pos = -32,0
+vel = 8,0
+accel = -1,0
+ID = 3000
+postype = p1
+shadow = -1
+removeongethit = 1
+
+[State 0, Snd Swipe]
+type = PlaySnd
+trigger1 = Time = 158
+value = F0,3
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 2
+statetype = S
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+elem = 26
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - GEESE
+[Statedef 193]
+type = S
+ctrl = 0
+anim = 193
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 33
+value = 193
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 34
+value = random%3
+
+[State 0, Var Intro TimeStart]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = 32
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - outta my way
+[Statedef 194]
+type = S
+ctrl = 0
+anim = 194
+sprpriority = 0
+velset = 0,0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = AnimElem = 9
+trigger2 = RoundState = 0
+id = 19102
+[State 0, Explod an easel for your memes]
+type = Explod
+trigger1 = RoundState = 0
+anim = 19102
+ID = 19102
+postype = p1
+sprpriority = -8
+removetime = 666
+shadow = -1
+ownpal = 1
+[State 0, Explod THE COOKIES]
+type = Explod
+trigger1 = AnimElem = 9
+anim = 19400
+pos = -24,-48
+vel = 9,-9
+accel = 0,0.6
+removetime = 64
+postype = p1
+shadow = -1
+[State 0, Explod WHY WOULD YOU DO THIS TO ART]
+type = Explod
+trigger1 = AnimElem = 9
+anim = 19401
+pos = -24,-72
+vel = 12,-9
+accel = 0,0.4
+removetime = 64
+postype = p1
+shadow = -1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = RoundState = 0
+trigger2 = AnimElem = 23
+id = 19104
+[State 0, Explod throne-like chair]
+type = Explod
+trigger1 = RoundState = 0
+anim = 19104
+ID = 19104
+postype = p1
+sprpriority = -1
+removetime = 666
+shadow = -1
+ownpal = 1
+[State 0, Explod chair tilt]
+type = Explod
+trigger1 = AnimElem = 23
+anim = 19105
+ID = 19105
+postype = p1
+sprpriority = -1
+shadow = -1
+ownpal = 1
+[State 0, Explod THE CHAIR! THE CHAIR!]
+type = Explod
+trigger1 = AnimElem = 25
+anim = 19106
+pos = 40,-24
+vel = 8,-5
+accel = 0,0.5
+removetime = 64
+postype = p1
+shadow = -1
+
+[State 0, Explod HitSpark M]
+type = Explod
+trigger1 = AnimElem = 9
+anim = F15 + random%4
+pos = -24,-48
+postype = p1
+sprpriority = 9
+ontop = 1
+ownpal = 1
+[State 0, Explod HitSpark M]
+type = Explod
+trigger1 = AnimElem = 25
+anim = F5 + random%4
+pos = 48,-40
+postype = p1
+sprpriority = 9
+ontop = 1
+ownpal = 1
+
+[State 0, Snd Knockover]
+type = PlaySnd
+trigger1 = AnimElem = 9
+value = F1,4
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 24
+value = F0,2
+[State 0, Snd Kick]
+type = PlaySnd
+trigger1 = AnimElem = 25
+value = F1,1
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 14
+v = 33
+value = 194
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 14
+v = 34
+value = random%2
+
+[State 0, Var Shake]
+type = VarSet
+trigger1 = AnimElem = 9
+v = 9
+value = 8
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = Time < 200
+flag = Intro
+
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - hangman
+[Statedef 195]
+type = A
+ctrl = 0
+anim = 195
+velset = 0,0
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - And Are His Pets
+[Statedef 196]
+type = S
+ctrl = 0
+anim = 196
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = Time < 150
+flag = Intro
+
+[State 191, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - dr sus
+[Statedef 197]
+type = A
+ctrl = 0
+anim = 666
+velset = 0,0
+
+[State 0, Explod]
+type = Explod
+trigger1 = !Time
+anim = 197
+pos = p2dist x - 21,0
+postype = p1
+facing = -1
+sprpriority = 5
+shadow = -1
+[State 0, Explod]
+type = Explod
+trigger1 = Time = 141
+anim = 5090
+pos = p2dist x - 21,-16
+postype = p1
+vel = -4,-4
+accel = 0,0.5
+removetime = 20
+sprpriority = 5
+shadow = -1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Time = 141 + 20
+map = "LandDustFX"
+value = 1
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = Time = 141 + 20
+statetype = S
+
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = Time = 113
+trigger2 = Time = 130
+value = F0,1
+[State 0, Snd Dash]
+type = PlaySnd
+trigger1 = Time = 141
+value = F2,3
+[State -3, Landing Sound]
+type = PlaySnd
+trigger1 = Time = 141 + 20
+value = F2, 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time = 141 + 20
+value = 47
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = Anim != 47
+flag = Intro
+
+[State 191, 3]
+type = ChangeState
+trigger1 = Anim = 47
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - oh hello
+[Statedef 198]
+type = A
+ctrl = 0
+anim = 192
+velset = 0,0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimElem = 1, 112
+value = Anim
+elem = 2
+
+[State 0, Explod That Woman]
+type = Explod
+trigger1 = Time = 80
+anim = 19200
+pos = 136,0
+postype = p1
+facing = -1
+sprpriority = 1
+shadow = -1
+ownpal = 1
+
+[State 0, Explod HitSpark]
+type = Explod
+trigger1 = Time = 80
+anim = F10
+pos = 80,-52
+postype = p1
+sprpriority = 9
+ontop = 1
+ownpal = 1
+
+[State 0, Explod SLAYER]
+type = Explod
+trigger1 = Time = 104
+anim = 951
+ID = 3000
+pos = -48,0
+postype = p1
+vel = 8,0
+shadow = -1
+removeongethit = 1
+[State 0, Explod By God]
+type = Explod
+trigger1 = Time = 106
+anim = 19201
+pos = -32,0
+vel = 8,0
+accel = -1,0
+ID = 3000
+postype = p1
+shadow = -1
+removeongethit = 1
+
+[State 0, Snd Bonk]
+type = PlaySnd
+trigger1 = Time = 80
+value = F1,2
+[State 0, Snd Swipe]
+type = PlaySnd
+trigger1 = Time = 108
+value = F0,3
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = Time = 108
+v = 33
+value = 200
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = Time = 108
+v = 34
+value = random%15
+
+[State 0, Var Shake]
+type = VarSet
+trigger1 = Time = 80
+v = 9
+value = 4
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+elem = 26
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - Wetwork
+[Statedef 199]
+type = S
+ctrl = 0
+anim = 199
+
+[State 0, Explod Jules]
+type = Explod
+trigger1 = !Time
+anim = 11990
+pos = 0,0
+postype = p1
+sprpriority = -1
+shadow = -1
+ownpal = 0
+
+[State 0, Snd Dash]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = S1300,0
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 7
+trigger3 = AnimElem = 10
+value = F0,3
+channel = 1
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 3
+v = 33
+value = 165
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 3
+v = 34
+value = random%4
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Continue?
+[Statedef 5500]
+type = S
+ctrl = 0
+anim = 5500
+velset = 0,0
+
+[State 0, Explod]
+type = Explod
+trigger1 = !Time
+anim = 5501
+ID = 5501
+pos = 48,0
+postype = p1
+bindtime = 666
+removetime = 66666
+sprpriority = 1
+shadow = -1
+ownpal = 1
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = AnimElem = 10
+value = 2
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = AnimElemNo(0) = 1
+value = 0
+
+;[Statedef -3]

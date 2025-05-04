@@ -1,0 +1,59 @@
+<#e02800>:Unique Trait:</>		"Jaipur Gharana"
+Ajit's Craze Technique and most Specials will add a stack to
+his Momentum gauge. Attack follow-ups out of Fiery Dance
+will consume these stacks to enhance their damage and
+advantage.
+Fiery Dance can be cancelled into from any Special except
+Dragon's Strike.
+
+<#e02800>:Craze Technique:</>
+Fiery Dance		_AA^CTor_F^CTor_B^CT
+_! Cancel		_D
+_! Buffalo Smash		^LP
+_! Shiva Knuckle		^SP
+_! Garuda's Trip		^LK
+_! Bullfrog Vault		^SK
+_! Fiery Illusion		_DF^CT
+
+<#e02800>:Throws:</>
+Wake Up!								^GP
+Back Shoot							_B^GP
+Sunset Driver						_AO^GP
+
+<#e02800>:Command Normals:</>
+Viper Fang								_F^LP
+Fierce Tusk								_F^LK
+
+<#e02800>:Special Moves:</>
+Lion's Pounce		_AA_CH_QCF^P
+Solar Burst		_CH_QCB^P
+Cobra Lunge		_AA_QCB^K
+Dragon's Strike		_QCF^K
+
+<#e02800>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Lion's Cascade		_QCF_QCF^P
+Heatwave		_QCF_QCF^K
+
+<#e02800>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Lion's Cascade EX		_QCF_QCF^2P
+
+<#e02800>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Solar Ignition		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

@@ -1,0 +1,54 @@
+<#f8e8a0>:Unique Trait:</>		"ENCROACHING RULE"
+TYRANT gains a buff after a certain amount of time has
+elapsed, reduced by hitting with various attacks.
+While buffed, his movement speed is increased, and his
+Craze Technique and Special Moves gain additional
+properties.
+
+<#f8e8a0>:Craze Technique:</>
+EMPEROR'S TREMOR		_CH^CT
+
+<#f8e8a0>:Throws:</>
+FACE YOUR FEARS		^GP
+ONE'S RIGHT		_B^GP
+EXISTENCE CALAMITY		_AO^GP
+
+<#f8e8a0>:Command Normals:</>
+CRAWL		_DF
+DARK TORNADO		_F^SP
+SHADOW FANG		_F^SK
+
+<#f8e8a0>:Special Moves:</>
+LION SLAYER		_QCF^P
+EMPEROR'S CURSE		_HCB^P or _360^P
+_! EMPEROR'S DECREE		_QCB^P
+PRIMAL BURN		_QCB^K or _QCF^K
+
+<#f8e8a0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+VULCAN FLAME		_QCF_QCF^P
+DEBT OF WAR		_HCB^2P or _360^2P
+DELTA CAULDRON		_QCB_QCB^P
+
+<#f8e8a0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+VULCAN BEAM		_QCF_QCF^2P
+
+<#f8e8a0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+THE WORLD CONSUMED		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

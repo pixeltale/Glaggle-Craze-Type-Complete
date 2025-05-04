@@ -1,0 +1,151 @@
+[Data]
+life = 950
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 15
+ground.front = 15
+air.back = 5
+air.front = 5
+height = 35
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -70
+mid.pos = 0, -40
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.5
+walk.back = -2.4
+run.fwd  = 5.5, 0
+run.back = -7.5,-1.5
+jump.neu = 0,-9
+jump.back = -3
+jump.fwd = 3
+runjump.fwd = 4,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 3
+BC.VoiceBankWeakKO = 1
+BC.VoiceBankHeartBreaker = 6
+BC.VoiceBankCrazeCancel = 11
+BC.VoiceBankPain = 13
+BC.VoiceBankGuardBreak = 2
+BC.VoiceBankThrowTech = 8
+BC.VoiceBankExert = 18
+
+[Quotes]
+victory0  = "Why did you lose? Well, I was designed to be the ultimate fighting organism, after all!"
+victory1  = "This prime specimen just mopped the floor with you! Literally!"
+victory2  = "Did you see that, Cruller? Honeyglaze? I'm on a roll!"
+victory3  = "This body is the work of BioCorps money, and Cruller and Honeyglaze's intuition! You got no chance!"
+victory4  = "If I were to compare the two of our powers, I'd be a chocolate sprinkled donut, and you would just be a plain bagel!"
+victory5  = "This ingenuity of bio-science will be protecting this world from here on out! You can thank me later."
+victory6  = "With every butt I kick, I get closer to completing my mission, in style!"
+victory7  = "Insults nor punches can stop this vibe of mine! I'm rubber, and you're glue!"
+victory8  = "Science is the ultimate in the martial arts world. Maybe it can help you in defeating me... NOT!"
+victory9  = "It's sink or swim out in the world, and you drown quicker than a ten-ton brick!"
+victory10 = "I don't need my fortune to know the future, because I already know it's gonna be bright!" ; AJIT
+victory11 = "Water is the best conductor of lightning, but my cells were designed like rubber to block it out! It was a nice try though." ; TSUG
+victory12 = "Automatite, I think it was called? I think BioCorps had some interest in this material." ; TSUK
+victory13 = "You're clearly parched. Or maybe hydrophobic!" ; SHER
+victory14 = "You're DEFINITELY parched. Or in dire need of your teeth brushed!" ; SHEX
+victory15 = "My head is much shinier than yours! But I won't lie, in terms of fashion, you got more drip than me!" ; WALL
+victory16 = "I only listen to the likes of Cruller and Honeyglaze, but you prove a point. Geeze, what do I do?" ; REAP
+victory17 = "Bootlegs are a violation of BioCorps Copyright Policy! I'll make sure you never slander our name again!" ; REAK
+victory18 = "You can't keep hold of something so slippery! You can learn a thing or two from my eyes!" ; JUST
+victory19 = "You can't keep hold of something so slippery! You can learn a thing or two from my eyes!" ; JUSK
+victory20 = "It wasn't a matter of 'if' I land a hit, but 'when'! I'm quite persistent, you know!" ; BOUN
+victory21 = "If you were as smart as you claim, you would know that you can't breathe underwater!" ; BAXT
+victory22 = "Any inferior clones will be dealt with, post-haste!" ; CICI
+victory23 = "You'll need more lightning to fizzle me out! Well, that takes care of one controversy against BioCorps.!" ; GOLI
+victory24 = "We both believe in our creators, don't we? I wouldn't mind meeting yours someday." ; NECC
+victory25 = "Hey, all I wanted was a fight! It's the whole 'producing water out of my body' thing, isn't it?" ; EMIC
+victory26 = "Wait, BioCorps. is doing WHAT with me? Hello, miss, are you ignoring me?" ; LUCY
+victory27 = "I'm a pretty simple minded guy. Don't expect much in my head!" ; GABB
+victory28 = "I don't wanna make it personal, but that's for the rocky relationship with both our companies!" ; ISAB
+victory29 = "And with that, I think I passed my test with flying colors!" ; TYRA
+victory30 = "Water is the best conductor of lightning, but my cells were designed like rubber to block it out! It was a nice try though." ; IKUE
+victory31 = "You don't mind the water? Then why are you hissing at me? Is it because of my nose?" ; TERI
+victory32 = "Bullets, knives, brass knuckles, bring it on! I'm pretty weapon resistant!" ; BERN
+victory33 = "Wicked brew, toil and trouble, your limits are trapped within a bubble!" ; JANE
+victory97 = "Any bootleg clones will be dealt with, along with their creators, post-haste!" ; CICK
+victory98 = "Clay replicas have nothing on the synthetic flesh and bone of BioCorps!" ; KAHL
+victory99 = "Shore-ly you jest? Sea, I can make jokes too!" ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 32  -  Side Message Queue
+; 35  -  Cornerpush Type
+; 40  -  [CICI] Poseidon Busy
+; 41  -  [CICI] Puddle Distance
+; 42  -  [CICI] Puddle Spawn X
+; 43  -  [CICI] Puddle Spawn Y
+; 44  -  [CICI] Water Color
+; 45  -  [CICX] Moisture Level
+; 46  -  [CICX] Moisture Rate
+; 47  -  [CICK] Health Regen
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 18 -  Craze Gauge Gain Multiplier
+; 15 -  Meter Reduction
+; 20 -  [CICI] Bonus Effect Multiplier
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

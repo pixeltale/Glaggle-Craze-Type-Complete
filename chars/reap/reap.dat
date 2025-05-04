@@ -1,0 +1,56 @@
+<#e8d800>:Unique Trait:</>		Energy Meter
+Reaper's Craze Gauge is tied to their special moves. The 
+gauge has 6 pips, but require double the pips to perform 
+Craze Cancel actions. Each _RE special requires 1 pip to
+use. Their Craze Gauge also only charges manually through
+their Craze Technique.
+
+<#e8d800>:Craze Technique:</>
+C-Tech-Type-Solar-Deploy-2.0		_AA^CT
+_!C-Tech-Type-Crash-Comet		_AA_CH^CT
+
+<#e8d800>:Throws:</>
+Throw-Type-Blow-Back		^GP
+Throw-Type-Reverse-Blow-Back		_B^GP
+Throw-Type-Jet-Circle		_AO^GP
+
+<#e8d800>:Command Normals:</>
+Command-Type-Hook-Slice		_F^LP
+Command-Type-Tri-Blooming-Blast		_F^SP
+Command-Type-Air-Burst		_AO_D^SP
+
+<#e8d800>:Special Moves:</>
+Special-Type-Star-Crossed-Beam _RE 		_AA_QCF^P
+Special-Type-Nebula-Storm _RE 		_QCB^P
+_!Follow-Up-Type-Big-Bang-Blast		^P
+_!Follow-Up-Type-Force-Conversion		^K
+Special-Type-Satellite-Colony _RE 		_AA_D_D^PK
+Special_Type-Meteor-Strike		_AA_QCB^K
+
+<#e8d800>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+All-Out-Type-Cosmic-Divider		_QCF_QCF^P
+All-Out-Type-Emergency-Nova		_QCF_QCF^K
+
+<#e8d800>:All-Out EX:</> <#bebebe>(2 Stock)</>
+All-Out-EX-Type-Cosmic-Divider		_QCF_QCF^2P
+
+<#e8d800>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+All-Out-Destruction-Type-Lunar-Cycle-Crash		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

@@ -1,0 +1,65 @@
+<#602828>:Unique Trait:</>		"Trial of the Mental"
+Bernie's Craze Technique and Counter Hits will start a Dice
+Roll. After 2 Dice have been rolled, the next attack that hits
+will be considered a Counter Hit, including the opponent's.
+If both Dice are the same number, this hit is a Dire Counter
+instead, unless Bernie is holding 2 Ones.
+If Bernie lands a Counter Hit with two rolled Dice, he will
+gain Chips equal to the Dice total and reset the Dice. These
+Chips increase the damage of Spine Apathy followups and Wake
+The Pharmacy.
+
+<#602828>:Craze Technique:</>
+Predator Poised		_CH^CT
+
+<#602828>:Throws:</>
+Too Close for Comfort		^GP
+The Door's That Way		_B^GP
+You Won't Need Those Ribs		_AO^GP
+
+<#602828>:Command Normals:</>
+Object Weasel		_F^LP
+Awakedly True		_F^SP
+Iron Time		_AO_D^SP
+
+<#602828>:Special Moves:</>
+Deja VuTinkerer		_QCF^LP
+Left Food		_CH_QCF^SP
+Mindgrasp		_DP^P
+Spine Apathy		_HCB^P or _360^P
+_! Dance Live Forever		_F
+_! Empathy Grit		_D
+_! Beast of Wind		_B
+_! Up Herring		_U or _UB
+I'm...		_QCF^K
+_! ...Survivor		^P
+_! ...The Food		^K
+_! ...Me		^GP
+
+<#602828>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Wake The Pharmacy		_HCB^2P or _360^2P
+Ruin Head		_QCF_QCF^K
+
+<#602828>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Head Hound		_QCF_QCF^2K
+
+<#602828>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Save the Best for Bamboozle		_QCF_QCF^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

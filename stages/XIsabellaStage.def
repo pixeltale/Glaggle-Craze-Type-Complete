@@ -1,0 +1,176 @@
+;--------------------------------------------------------
+[Info]
+name = "Isabella Stage X"
+displayname = "France: Battle Craze Tournament Stadium 'L'" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+attachedchar = ZZZStageSFX.def
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = .2
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/s_colo.mp3
+bgmloopstart = 273257
+bgmloopend = 8539998
+;-------------------------------------
+[BGdef]
+spr = XIsabellaStage.sff
+debugbg = 0
+;----------
+
+[BG Sky]
+type  = normal
+spriteno = 4, 0
+layerno = 0
+start = 0, -200
+delta = .8, .7
+mask  = 0
+
+[BG Stadium Lights]
+type  = normal
+spriteno = 3, 0
+layerno = 0
+start = 0, -310
+delta = .87, .87
+mask  = 1
+
+[BG Stadium]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = 0, -325
+delta = .88, .88
+mask  = 1
+
+[BG Big Screen]
+type  = anim
+actionno = 2
+layerno = 0
+start = 0, -325
+delta = .88, .88
+mask  = 1
+
+[Begin Action 2] ;Big Screen
+5,0,0,0,50
+5,1,0,0,10
+5,2,0,0,10
+5,3,0,0,15
+5,2,0,0,10
+5,1,0,0,10
+5,0,0,0,15
+5,1,0,0,10
+5,2,0,0,10
+5,3,0,0,15
+5,2,0,0,10
+5,1,0,0,10
+5,0,0,0,15
+5,1,0,0,10
+5,2,0,0,10
+5,3,0,0,15
+5,2,0,0,10
+5,1,0,0,10
+5,0,0,0,15
+5,4,0,0,10
+5,5,0,0,10
+5,6,0,0,75
+5,7,0,0,5
+5,8,0,0,10
+5,9,0,0,10
+5,10,0,0,20
+5,11,0,0,5
+5,12,0,0,10
+5,13,0,0,10
+5,14,0,0,50
+5,15,0,0,15
+5,16,0,0,15
+5,17,0,0,100
+5,18,0,0,20
+5,19,0,0,15
+5,20,0,0,10
+
+[BG Crowd]
+type  = anim
+actionno = 1
+layerno = 0
+start = 0, -325
+delta = .88, .88
+mask  = 1
+
+[Begin Action 1] ;Crowd
+2,1,0,0,7
+2,1,0,-1,7
+2,1,0,-2,7
+2,1,0,-1,7
+
+[BG Rope]
+type  = normal
+spriteno = 1, 0
+layerno = 0
+start = 0, -290
+delta = .99, .99
+mask  = 1
+
+[BG Floor]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, -305
+delta = 1, 1
+mask  = 1
+
+[BG Floor Emblem]
+type  = normal
+spriteno = 0, 1
+layerno = 0
+start = 0, -305
+delta = 1, 1
+mask  = 1
+

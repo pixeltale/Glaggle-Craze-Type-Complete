@@ -1,0 +1,54 @@
+<#f84000>:Unique Trait:</>		"Ninpo Teleport Application"
+Emi's specials can be performed with Teleport Applications 
+using^2Por^2K, at the cost of half a bar of Adrenaline.
+
+<#f84000>:Craze Technique:</>
+Daybreak		^CT
+
+<#f84000>:Throws:</>
+Morning		^GP
+Afternoon		_B^GP
+Evening		_AO^GP
+
+<#f84000>:Command Normals:</>
+Frog Call		(Near Wall)_UF
+Horizon		_F^SP
+Twilight		_DB^SP
+Sunrise		_For_UF^LK
+Sunset		_AO_Dor_DB^LK
+
+<#f84000>:Special Moves:</>
+Summer		_QCF^P
+Winter		_QCF^K
+Spring		_DP^P
+Autumn		_QCB^K
+Cloudy Weather		_AO_QCB^P
+Clear Skies		_DP^K or _360^K
+
+<#f84000>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Midnight		_QCF_QCF^P
+Noontide		_AA_QCB_QCB^P
+
+<#f84000>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Shogatsu		_QCF_QCF^2K
+
+<#f84000>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Ennui		_QCB_QCB^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

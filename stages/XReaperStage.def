@@ -1,0 +1,213 @@
+;--------------------------------------------------------
+[Info]
+name = "Reaper Stage X"
+displayname = "Gibraltar - Lost Cavern 'L'" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+attachedchar = ZZZStageSFX.def
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/c_cici.mp3 ;sound/c_teri.mp3
+;bgmloopstart = 3456
+;bgmloopend = 5501516
+;-------------------------------------
+[BGdef]
+spr = XReaperStage.sff
+debugbg = 0
+;----------
+
+[BG Cave]
+type  = anim
+actionno = 1
+layerno = 0
+start = 1, -200
+delta = .73, .8
+mask  = 0
+
+[Begin Action 1] ;Cave
+3,0,0,0,8
+3,1,0,0,8
+3,2,0,0,8
+
+[BG Grotto Furthest]
+type  = normal
+spriteno = 2, 1
+layerno = 0
+start = 0, -200
+delta = .70, .8
+mask  = 1
+
+[BG Grotto Further]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = 0, -200
+delta = .72, .8
+mask  = 1
+
+[BG Hew-Man]
+type  = normal
+spriteno = 10, 0
+layerno = 0
+start = 0, -200
+delta = .72, .8
+mask  = 1
+
+[BG Waterfall]
+type  = anim
+actionno = 2
+layerno = 0
+start = 0, -200
+delta = .72, .8
+mask  = 0
+
+[Begin Action 2] ;Waterfall
+6,0,0,0,4
+6,1,0,0,4
+6,2,0,0,4
+6,3,0,0,4
+
+[BG Waterfall Wake? I dunno what this part of the waterfall is called]
+type  = anim
+actionno = 3
+layerno = 0
+start = 0, -200
+delta = .72, .8
+mask  = 0
+
+[Begin Action 3] ;Waterfall Wake?
+5,0,0,0,5
+5,1,0,0,5
+5,2,0,0,5
+
+[BG Spencer]
+type  = anim
+actionno = 7
+layerno = 0
+start = -925, 150
+delta = .7, 1
+mask  = 1
+sin.x = 175,5000,0
+
+[Begin Action 7] ;Spencer
+9,0,0,0,8
+9,1,0,0,8
+9,2,0,0,8
+
+[BG Grotto Closest]
+type  = anim
+actionno = 4
+layerno = 0
+start = 0, -200
+delta = .70, .9
+mask  = 1
+
+[Begin Action 4] ;Grotto Shadows
+1,0,0,0,8
+1,1,0,0,8
+1,2,0,0,8
+
+[BG Mallet Fish]
+type  = anim
+actionno = 5
+layerno = 0
+start = 1000, 250
+delta = .9, 1
+mask  = 1
+sin.y = 100,80,0
+velocity = -1,0
+tile = 1,0
+tilespacing = 1420,0
+
+[Begin Action 5] ;Fish
+7,3,0,0,5
+7,2,0,0,5
+7,0,0,0,30
+7,1,0,0,5
+7,2,0,0,5
+7,3,0,0,5
+7,2,0,0,5
+7,3,0,0,5
+7,2,0,0,5
+7,3,0,0,5
+7,2,0,0,5
+
+;[BG Mist, the stuff I put in every Mugen stage prior to make it look cool?]
+;type  = anim
+;actionno = 6
+;layerno = 0
+;start = 0, 200
+;delta = .72, .8
+;mask  = 0
+;tile = 1,0
+;tilespacing = 95,0
+;velocity = 1,0
+;trans = addalpha
+;alpha = 200,200
+
+;[Begin Action 6] ;Mist
+;8,0,0,0,8
+;8,1,0,0,8
+;8,2,0,0,8
+;8,3,0,0,8
+;8,4,0,0,8
+;8,5,0,0,8
+;8,6,0,0,8
+
+[BG Tiles]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, 270
+delta = 1, 1
+mask  = 1

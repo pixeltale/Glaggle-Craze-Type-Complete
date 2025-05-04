@@ -1,0 +1,146 @@
+[Data]
+life = 925
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 0
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 14
+ground.front = 14
+air.back = 5
+air.front = 5
+height = 36
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -72
+mid.pos = 0, -38
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.2
+walk.back = -2.0
+run.fwd  = 5.5, 0
+run.back = -7.25,-1.5
+jump.neu = 0,-9
+jump.back = -2.6
+jump.fwd = 2.6
+runjump.fwd = 4.5,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankPain = 13
+BC.VoiceBankKO = 4
+BC.VoiceBankWeakKO = 10
+BC.VoiceBankCrazeCancel = 10
+BC.VoiceBankGuardBreak = 8
+BC.VoiceBankThrowTech = 12
+BC.VoiceBankHeartBreaker = 8
+BC.VoiceBankExert = 19
+
+[Quotes]
+victory0  = "Sleeping with one eye open is meaningless! I'll still find you, gripping your pillow tight with FEAR!"
+victory1  = "SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN SKIN"
+victory2  = "I'm the only main attraction here! You're just the sideshow, NO ONE LOVES YOU."
+victory3  = "AN ELEPHANT SHOULD STEP ON YOU."
+victory4  = "This is fun! I hope the fun never ends! I hope the fun never ends! I hope the fun never ends!"
+victory5  = "You're stuck with me forever! Get ready to LIVE with me, LIVING a LIVING NIGHTMARE."
+victory6  = "I'm in your head, silly! If you want to get rid of me, THEN CRUSH IT."
+victory7  = "Pain? Pain is a fun feeling!"
+victory8  = "Your soul is weak! Maybe you can toughen up in THE NIGHTSCAPE."
+victory9  = "YOUR MEMORY SHUDDERS IN ME."
+victory10 = "Don't think I haven't noticed you here! Now then, CECROPIA WANTS TO SEE YOU." ; AJIT
+victory11 = "Why not invite Camille? I think it'd be fun to see you LOSE!" ; TSUG
+victory12 = "Dusty dusty dusty! You need a spring cleaning in your head!" ; TSUK
+victory13 = "A real pigsty up in here! LET'S MAKE IT WORSE." ; SHER
+victory14 = "I WON'T BE SO EASILY SILENCED, YOU MADMAN." ; SHEX
+victory15 = "FEAR makes me tingle inside. Why not let it CONSUME YOU?" ; WALL
+victory16 = "Do robots dream of electric sheep?" ; REAP
+victory17 = "Your mind is full of scars! DOES IT BLEED?" ; REAK
+victory18 = "Justice is lame, and doesn't even matter!" ; JUST
+victory19 = "I can take my mask off too!" ; JUSK
+victory20 = "Does your heart weigh more than a feather? Let's find out!" ; BOUN
+victory21 = "It's getting spacious in here! All the more for me to fill with DREAD!" ; BAXT
+victory22 = "It's so empty in here. We can fill it with all the BLOOD we want!" ; CICI
+victory23 = "There is nothing of use here." ; GOLI
+victory24 = "God is lame! When Cecropia completes her mission, then you'll be on your knees praying for SACRIFICE." ; NECC
+victory25 = "It's very loud in here! Crank it up higher!" ; EMIC
+victory26 = "You're boring! Can't you relax and have some fun with BLOODSHED and VIOLENCE?" ; LUCY
+victory27 = "We should try that again sometime! We certainly can cause a lot of mayhem together!" ; GABB
+victory28 = "You will it to cut, but not tear? Why stop yourself, where is the fun in that?" ; ISAB
+victory29 = "This power is Cecropia's, silly! YOU ARE NOW BUT A CORPSE." ; TYRA
+victory30 = "Even with your quips there is still DOUBT in your head. C'mon, lets AMPLIFY it!" ; IKUE
+victory31 = "Go through the flaming hoop, kitty! If you don't there's a SEVERE price to pay!" ; TERI
+victory32 = "There's a fun side to you that does want to KILL. C'mon, c'mon, lemme see it!" ; BERN
+victory33 = "Only I get to stand center stage in the spotlight. You can ROT and FESTER when you exit stage left!" ; JANE
+victory97 = "Gabriella Orlov... SUCH A FAMILIAR NAME." ; GABK
+victory98 = "I DON'T LIKE THIS CONSISTENCY, AAAAAAAAAAAAAAGH!!" ; KAHL
+victory99 = "I'LL SEE YOU TORN ASUNDER." ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 31  -  Projectile Dist
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  [GABB] Cannon Length
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 56  -  What's My Name?
+; 58  -  Am I SHIFT? Q-SHIFT? Kahl?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 18 -  Craze Gauge Gain Multiplier
+; 15 -  Meter Reduction
+;---------------------------------------------------------------------------

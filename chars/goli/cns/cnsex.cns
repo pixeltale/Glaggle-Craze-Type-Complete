@@ -1,0 +1,153 @@
+[Data]
+life = 1050
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 24
+ground.front = 24
+air.back = 6
+air.front = 6
+height = 36
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -72
+mid.pos = 0, -48
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 1.8
+walk.back = -1.6
+run.fwd  = 3.75, 0
+run.back = -5.5,-1.2
+jump.neu = 0,-8
+jump.back = -2.25
+jump.fwd = 2.25
+runjump.fwd = 3,-9
+
+[Movement]
+yaccel = .45
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankPain = 24
+BC.VoiceBankKO = 2
+BC.VoiceBankWeakKO = 2
+BC.VoiceBankCrazeCancel = 3
+BC.VoiceBankGuardBreak = 5
+BC.VoiceBankThrowTech = 4
+BC.VoiceBankHeartBreaker = 3
+BC.VoiceBankExert = 24
+
+[Quotes]
+victory0  = "(I HAVE ASSERTED MY POWER. NOW WHAT SAY YOU?)"
+victory1  = "(AM I AN APEX YET? NOT UNTIL I'VE BEATEN THE REST OF YOU TO DUST!)"
+victory2  = "(FEAR NOT THE THUNDER BUT MY LIGHTNING!)"
+victory3  = "(DO YOU RESPECT ME YET? HAVE I NOT SHOWN MY PROWESS TO YOU?)"
+victory4  = "(I ONLY FIGHT HUMANS, NOT CONSUME THEM. THEY TASTE OF WEAKNESS ANYWAYS.)"
+victory5  = "(I DO WISH I COULD SPEAK YOUR TONGUE. I REALLY PONDER WHY YOU PEOPLE KEEP TALKING ABOUT GRUBS.)"
+victory6  = "(I DON'T WISH TO KILL YOU. I JUST WANT TO BE APPRECIATED LIKE THE REST OF YOU.)"
+victory7  = "(AN OUTSTRETCHED LIMB. THIS IS A SIGN OF A GOOD FIGHT, YES?)"
+victory8  = "(I HOLD NO GRUDGE ON MY OPPONENTS. IF YOU WANT A REMATCH JUST TO QUELL YOURS, I WON'T HOLD BACK!)"
+victory9  = "(IF YOU'RE TIRED, I CAN BRING YOU SOME SAP. NOTHING REJUVENATES ME LIKE SOME GOOD OL' TREE SAP!)"
+victory10 = "(YOU'VE NEVER SEEN ANYONE LIKE ME BEFORE. RIGHT?)" ; AJIT
+victory11 = "(HOW HAVE YOU SEEN THIS BEFORE? AND WHAT IS A 'SUMO'?)" ; TSUG
+victory12 = "(FROM NOW ON, PICK FIGHTS YOU KNOW YOU CAN WIN! YOU'RE CLEARLY NOT CUT FOR THE WILD!)" ; TSUK
+victory13 = "(STRANGE MAN. HE MOVES LIKE A COCKROACH.)" ; SHER
+victory14 = "(WHAT IS THIS STENCH THAT COMES OFF OF YOU? DO YOU NEED A BATH?)" ; SHEX
+victory15 = "(DON'T TAKE ME LIGHTLY. I'VE HELD MY OWN BEFORE, AND I WILL EVERY TIME!)" ; WALL
+victory16 = "(I THINK WE'RE TIED IN SOME WAY. THAT ENERGY FELT FAMILIAR...)" ; REAP
+victory17 = "(THIS ENERGY IS FAMILIAR, BUT CORRUPT. WHO DID THIS TO YOU?)" ; REAK
+victory18 = "(I'M NOT AN EVIL-DOER! CAN'T YOU FEEL THAT IN MY CLAWS? OF ALL THE HUMANS, YOU SHOULD BE THE ONE TAKING A MINUTE TO REASON WITH ME!)" ; JUST
+victory19 = "(YOU KIND OF UNDERSTAND ME, BUT WHAT IS 'GARBAGE WRESTLING'?)" ; JUSK
+victory20 = "(I KNOW SCARABS ARE SACRED IN YOUR EYES. THEN, WHAT ABOUT ME?)" ; BOUN
+victory21 = "(YOU TALK TOO MUCH FOR A WELP OF YOUR POWER! NOW YOU ARE SILENCED FOR GOOD.)" ; BAXT
+victory22 = "(EVEN IF MY LIGHTNING CAN'T WORK, MY HORN IS STILL SHARP ENOUGH TO SLASH YOU!)" ; CICI
+victory23 = "(YOU DON'T THINK I HAVEN'T TRAINED FOR THIS? STANDARD BEETLE DUELS ARE BEYOND ME NOW!)" ; GOLI
+victory24 = "(WAS I REALLY IMPORTANT IN THAT BOOK? OR IS THERE ANOTHER NAMED GOLIATH?)" ; NECC
+victory25 = "(YOU HAVE THE VOICE OF A CICADA. I'M GLAD I'VE SILENCED YOU.)" ; EMIC
+victory26 = "(BIOCORPS? I DON'T THINK THAT'S THE NAME OF MY MOTHER.)" ; LUCY
+victory27 = "(A FAKE IMAGE. YOU CAN GET INTO MY HEAD TOO?)" ; GABB
+victory28 = "(I HOPE YOU CAN UNDERSTAND MY TRUE INTENT. I JUST WANT TO PROVE MYSELF LIKE THE REST OF YOU.)" ; ISAB
+victory29 = "(I FELL A MIGHTY KING TODAY! IS THIS ENOUGH FOR YOU TO GIVE ME YOUR RESPECT?)" ; TYRA
+victory30 = "(TRY STRIKING ME AGAIN. I'M A LIGHTNING ROD YOU CANNOT TOPPLE!)" ; IKUE
+victory31 = "(A WILD BEAST RAVAGES IN YOUR HEART, BUT YOU TRY TO SUPPRESS IT. I CAN ALMOST EMPATHIZE.)" ; TERI
+victory32 = "(THE FROG I DO NOT TRUST. I'VE HAD ISSUES WITH FROGS IN TIMES PAST.)" ; BERN
+victory33 = "(YOU SEEM TO GET ME. MAYBE WE CAN BE FRIENDS, WITCH OF FIRE.)" ; JANE
+victory69 = "[Bugs can't talk.]"
+victory97 = "(I DON'T TAKE KINDLY TO YOUR CHEAP COPY. YOU FAILED TO CAPTURE MY SOUL!)" ; GOLK
+victory98 = "(THAT IS NO MERE PERSON. NO FLESHBAG HAS THE MEAT OF MUD.)" ; KAHL
+victory99 = "(HOW DO PEOPLE SHOW YOU RESPECT? ALL THAT SPEWS FROM YOUR MOUTH IS POLLUTION AND GARBAGE!)" ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 31  -  Projectile Dist
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  [GOLI] Charge Motion L Length
+; 41  -  [GOLI] Charge Motion L Release
+; 42  -  [GOLI] Charge Motion R Length
+; 43  -  [GOLI] Charge Motion R Release
+; 44  -  [GOLI] Charge Motion D Length
+; 45  -  [GOLI] Charge Motion D Release
+; 46  -  [GOLI] Charge Motion U Length
+; 47  -  [GOLI] Charge Motion U Release
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Super Damage Dampening
+; 10 -  Final Damage Percentage
+; 15 -  Meter Halve
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

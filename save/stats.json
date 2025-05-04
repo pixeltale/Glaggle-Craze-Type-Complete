@@ -1,0 +1,14 @@
+{
+  "modes": {
+    "training": {
+      "playtime": 0
+    },
+    "netplayversus": {
+      "playtime": 10371.32
+    },
+    "versus": {
+      "playtime": 0
+    }
+  },
+  "playtime": 10371.32
+}

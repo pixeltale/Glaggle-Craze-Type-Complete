@@ -1,0 +1,503 @@
+[Statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = EnemyNear,Map(WinQuoteNum)
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "AJIT" && EnemyNear,Name != "AJIX" && EnemyNear,Name != "AJIK"
+trigger1 = EnemyNear,Name != "TSUG" && EnemyNear,Name != "TSUX" && EnemyNear,Name != "TSUK"
+trigger1 = EnemyNear,Name != "BOUN" && EnemyNear,Name != "BOUX" && EnemyNear,Name != "BOUK"
+trigger1 = EnemyNear,Name != "GABB" && EnemyNear,Name != "GABX" && EnemyNear,Name != "GABK"
+trigger1 = EnemyNear,Name != "ISAB" && EnemyNear,Name != "ISAX" && EnemyNear,Name != "ISAK"
+trigger1 = EnemyNear,Name != "TYRA" && EnemyNear,Name != "TYRX" && EnemyNear,Name != "TYRK"
+trigger1 = EnemyNear,Name != "IKUE" && EnemyNear,Name != "IKUX" && EnemyNear,Name != "IKUK"
+trigger1 = EnemyNear,Name != "BERN" && EnemyNear,Name != "BERX" && EnemyNear,Name != "BERK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "AJIT" && EnemyNear,Name != "AJIX" && EnemyNear,Name != "AJIK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+[State 0, WinQuote]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random <= 1
+trigger1 = Time = 1
+value = 69
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 160
+trigger1 = AnimElem = 3
+x = 12 
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 160
+trigger1 = AnimElem = 4
+x = 20
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 160
+trigger1 = AnimElem = 11
+trigger2 = AnimTime = 0
+x = -8
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 160
+trigger1 = AnimElem = 12
+x = -16
+[State 200, 2]
+type = PlaySnd
+triggerall = Anim = 160
+trigger1 = AnimElem = 2
+value = F0, 3
+
+;============================
+; RUN SOUND
+;============================
+
+[State 0, Snd Run Step]
+type = PlaySnd
+triggerall = Anim = 100 || Anim = 7050
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 10
+value = F2,2
+channel = 2
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimElem = 7
+x = 16
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimTime = 0
+x = 0
+
+;============================
+; AJIT - FX
+;============================
+
+[State 0, MapSet Fire Normal]
+type = MapSet
+triggerall = Time%8 = 1
+trigger1 = StateNo = 1000
+trigger2 = StateNo = 1050
+trigger3 = StateNo = 1300
+trigger4 = StateNo = 1350
+trigger5 = StateNo = 2000
+trigger6 = StateNo = 2400
+trigger7 = StateNo = 182
+map = "FXColor"
+value = ifelse(Var(59)=1,16300040,ifelse(Var(59)=2,16279552,ifelse(Var(59)=3,11061480,ifelse(Var(59)=4,11589632,ifelse(Var(59)=5,11061480,ifelse(Var(59)=6,51448,ifelse(Var(59)=7,2152696,ifelse(Var(59)=8,16261184,ifelse(Var(59)=9,12591336,ifelse(Var(59)=10,59616,ifelse(Var(59)=11,15212576,ifelse(Var(59)=12,2113784,ifelse(Var(59)=13,2142456,ifelse(Var(59)=14,16300040,ifelse(Var(59)=15,13166640,ifelse(Var(59)=16,6324472,ifelse(Var(59)=17,16265264,ifelse(Var(59)=18,14156024,ifelse(Var(59)=19,6303824,ifelse(Var(59)=20,11010112,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15777800,43072)))))))))))))))))))))))
+
+[State 0, MapSet Fire DP]
+type = MapSet
+triggerall = Time%8 = 1 || MoveType = A && NumHelper(1010)
+trigger1 = StateNo = [1100,1200)
+trigger2 = StateNo = 956
+map = "FXColor"
+value = ifelse(Var(59)=1,2113784,ifelse(Var(59)=2,14696480,ifelse(Var(59)=3,6815880,ifelse(Var(59)=4,2146336,ifelse(Var(59)=5,16304136,ifelse(Var(59)=6,11014368,ifelse(Var(59)=7,8448216,ifelse(Var(59)=8,2113632,ifelse(Var(59)=9,5243048,ifelse(Var(59)=10,32992,ifelse(Var(59)=11,16293888,ifelse(Var(59)=12,13164792,ifelse(Var(59)=13,15212640,ifelse(Var(59)=14,16300040,ifelse(Var(59)=15,2146336,ifelse(Var(59)=16,6324472,ifelse(Var(59)=17,16265264,ifelse(Var(59)=18,14156024,ifelse(Var(59)=19,6303824,ifelse(Var(59)=20,11010112,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15777800,43072)))))))))))))))))))))))
+
+;============================
+; ITS A JOOOKE!
+;============================
+
+[State 0, DefenceMulSet]
+type = null;DefenceMulSet
+trigger1 = 0;Name = "AJIK"
+value = 0.666
+
+;============================
+; AJIX - EX
+;============================
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = RoundState != 2
+trigger2 = MoveType = H
+trigger3 = Ctrl
+trigger4 = StateNo = [3000,3005]
+map = "AjixEX"
+value = 0
+ignorehitpause = 1
+[State 0, EX Pal Add]
+type = MapAdd
+trigger1 = Map(AjixEX) > 0
+map = "AjixEX"
+value = -1
+ignorehitpause = 1
+[State 0, MapSet]
+type = RemapPal
+trigger1 = 1
+source = 1,1
+dest = 1 + (Map(AjixEX)%5=1||Map(AjixEX)%5>=3),Var(59) ;  + 2 * Map(AltPal)
+ignorehitpause = 1
+
+;============================
+; AJIX - FUEL TO THE FIRE
+;============================
+
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "AJIX"
+trigger1 = Map(AjixTimer)
+map = "AjixTimer"
+value = max(0.001,Map(AjixTimer)-0.0060+0.0015*Abs(Map(AjixStore)))
+ignorehitpause = 1
+[State 0, Map Flare Level Storage Reset]
+type = MapSet
+triggerall = Name = "AJIX"
+triggerall = Map(AjixStore)
+trigger1 = RoundState < 2
+trigger2 = Map(AjixTimer) = 0.001
+trigger2 = Map(AjixStore) < 0
+trigger3 = Map(AjixTimer)
+trigger3 = StateNo = [2000,3000) || RoundState != 2
+map = "AjixStore"
+value = 0
+ignorehitpause = 1
+[State 0, Map Flare Level Storage Negative]
+type = MapSet
+triggerall = Name = "AJIX"
+trigger1 = Map(AjixTimer) = 0.001
+trigger1 = Map(AjixStore) > 0
+map = "AjixStore"
+value = -Map(AjixStore)
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "AJIX"
+trigger1 = Map(AjixTimer) = 0.001
+trigger2 = Map(AjixTimer)
+trigger2 = StateNo = [2000,3000) || RoundState != 2
+map = "AjixTimer"
+value = 0
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "AJIX"
+trigger1 = !Map(AjixTimer)
+trigger1 = Map(AjixStore) < 0
+map = "AjixTimer"
+value = 1
+ignorehitpause = 1
+[State 0, Map Flare Level Storage EX]
+type = MapSet
+triggerall = Name = "AJIX"
+triggerall = Time = 1
+triggerall = !Map(AjixTimer)
+trigger1 = StateNo = 1050
+trigger2 = StateNo = 1150
+trigger3 = StateNo = 1250
+trigger4 = StateNo = 1350
+trigger5 = StateNo = 1450
+map = "AjixStore"
+value = min(3,Map(AjixStore)+1)
+[State 0, Map Flare Level Storage CC]
+type = MapSet
+triggerall = Name = "AJIX"
+triggerall = Time = 1
+triggerall = !Map(AjixTimer)
+trigger1 = StateNo = 3005
+map = "AjixStore"
+value = min(3,Map(AjixStore)+Var(5))
+[State 0, Map Flare Level Storage CC]
+type = MapSet
+triggerall = Name = "AJIX"
+triggerall = Time = 1
+triggerall = !Map(AjixTimer)
+trigger1 = StateNo = 3200
+map = "AjixStore"
+value = min(3,Map(AjixStore)+2)
+
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "AJIX"
+trigger1 = Map(SpeedMod) != 1 + 0.125 * Map(AjixStore) * !!Map(AjixTimer)
+map = "SpeedMod"
+value = 1 + 0.125 * Map(AjixStore) * !!Map(AjixTimer)
+ignorehitpause = 1
+[State 0, VarSet]
+type = VarSet
+triggerall = Name = "AJIX"
+trigger1 = Var(40) != 2 * Map(AjixStore) * !!Map(AjixTimer)
+v = 40
+value = 1 * Map(AjixStore) * !!Map(AjixTimer)
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+triggerall = Name = "AJIX"
+triggerall = Var(30) = 0
+trigger1 = Map(AjixTimer)
+v = 30
+value = 5 + (Map(AjixStore)<0)
+ignorehitpause = 1
+
+;============================
+; VAR 30 - AFTERIMAGE
+;============================
+
+[State 0, Var AfterImage Turn Off]
+type = VarSet
+triggerall = Var(30)
+triggerall = Name = "AJIX"
+trigger1 = Var(30) = [2,4]
+trigger1 = StateNo != [2000,3000)
+trigger2 = MoveType = H 
+trigger3 = Var(30) = 1 && !Var(11)
+trigger4 = Var(30) = 5 && (Map(AjixTimer) = 0 || Map(AjixStore) < 0)
+trigger5 = Var(30) = 6 && (Map(AjixTimer) = 0 || Map(AjixStore) > 0)
+v = 30
+value = 0
+
+;============================
+; VAR 40 - TANDEM LINK
+;============================
+
+[State 0, Var Dire Gain]
+type = VarSet
+triggerall = Name = "AJIT"
+triggerall = NumTarget
+trigger1 = MoveHit && Var(8) = 1
+trigger1 = Var(10) = 2
+v = 40
+value = min(4,Var(40)+1)
+ignorehitpause = 1
+
+;============================
+; VAR 41 - FUEL TO THE FIRE
+;============================
+
+[State 0, VarSet]
+type = VarSet
+triggerall = RoundState = 2
+trigger1 = Name = "AJIX"
+v = 41
+value = (command = "holdc" || command = "holdy" && command = "holdb")
+ignorehitpause = 1
+[State 0, ChangeState]
+type = ChangeState
+triggerall = Name = "AJIX"
+triggerall = Var(41)
+triggerall = RoundState = 2
+triggerall = MoveContact || StateNo = [1000,1100)
+trigger1 = StateNo = [200,800) && MoveType = I
+trigger2 = StateNo = [1000,2000) && MoveType = I
+trigger2 = StateNo != 1100
+value = 950 + 5 * (Map(AjixStore) && !Map(AjixTimer) && map(p_Fd))
+
+;========================================================
+; MAPS! - SIDE-S TRAIT
+;========================================================
+
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "AJIK"
+triggerall = Map(AjikBonus) > 0
+trigger1 = RoundState < 2
+trigger2 = EnemyNear,Var(51) && MoveType = H
+map = "AjikBonus"
+value = 0
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "AJIK"
+triggerall = Map(AjikBonus) > 0
+trigger1 = Map(AjikCool) = 0
+trigger1 = StateNo != [200,3000)
+map = "AjikBonus"
+value = max(0,Map(AjikBonus)-1)
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "AJIK"
+triggerall = Map(AjikBonus) > 0
+trigger1 = StateNo = [200,3000)
+trigger2 = Map(AjikCool) = 0
+trigger3 = MoveContact
+map = "AjikCool"
+value = 64
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "AJIK"
+triggerall = Map(AjikBonus) > 0
+trigger1 = StateNo != [200,3000)
+map = "AjikCool"
+value = max(0,Map(AjikCool)-1)
+ignorehitpause = 1
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) != 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1 
+trigger1 = StateNo = 210
+trigger2 = StateNo = 310
+trigger3 = StateNo = 410
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610
+trigger6 = StateNo = 710
+trigger7 = StateNo = 205 || StateNo = 215
+trigger8 = StateNo = 305 || StateNo = 306 || StateNo = 315
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 1100 || StateNo = 1150
+trigger2 = StateNo = 1200 || StateNo = 1205 || StateNo = 1250
+trigger3 = StateNo = 1300 || StateNo = 1350
+trigger4 = StateNo = 940 || StateNo = 902
+trigger5 = StateNo = 1500
+trigger6 = StateNo = 956 || StateNo = [965,968]
+trigger7 = StateNo = 1600
+trigger8 = StateNo = 1700
+trigger9 = StateNo = 1800
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S X]
+type = VarSet
+;triggerall = Var(10) != 2
+trigger1 = StateNo = 1402 && Time = 80
+trigger2 = StateNo = 1460 && AnimElem = 18, 2
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+fv = 15
+value = 0.5
+
+;========================================================
+; FVAR 20 - FUEL TO THE FIRE
+;========================================================
+
+[State 0, VarSet Default Trait Damage]
+type = VarSet
+trigger1 = FVar(20) != 1.0 && RoundState < 2
+trigger2 = FVar(20) != (1.0 + (Var(40) * 0.05)) && Name != "AJIK"
+fv = 20
+value = 1.0 + (Var(40) * 0.05)
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "%f";  %d %f"
+params = p2dist x
+ignorehitpause = 1

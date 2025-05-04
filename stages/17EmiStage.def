@@ -1,0 +1,320 @@
+;--------------------------------------------------------
+[Info]
+name = "Emi Stage"
+displayname = "USA: Torii Stadium" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+attachedchar = ZZZStageSFX.def
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 75
+color = 0,0,0
+yscale = .2
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 100
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/c_emi.mp3
+bgmloopstart = 2741872
+bgmloopend = 8843321
+;-------------------------------------
+[BGdef]
+spr = 17EmiStage.sff
+debugbg = 0
+;----------
+
+[BG Skybox]
+type  = normal
+spriteno = 2, 2
+layerno = 0
+start = 0, -270
+delta = .3, .3
+mask  = 1
+
+[BG Clouds]
+type  = normal
+spriteno = 2, 1
+layerno = 0
+start = 0, -270
+delta = .4, .4
+mask  = 1
+
+[BG City]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = 0, -270
+delta = .6, .6
+mask  = 1
+
+[BG Stadium]
+type  = normal
+spriteno = 2, 3
+layerno = 0
+start = 75, -200
+delta = .7, .7
+mask  = 1
+
+[BG Lantern Path 3]
+type  = normal
+spriteno = 1, 3
+layerno = 0
+start = 0, -270
+delta = .89, .98
+mask  = 1
+
+[BG Lantern Path 2]
+type  = normal
+spriteno = 1, 2
+layerno = 0
+start = 0, -270
+delta = .91, .98
+mask  = 1
+
+[BG Lantern Path 1]
+type  = normal
+spriteno = 1, 1
+layerno = 0
+start = 0, -270
+delta = .93, .98
+mask  = 1
+
+[BG Stairs]
+type  = normal
+spriteno = 1, 4
+layerno = 0
+start = 0, -270
+delta = .95, .98
+mask  = 1
+
+[BG City Floor]
+type  = normal
+spriteno = 1, 0
+layerno = 0
+start = 0, -270
+delta = .99, .99
+mask  = 1
+
+[BG Zuri Nazari]
+type  = anim
+actionno = 4
+layerno = 0
+start = 0, -290
+delta = .99, .99
+mask  = 1
+
+[Begin Action 4] ;Zuri
+5,0,0,0,10
+5,1,0,0,10
+5,2,0,0,10
+
+[BG Sadie Knoxx]
+type  = anim
+actionno = 5
+layerno = 0
+start = 0, -290
+delta = .99, .99
+mask  = 1
+
+[Begin Action 5] ;Sadie
+6,0,0,0,11
+6,1,0,0,11
+6,2,0,0,11
+
+[BG Marzipan]
+type  = anim
+actionno = 6
+layerno = 0
+start = 0, -270
+delta = .99, .99
+mask  = 1
+
+[Begin Action 6] ;Marzipan
+7,0,0,0,13
+7,1,0,0,13
+7,2,0,0,13
+7,1,0,0,13
+
+[BG Gerni]
+type  = anim
+actionno = 7
+layerno = 0
+start = 0, -265
+delta = .99, .99
+mask  = 1
+
+[Begin Action 7] ;Gerni
+8,0,0,0,8
+8,1,0,0,8
+8,2,0,0,8
+8,3,0,0,8
+
+[BG Mie Mielan]
+type  = anim
+actionno = 8
+layerno = 0
+start = 0, -290
+delta = .99, .99
+mask  = 1
+
+[Begin Action 8] ;Mie
+9,0,0,0,10
+9,1,0,0,10
+9,0,0,0,10
+9,1,0,0,10
+9,0,0,0,10
+9,1,0,0,10
+9,0,0,0,10
+9,1,0,0,10
+9,0,0,0,50
+9,2,0,0,10
+9,0,0,0,50
+
+[BG Pool]
+type  = anim
+actionno = 1
+layerno = 0
+start = 0, -270
+delta = 1, 1
+mask  = 1
+
+[Begin Action 1] ;This is the first time I had to have the main floor be an animated object
+0,0,0,0,15
+0,1,0,0,15
+0,2,0,0,15
+0,3,0,0,15
+
+[BG Fountain Far]
+type  = anim
+actionno = 2
+layerno = 0
+start = 0, -270
+delta = 1, 1
+mask  = 1
+
+[Begin Action 2] ;Fountain Far
+4,0,0,0,8
+4,1,0,0,8
+4,2,0,0,8
+4,3,0,0,8
+4,4,0,0,8
+4,2,0,0,8
+4,3,0,0,8
+4,4,0,0,8
+4,2,0,0,8
+4,3,0,0,8
+4,4,0,0,8
+4,2,0,0,8
+4,3,0,0,8
+4,4,0,0,8
+4,2,0,0,8
+4,3,0,0,8
+4,4,0,0,8
+4,2,0,0,8
+4,3,0,0,8
+4,4,0,0,8
+4,2,0,0,8
+4,3,0,0,8
+4,4,0,0,8
+4,2,0,0,8
+4,3,0,0,8
+4,4,0,0,8
+4,2,0,0,8
+4,3,0,0,8
+4,4,0,0,8
+4,2,0,0,8
+4,3,0,0,8
+4,4,0,0,8
+4,5,0,0,8
+4,6,0,0,8
+4,7,0,0,8
+-1,0,0,0,272
+
+[BG Fountain Close]
+type  = anim
+actionno = 3
+layerno = 1
+start = 0, -270
+delta = 1, 1
+mask  = 1
+
+[Begin Action 3] ;Fountain Close
+-1,0,0,0,272
+3,0,0,0,8
+3,1,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,4,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,4,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,4,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,4,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,4,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,4,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,4,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,4,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,4,0,0,8
+3,2,0,0,8
+3,3,0,0,8
+3,4,0,0,8
+3,5,0,0,8
+3,6,0,0,8
+3,7,0,0,8

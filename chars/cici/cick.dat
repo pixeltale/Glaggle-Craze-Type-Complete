@@ -1,0 +1,56 @@
+<#800070>:Unique Trait:</>		"Soldier Type: Amorphous Nano Defense"
+_CCmoves will summon Poseidon to attack from a puddle if one
+is active, or from beside Ci-Ci if there isn't a puddle.
+Poseidon will drop a puddle once he has attacked.
+
+<#800070>:Craze Technique:</>
+Sweat Proud		^CT
+_!Water Displacement		_F^CT or _B^CT
+_!Stop n' Swap		_D^CT
+
+<#800070>:Throws:</>
+Are You Ready For This?		^GP
+Oops!		_B^GP
+Cowabunga!		_AO^GP
+
+<#800070>:Command Normals:</>
+Swordfish Swing		_CH_F^SP
+Manta Ray Press		_AO_D^SP
+
+<#800070>:Special Moves:</>
+Scuba Scuba Scuba!		_QCF^LP
+Poseidon! Scuba Scuba Scuba!_CC		_CH_QCF^SP
+Bullshark Bullcharge		_QCF^LK
+Poseidon! Bullshark Bullcharge_CC		_CH_QCF^SK
+Poseidon! Iceberg Bump_CC		_CH_QCB^LP
+Poseidon! Hull Piercer_CC		_CH_QCB^SP
+Hydrodynamic Design		_CH_QCB^K
+
+<#800070>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Super Duper Swordfish Swing		_CH_QCF_QCF^P
+_! Cancel		^K
+Catch of the Day_CC		_HCB^2P or _360^2P
+
+<#800070>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Poseidon! Super Duper Scuba Scuba Scuba!_CC		_QCB_QCB^2P
+
+<#800070>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Sudden Downpour Smackdown		_AA_QCF_QCF^2K or _QCB_QCB^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

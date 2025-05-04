@@ -1,0 +1,174 @@
+;-------------------------------------------------------------------------------
+[Characters]
+ajit/ajik.def, stages/1AjitStage.def, includestage=0, arcadepath=chars/ajit/arcadeS.lua, music=sound/c_ajit.mp3 255 1200 6636818, order=1
+ajit/ajix.def, stages/1AjitStage.def, includestage=0, arcadepath=chars/ajit/arcadeL.lua, music=sound/c_ajit.mp3 255 1200 6636818, order=1
+ajit, stages/1AjitStage.def, includestage=0, arcadepath=chars/ajit/arcadeC.lua, music=sound/c_ajit.mp3 255 1200 6636818, order=1
+BLANKSPACE
+randomselect
+BLANKSPACE
+tsug, stages/2TsugumiStage.def, includestage=0, arcadepath=chars/tsug/arcadeC.lua, music=sound/c_tsug.mp3 255 1419129 6381595, order=1
+tsug/tsux.def, stages/2TsugumiStage.def, arcadepath=chars/tsug/arcadeL.lua, includestage=0, music=sound/c_tsug.mp3 255 1419129 6381595, order=1
+tsug/tsuk.def, stages/2TsugumiStage.def, arcadepath=chars/tsug/arcadeS.lua, includestage=0, music=sound/c_tsug.mp3 255 1419129 6381595, order=1
+;LINKBREAK
+sher/shek.def, stages/3EvilShermStage.def, includestage=0, arcadepath=chars/sher/arcadeS.lua,  music=sound/c_sher.mp3 255 370616 6721305, order=1
+sher/shex.def, stages/3ShermStage.def, includestage=0, arcadepath=chars/sher/arcadeL.lua,  music=sound/c_sher.mp3 255 370616 6721305, order=1
+sher, stages/3ShermStage.def, includestage=0, arcadepath=chars/sher/arcadeC.lua, music=sound/c_sher.mp3 255 370616 6721305, order=1
+BLANKSPACE
+BLANKSPACE
+BLANKSPACE
+wall, stages/4WallaceStage.def, includestage=0, arcadepath=chars/wall/arcadeC.lua, music=sound/c_wall.mp3 255 7151947 11960306, order=1
+wall/walx.def, stages/4WallaceStage.def, includestage=0, arcadepath=chars/wall/arcadeL.lua, music=sound/c_wall.mp3 255 7151947 11960306, order=1
+wall/walk.def, stages/4WallaceStage.def, includestage=0, arcadepath=chars/wall/arcadeS.lua, music=sound/c_wall.mp3 255 7151947 11960306, order=1
+;LINKBREAK
+reap/reak.def, stages/5ReaperStage.def, includestage=0, arcadepath=chars/reap/arcadeS.lua, music=sound/c_reap.mp3 255 699344 9580904, order=1
+reap/reax.def, stages/5ReaperStage.def, includestage=0, arcadepath=chars/reap/arcadeL.lua, music=sound/c_reap.mp3 255 699344 9580904, order=1
+reap, stages/5ReaperStage.def, includestage=0, arcadepath=chars/reap/arcadeC.lua, music=sound/c_reap.mp3 255 699344 9580904, order=1
+BLANKSPACE
+BLANKSPACE
+BLANKSPACE
+just, stages/6LaJusticiaStage.def, includestage=0, music=sound/c_just.mp3 255 145290 5905290, order=1, arcadepath=chars/just/arcadeC.lua
+just/jusx.def, stages/6LaJusticiaStage.def, includestage=0, music=sound/c_just.mp3 255 145290 5905290, order=1, arcadepath=chars/just/arcadeL.lua 
+just/jusk.def, stages/6LaJusticiaStage.def, includestage=0, music=sound/c_just.mp3 255 145290 5905290, order=1, arcadepath=chars/just/arcadeS.lua 
+;LINKBREAK
+boun/bouk.def, stages/8BoundaryStage.def, includestage=0, music=sound/c_boun.mp3 255 850598 5215843, order=1, arcadepath=chars/boun/arcadeS.lua
+boun/boux.def, stages/8BoundaryStage.def, includestage=0, music=sound/c_boun.mp3 255 850598 5215843, order=1, arcadepath=chars/boun/arcadeL.lua
+boun, stages/8BoundaryStage.def, includestage=0, music=sound/c_boun.mp3 255 850598 5215843, order=1, arcadepath=chars/boun/arcadeC.lua
+BLANKSPACE
+BLANKSPACE
+BLANKSPACE
+baxt, stages/9BaxterStage.def, includestage=0, music=sound/c_baxt.mp3 255 1838900 6288004, order=1, arcadepath=chars/baxt/arcadeC.lua
+baxt/baxx.def, stages/9BaxterStage.def, includestage=0, music=sound/c_baxt.mp3 255 1838900 6288004, order=1, arcadepath=chars/baxt/arcadeL.lua
+baxt/baxk.def, stages/9BaxterStage.def, includestage=0, music=sound/c_baxt.mp3 255 1838900 6288004, order=1, arcadepath=chars/baxt/arcadeS.lua
+;LINKBREAK
+cici/cick.def, stages/11CiCiStage.def, includestage=0, music=sound/c_cici.mp3, order=1, arcadepath=chars/cici/arcadeS.lua
+cici/cicx.def, stages/11CiCiStage.def, includestage=0, music=sound/c_cici.mp3, order=1, arcadepath=chars/cici/arcadeL.lua
+cici, stages/11CiCiStage.def, includestage=0, music=sound/c_cici.mp3, order=1, arcadepath=chars/cici/arcadeC.lua
+BLANKSPACE
+BLANKSPACE
+BLANKSPACE
+goli, stages/15GoliathStage.def, includestage=0, music=sound/c_goli.mp3 255 1276 6469544, order=1, arcadepath=chars/goli/arcadeC.lua
+goli/golx.def, stages/15GoliathStage.def, includestage=0, music=sound/c_goli.mp3 255 1276 6469544, order=1, arcadepath=chars/goli/arcadeL.lua
+goli/golk.def, stages/15GoliathStage.def, includestage=0, music=sound/c_goli.mp3 255 1276 6469544, order=1, arcadepath=chars/goli/arcadeS.lua
+;LINEBREAK
+necc/neck.def, stages/16NecrossStage.def, includestage=0, music=sound/c_necc.mp3, order=1, arcadepath=chars/necc/arcadeS.lua
+necc/necx.def, stages/16NecrossStage.def, includestage=0, music=sound/c_necc.mp3, order=1, arcadepath=chars/necc/arcadeL.lua
+necc, stages/16NecrossStage.def, includestage=0, music=sound/c_necc.mp3, order=1, arcadepath=chars/necc/arcadeC.lua
+BLANKSPACE
+BLANKSPACE
+BLANKSPACE
+emic, stages/17EmiStage.def, includestage=0, music=sound/c_emi.mp3 255 2741872 8843321, order=1, arcadepath=chars/emic/arcadeC.lua
+emic/emix.def, stages/17EmiStage.def, includestage=0, music=sound/c_emi.mp3 255 2741872 8843321, order=1, arcadepath=chars/emic/arcadeL.lua
+emic/emik.def, stages/17EmiStage.def, includestage=0, music=sound/c_emi.mp3 255 2741872 8843321, order=1, arcadepath=chars/emic/arcadeS.lua
+;LINEBREAK
+lucy/luck.def, stages/18LucyStage.def, includestage=0, music=sound/c_lucy.mp3, order=1, arcadepath=chars/lucy/arcadeS.lua
+lucy/lucx.def, stages/18LucyStage.def, includestage=0, music=sound/c_lucy.mp3, order=1, arcadepath=chars/lucy/arcadeL.lua
+lucy, stages/18LucyStage.def, includestage=0, music=sound/c_lucy.mp3, order=1, arcadepath=chars/lucy/arcadeC.lua
+BLANKSPACE
+BLANKSPACE
+BLANKSPACE
+gabb, stages/19GABBYStage.def, includestage=0, music=sound/c_gabb.mp3 255 913492 7873566, order=1, arcadepath=chars/gabb/arcadeC.lua
+gabb/gabx.def, stages/19GABBYStage.def, includestage=0, music=sound/c_gabb.mp3 255 913492 7873566, order=1, arcadepath=chars/gabb/arcadeL.lua
+gabb/gabk.def, stages/19GABBYStage.def, includestage=0, music=sound/c_gabb.mp3 255 913492 7873566, order=1, arcadepath=chars/gabb/arcadeS.lua
+;LINEBREAK
+isab/isak.def, stages/14IsabellaStage.def, includestage=0, sound/c_isab.mp3 255 1908136 4906543, order=2, arcadepath=chars/isab/arcadeS.lua
+isab/isax.def, stages/14IsabellaStage.def, includestage=0, sound/c_isab.mp3 255 1908136 4906543, order=2, arcadepath=chars/isab/arcadeL.lua
+isab, stages/14IsabellaStage.def, includestage=0, sound/c_isab.mp3 255 1908136 4906543, order=2, arcadepath=chars/isab/arcadeC.lua
+BLANKSPACE
+BLANKSPACE
+BLANKSPACE
+tyra, stages/20TYRANTStage.def, includestage=0, music=sound/c_tyra.mp3 255 1276 6469544, order=1, arcadepath=chars/tyra/arcadeC.lua
+tyra/tyrx.def, stages/20TYRANTStage.def, includestage=0, music=sound/c_tyra.mp3 255 1276 6469544, order=1, arcadepath=chars/tyra/arcadeL.lua
+tyra/tyrk.def, stages/20TYRANTStage.def, includestage=0, music=sound/c_tyra.mp3 255 1276 6469544, order=1, arcadepath=chars/tyra/arcadeS.lua
+;LINKBREAK
+ikue/ikuk.def, stages/7IkueStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_ikue.mp3 255 2206614 7774620, order=1, arcadepath=chars/ikue/arcadeS.lua
+ikue/ikux.def, stages/7IkueStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_ikue.mp3 255 2206614 7774620, order=1, arcadepath=chars/ikue/arcadeL.lua
+ikue, stages/7IkueStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_ikue.mp3 255 2206614 7774620, order=1, arcadepath=chars/ikue/arcadeC.lua
+BLANKSPACE
+BLANKSPACE
+BLANKSPACE
+teri, stages/21TeriStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_teri.mp3 255 3456 5501516, order=1, arcadepath=chars/teri/arcadeC.lua
+teri/terx.def, stages/21TeriStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_teri.mp3 255 3456 5501516, order=1, arcadepath=chars/teri/arcadeL.lua
+teri/terk.def, stages/21TeriStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_teri.mp3 255 3456 5501516, order=1, arcadepath=chars/teri/arcadeS.lua
+;LINKBREAK
+bern/berk.def, stages/12BernieStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_bern.mp3 255 1288533 8940479, order=1, arcadepath=chars/bern/arcadeS.lua
+bern/berx.def, stages/12BernieStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_bern.mp3 255 1288533 8940479, order=1, arcadepath=chars/bern/arcadeL.lua
+bern, stages/12BernieStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_bern.mp3 255 1288533 8940479, order=1, arcadepath=chars/bern/arcadeC.lua
+BLANKSPACE
+randomselect
+BLANKSPACE
+jane, stages/13JaneBaneStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_jane.mp3 255 2413778 8058854, order=1, arcadepath=chars/jane/arcadeC.lua
+jane/janx.def, stages/13JaneBaneStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_jane.mp3 255 2413778 8058854, order=1, arcadepath=chars/jane/arcadeL.lua
+jane/jank.def, stages/13JaneBaneStage.def, stages/XColosseumStage.def, includestage=0, music=sound/c_jane.mp3 255 2413778 8058854, order=1, arcadepath=chars/jane/arcadeS.lua
+
+;-------------------------------------------------------------------------------
+[ExtraStages]
+stages/1AjitStage.def
+stages/XAjitStage.def
+stages/2TsugumiStage.def
+stages/XTsugumiStage.def
+stages/3ShermStage.def
+stages/3EvilShermStage.def
+stages/4WallaceStage.def
+stages/XWallaceStage.def
+stages/YWallaceStage.def
+stages/5ReaperStage.def
+stages/XReaperStage.def
+stages/6LaJusticiaStage.def
+stages/XLaJusticiaStage.def
+stages/8BoundaryStage.def
+stages/XBoundaryStage.def
+stages/YBoundaryStage.def
+stages/9BaxterStage.def
+stages/XBaxterStage.def
+stages/11CiCiStage.def
+stages/XCiCiStage.def
+stages/15GoliathStage.def
+stages/XGoliathStage.def
+stages/16NecrossStage.def
+stages/XNecrossStage.def
+stages/17EmiStage.def
+stages/XEmiStage.def
+stages/18LucyStage.def
+stages/XLucyStage.def
+stages/19GABBYStage.def
+stages/XGABBYStage.def
+stages/14IsabellaStage.def
+stages/XIsabellaStage.def
+stages/20TYRANTStage.def
+stages/XTYRANTStage.def
+stages/7IkueStage.def
+stages/XIkueStage.def
+stages/21TeriStage.def
+stages/XTeriStage.def
+stages/12BernieStage.def
+stages/XBernieStage.def
+stages/13JaneBaneStage.def
+stages/XJaneBaneStage.def
+stages/0MuseumStage.def
+stages/XColosseumStage.def
+stages/XColosseumStageL.def
+stages/XColosseumStageM.def
+stages/10CopycatStage.def
+stages/XCopycatStage.def
+stages/0PracticeStage.def
+stages/0TrainingStage.def
+stages/XTrainingStage.def
+stages/YTrainingStage.def
+stages/ZTrainingStage.def
+stages/QTrainingStage.def
+
+;-------------------------------------------------------------------------------
+[Options]
+arcade.maxmatches = 7,1,0,0,0,0,0,0,0,0
+team.maxmatches = 7,1,0,0,0,0,0,0,0,0
+timeattack.maxmatches = 6,1,1,0,0,0,0,0,0,0
+survival.maxmatches = -1,0,0,0,0,0,0,0,0,0
+arcade.ratiomatches = 1-3:1, 3:1, 2:1, 2:1, 1:2, 3:1, 1-2:3
+arcade.AIramp.start = 2, 0
+arcade.AIramp.end   = 4, 2
+team.AIramp.start = 1, 0
+team.AIramp.end   = 3, 2
+ratio.AIramp.start = 1, 0
+ratio.AIramp.end   = 3, 2
+survival.AIramp.start = 0, -3
+survival.AIramp.end   = 16, 4

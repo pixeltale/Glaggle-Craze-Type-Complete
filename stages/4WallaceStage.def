@@ -1,0 +1,215 @@
+;--------------------------------------------------------
+[Info]
+name = "Wallace Stage"
+displayname = "Germany: Grand Geist's Manor" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+attachedchar = ZZZStageSFX.def
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/c_wall.mp3
+bgmloopstart = 7151947
+bgmloopend = 11960306
+;-------------------------------------
+[BGdef]
+spr = 4WallaceStage.sff
+debugbg = 0
+;----------
+
+[BG Sky]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, -250
+delta = .2, .8
+mask  = 0
+
+[BG YOU GOT A MOON! Become a Hitman]
+type  = normal
+spriteno = 0, 1
+layerno = 0
+start = 0, -250
+delta = .8, .9
+mask  = 1
+
+[BG Clouds]
+type  = normal
+spriteno = 0, 2
+layerno = 0
+start = 0, -250
+delta = .8, .9
+velocity = -.15,0
+tile = 1,0
+tilespacing = 0,0
+mask  = 1
+
+[BG Forest in the Back]
+type  = normal
+spriteno = 1, 0
+layerno = 0
+start = 0, -250
+delta = .79, .96
+mask  = 1
+
+[BG The Manor]
+type  = normal
+spriteno = 1, 2
+layerno = 0
+start = 0, -200
+delta = .98, .97
+mask  = 1
+
+[BG WHO COULDA GUESSED? Trees]
+type  = normal
+spriteno = 4, 2
+layerno = 0
+start = 0, -250
+delta = .88, .96
+mask  = 1
+
+[BG Road to the Manor]
+type  = normal
+spriteno = 1, 1
+layerno = 0
+start = 0, -200
+delta = .99, .99
+mask  = 1
+
+[BG More Trees R]
+type  = normal
+spriteno = 4, 4
+layerno = 0
+start = -150, -350
+delta = .89, .98
+mask  = 1
+
+[BG More Trees L]
+type  = normal
+spriteno = 4, 1
+layerno = 0
+start = 150, -200
+delta = .89, .98
+mask  = 1
+
+[BG Tree R]
+type  = normal
+spriteno = 4, 3
+layerno = 0
+start = -125, -325
+delta = .9, 1
+mask  = 1
+
+[BG Tree L]
+type  = normal
+spriteno = 4, 0
+layerno = 0
+start = 50, -200
+delta = .9, 1
+mask  = 1
+
+[BG Floor]
+type  = normal
+spriteno = 3, 0
+layerno = 0
+start = 0, 25
+delta = 1, 1
+mask  = 1
+;xscale = .9, 1.50
+;yscalestart = 175
+;yscaledelta = 0
+;width = 1100,1500
+
+[BG Bushes R]
+type  = normal
+spriteno = 2, 1
+layerno = 0
+start = -50, -220
+delta = 1, 1
+mask  = 1
+
+[BG Bushes L]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = -50, -220
+delta = 1, 1
+mask  = 1
+
+[BG Tombstones]
+type  = normal
+spriteno = 5, 0
+layerno = 0
+start = 0, -240
+delta = 1, 1
+mask  = 1
+
+;[BG Darkness.......]
+;type  = anim
+;actionno = 1
+;layerno = 0
+;start = 0, -250
+;delta = 0, 0
+;mask  = 0
+
+;[Begin Action 1] ;Nim Woo Counter
+;0,0, 0,0, 500, , AS0D256
+;0,0, 0,0, 20, , AS0D240
+;0,0, 0,0, 20, , AS0D230
+;0,0, 0,0, 20, , AS0D220
+;0,0, 0,0, 20, , AS0D210
+;0,0, 0,0, 500, , AS0D200
+;0,0, 0,0, 20, , AS0D210
+;0,0, 0,0, 20, , AS0D220
+;0,0, 0,0, 20, , AS0D230
+;0,0, 0,0, 20, , AS0D240
+;0,0, 0,0, 20, , AS0D256

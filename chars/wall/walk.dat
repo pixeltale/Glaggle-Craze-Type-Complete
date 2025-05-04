@@ -1,0 +1,58 @@
+<#8000c0>:Unique Trait:</>		"Der Rasenmahermann"
+The higher Wallace's Guard Meter is, the more damage he 
+deals. When his Guard Meter is flashing, all his attacks
+are considered Dire Counters.
+His Guard Meter is no longer reduced by half on a
+successful Heartbreaker, but instead when landing a Dire
+Counter, which will also refresh his Heartbreaker usage.
+_WAmoves have Armor that increase his Guard Pressure when
+blocking an attack.
+
+<#8000c0>:Craze Technique:</>
+Nebel_WA		_CH^CT
+Laufende Mann_WA		_CH_F^CT
+
+<#8000c0>:Throws:</>
+Kinder des Mais		^GP
+Eine Gute Ehe		_B^GP
+Grune Meile		_AO^GP
+
+<#8000c0>:Command Normals:</>
+Erweckung		_F^LK
+Grosser Fahrer		_F^SP 
+Dunkler Abstieg		_AO_D^SP
+
+<#8000c0>:Special Moves:</>
+Todeszone		_HCF^P
+Hochste Ubel		_DP^P
+Nachwehen		_HCB^P or _360^P
+Friedhofsschicht		_D_D^P
+Nachtflieger		_QCB^K or _QCF^K
+
+<#8000c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Silberne Kugel_WA		_QCF_QCF^P
+Der Mangler		_HCB^2P or _360^2P
+
+<#8000c0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Silberne Kugel EX_WA		_CH_QCF_QCF^2P
+
+<#8000c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Maximale Ubersteuerung		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

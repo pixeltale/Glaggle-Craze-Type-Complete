@@ -1,0 +1,122 @@
+;--------------------------------------------------------
+[Info]
+name = "Boundary Stage X"
+displayname = "Egypt: Sunrise Sands 'L'" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+attachedchar = ZZZStageSFX.def
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = .2
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/c_just.mp3
+bgmloopstart = 145290
+bgmloopend = 5905290
+;-------------------------------------
+[BGdef]
+spr = XBoundaryStage.sff
+debugbg = 0
+;----------
+
+[BG Sky]
+type  = normal
+spriteno = 3,0
+layerno = 0
+start = 260, -300
+delta = .7, .7
+mask  = 0
+id = 3
+
+[BG Wow! More Sand!]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = 100, -270
+delta = .8, .8
+mask  = 1
+
+[BG Even More Sand]
+type  = normal
+spriteno = 1, 1
+layerno = 0
+start = 0, -290
+delta = .85, .85
+mask  = 1
+
+[BG More Sand]
+type  = normal
+spriteno = 1, 0
+layerno = 0
+start = -200, -190
+delta = .9, .9
+mask  = 1
+
+[BG Sand]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, -290
+delta = 1, 1
+mask  = 1
+
+; BG Scroll
+[BGCtrlDef BG Scroll]
+ctrlID = 3
+[BGCtrl 1]
+type = VelSet
+time = 1000
+x = -.0650
+y = 0.02
+[BGCtrl 1]
+type = VelSet
+time = 9000
+x = 0
+y = 0

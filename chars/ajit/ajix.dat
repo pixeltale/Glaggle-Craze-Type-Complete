@@ -1,0 +1,66 @@
+<#e02800>:Unique Trait:</>		"Fuel to the Fire"
+Ajit has access to EX moves with the use of Craze Gauge.
+Consuming Craze Gauge adds a token to Ajit's Flare
+storage. When there's at least one token, Cosmic Dance can
+be used to briefly buff his damage and speed. The strength
+and duration of the buff is increased by how many tokens
+he had, and having at least 2 turns Cosmic Dance into a
+parry. Unless Ajit uses an All-Out Attack, his buff will
+turn into an equal-strength debuff once the duration ends.
+
+<#e02800>:Craze Technique:</>
+Burn Meditation							_AA^CT
+Cosmic Dance		_AA_F^CT
+
+<#e02800>:Throws:</>
+Wake Up!								^GP
+Back Shoot							_B^GP
+Sunset Driver						_AO^GP
+
+<#e02800>:Command Normals:</>
+Lion Fang								_F^LK
+One-Inch Punch								_F^LP
+
+<#e02800>:Special Moves:</>
+Lion's Sunspot		_QCF^P
+Roc Twister		_AA _QCB^K
+Tiger Strike		_DP^P
+_! Tiger's Whip		^P
+Dragon's Blaze		_HCB^P
+Cobra Gatling		_RDP^P
+
+<#e02800>:EX Special Moves:</> <#bebebe>(1 Gauge)</>
+Lion's Sunburst		_QCF^2P
+Garuda Twister		_AA _QCB^2K
+Tiger Assault		_DP^2P
+Dragon Inferno		_HCB^2P
+Cobra Minigun		_RDP^2P
+
+<#e02800>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Solar Flare		_QCF_QCF^P
+Heatstroke		_AA_QCB_QCB^K
+Exodus		_QCF_QCF^K
+
+<#e02800>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Exodus EX		_QCF_QCF^2K
+
+<#e02800>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Pillar of Fire, Pillar of Soul		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

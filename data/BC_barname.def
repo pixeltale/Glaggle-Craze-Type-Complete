@@ -1,0 +1,9 @@
+[FNT v2]
+fntversion = 2,00
+
+[Def]
+Type = bitmap
+Size = 10,27
+Spacing = -2,0
+Offset = 0,0
+File = BC_barname.sff

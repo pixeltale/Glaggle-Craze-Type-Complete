@@ -1,0 +1,147 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 0
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 14
+ground.front = 14
+air.back = 5
+air.front = 5
+height = 38
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -76
+mid.pos = 0, -38
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.1
+walk.back = -2.0
+run.fwd  = 5.25, 0
+run.back = -7.25,-1.5
+jump.neu = 0,-9
+jump.back = -3
+jump.fwd = 3
+runjump.fwd = 4,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankPain = 8
+BC.VoiceBankKO = 3
+BC.VoiceBankWeakKO = 2
+BC.VoiceBankCrazeCancel = 7
+BC.VoiceBankGuardBreak = 4
+BC.VoiceBankThrowTech = 6
+BC.VoiceBankHeartBreaker = 4
+BC.VoiceBankExert = 8
+
+[Quotes]
+victory0  = "I think I actually have the file on you, but I might have spilled coffee on it this morning. Oh well, not like you were special or anything."
+victory1  = "The only thing harder to take care of, other than you, was cleaning my glasses this morning."
+victory2  = "I'd say that was a waste of my time, but Mina enjoyed seeing you get your ass handed to you."
+victory3  = "Nah, I'm not gonna drink your blood. A wise vampire once told me to never let weakness stain my lips."
+victory4  = "...I don't care about this."
+victory5  = "If you thought that was painful, wait until I ask you a bunch of questions which you may not know the answers to. Grab a chair, this'll be long."
+victory6  = "Be fortunate you didn't hurt Mina during this. If you did, then you'd be in some deep trouble with me."
+victory7  = "The sun just gets me in a bad mood. Don't think it'll save you next time we meet."
+victory8  = "Say goodbye to your friends because you, my friend, are a liability. I can't let you escape."
+victory9  = "I'm told I'm better suited for deskwork than this. Guess they might be wrong."
+victory10 = "You can only see into the future for mere seconds, yet you caught wind of something happening in a few days. Interesting. Indulge me more on this." ; AJIT
+victory11 = "What if I told you you lost against Camille because she's just better than you? She actually takes notes, you don't." ; TSUG
+victory12 = "I'm glad you're not from House-RRENN, those guys don't shut up about their cause." ; TSUK
+victory13 = "After seeing that, I'm not gonna tell you where your 'master' is, but I will say he left his body pillow in the garbage for a good reason." ; SHER
+victory14 = "Did he really get the World Rending Fist because of his stupid game cliches? This guy doesn't make any sense." ; SHEX
+victory15 = "I know how much you hate hearing 'Brains VS. Brawn' but that's kinda our dynamic? Well, we had our fun." ; WALL
+victory16 = "Y'know, the reason why Mustapha Ibrahim disposed of you was to prevent war from happening, right? It wasn't the 'right' thing to do, but hey, there are worse outcomes." ; REAP
+victory17 = "QUASARS kinda let you off the leash on purpose, and if they did that, then a familiar face isn't too far behind." ; REAK
+victory18 = "The media makes fools of us all, which is why I stay in the shadows, not the light." ; JUST
+victory19 = "Yolanda, I know that's you. Ugh, these gimmicks are stupid." ; JUSK
+victory20 = "Given your performance just now, you should stop with the hero stuff. Someone else will take care of it." ; BOUN
+victory21 = "You may be a supercomputer, but it still takes some spirit to decipher good and bad info." ; BAXT
+victory22 = "He really is clueless to what his true purpose is. Better to let him sort this out instead of me." ; CICI
+victory23 = "Once a bug, always a bug, no matter what size or powers you get." ; GOLI
+victory24 = "I'm not big on faith given obvious reasons, but you know about an old 'friend' of mine. You have to oblige on giving me the details about him." ; NECC
+victory25 = "Shut up." ; EMIC
+victory26 = "Get a career change. I heard mimicry doesn't pay too well." ; LUCY
+victory27 = "The apparition from Gabriella Orlov's mind. How you could survive this long is beyond me, but I think you're on borrowed time." ; GABB
+victory28 = "I appreciate you trying to make a difference in this world, but you already have too much on your plate right now. Also, one of my friends wants to kill you." ; ISAB
+victory29 = "Thank goodness he shut his trap." ; TYRA
+victory30 = "I don't like being observed. Tell your world to stop looking in mine." ; IKUE
+victory31 = "In truth, you're a softie who doesn't want to hurt anyone. Sadly the world doesn't allow that." ; TERI
+victory32 = "Bernie Caddigan, if you're here, then you're missing a lot back home. You're not gonna believe it." ; BERN
+victory33 = "We don't have any of the Lunarunes you seek here. Or at least I don't. Look somewhere else, please." ; JANE
+victory69 = "You're pretty unlucky. Meeting me while I'm in a bad mood is just about as bad now as when I was my former self."
+victory97 = "Can't copy my brain? Then don't bother." ; LUCK
+victory98 = "You wanna keep messing around with vicious leaders like the Ancients and Rosemary for your 'precious' research? You wanna see what happens when you help them the hard way?" ; KAHL
+victory99 = "I never really found you funny, or entertaining for that matter. Interesting career choices, though." ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 31  -  Projectile Dist
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  [AJIT] 
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 56  -  What's My Name?
+; 58  -  Am I SHIFT? Q-SHIFT? Kahl?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 18 -  Craze Gauge Gain Multiplier
+; 15 -  Meter Reduction
+;---------------------------------------------------------------------------

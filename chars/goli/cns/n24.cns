@@ -1,0 +1,666 @@
+[statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = EnemyNear,Map(WinQuoteNum)
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "TSUG" && EnemyNear,Name != "TSUX" && EnemyNear,Name != "TSUK"
+trigger1 = EnemyNear,Name != "REAP" && EnemyNear,Name != "REAX"
+trigger1 = EnemyNear,Name != "JUST" && EnemyNear,Name != "JUSX"
+trigger1 = EnemyNear,Name != "BAXT" && EnemyNear,Name != "BAXX" && EnemyNear,Name != "BAXK"
+trigger1 = EnemyNear,Name != "CICI" && EnemyNear,Name != "CICX" && EnemyNear,Name != "CICK"
+trigger1 = EnemyNear,Name != "GOLI" && EnemyNear,Name != "GOLX" && EnemyNear,Name != "GOLK"
+trigger1 = EnemyNear,Name != "NECC" && EnemyNear,Name != "NECX" && EnemyNear,Name != "NECK"
+trigger1 = EnemyNear,Name != "TERI" && EnemyNear,Name != "TERX" && EnemyNear,Name != "TERK"
+trigger1 = EnemyNear,Name != "JANE" && EnemyNear,Name != "JANX" && EnemyNear,Name != "JANK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "GOLI" && EnemyNear,Name != "GOLX" && EnemyNear,Name != "GOLK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+[State 0, WinQuote]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random <= 1
+trigger1 = Time = 1
+value = 69
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 200, 2]
+type = PlaySnd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 5
+value = F0, 3
+
+;============================
+; FX COLOR
+;============================
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Name != "GOLK"
+trigger1 = RoundState >= 1 && Map(FXColor) = 0
+map = "FXColor"
+value = ifelse(Var(59)=1,16308256,ifelse(Var(59)=2,16291840,ifelse(Var(59)=3,2150648,ifelse(Var(59)=4,10020928,ifelse(Var(59)=5,16528,ifelse(Var(59)=6,12587072,ifelse(Var(59)=7,4249792,ifelse(Var(59)=8,10485800,ifelse(Var(59)=9,7352528,ifelse(Var(59)=10,16308416,ifelse(Var(59)=11,32872,ifelse(Var(59)=12,16308256,ifelse(Var(59)=13,12595328,ifelse(Var(59)=14,16308416,ifelse(Var(59)=15,41192,ifelse(Var(59)=16,15259848,ifelse(Var(59)=17,9973920,ifelse(Var(59)=18,14156024,ifelse(Var(59)=19,6303824,ifelse(Var(59)=20,11010112,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15777800,43072)))))))))))))))))))))))
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Name = "GOLK"
+trigger1 = RoundState >= 1 && Map(FXColor) = 0
+map = "FXColor"
+value = 15761408
+
+;============================
+; WINPOSE
+;============================
+
+[State 0, Snd Swing]
+type = PlaySnd
+triggerall = Anim = 181
+trigger1 = AnimElem = 4
+value = F0,2
+[State 0, Snd Swing]
+type = PlaySnd
+triggerall = Anim = 181
+trigger1 = AnimElem = 8
+value = F0,3
+
+;============================
+; FLY SOUND
+;============================
+
+[State 0, Snd Flitter]
+type = PlaySnd
+trigger1 = Anim = 181
+trigger1 = AnimElem = 13
+trigger2 = Anim = 181
+trigger2 = AnimElem = 15
+trigger3 = AnimElem = 2 && Anim = 102
+trigger4 = Time = 3 && StateNo = 105
+trigger5 = StateNo = 60
+trigger5 = Anim != 66
+trigger5 = Time%22 = 2
+trigger6 = Anim = 1451
+trigger6 = AnimElem = 5 || Time%12 = 1 && AnimElemNo(0) = [5,6]
+trigger7 = Anim = 110 || Anim = 115
+trigger7 = AnimElem = 2
+value = 60,0
+channel = 2
+
+[State 0, Explod Air Dash]
+type = Explod
+triggerall = Time%3 = 1
+trigger1 = StateNo = 110 && Time < 16
+trigger2 = StateNo = 115 && Time < 16
+anim = F87
+pos = -4+random%9,-8 - (GameTime%7) * 12
+postype = p1
+vel = ifelse(Vel X<0,4,-8),0
+accel = ifelse(Vel X<0,-0.5,1),0
+sprpriority = GameTime%5
+ownpal = 1
+
+;============================
+; FLIGHT
+;============================
+
+[State 0, Map Flight Reset]
+type = MapSet
+triggerall = Name = "GOLI"
+trigger1 = Map(FlightControl)
+trigger1 = StateType != A
+map = "FlightControl"
+value = 0
+[State 0, Map Flight Start]
+type = MapSet
+triggerall = Name = "GOLI"
+triggerall = Var(1)
+triggerall = StateType = A || StateNo = 1200
+triggerall = !(map(b_yb) && map(b_xa)) && Var(18) >= 1000
+trigger1 = StateNo = 50 && Time && Var(5)
+trigger1 = command = "up" || command = "upback" || command = "upfwd"
+trigger2 = command = "UU"
+trigger3 = map(b_y) && map(b_b) || map(b_yb)
+trigger4 = StateNo = 1200
+map = "FlightControl"
+value = 1
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "GOLI"
+triggerall = map(FlightControl) = 1 || StateNo = 60
+triggerall = !(map(b_yb) && map(b_xa)) && Var(18) >= 1000
+trigger1 = command = "holddown"
+trigger2 = StateNo = 60 && Time >= 8
+trigger2 = map(b_y) && map(b_b) || map(c) || map(b_yb)
+map = "FlightControl"
+value = 2
+
+;============================
+; STATIC CHARGE SIDE-C
+;============================
+
+[State 0, Map Reset]
+type = MapSet
+triggerall = Name = "GOLI"
+trigger1 = RoundState != 2
+trigger1 = Map(CStatic) != 0
+map = "CStatic"
+value = 0
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "GOLI"
+trigger1 = RoundState = 2
+trigger1 = Map(CStaticRate) != 1.0
+map = "CStaticRate"
+value = max(1,Map(CStaticRate)-0.075)
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "GOLI"
+trigger1 = !Var(54)
+trigger1 = RoundState = 2
+trigger1 = Map(CStatic) < 1000
+map = "CStatic"
+value = min(1000,map(CStatic)+Map(CStaticRate)*Map(CStaticLimit).0)
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "GOLI"
+trigger1 = Map(CStatic) <= 5
+trigger1 = Var(51)
+map = "CStaticLimit"
+value = 0.75
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "GOLI"
+trigger1 = Map(CStaticLimit) < 1.0
+trigger1 = !Var(51)
+map = "CStaticLimit"
+value = 1.0
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+triggerall = Name="GOLI"
+triggerall = Map(CStatic) >= 1000
+triggerall = Ctrl || StateNo < 2000 && MoveType != H
+trigger1 = GameTime%24 = 0
+anim = 2 + random%2
+ID = 3000
+pos = 0,-48 + 32 * (StateType=C)
+postype = p1  ;p2,front,back,left,right
+facing = ifelse(random<500,1,-1)
+vfacing = ifelse(random<500,1,-1)
+bindtime = 666
+sprpriority = 6
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+
+;============================
+; STATIC CHARGE SIDE-L
+;============================
+
+[State 0, Map Reset]
+type = MapSet
+triggerall = Name = "GOLX"
+triggerall = Map(GolxStatic)
+trigger1 = RoundState != 2
+trigger2 = MoveType = H && StateNo != [120,160)
+map = "GolxStatic"
+value = 0
+ignorehitpause = 1
+
+[State 0, Explod]
+type = Explod
+triggerall = Name="GOLX"
+triggerall = Map(GolxStatic)
+triggerall = !(EnemyNear,MoveType = H && EnemyNear,StateNo != [120,160) && EnemyNear,StateNo != [5000,6000))
+trigger1 = GameTime%20 = 0
+anim = 2 + random%2
+ID = 3000
+pos = 0,-48 + 32 * (EnemyNear,StateType=C)
+postype = p2  ;p2,front,back,left,right
+facing = ifelse(random<500,1,-1)
+vfacing = ifelse(random<500,1,-1)
+bindtime = 666
+sprpriority = 6
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Name = "GOLX" && RoundState = 2
+map = "SpeedMod"
+value = 1.0 + 0.25 * (!!Map(GolxStatic)&&Vel X>0)
+
+;============================
+; RAGE SIDE-S
+;============================
+
+[State 0, Map Rage Timer]
+type = MapAdd
+trigger1 = Map(GolkRage)
+trigger1 = !Var(54)
+trigger1 = !(Map(GolkRage) <= 0.30 && Var(51))
+map = "GolkRage"
+value = -0.20
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+trigger1 = Map(GolkRage) < 0
+map = "GolkRage"
+value = 0
+
+[State 0, Explod Super Aura]
+type = Explod
+triggerall = Name = "GOLK"
+trigger1 = Map(GolkRage)
+trigger1 = MoveType != H || StateNo = [120,160)
+trigger1 = GameTime%6 = 0
+anim = 2501
+pos = -const(size.ground.back)+random%abs(const(size.ground.front)*2),-random%abs(const(size.head.pos.y))
+postype = p1
+vel = Vel X * 0.1,Vel Y * 0.5
+pausemovetime = -1
+supermovetime = -1
+sprpriority = -2 + random%9
+ownpal = 1
+ignorehitpause = 1
+
+;============================
+; KING OF THE RING SIDE-S
+;============================
+
+[State 0, VarSet Side-S Buff]
+type = MapSet
+trigger1 = Name = "GOLK"
+trigger1 = RoundState = 2
+Map = "GolkRing"
+value = (-425 + Map(BackStageDist)) * 0.0005
+
+[State 0, VarSet]
+type = VarSet
+triggerall = RoundState = 2
+trigger1 = FVar(20) != 1 && Name != "GOLK"
+trigger2 = Name = "GOLK"
+fv = 20
+value = 1.0 + floor((Map(GolkRing)+0.05)*8.75) * 0.05 * (Name="GOLK") ;1 + (Map(GolkRing) * 0.5 * (Name="GOLK"))
+ignorehitpause = 1
+[State 0, DefenceMulSet]
+type = DefenceMulSet
+triggerall = RoundState = 2
+trigger1 = Name = "GOLK"
+value = 1.0 + floor((Map(GolkRing)+0.05)*8.75) * 0.05
+ignorehitpause = 1
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimElem = 8
+trigger2 = AnimElem = 9
+trigger3 = AnimTime = 0
+x = 8
+
+;============================
+; VAR 30 - AFTERIMAGE
+;============================
+
+[State 0, Var AfterImage Turn Off]
+type = VarSet
+triggerall = Var(30) 
+triggerall = Name = "GOLK"
+trigger1 = Var(30) > 1 
+trigger1 = StateNo != [2000,3000)
+trigger1 = !(Var(30) = 4 && Map(GolkRage))
+trigger2 = MoveType = H 
+trigger3 = Var(30) = 1 && !Var(11)
+trigger4 = Var(30) != 0 && RoundState != 2
+v = 30
+value = 0
+[State 0, Var SuperTrail]
+type = VarSet
+triggerall = Map(GolkRage)
+triggerall = Var(30) = 0
+triggerall = RoundState = 2
+trigger1 = StateNo != [2000,3000)
+trigger1 = MoveType != H
+v = 30
+value = 4
+
+;============================
+; VAR 31 - PROJECTILE DIST
+;============================
+
+[State 0, Var Reset]
+type = VarSet
+trigger1 = Var(31) != 0
+v = 31
+value = Var(31) * (NumHelper(1010)>0)
+
+;============================
+; VAR 40 - CHARGE MOTIONS
+;============================
+
+[State 0, VarSet Reset L]
+type = VarSet
+trigger1 = Var(41) >= 16
+trigger2 = Var(41) >= 8
+trigger2 = Var(40) < 64
+value = 0
+v = 40
+ignorehitpause = 1
+[State 0, VarSet Reset L]
+type = VarSet
+trigger1 = command = "holdback" && facing = 1
+trigger2 = command = "holdfwd" && facing = -1
+trigger3 = Var(41) >= 16
+trigger4 = Var(41) >= 8
+trigger4 = Var(40) < 64
+value = 0
+v = 41
+ignorehitpause = 1
+
+[State 0, VarAdd Charge L +1]
+type = VarAdd
+triggerall = Var(40) < 64
+trigger1 = command = "holdback" && facing = 1
+trigger2 = command = "holdfwd" && facing = -1
+trigger3 = Var(15) && facing = 1
+v = 40
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge L +1]
+type = VarAdd
+triggerall = Var(40) != 0
+trigger1 = !(command = "holdback" && facing = 1)
+trigger1 = !(command = "holdfwd" && facing = -1)
+v = 41
+value = 1
+ignorehitpause = 1
+
+[State 0, VarSet Reset R]
+type = VarSet
+trigger1 = Var(43) >= 16
+trigger2 = Var(43) >= 8
+trigger2 = Var(42) < 64
+value = 0
+v = 42
+ignorehitpause = 1
+[State 0, VarSet Reset R]
+type = VarSet
+trigger1 = command = "holdback" && facing = -1
+trigger2 = command = "holdfwd" && facing = 1
+trigger3 = Var(43) >= 16
+trigger4 = Var(43) >= 8
+trigger4 = Var(42) < 64
+value = 0
+v = 43
+ignorehitpause = 1
+
+[State 0, VarAdd Charge R +1]
+type = VarAdd
+triggerall = Var(42) < 64
+trigger1 = command = "holdback" && facing = -1
+trigger2 = command = "holdfwd" && facing = 1
+trigger3 = Var(15) && facing = -1
+v = 42
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge R +1]
+type = VarAdd
+triggerall = Var(42) != 0
+trigger1 = !(command = "holdback" && facing = -1)
+trigger1 = !(command = "holdfwd" && facing = 1)
+v = 43
+value = 1
+ignorehitpause = 1
+
+[State 0, VarSet Reset D]
+type = VarSet
+trigger1 = Var(45) >= 16
+trigger2 = Var(45) >= 8
+trigger2 = Var(44) < 64
+value = 0
+v = 44
+ignorehitpause = 1
+[State 0, VarSet Reset D]
+type = VarSet
+trigger1 = command = "holddown"
+trigger2 = Var(45) >= 16
+trigger3 = Var(45) >= 8
+trigger3 = Var(44) < 64
+value = 0
+v = 45
+ignorehitpause = 1
+
+[State 0, VarAdd Charge D +1]
+type = VarAdd
+triggerall = Var(44) < 64
+trigger1 = command = "holddown"
+trigger2 = Var(15)
+v = 44
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge D +1]
+type = VarAdd
+triggerall = Var(44) != 0
+trigger1 = !command = "holddown"
+v = 45
+value = 1
+ignorehitpause = 1
+
+[State 0, VarSet Reset U]
+type = VarSet
+trigger1 = Var(47) >= 16
+trigger2 = Var(47) >= 8
+trigger2 = Var(46) < 64
+value = 0
+v = 46
+ignorehitpause = 1
+[State 0, VarSet Reset U]
+type = VarSet
+trigger1 = command = "holdup"
+trigger2 = Var(47) >= 16
+trigger3 = Var(47) >= 8
+trigger3 = Var(46) < 64
+value = 0
+v = 47
+ignorehitpause = 1
+
+[State 0, VarAdd Charge U +1]
+type = VarAdd
+triggerall = Var(46) < 64
+trigger1 = command = "holdup"
+trigger2 = Var(15)
+v = 46
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge U +1]
+type = VarAdd
+triggerall = Var(46) != 0
+trigger1 = !command = "holdup"
+v = 47
+value = 1
+ignorehitpause = 1
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) != 1
+trigger1 = Var(51) = 0 && !NumHelper(2210)
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 210
+trigger2 = StateNo = 310
+trigger3 = StateNo = 410
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610
+trigger6 = StateNo = 710
+trigger7 = StateNo = 205
+trigger8 = StateNo = 215
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 900 || StateNo = 910 || StateNo = 930 ; CTech
+trigger2 = StateNo = 1000 || StateNo = 1050 ; ChBF+P
+trigger3 = StateNo = 1200 ; ChDU+P
+trigger4 = StateNo = 1300 ; ChDU+K
+trigger5 = StateNo = 1350 ; ChUD+K
+trigger6 = StateNo = 1400 || StateNo = 1450 ; QCB+P
+trigger7 = StateNo = 1500 || StateNo = 1550 ; ChDU+K
+trigger8 = StateNo = 1601
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S X]
+type = VarSet
+trigger1 = StateNo = 1210 && Time = 38
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+fv = 15
+value = 0.5
+
+;========================================================
+; SYSVAR 4 - RESET HITCOUNT / DIRE
+;========================================================
+
+[State 0, Var Reset HitCount Timer]
+type = VarAdd
+trigger1 = sysvar(4)
+sysvar(4) = -1
+[State 0, Var Reset HitCount]
+type = VarSet
+trigger1 = EnemyNear,sysvar(4) = 1
+v = 51
+value = 0
+[State 0, Var Reset Dire]
+type = VarSet
+trigger1 = EnemyNear,sysvar(4) = 1
+v = 11
+value = 0
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "%f  |  %d  |  %f  |  %f";  %d %f"
+params = Map(GolkRing),floor((Map(GolkRing)+0.05)*8.75),1.0 + floor((Map(GolkRing)+0.05)*8.75) * 0.05 * (Name="GOLK"),1.0 + floor((Map(GolkRing)+0.05)*8.75) * 0.05
+ignorehitpause = 1

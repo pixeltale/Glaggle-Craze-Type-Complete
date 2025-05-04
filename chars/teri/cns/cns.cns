@@ -1,0 +1,174 @@
+[Data]
+life = 950
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 17
+ground.front = 17
+air.back = 5
+air.front = 5
+height = 40
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -80
+mid.pos = 0, -48
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.0
+walk.back = -1.75
+run.fwd  = 4, 0
+run.back = -5.75,-1.5
+jump.neu = 0,-9
+jump.back = -2.75
+jump.fwd = 2.75
+runjump.fwd = 3,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 2
+BC.VoiceBankWeakKO = 2
+BC.VoiceBankHeartBreaker = 4
+BC.VoiceBankCrazeCancel = 6
+BC.VoiceBankPain = 13
+BC.VoiceBankGuardBreak = 2
+BC.VoiceBankThrowTech = 4
+BC.VoiceBankExert = 15
+
+[Quotes]
+victory0  = "(Teri) Hm. This might make a good painting."
+victory1  = "(Julie) Let's keep moving. I keep thinking about how upset they must be with us gone."
+victory2  = "(Teri) Don't step close to her again, or I'll make sure you can't."
+victory3  = "(Julie) Teri, you need to be more careful! I don't want you to have to hurt anyone else!"
+victory4  = "(Teri) Do you think we can get a drink around here? ...Well, if we win this tournament thing, maybe they'll pay us?"
+victory5  = "(Julie) I want to know more about this place, but... we've both got someone waiting for us."
+victory6  = "(Teri) Unless you know a way back home, get out of my way. I'm not saying it again."
+victory7  = "(Julie) Do you know anything about mysterious portals that could potentially take us back home? ...Well, it was worth asking, I guess."
+victory8  = "(Teri) Huh. That was actually almost fun. Reminds me of the better parts of bounty hunting."
+victory9  = "(Julie) Sorry you got all beat up and stuff but, uhm, we kinda have really important stuff to do. Mostly, not being here."
+victory10 = "(Teri) The strength of a lion? Do cats breathe fire around here?" ; AJIT
+victory11 = "(Teri) Hm. A similar fight, but not as good." ; TSUG
+victory12 = "(Teri) That's weird. I think I'm supposed to lose this fight." ; TSUK
+victory13 = "(Teri) I don't do 'commissions'. And I don't know what your 'main' is anyway." ; SHER
+victory14 = "(Teri) This is annoying. I used to at least get paid for beating up possessed." ; SHEX
+victory15 = "(Teri) I fought someone much smaller than me once. This fight had a similar outcome to that one." ; WALL
+victory16 = "(Teri) I wasn't ready to fight a robot. I dunno if I can sharpen my claws enough to cut through metal." ; REAP
+victory17 = "(Teri) I don't really care if you take over the world. I'm not supposed to be in it anyway." ; REAK
+victory18 = "(Teri) Hey! I think we're on the same side! I just so happen to have a huge bounty on my head." ; JUST
+victory19 = "(Teri) Not much of a criminal. Your bounty probably wouldn't have been worth my time." ; JUSK
+victory20 = "(Teri) I don't think those portals could take us home. He would've told us so before I knocked him out... probably." ; BOUN
+victory21 = "(Teri) I wonder if I could learn to spin like that. Seems like a neat trick." ; BAXT
+victory22 = "(Teri) I hate looking at you. It just makes me feel... cold." ; CICI
+victory23 = "(Teri) I've dealt with housecats scarier than you." ; GOLI
+victory24 = "(Teri) Sorry, but our types just don't match. I'm not exactly the most holy person." ; NECC
+victory25 = "(Teri) You play that guitar a lot like Erica does. Maybe you two can... team up? Whatever band people do." ; EMIC
+victory26 = "(Teri) Why do you keep throwing your surfboard at me? Stop that." ; LUCY
+victory27 = "(Teri) I'd ask her how to get back home, but I don't wanna hear her talk anymore." ; GABB
+victory28 = "(Teri) This place is starting to get to me. I keep remembering his face..." ; ISAB
+victory29 = "(Teri) That's a relief. If I could beat you, then you aren't who I thought you were." ; TYRA
+victory30 = "(Teri) Great, it's that look again. Are you going to ask me about some 'date' thing too?" ; IKUE
+victory31 = "(Teri) I don't know what's going on. We should just walk away and pretend this didn't happen." ; TERI
+victory32 = "(Teri) I'm guessing you guys like drinking, too? You should buy us some, then I'll be willing to team up with you." ; BERN
+victory33 = "(Teri) Oh, I get it, it all rhymes. That's weird." ; JANE
+victory46 = "(Teri) This is just stupid."
+victory47 = "(Teri) Since Erica likes me so much, do you think she'd be happier if there were two of me? ...What?" ; TERK
+victory48 = "(Teri) I'm a lot better with paint. Clay just feels weird. It's hard to get out of my claws, too, it seems." ; KAHL
+victory49 = "(Teri) You're going to tell us how to get back. I don't have anywhere else to be." ; SHIT
+victory50 = "(Julie) Listen, you seem nice... I wouldn't tell anyone else about your ability. You might regret who finds out about it." ; AJIT
+victory51 = "(Julie) More and more I keep wondering if the people we meet are otherworldly versions of... oh, sorry. Just thinking out loud." ; TSUG
+victory52 = "(Julie) Why are you looking at me like that!? I don't have any idea what you're talking about!" ; TSUK
+victory53 = "(Julie) It's sad to know this place also has people like us who... wait, WHAT made you look that way!?" ; SHER
+victory54 = "(Julie) Eep! There really are demons here! This guy's completely possessed!" ; SHEX
+victory55 = "(Julie) Eep! A huge, undead guy! I really hate this place!" ; WALL
+victory56 = "(Julie) Uhm, Teri, did you seriously just beat up a killer robot? Is this like some sorta sci-fi movie world!?" ; REAP
+victory57 = "(Julie) How much megalomania does this place need!? Can't you go crazy AFTER we're safe at home?" ; REAK
+victory58 = "(Julie) Justice? Are you here to arrest us!? ...Oh, right. Nevermind." ; JUST
+victory59 = "(Julie) Is it just me, or was her heart just not into it? Well, I shouldn't pry..." ; JUSK
+victory60 = "(Julie) ...you don't have any snakes in those portals, do you? I don't like snakes." ; BOUN
+victory61 = "(Julie) All that spinning around... We could probably be friends if you would just stand still for a minute." ; BAXT
+victory62 = "(Julie) Is that... your demon? P-Please, just stay away from us." ; CICI
+victory63 = "(Julie) Aahh!! I hated bugs enough when they weren't TALLER THAN ME!!" ; GOLI
+victory64 = "(Julie) Uhm, listen, it's nothing personal. It's just... we've had issues with religious types before." ; NECC
+victory65 = "(Julie) Y'know, it's so hard to figure out what's going on with all that tricky ninja stuff! Oh, uh, maybe that's how other people feel when I use my power on them..." ; EMIC
+victory66 = "(Julie) What IS that? Y'know what, maybe it's better I didn't know." ; LUCY
+victory67 = "(Julie) I'm not afraid of clowns... I'm just scared of YOU." ; GABB
+victory68 = "(Julie) I could go the rest of my life without seeing another sword person..." ; ISAB
+victory69 = "(Julie) I've had my theories about this place, but... this isn't anything like what he described." ; TYRA
+victory70 = "(Julie) A detective with a big sword... Geez, you couldn't be any worse at dredging up bad memories. Er, it's a long story." ; IKUE
+victory71 = "(Julie) Teri... I don't think beating up your alternate universe self was a good idea. " ; TERI
+victory72 = "(Julie) I met a frog lady once. She liked fighting, too. Didn't like a whole lot else, though." ; BERN
+victory73 = "(Julie) Why do people who use fire like to throw it around everywhere!? Can't you be a pyromaniac in a reasonable fashion?" ; JANE
+victory86 = "(Julie) Man, I hate this place."
+victory87 = "(Julie) The visage of my best friend with a soulless look in her eyes... Yeah, it's official: I will never sleep soundly ever again." ; TERK
+victory88 = "(Julie) A walking Moai head that throws clay golems at people... I know I'm jinxing myself, but how could this place get any weirder?" ; KAHL
+victory89 = "(Julie) Wait, you're behind this!? Don't you have anything better to do than to abduct people from other worlds?" ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 32  -  Side Message Queue
+; 35  -  Cornerpush Type
+; 40  -  [TERI] Unrelenting Tics
+; 41  -  [TERI] Unrelenting Timer
+; 42  -  [TERK] Feral Stacks
+; 43  -  [TERX] Feral Stacks
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 18 -  Craze Gauge Gain Multiplier
+; 15 -  Meter Reduction
+;---------------------------------------------------------------------------

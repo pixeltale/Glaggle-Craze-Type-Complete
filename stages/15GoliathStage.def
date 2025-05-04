@@ -1,0 +1,390 @@
+;--------------------------------------------------------
+[Info]
+name = "Goliath Stage"
+displayname = "United Kingdom: BioCorps Waste Facility" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+attachedchar = ZZZStageSFX.def
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/c_goli.mp3
+bgmloopstart = 1276
+bgmloopend = 6469544
+;-------------------------------------
+[BGdef]
+spr = 15GoliathStage.sff
+debugbg = 0
+;----------
+
+[BG Sky]
+type  = normal
+spriteno = 1, 0
+layerno = 0
+start = 0, -300
+delta = .1, .1
+mask  = 0
+
+[BG Trees]
+type  = normal
+spriteno = 1, 1
+layerno = 0
+start = 0, -260
+delta = .7, .7
+mask  = 1
+
+[BG Suzie]
+type  = anim
+actionno = 666
+layerno = 0
+start = 85, -175
+delta = .8, .8
+mask  = 1
+
+[Begin Action 666] ;Suzie
+666,666,0,0,500
+666,666,0,-5,10
+666,666,0,-10,10
+666,666,0,-15,5
+666,666,0,-20,5
+666,666,0,-25,5
+666,666,0,-30,5
+666,666,0,-35,5
+666,666,0,-40,5
+666,666,0,-45,5
+666,666,0,-50,5
+666,666,0,-55,5
+666,666,0,-60,5
+666,666,0,-65,5
+666,666,0,-70,5
+666,666,0,-75,5
+666,666,0,-80,5
+666,666,0,-85,5
+666,666,0,-89,5
+666,666,0,-90,500
+666,666,0,-89,5
+666,666,0,-85,5
+666,666,0,-80,5
+666,666,0,-75,5
+666,666,0,-70,5
+666,666,0,-65,5
+666,666,0,-60,5
+666,666,0,-55,5
+666,666,0,-50,5
+666,666,0,-45,5
+666,666,0,-40,5
+666,666,0,-35,5
+666,666,0,-30,5
+666,666,0,-25,5
+666,666,0,-20,5
+666,666,0,-15,5
+666,666,0,-10,10
+666,666,0,-5,10
+666,666,0,0,500
+
+[BG Building Wall]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = 0, -300
+delta = .8, .8
+mask  = 1
+
+[BG Pool]
+type  = normal
+spriteno = 2, 1
+layerno = 0
+start = 0, -300
+delta = .89, .89
+mask  = 1
+
+[BG Big Tree Left]
+type  = normal
+spriteno = 2, 2
+layerno = 0
+start = 75, -280
+delta = .95, .95
+mask  = 1
+
+[BG Big Tree Right]
+type  = normal
+spriteno = 2, 3
+layerno = 0
+start = -75, -280
+delta = .95, .95
+mask  = 1
+
+[BG Tree Flowers L]
+type  = anim
+actionno = 5
+layerno = 0
+start = 75, -280
+delta = .95, .95
+mask  = 1
+
+[Begin Action 5] ;Tree Flowers L
+3,1,0,0,15
+3,2,0,0,15
+3,3,0,0,15
+
+[BG Tree Flowers R]
+type  = anim
+actionno = 8
+layerno = 0
+start = -75, -280
+delta = .95, .95
+mask  = 1
+
+[Begin Action 8] ;Tree Flowers R
+3,7,0,0,15
+3,8,0,0,15
+3,9,0,0,15
+
+[BG Red Skimmer]
+type  = anim
+actionno = 1
+layerno = 0
+start = 25, -290
+delta = .96, .96
+mask  = 1
+sin.x = 200,1250,5
+sin.y = 30,500,5
+
+[Begin Action 1] ;Red Skimmer
+4,0,0,0,4
+4,1,0,0,4
+4,0,0,0,4
+4,1,0,0,4
+4,2,0,0,4
+4,3,0,0,4
+4,2,0,0,4
+4,3,0,0,4
+4,4,0,0,4
+4,5,0,0,4
+4,4,0,0,4
+4,5,0,0,4
+4,2,0,0,4
+4,3,0,0,4
+4,2,0,0,4
+4,3,0,0,4
+
+[BG Green Shieldbug]
+type  = anim
+actionno = 2
+layerno = 0
+start = 25, -290
+delta = .95, .95
+mask  = 1
+
+[Begin Action 2] ;Green Shieldbug
+5,0,0,0,5
+5,1,0,0,15
+5,2,0,0,15
+5,1,0,0,15
+5,0,0,0,15
+5,1,0,0,15
+5,2,0,0,15
+5,1,0,0,15
+5,0,0,0,15
+5,3,0,0,10
+5,4,0,0,15
+5,5,0,0,15
+5,6,0,0,15
+5,7,0,0,10
+5,3,0,0,10
+
+[BG Spotted Lanternfly]
+type  = anim
+actionno = 3
+layerno = 0
+start = 0, -290
+delta = .95, .95
+mask  = 1
+
+[Begin Action 3] ;Spotted Lanternfly
+6,0,0,0,50
+6,1,0,0,10
+6,2,0,0,5
+6,3,0,0,5
+6,4,0,0,50
+6,3,0,0,10
+6,2,0,0,5
+6,1,0,0,5
+
+[BG Floor]
+type  = normal
+spriteno = 3, 0
+layerno = 0
+start = 0, -265
+delta = 1, 1
+mask  = 1
+;xscale = .76, 1.25
+;yscalestart = 100
+;yscaledelta = 0
+
+[BG Floor Flowers L]
+type  = anim
+actionno = 4
+layerno = 0
+start = 445, -270
+delta = 1, 1
+mask  = 1
+
+[Begin Action 4] ;Floor Flowers L
+3,4,0,0,15
+3,5,0,0,15
+3,6,0,0,15
+
+[BG Floor Flowers R]
+type  = anim
+actionno = 7
+layerno = 0
+start = -125, -265
+delta = 1, 1
+mask  = 1
+
+[Begin Action 7] ;Floor Flowers R
+3,10,0,0,15
+3,11,0,0,15
+3,12,0,0,15
+
+
+[BG FireFly]
+type  = anim
+actionno = 6
+layerno = 0
+start = -175, -290
+delta = 1, 1
+mask  = 1
+sin.x = 150,225,5
+sin.y = 125,550,5
+
+[Begin Action 6] ;FireFly
+7,0,0,0,5
+7,1,0,0,5
+7,2,0,0,5
+
+[BG FireFly 2]
+type  = anim
+actionno = 9
+layerno = 0
+start = -475, -290
+delta = 1, 1
+mask  = 1
+sin.x = 75,150,5
+sin.y = 50,475,5
+
+[Begin Action 9] ;FireFly 2
+7,0,0,0,5
+7,1,0,0,5
+7,2,0,0,5
+
+[BG FireFly 3]
+type  = anim
+actionno = 10
+layerno = 0
+start = -775, -290
+delta = 1, 1
+mask  = 1
+sin.x = 125,200,5
+sin.y = 100,525,5
+
+[Begin Action 10] ;FireFly 3
+7,0,0,0,5
+7,1,0,0,5
+7,2,0,0,5
+
+[BG FireFly 4]
+type  = anim
+actionno = 10
+layerno = 0
+start = -1075, -290
+delta = 1, 1
+mask  = 1
+sin.x = 100,175,5
+sin.y = 75,500,5
+
+[Begin Action 10] ;FireFly 4
+7,0,0,0,5
+7,1,0,0,5
+7,2,0,0,5
+
+[BG FireFly 5]
+type  = anim
+actionno = 11
+layerno = 0
+start = -1375, -290
+delta = 1, 1
+mask  = 1
+sin.x = 50,375,5
+sin.y = 100,300,5
+
+[Begin Action 11] ;FireFly 5
+7,0,0,0,5
+7,1,0,0,5
+7,2,0,0,5
+
+[BG FireFly 6]
+type  = anim
+actionno = 12
+layerno = 0
+start = -1675, -290
+delta = 1, 1
+mask  = 1
+sin.x = 150,100,5
+sin.y = 75,250,5
+
+[Begin Action 12] ;FireFly 6
+7,0,0,0,5
+7,1,0,0,5
+7,2,0,0,5
+

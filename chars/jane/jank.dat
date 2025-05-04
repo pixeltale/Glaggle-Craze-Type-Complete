@@ -1,0 +1,56 @@
+<#606090>:Unique Trait:</>		"Freezer Burn Creep"
+Ice moves build Jane's Frost gauge. If an attack would 
+increase this gauge to full, the Frost is consumed and the 
+opponent is locked out of health regeneration for a brief 
+period. If the triggering attack hits, it has a guaranteed
+Freeze Dire Hit effect.
+The trajectory of the Archimedes' Advance projectile can be
+changed by Jane's normals.
+
+<#606090>:Craze Technique:</>
+Archimedes' Advance		^CT
+
+<#606090>:Throws:</>
+Cheshire Chewsday		^GP
+Frankensteiner's Monster		_B^GP
+Broom-schtick		_AO^GP
+
+<#606090>:Command Normals:</>
+Yacky Sack		_B^LK
+Trick Kick		_F^LK
+Cold Snap		_F^LP
+
+<#606090>:Special Moves:</>
+Cryo-uette		_QCF^P
+Cryo-aired		_AO_QCF^P
+Defroster		_AO_CH_QCB^P
+Frostspin		_QCB^P
+Frozen Strut		^2K
+
+<#606090>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Cold Smolder		_QCF_QCF^P
+Scary Loathe		_QCF_QCF^K
+
+<#606090>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Death's 'Cicle		_AA_QCB_QCB^2K
+
+<#606090>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Freaks’ Finale		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

@@ -1,0 +1,56 @@
+<#c0a8f8>:Unique Trait:</>		"Hell's Embrace"
+Lucy's artifacts each enhance her and the properties of
+moves that utilize them. Using moves associated with an
+artifact empowers it, and provides a buff to Lucy while 
+empowered.
+_AB Beelzeblood increases damage of normals
+_AG Levialock increases damage of throws
+_AY Mammonmedal increases movement speed and air options
+_AR Belphegorb reduces incoming damage
+
+<#c0a8f8>:Craze Technique:</>
+Full of Pride, Make Me Hide		^CT
+
+<#c0a8f8>:Throws:</>
+You Couldn't React?		^GP
+This You Should've Seen Coming		_B^GP
+You Picked a Bad Spot to Be		_AO^GP
+
+<#c0a8f8>:Command Normals:</>
+I'm A Glutton For Misery _AB		_F^LP
+This Is What You Get When You Stand In My Way!		_CH_F^SK
+
+<#c0a8f8>:Special Moves:</>
+Greed Will Lead Us To Ruin _AY		_QCF^P
+You Should Be Envious Of The Unpickable Lock _AG		_QCF^K
+Sloth, The Emptiness Of The Mind _AR		_D_D^K
+Take a Second to Soak it All In...		_QCB^PK
+_! ...and Release		_QCB^PK
+
+<#c0a8f8>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Better Think Fast Or Get Blown Up		_QCF_QCF^P
+I Really Need This		_HCB^2P or _360^2P
+
+<#c0a8f8>:All-Out EX:</> <#bebebe>(2 Stock)</>
+I Won't Make You Suffer...! _AY_AG_AR_AB		_QCB_QCB^2P
+
+<#c0a8f8>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+This is My Last Resort, So Say Your Prayers		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

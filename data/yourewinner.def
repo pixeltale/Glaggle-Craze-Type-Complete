@@ -1,0 +1,29 @@
+;----------------------------------------------------------
+[Info]
+localcoord = 640,480   ;This storyboard is made for a 640x480 size screen
+
+[SceneDef]
+spr = system.sff       ;Filename of sprite file to use
+font0 = movelist.def
+
+[Scene 0]
+layerall.pos = 320,160 ;Default position for all layers
+layer1.text = "Thank you for playing the IKEMEN GO build of Battle Craze!!\n\nPrepare yourself for the full Battle Craze experience when we bring the game to a new and refined engine!\n\nUntil then, please enjoy what this build has to offer and as always...\n\nKeep it clean!"  ;Text to show
+layer1.font = 0,0,0        ;Use font0
+; Layers
+;layer0.anim = 1
+;layer1.anim = 2
+;layer2.anim = 3
+; Total time
+fadein.time = 120
+fadeout.time = 120
+bg.name = BG0
+bgm = sound/s_intr.mp3
+end.time = 2200         ;300 ticks = 5 seconds
+
+[BG0def]
+[BG0 Backy Groundy]
+type = normal
+spriteno = 1,0
+start = -320,0
+velocity = 0,0

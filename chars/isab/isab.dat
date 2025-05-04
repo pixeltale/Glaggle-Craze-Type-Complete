@@ -1,0 +1,55 @@
+<#2020c0>:Unique Trait:</>		"Minerva's Light"
+During specific sword attacks, Isabella's sword will blink.
+If the opponent hits her during this brief period, she will
+parry the attack, and her attack will be a guaranteed Counter
+Hit that staggers the opponent
+
+<#2020c0>:Craze Technique:</>
+Empress Parry		^CT
+
+<#2020c0>:Throws:</>
+Mort au Carrefour		^GP
+Adieu		_B^GP
+Rose epineuse		_AO^GP
+
+<#2020c0>:Command Normals:</>
+Coup de pied Tornade		_F^LK
+Coupe-pin		_F^SP
+Glissade de la Jonquille		_DF^SK
+Oiseau Moqueur		_AO_D^LK
+
+<#2020c0>:Special Moves:</>
+Coupeuse d'herbe		_QCF^P
+Eclat de Lune		_DP^P
+Grace de la Princesse		_QCF^K
+Contre de l'hirondelle		_AO_QCB^P
+Dispersion de Pétales		_CH_QCB^P
+_! Cancel		_F_F, _B_B or ^K
+
+<#2020c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Jardin des Guerriers		_QCF_QCF^P
+Envergure de la Libellule		_QCB_QCB^P
+
+<#2020c0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Flux de l'Ombre Nocturne		_QCF_QCF^2K
+
+<#2020c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Prairie Tellurique		_QCB_QCB^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

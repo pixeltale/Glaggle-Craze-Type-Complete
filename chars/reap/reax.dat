@@ -1,0 +1,58 @@
+<#e8d800>:Unique Trait:</>		Boost Power
+Reaper can summon up to 3 Drones through their Craze
+Technique. Each_REspecial requires a Drone to use, but
+has increased utility for each available Drone at the
+time of use.
+Booster-Deploy is faster when all pips below empty
+Drone slots are lit up
+
+<#e8d800>:Craze Technique:</>
+C-Tech-Type-Booster-Deploy		_AA^CT
+_! C-Tech-Type-Grav-Spinner_RE		_AA_^CT
+C-Tech-Type-Stardust-Firewall_RE		_AA_F^CT
+
+<#e8d800>:Throws:</>
+Throw-Type-Blow-Back		^GP
+Throw-Type-Reverse-Blow-Back		_B^GP
+Throw-Type-Jet-Circle		_AO^GP
+
+<#e8d800>:Command Normals:</>
+Command-Type-Hook-Slice		_F^LP
+Command-Type-Tri-Blooming-Blast		_F^SP
+Command-Type-Air-Burst		_AO_D^SP
+
+<#e8d800>:Special Moves:</>
+Special-Type-Star-Crossed-Snipe_RE 		_AA_QCF^PK
+Special-Type-Shooting-Star_RE 		_QCB^P
+Special_Type-Meteor-Strike		_AA_QCB^K
+_! C-Tech-Type-Booster-Deploy		_CH^CT
+_! C-Tech-Type-Grav-Spinner_RE		_^CT
+_! C-Tech-Type-Stardust-Firewall_RE		_F^CT
+
+<#e8d800>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+All-Out-Type-Final-Twin-Alignment		_AA_QCF_QCF^P
+All-Out-Type-Emergency-Nova		_QCF_QCF^K
+
+<#e8d800>:All-Out EX:</> <#bebebe>(2 Stock)</>
+All-Out-EX-Type-Final-Twin-Alignment		_QCF_QCF^2P
+
+<#e8d800>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+All-Out-Destruction-Type-Saturns-Belt		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

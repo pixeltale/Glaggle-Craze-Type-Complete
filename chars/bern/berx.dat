@@ -1,0 +1,62 @@
+<#602828>:Unique Trait:</>		"Streetwise"
+A knockdown caused by or following a Counter Hit will cause
+the opponent to be unable to quickly recover, opening them up
+for off-the-ground followups.
+Bernie also has access to a unique throw specifically against
+vulnerable grounded opponents.
+
+<#602828>:Craze Technique:</>
+Caddigan Catch		^CT
+
+<#602828>:Throws:</>
+Too Close for Comfort		^GP
+The Door's That Way		_B^GP
+You Won't Need Those Ribs		_AO^GP
+Need a Lift?		_D^GP
+_! Nanner's Cracker		_F
+_! Mail Call		_D
+_! Assembling Average		_B
+_! Blast Off, Dumbass		_U or _UB
+
+<#602828>:Command Normals:</>
+Tried and True		_F^SP
+Reach for the Ceiling		_DF^SP
+
+<#602828>:Special Moves:</>
+Goldenjoyer		_QCF^P
+Flip It My Way		_HCB^P or _360^P
+Crashing Down		_QCB^SP
+Tobaccin' My Day		_QCB^K
+Come On...		_QCF^K
+_! ...And Get Me		^K
+_! ...Back Later		^P
+_! ...Down for the Spiraling		^GP
+_! ...Closer, I Won't Bite		^CT
+
+<#602828>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Can't Fly from Reckoning		_HCB^2P or _360^2P
+Bastage Bashin'		_QCF_QCF^K
+
+<#602828>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Bastage Bashin' EX		_QCF_QCF^2K
+
+<#602828>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Jailbird Jamboree		_QCF_QCF^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

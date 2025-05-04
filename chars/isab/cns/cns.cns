@@ -1,0 +1,147 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 0
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 15
+ground.front = 15
+air.back = 5
+air.front = 5
+height = 42
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -84
+mid.pos = 0, -54
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 1.55
+walk.back = -1.45
+run.fwd  = 4.5, 0
+run.back = -6.5,-1.5
+jump.neu = 0,-9
+jump.back = -2.5
+jump.fwd = 2.5
+runjump.fwd = 3.5,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 2
+BC.VoiceBankWeakKO = 3
+BC.VoiceBankHeartBreaker = 2
+BC.VoiceBankCrazeCancel = 5
+BC.VoiceBankPain = 14
+BC.VoiceBankGuardBreak = 2
+BC.VoiceBankThrowTech = 4
+
+[Quotes]
+victory0  = "On the field of battle, we are all equals. It comes down to skill and grit for the victor."
+victory1  = "Victory is mine once again. If you try hard enough, maybe one day you can say the same."
+victory2  = "A petal from a chrysanthemum still holds its grace even against the winds of those who oppose it!"
+victory3  = "I am Isabella Marisa Gardet, and I thank you for participating in this year's Battle Craze."
+victory4  = "Facing me is an honor most can't have. That in of itself is an achievement worth more than any trophy."
+victory5  = "You did your best, and that's what matters most. Need a hand up?"
+victory6  = "This isn't the end of your journey, nor the beginning. The road of a fighter is simply without a destination."
+victory7  = "Battle Craze is about bringing people together under good sportsmanship. If you can't exhibit that, then I'd kindly ask you to reconsider being here."
+victory8  = "I don't wish to discourage fighters, especially those with potential. We all must learn how to get back up again and keep on keeping on."
+victory9  = "I don't do this for the grandeur, I do it for my passion of the sport!"
+victory10 = "There was something you mentioned before that concerned this tournament. Well then, I'm listening..." ; AJIT
+victory11 = "I'm surprised you haven't shown up to Battle Craze sooner. There is a lot more prestige to be won here than in MMA." ; TSUG
+victory12 = "A replicant of Tsugumi? You participating here is against our rules, so I will kindly ask you to leave!" ; TSUK
+victory13 = "Late bloomers are better than those who can't bloom at all. That was interesting to say the least." ; SHER
+victory14 = "I'll rid this evil from you one way or another." ; SHEX
+victory15 = "You're not even cut out to kill me! That aside, who hired you to do it?" ; WALL
+victory16 = "There's humanity in every living thing, and I'm glad to have helped you along the way." ; REAP
+victory17 = "QUASARS? What do they have to do with Battle Craze?" ; REAK
+victory18 = "If you're here to fight for justice in your workplace, I can help, both financially and vocally." ; JUST
+victory19 = "A shame your career let you down this path. It is never too late to change course." ; JUSK
+victory20 = "I'd appreciate you not sneaking behind my back with information about this tournament. Just talk to me about it and we can avoid this kind of fiasco." ; BOUN
+victory21 = "Battle Craze does not welcome beasts like you in our arms. Scram, if you know what's good for you!" ; BAXT
+victory22 = "Sad to see talent like yours under the hands of that company. What's stopping you from departing, Cid?" ; CICI
+victory23 = "Battle Craze does not welcome beasts like you in our arms. Scram, if you know what's good for you!" ; GOLI
+victory24 = "You deserve some rest. You've worked too hard." ; NECC
+victory25 = "You think you're unpredictable but you have a pattern to your attacks. Try to find my pattern instead." ; EMIC
+victory26 = "What you know is too much for your own good. Keep it to yourself, or else you'll be in a lot of legal trouble!" ; LUCY
+victory27 = "I don't know what kind of history you're trying to unearth, but I am not so easily shaken!" ; GABB
+victory28 = "Within the Official Rules and Regulations for Battle Craze, it clearly states no imitators of already registered participants. I'm sorry, but your entry here is forfeit!" ; ISAB
+victory29 = "Tyranny has no place in this world. What makes you think we'd thrive under such a banner?" ; TYRA
+victory30 = "That was great swordsmanship, Iwata. Maybe someday, my sword will be passed down to you." ; IKUE
+victory31 = "It's not speed that makes you hard to hit. I've honed my eye to see such speeds, and I'm seeing something else." ; TERI
+victory32 = "Despite your ruffian looks and tactics, I sense you've overcome many trials in your world. You have my respect." ; BERN
+victory33 = "Never expected to see witchcraft used in this way. I wouldn't have expected to see it applied as a martial art." ; JANE
+victory97 = "I am banning you from Battle Craze, and making sure you never craft with those hands again!" ; ISAK
+victory98 = "Even if you have someone fight on your behalf, you still have to explain yourself for this. Why are you creating clones of the contestants?" ; KAHL
+victory99 = "I couldn't have expected to see a B-List actor performing on barely a C-List level. You really let yourself go." ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 31  -  Projectile Dist
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  [ISAK] Rage
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 12 -  Final Move Damage
+; 15 -  Meter Halve
+; 20 -  [IKUX] Invigoration Bonus Damage
+; 27 -  Guard Damage Multiplier
+; 35 -  Cornerpush Amount
+;---------------------------------------------------------------------------

@@ -1,0 +1,52 @@
+<#8000c0>:Unique Trait:</>		"Tough Guy"
+_WAmoves have armor, meaning Wallace won't flinch during
+the startup of these attacks, and takes reduced damage.
+Special moves can only armor through one hit.
+
+<#8000c0>:Craze Technique:</>
+Mephisto Seben_WA		^CT
+
+<#8000c0>:Throws:</>
+Not Unlike Garbage!		^GP
+Astaroth Trample		_B^GP
+Hell Comes!		_AO^GP
+
+<#8000c0>:Command Normals:</>
+Eine Tonne Schritt		_F^LK
+Eisbrecher		_F^SP 
+Fallender Sarg		_AO_D^SP
+
+<#8000c0>:Special Moves:</>
+Todesgerat_WA		_HCF^P
+Mondherrschaft_WA		_DP^P
+Friedhofsbeben		_D_D^P
+Turmbrecher		~D^K
+Unterwelt Zerbrechen		_HCB^P
+
+<#8000c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Volldampf Voraus!_WA		_QCF_QCF^P
+Trauerzug		_QCF_QCF^K
+
+<#8000c0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Volldampf Voraus EX!_WA		_CH_QCF_QCF^2P
+
+<#8000c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Das Ende der Tage_WA		_HCB^2K or _360^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

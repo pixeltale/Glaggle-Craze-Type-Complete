@@ -1,0 +1,62 @@
+<#e89850>:Unique Trait:</>		"No Mercy"
+Necross can build up to 8 Faith stacks with her Craze
+Technique. _NEmoves require a stack to use.
+Using her Craze Techique while at maximum Faith stacks or
+hitting with First Sphere: Seraphim's Song will give
+Necross the Blessed status, causing her next _NEattack that
+hits to have a combo extending effect.
+
+<#e89850>:Craze Technique:</>
+Agios O Theos		^CT
+
+<#e89850>:Throws:</>
+Third Sphere: Angel's Talon		^GP
+Third Sphere: Angel's Blight		_B^GP
+Third Sphere: Angel's Plummet		_AO^GP
+
+<#e89850>:Command Normals:</>
+Third Sphere: Archangel's Assault		_For_UF^LK
+Cherubim Mimic: Eagle _NE		_F^SP
+Second Sphere: Dominion's Rule _NE		_F^SK
+Cherubim Mimic: Phalanx _NE		_DF^SP
+Cherubim Mimic: Gauntlet _NE		_DF^SK
+Cherubim Mimic: Lion _NE		_AO_D^SP
+Cherubim Mimic: Talon _NE		_AO_D^SK
+
+<#e89850>:Special Moves:</>
+Samuel 17:49 _NE		_CH_QCF^P
+_! Cancel		^K
+Icthys Bones _NE		_CH_QCB^LP
+Lost Faith _NE		_CH_QCB^SP
+Saw Judgement _NE		_CH_QCB^LK
+Jonah 1:17 _NE		_CH_QCB^SK
+First Sphere: Cherubim's Polearm _NE		_HCF^K
+Second Sphere: Power's Approach _NE		^2K
+
+<#e89850>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+First Sphere: Seraphim's Song		_QCF_QCF^P
+First Sphere: Seraphim's Blight		_AA_QCB_QCB^P
+
+<#e89850>:All-Out EX:</> <#bebebe>(2 Stock)</>
+First Sphere: Seraphim's Feast		_QCF_QCF^2K
+
+<#e89850>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+First Sphere: Seraphim's War Cry		_QCB_QCB^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

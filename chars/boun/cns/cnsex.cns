@@ -1,0 +1,156 @@
+[Data]
+life = 950
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 0
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 18
+ground.front = 18
+air.back = 5
+air.front = 5
+height = 42
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -84
+mid.pos = 0, -48
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.2
+walk.back = -2.0
+run.fwd  = 5.25, 0
+run.back = -6,-1.5
+jump.neu = 0,-9
+jump.back = -2.8
+jump.fwd = 2.8
+runjump.fwd = 4,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 3
+BC.VoiceBankWeakKO = 2
+BC.VoiceBankHeartBreaker = 2
+BC.VoiceBankCrazeCancel = 4
+BC.VoiceBankPain = 6
+BC.VoiceBankGuardBreak = 4
+BC.VoiceBankThrowTech = 4
+;BC.ScalingMin = 0.080
+;BC.ScalingL1 = 0.700 ;0.700
+;BC.ScalingL2 = 0.250 ;0.0625
+;BC.ScalingM1 = 0.450 ;0.600
+;BC.ScalingM2 = 0.250 ;0.100
+;BC.ScalingH1 = 0.300 ;0.300
+;BC.ScalingH2 = 0.000 ;0.500
+
+[Quotes]
+victory0  = "I'd like to ask you a few things about this tournament, the first being your involvement in it. I believe there's something evil brewing..."
+victory1  = "Count your regrets yourself, I have other business to attend to."
+victory2  = "Was THAT the magic trick you wanted to see? Are you impressed?"
+victory3  = "Horus oversees all, and as his attendant, I see all too!"
+victory4  = "You wouldn't last an entire trip down the Nile."
+victory5  = "This thread is all connected, and I ask you to help me finish the stitch."
+victory6  = "Oh, how I could be fishing instead of wasting time with you."
+victory7  = "Judgement doesn't come to the weak. Consider yourself saved."
+victory8  = "Heed this warning: If you act upon injustice, I will be there to stop you."
+victory9  = "What happens here will affect the rest of history. Don't forget this."
+victory10 = "You can see the future through your dreams, yes? Tell me what you've seen." ; AJIT
+victory11 = "Like Baal, you are very aggressive. Maybe a bit too much for your own good." ; TSUG
+victory12 = "I'm sensing ties to other worlds from you. Where are you from?" ; TSUK
+victory13 = "I'm just gonna forget this even happened. Feel fortunate that I will." ; SHER
+victory14 = "Now then, atone for your crimes and count up your sins." ; SHEX
+victory15 = "Now then, atone for your crimes and count up your sins." ; WALL
+victory16 = "I won't drag you deeper into this if you wish, but I'd appreciate some intel on BioCorps." ; REAP
+victory17 = "Now then, atone for your crimes and count up your sins." ; REAK
+victory18 = "Part of me still doesn't think you take these things seriously. Talk to me when you drop the act." ; JUST
+victory19 = "Now this is just stupid. Fight for your beliefs, don't play make believe." ; JUSK
+victory20 = "A spatial anomaly? Well, tell me why you're here." ; BOUN
+victory21 = "You harbor a lot of information, probably on BioCorps., this tournament, and a thing called 'The Devil's Triangle'. You must comply." ; BAXT
+victory22 = "Sobek, you are not." ; CICI
+victory23 = "Now then, atone for your crimes and count up your sins." ; GOLI
+victory24 = "I don't think this battle is for you. Take your leave." ; NECC
+victory25 = "You screech louder than a falcon despite your heritage, but then again, ninjas do have a knack for hiding in plain sight." ; EMIC
+victory26 = "You harbor a lot of information, probably on BioCorps., this tournament, and a thing called 'The Devil's Triangle'. You must comply." ; LUCY
+victory27 = "Now then, atone for your crimes and count up your sins." ; GABB
+victory28 = "I'm sorry we had to meet under such dire circumstances, but rumor has it something evil approaches Battle Craze. I don't know what, but we have to prepare." ; ISAB
+victory29 = "True evil believes in its own lies, making up the visage of a false god. Well, no more lies, at least from you." ; TYRA
+victory30 = "Space and time don't flow at the same speed, hence your travel to this point. Then again, time is relative to the observer." ; IKUE
+victory31 = "The tie between our worlds is... different. Like trying to pickpocket someone without their notice." ; TERI
+victory32 = "Galdakilus still needs you. Be prepared for the worst, with the best you've got." ; BERN
+victory33 = "Before I send you back, I found this coin. A 'Twygz Token'? I have no clue how it ended up in my possession." ; JANE
+victory97 = "Now you must answer for your crimes." ; BOUK
+victory98 = "What you're doing is a crime against humanity. I'll make sure you'll never lay your hands on your office tools again." ; KAHL
+victory99 = "The Devil's Triangle, where is it?" ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 31  -  Projectile Dist
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  [BOUN] Portal X
+; 41  -  [BOUN] Portal Y
+; 42  -  [BOUN] Vacuum Dist
+; 43  -  [BOUX] Attachment
+; 44  -  [BOUK] Stance
+; 45  -  [BOUK] Multiplier Timer
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Super Damage Dampening
+; 10 -  Final Damage Percentage
+; 15 -  Meter Halve
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

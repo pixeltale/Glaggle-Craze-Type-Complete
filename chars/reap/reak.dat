@@ -1,0 +1,57 @@
+<#d80050>:Unique Trait:</>		Terror Booster
+QREAPER's Fuel Gauge allows him to use his Craze Technique,
+which gives him controllable Flight, and his forward dashes,
+which propel him towards his opponent while _F is held.
+These can be canceled into from normals on hit for 3 bars
+of Fuel, and from blocked normals for 2 bars.
+
+<#d80050>:Craze Technique:</>
+C-Tech-Type-Void-Drifter		_AA^CT
+
+<#d80050>:Throws:</>
+Throw-Type-Suppressor		^GP
+Throw-Type-Reverse-Suppressor		_B^GP
+Throw-Type-Death-Sentence		_AO^GP
+
+<#d80050>:Command Normals:</>
+Command-Type-Electro-Magnum-Pulse		^SP,^SP
+Command-Type-Upwards-Cut		_B^SP
+Command-Type-Hook-Slice		_F^LP
+Command-Type-Star-Slasher		_AO_D^SP
+
+<#d80050>:Special Moves:</>
+Special-Type-Planet-Grappler		_AA_QCF^P
+Special-Type-Nebula-Storm		_QCB^P
+_!Follow-Up-Type-Big-Bang-Blast		^P
+_!Follow-Up-Type-Force-Conversion		^K
+Special_Type-Meteor-Strike		_AA_QCB^K
+Special_Type-Asteroid-Obliterator		_AA_QCF^K
+_!Special-Type-Nebula-Storm		_QCB^SP
+
+<#d80050>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+All-Out-Type-Cosmic-Rupture		_QCF_QCF^P
+All-Out-Type-Emergency-Nova		_QCF_QCF^K
+
+<#d80050>:All-Out EX:</> <#bebebe>(2 Stock)</>
+All-Out-EX-Type-Cosmic-Rupture		_QCF_QCF^2P
+
+<#d80050>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+All-Out-Destruction-Type-Galactic-Orbit		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

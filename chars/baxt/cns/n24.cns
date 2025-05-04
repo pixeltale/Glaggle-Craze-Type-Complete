@@ -1,0 +1,542 @@
+[statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = EnemyNear,Map(WinQuoteNum)
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "WALL" && EnemyNear,Name != "WALX" && EnemyNear,Name != "WALK"
+trigger1 = EnemyNear,Name != "REAP" && EnemyNear,Name != "REAX"
+trigger1 = EnemyNear,Name != "BAXT" && EnemyNear,Name != "BAXX" && EnemyNear,Name != "BAXK"
+trigger1 = EnemyNear,Name != "CICI" && EnemyNear,Name != "CICX" && EnemyNear,Name != "CICK"
+trigger1 = EnemyNear,Name != "GOLI" && EnemyNear,Name != "GOLX" && EnemyNear,Name != "GOLK"
+trigger1 = EnemyNear,Name != "TYRA" && EnemyNear,Name != "TYRX" && EnemyNear,Name != "TYRK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "BAXT" && EnemyNear,Name != "BAXX" && EnemyNear,Name != "BAXK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 200, 2]
+type = PlaySnd
+triggerall = Anim = 160
+trigger1 = AnimElem = 4
+value = F0, 3
+
+;============================
+; JUMP SOUND
+;============================
+
+[State 0, Snd Jump]
+type = PlaySnd
+trigger1 = StateNo = 50
+trigger1 = Time = 1
+value = S41,0
+channel = 2
+
+;============================
+; RUN SOUND
+;============================
+
+[State 0, Snd Run Step]
+type = PlaySnd
+triggerall = Anim = 4100
+trigger1 = AnimElem = 2,1
+trigger2 = AnimElem = 5,1
+value = F2,2
+channel = 2
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 5325 || Anim = 5326
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 7
+trigger4 = AnimElem = 8
+x = 8
+
+;============================
+; VAR 30 - AFTERIMAGE
+;============================
+
+[State 0, Var AfterImage Turn Off]
+type = VarSet
+triggerall = Var(30)
+triggerall = !Map(BaxtFullPal) && Name = "BAXT"
+trigger1 = Var(30) > 1
+trigger1 = StateNo != [2000,3000)
+trigger2 = MoveType = H 
+trigger3 = Var(30) = 1 && !Var(11)
+v = 30
+value = 0
+
+;=============================
+; VAR 40 - 45 - CHARGE MOTIONS
+;=============================
+
+[State 0, VarSet Reset L]
+type = VarSet
+trigger1 = Var(41) >= 16
+trigger2 = Var(41) >= 8
+trigger2 = Var(40) < 64
+value = 0
+v = 40
+ignorehitpause = 1
+[State 0, VarSet Reset L]
+type = VarSet
+trigger1 = command = "holdback" && facing = 1
+trigger2 = command = "holdfwd" && facing = -1
+trigger3 = Var(41) >= 16
+trigger4 = Var(41) >= 8
+trigger4 = Var(40) < 64
+value = 0
+v = 41
+ignorehitpause = 1
+
+[State 0, VarAdd Charge L +1]
+type = VarAdd
+triggerall = Var(40) < 64
+trigger1 = command = "holdback" && facing = 1
+trigger2 = command = "holdfwd" && facing = -1
+trigger3 = Var(15) && facing = 1
+v = 40
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge L +1]
+type = VarAdd
+triggerall = Var(40) != 0
+trigger1 = !(command = "holdback" && facing = 1)
+trigger1 = !(command = "holdfwd" && facing = -1)
+v = 41
+value = 1
+ignorehitpause = 1
+
+[State 0, VarSet Reset R]
+type = VarSet
+trigger1 = Var(43) >= 16
+trigger2 = Var(43) >= 8
+trigger2 = Var(42) < 64
+value = 0
+v = 42
+ignorehitpause = 1
+[State 0, VarSet Reset R]
+type = VarSet
+trigger1 = command = "holdback" && facing = -1
+trigger2 = command = "holdfwd" && facing = 1
+trigger3 = Var(43) >= 16
+trigger4 = Var(43) >= 8
+trigger4 = Var(42) < 64
+value = 0
+v = 43
+ignorehitpause = 1
+
+[State 0, VarAdd Charge R +1]
+type = VarAdd
+triggerall = Var(42) < 64
+trigger1 = command = "holdback" && facing = -1
+trigger2 = command = "holdfwd" && facing = 1
+trigger3 = Var(15) && facing = -1
+v = 42
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge R +1]
+type = VarAdd
+triggerall = Var(42) != 0
+trigger1 = !(command = "holdback" && facing = -1)
+trigger1 = !(command = "holdfwd" && facing = 1)
+v = 43
+value = 1
+ignorehitpause = 1
+
+[State 0, VarSet Reset D]
+type = VarSet
+trigger1 = Var(45) >= 16
+trigger2 = Var(45) >= 8
+trigger2 = Var(44) < 64
+value = 0
+v = 44
+ignorehitpause = 1
+[State 0, VarSet Reset D]
+type = VarSet
+trigger1 = command = "holddown"
+trigger2 = Var(45) >= 16
+trigger3 = Var(45) >= 8
+trigger3 = Var(44) < 64
+value = 0
+v = 45
+ignorehitpause = 1
+
+[State 0, VarAdd Charge D +1]
+type = VarAdd
+triggerall = Var(44) < 64
+trigger1 = command = "holddown"
+trigger2 = Var(15)
+v = 44
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge D +1]
+type = VarAdd
+triggerall = Var(44) != 0
+trigger1 = !command = "holddown"
+v = 45
+value = 1
+ignorehitpause = 1
+
+;=============================
+; SIDE-C - SPIN SPEED
+;=============================
+
+[State 0, MapSet Fire Normal]
+type = MapSet
+trigger1 = RoundState < 2
+map = "FXColor"
+value = ifelse(Var(59)=1,16273464,ifelse(Var(59)=2,16310304,ifelse(Var(59)=3,16261184,ifelse(Var(59)=4,12599544,ifelse(Var(59)=5,4251896,ifelse(Var(59)=6,12646432,ifelse(Var(59)=7,16267264,ifelse(Var(59)=8,15788280,ifelse(Var(59)=9,16269504,ifelse(Var(59)=10,14219296,ifelse(Var(59)=11,8405240,ifelse(Var(59)=12,16261168,ifelse(Var(59)=13,3694840,ifelse(Var(59)=14,6346816,ifelse(Var(59)=15,14743616,ifelse(Var(59)=16,4258008,ifelse(Var(59)=17,4249848,ifelse(Var(59)=18,16261184,ifelse(Var(59)=19,8409184,ifelse(Var(59)=20,12589104,ifelse(Var(59)=21,6346784,ifelse(Var(59)=22,4243624,ifelse(Var(59)=23,16310280,6346816)))))))))))))))))))))))
+
+[State 0, Spin Speed Reset]
+type = MapSet
+trigger1 = RoundState < 2
+trigger1 = Map(BaxtSpin) != 0
+trigger2 = RoundState > 2
+trigger2 = Map(BaxtSpin) < 0.1
+map = "BaxtSpin"
+value = 0.0
+[State 0, Map Spin deeeeead]
+type = MapSet
+trigger1 = Name = "BAXT" && Map(BaxtSpin)
+trigger1 = !Alive
+map = "BaxtSpin"
+value = Map(BaxtSpin) * 0.9
+
+[State 0, Map Spin Decay]
+type = MapSet
+trigger1 = Name = "BAXT" && Map(BaxtSpin)
+trigger1 = StateNo = [0,20) || StateNo = [120,160)
+map = "BaxtSpin"
+value = max(0,Map(BaxtSpin)-0.001)
+[State 0, Map Spin Decay]
+type = MapSet
+triggerall = !Var(54)
+trigger1 = Name = "BAXT" && Map(BaxtSpin)
+map = "BaxtSpin"
+value = max(0,Map(BaxtSpin)-0.0005)
+ignorehitpause = 1
+
+;=============================
+; SIDE-C - FULL PALETTE
+;=============================
+
+[State 0, Map FP Timer]
+type = MapSet
+triggerall = Map(BaxtFullPal)
+trigger1 = !Var(54)
+map = "BaxtFullPal"
+value = max(0.02,Map(BaxtFullPal)-0.2)
+ignorehitpause = 1
+[State 0, Map FP Reset]
+type = MapSet
+triggerall = Map(BaxtFullPal)
+trigger1 = RoundState != 2
+trigger2 = Map(BaxtFullPal) <= 0.02
+map = "BaxtFullPal"
+value = 0
+
+[State 0, VarSet FP Trail Enable]
+type = VarSet
+trigger1 = Map(BaxtFullPal)
+trigger1 = MoveType != H && Var(30) != 7
+trigger1 = StateNo < 2000
+v = 30
+value = 7
+[State 0, VarSet FP Trail Disable]
+type = VarSet
+triggerall = Var(30) = 4
+triggerall = StateNo != [2000,3000)
+trigger1 = MoveType = H
+trigger2 = !Map(BaxtFullPal)
+trigger3 = RoundState != 2
+v = 30
+value = 0
+
+[State 0, VelAdd FP Grav]
+type = VelAdd
+triggerall = Map(BaxtFullPal)
+trigger1 = StateNo = 50 && !NumHelper(56)
+trigger2 = StateNo = [600,800)
+trigger3 = StateNo = 850
+y = 0.184
+
+[State 0, Map Spin Up]
+type = MapSet
+trigger1 = Map(BaxtFullPal)
+map = "BaxtSpin"
+value = min(3.0,Map(BaxtSpin)+0.01)
+
+[State 0, Explod Super Aura]
+type = Explod
+triggerall = Map(BaxtFullPal)
+trigger1 = MoveType != H || StateNo = [120,160)
+trigger1 = GameTime%6 = 0
+anim = 2301
+pos = -const(size.ground.back)+random%abs(const(size.ground.front)*2),-random%abs(const(size.head.pos.y))
+postype = p1
+vel = Vel X * 0.1 * !Var(8),Vel Y * 0.5 * !Var(8)
+pausemovetime = -1
+supermovetime = -1
+sprpriority = -2 + random%9
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Name = "BAXT"
+trigger1 = RoundState = 2
+map = "SpeedMod"
+value = 1 + 0.5 * !!Map(BaxtFullPal)
+
+;=============================
+; SIDE-C/L - CTech Cancel Buffer
+;=============================
+
+[State 0, MapSet]
+type = MapAdd
+trigger1 = Map(BaxtCTB) > 0
+map = "BaxtCTB"
+value = -1
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = StateNo = [800,3000)
+trigger1 = map(b_y) && map(b_b)
+trigger2 = command = "holdy" && command = "holdb" || command = "holdc"
+map = "BaxtCTB" ; CBT: Cockney Baxter Torture
+value = 2 + 6 * (Name="BAXX")
+ignorehitpause = 1
+
+[State 810, State End]
+type = ChangeState
+triggerall = Map(BaxtCTB) > 0
+triggerall = Name != "BAXX" || Name = "BAXX" && (Map(BaxxSon) >= 5.0 || !NumHelper(910))
+trigger1 = StateNo = 810 && AnimElemNo(0) >= 17
+trigger2 = StateNo = 830 && AnimElemNo(0) >= 13
+trigger3 = StateNo = 860 && AnimElemNo(0) >= 21
+trigger4 = StateNo = 1005
+trigger5 = StateNo = 2010 && AnimElemNo(0) >= 23
+trigger6 = StateNo = 2115
+trigger7 = StateNo = 2210 && AnimElemNo(0) >= 38
+trigger8 = StateNo = 1600 && MoveContact
+trigger9 = StateNo = 1650 && MoveHit
+value = 900 + 10 * (Name="BAXX") + 20 * (Name="BAXK") + (StateNo=1650)
+
+;=============================
+; SIDE-L - THE OFFSPRING YEAH YEAH YEAH YEAH YEAH
+;=============================
+
+[State 0, Map Son Reset]
+type = MapSet
+triggerall = Map(BaxxSon)
+trigger1 = RoundState != 2
+map = "BaxxSon"
+value = 0.0
+[State 0, Map Son Progress]
+type = MapSet
+triggerall = Map(BaxxSon) < 10.0
+trigger1 = MoveType != H || StateNo = [120,160) 
+map = "BaxxSon"
+value = min(10.0,Map(BaxxSon)+0.015-0.0075*NumHelper(910))
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = cond(NumHelper(1410),StateNo!=1400,0)
+redirectid = Helper(1410),ID
+
+;=============================
+; SIDE-S - BLOOOOOOOOOOOOOOOOD
+;=============================
+
+[State 0, Map Adjust Blood Motor]
+type = MapSet
+triggerall = Name = "BAXK" && RoundState = 2
+trigger1 = Var(22)-Life > Map(BaxkPHP)
+;trigger1 = MoveType = H || StateNo = [900,1000)
+map = "BaxtSpin"
+value = min(3.0,Map(BaxtSpin)+(Var(22)-Life-Map(BaxkPHP))*0.01667)
+ignorehitpause = 1
+
+[State 0, Map Reset Purple Health]
+type = MapSet
+triggerall = Name = "BAXK"
+trigger1 = Var(22)-Life != Map(BaxkPHP)
+map = "BaxkPHP"
+value = Var(22)-Life
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Name = "BAXK"
+trigger1 = RoundState = 2
+map = "SpeedMod"
+value = 1 + 0.1 * Map(BaxtSpin)
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) < 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 210
+trigger2 = StateNo = 215
+trigger3 = StateNo = 310
+trigger4 = StateNo = 410
+trigger5 = StateNo = 510
+trigger6 = StateNo = 515
+trigger7 = StateNo = 610
+trigger8 = StateNo = 710
+trigger9 = StateNo = 520
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 905 || StateNo = 920 || StateNo = 928 || StateNo = 930
+trigger2 = StateNo = 1000 || StateNo = 1050
+trigger3 = StateNo = 1100
+trigger4 = StateNo = 1200 || StateNo = 1250
+trigger5 = StateNo = 1300 || StateNo = 1350
+trigger6 = StateNo = 1600 || StateNo = 1650
+trigger7 = StateNo = 1700 || StateNo = 1750
+trigger8 = StateNo = 2355
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S X]
+type = VarSet
+trigger1 = StateNo = 1510 && AnimElem = 10, 1
+trigger2 = StateNo = 1550 && AnimElem = 23, 1
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0 && StateNo != 2410
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+triggerall = !Map(BaxtFullPal)
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000) && StateNo != 2100
+trigger2 = StateNo = 2100 && Var(8) = 1
+trigger3 = Map(BaxtFullPal)
+fv = 15
+value = 0.5
+ignorehitpause = 1
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "%f  |  %d  %d";  %f"
+params = Map(BaxtSpin),Var(22)-Life,floor(Map(BaxkPHP))
+ignorehitpause = 1

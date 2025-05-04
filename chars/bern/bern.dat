@@ -1,0 +1,60 @@
+<#602828>:Unique Trait:</>		"Adrenaline Thrush"
+Bernie can call for assistance from Jimmy and Lee, who each
+have their own cooldown timers. Additionally, Bernie's Craze
+Technique, Rambling Inventory, can search for, store, and use
+one of 6 weapons as different attacks.
+Landing hits generates Bernie's Adrenaline Thrush meter.
+Jimmy and Lee's cooldowns consume this meter to reduce
+faster, and Rambling Inventory consumes this meter to
+search through weapons faster. Counter Hits generate
+significantly more meter.
+
+<#602828>:Craze Technique:</>
+Rambling Inventory		_CH^CT
+_! Do Not Consider Ramble		_UDLR
+What a Mess		_F^CT
+
+<#602828>:Throws:</>
+Too Close for Comfort		^GP
+The Door's That Way		_B^GP
+You Won't Need Those Ribs		_AO^GP
+
+<#602828>:Command Normals:</>
+Object Weasel		_F^LP
+Tried and True		_F^SP
+
+<#602828>:Special Moves:</>
+Goldenjoyer		_CH_QCF^LP
+Left Food		_QCF^SP
+Crashing Down		_DP^P
+Stronger Than Dirt		_CH_QCF^K
+Gimme a Hand, Jimmy!		_QCB^P
+Gimme a Hand, Lee!		_CH_QCB^K
+
+<#602828>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Hole in One (Shot)		_QCB_QCB^P
+Bastage Bashin'		_QCF_QCF^K
+
+<#602828>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Bastage Bashin' EX		_QCF_QCF^2K
+
+<#602828>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Jailbird Jamboree		_QCF_QCF^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

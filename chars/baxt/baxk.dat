@@ -1,0 +1,66 @@
+<#60c040>:Unique Trait:</>		"Blood Motor"
+Baxter's_BSattacks are buffed by his Spin Speed, which is 
+gained whenever his Purple Health increases, including from
+taking damage and using Crimson Sunder.
+
+<#60c040>:Craze Technique:</>
+Crimson Sunder		_AA^CT
+Saturated Rush _BS		_F^CT or _B^CT
+Lime Drop		_AO_D^CT
+Cerulean Leap		_AO_F_For_B_B
+
+<#60c040>:Saturated Rush Moves:</>
+Cobalt Bomber _BS		^LP
+Amber Tear _BS		^SP
+Lavender Perch		_B^CT or _B_B
+Beige Dismount		^K or _F_F or _F^CT
+Lime Drop		_D^CT or _D_D
+
+<#60c040>:Throws:</>
+Maroon Appetizer		^GP
+Sleet Bounce		_B^GP
+Orange Cross		_AO^GP
+
+<#60c040>:Command Normals:</>
+Scarlet Cleave		_For_B^SP
+Royal Blue Sting		_DB^SK
+
+<#60c040>:Special Moves:</>
+Cinnabar Crush _BS		_CH_QCF^P
+_! Cancel		^K
+_! Ruby Sunder _BS		^CT
+Turquoise Saw _BS		_CH_QCF^K
+_! Cancel		^P
+_! Saturated Rush _BS		During Hit ^CT
+Magenta Scream _BS		_AA_QCB^K
+Amber Tear _BS		_AO_QCF^P
+Multi-Chromatic Engine		_QCB^P
+Cobalt Bomber _BS		_AO_QCB^P
+
+<#60c040>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+CMYK Cruncher		_AA_QCF_QCF^P
+Contrast Pillar		_QCB_QCB^P
+
+<#60c040>:All-Out EX:</> <#bebebe>(2 Stock)</>
+CMYK Cruncher EX _BS		_QCF_QCF^2P
+
+<#60c040>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Raging Transparency		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

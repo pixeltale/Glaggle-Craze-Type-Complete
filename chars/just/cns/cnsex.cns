@@ -1,0 +1,134 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 18
+ground.front = 18
+air.back = 6
+air.front = 6
+height = 42
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -84
+mid.pos = 0, -52
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.0
+walk.back = -1.75
+run.fwd  = 4.5, 0
+run.back = -6.25,-1.5
+jump.neu = 0,-9
+jump.back = -2.75
+jump.fwd = 2.75
+runjump.fwd = 3,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 3
+BC.VoiceBankWeakKO = 2
+BC.VoiceBankHeartBreaker = 2
+BC.VoiceBankCrazeCancel = 6
+BC.VoiceBankPain = 9
+BC.VoiceBankGuardBreak = 3
+BC.VoiceBankThrowTech = 4
+BC.VoiceBankExert = 20
+
+[Quotes]
+victory0  = "My power comes from sheer force, as my heart is full of darkness."
+victory1  = "As long as the sun sets, evil will always exist in this world!"
+victory2  = "You fumble around the stage like a drunken dancer! You make this too easy for me!"
+victory3  = "It takes more than shouting 'justice' to change the world, which is why I'll always come to tear it down!"
+victory4  = "You have no hope. You might as well call it quits here."
+victory5  = "Tough to my core, I'll keep coming at you like a freight train!"
+victory6  = "A loss is a hard thing to go through. Glad I'm not you, then."
+victory7  = "You can keep trying, but eventually despair chips away at your soul!"
+victory8  = "In the hardest of times, and when people need a light to brighten their future, I will be there to smash that light to pieces!"
+victory9  = "Love? Forget such mundane emotions."
+victory10 = "Your future is not so bright, for I will eclipse it!" ; AJIT
+victory11 = "Justicia? You must be mistaken." ; TSUG
+victory12 = "No one wants you here, get out." ; TSUK
+victory13 = "Too bad you never got a BWF ring. Those sell higher than the stuff from UWF." ; SHER
+victory14 = "Evil-doers beware! For you only have two options against me: join my cause, or lose trying!" ; SHEX
+victory15 = "We could use someone like you in the BWF. Think you'd bring in a lot of eyes to the federation." ; WALL
+victory16 = "We tried having a robot version of me once-well, er, Justicia that is. Didn't go well." ; REAP
+victory17 = "We tried having a robot version of me once-well, er, Justicia that is. Didn't go well." ; REAK
+victory18 = "You think you're so funny, huh? See you in the Land of the Dead." ; JUST
+victory19 = "C'mon, enough games. Take off the mask." ; JUSK
+victory20 = "Just between us, this is just a gimmick. I can get a bit carried away, y'know?" ; BOUN
+victory21 = "Evil-doers beware! For you only have two options against me: join my cause, or lose trying!" ; BAXT
+victory22 = "No matter what it takes, you'll be in my grasp!" ; CICI
+victory23 = "You would've been BWF material if not for you being the real deal." ; GOLI
+victory24 = "You can't stop me. I'm already on the road to Hell." ; NECC
+victory25 = "The only music I need are your sweet screams for mercy!" ; EMIC
+victory26 = "Don't go spreading rumors that I'm Justicia. She had it coming." ; LUCY
+victory27 = "Evil-doers beware! For you only have two options against me: join my cause, or lose trying!" ; GABB
+victory28 = "I've seen way too many swords in the BWF ring. Yours doesn't rate!" ; ISAB
+victory29 = "Evil-doers beware! For you only have two options against me: join my cause, or lose trying!" ; TYRA
+victory30 = "I'll see you in the next Knuckle Busters tournament if you think you can take me on again." ; IKUE
+victory31 = "To me, you are nothing more than a tiger-skin doormat!" ; TERI
+victory32 = "You'd belong all too well in the BWF. At least consider it, unless you want some more of this?" ; BERN
+victory33 = "I guess Day of the Dead came early. For you, that is." ; JANE
+victory97 = "Nah, cloning me doesn't fly here." ; JUSK
+victory98 = "Take that moai head back to Isla de Pascua or you're gonna get a beating from me!" ; KAHL
+victory99 = "Evil-doers beware! For you only have two options against me: join my cause, or lose trying!" ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 18  -  Craze Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 40  -  [JUSX] Chair Timer
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 58  -  Am I SHIFT?
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

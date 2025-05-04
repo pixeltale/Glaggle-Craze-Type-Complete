@@ -1,0 +1,56 @@
+<#4820c0>:Unique Trait:</>		"Arms of Warriors Past"
+Boundary can store Khopeshes to use in his _BP moves. The
+maximum amount he can store increases slowly over time, or
+by using his Craze Technique. The number of Khopeshes he
+uses at once increases with his maximum capacity as well.
+
+<#4820c0>:Craze Technique:</>
+Area Field		_AA_CH^CT
+
+<#4820c0>:Throws:</>
+De-Facer		^GP
+Parallel Suplex		_B^GP
+Descent		_AO^GP
+
+<#4820c0>:Command Normals:</>
+Sobek Slash		_Bor_F^SP
+Sidewinder		_DF^SK
+
+<#4820c0>:Special Moves:</>
+Ancient Edge: Pierce_BP		_AA_QCF^K
+Ancient Edge: Reverse Shot_BP		_QCB^LK
+Ancient Edge: Spiral_BP		_QCB^SK
+Judgment of Horus_BP		_AA_QCB^P
+Kingship and Prosperity		_QCF^P
+_! Ancient Edge_BP		_F^K or _B^K
+_! Judgment of Horus_BP		_B^P
+Neith's Hunt		_AO_UDLR^2K
+
+<#4820c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Soulless Journey		_QCF_QCF^P
+Dust Devil Dance		_QCB_QCB^K
+Legendary Edge		_QCF_QCF^K
+
+<#4820c0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Soulless Journey EX		_QCF_QCF^2P
+
+<#4820c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Pharaoh's Game		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

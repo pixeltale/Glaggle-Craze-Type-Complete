@@ -1,0 +1,57 @@
+<#0060d8>:Unique Trait:</>		"Thrush Drive"
+Robo-Tsugumi has a battery gauge with 3 pips. Using a ^SP or
+^SK special will consume a pip and empower the special. 
+Otherwise, ^LP or ^LK versions will occur instead. The 
+battery gauge charges over time, with movement, and after
+connecting a move.
+Gemini moves can be chained into each other up to 3 times,
+or into other Special moves.
+
+<#0060d8>:Craze Technique:</>
+Million Voltage		^CT
+
+<#0060d8>:Throws:</>
+Thousand Cranes 		^GP
+On a Trip 		_B^GP
+Distant Tear 		_AO^GP
+
+<#0060d8>:Command Normals:</>
+Lily Step 		_CH_F^LK
+Beautiful Flower		_CH_DF^SP
+
+<#0060d8>:Special Moves:</>
+Gemini (Beautiful) 		_QCF^P
+Gemini (Beloved)		_QCF^K
+Gemini (Retreat)		_QCB^P
+Mountain Peak		_D_D^P
+Thousand Catastrophe		_HCB^K or _360^K
+Spring Drive		_F^2K or _B^2K
+
+<#0060d8>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Shine of Wisdom		_QCB_QCB^P
+Sparkling Dream		_QCF_QCF^K
+
+<#0060d8>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Purity Sign		_QCB_QCB^2K
+_! Blessing Truth		_QCB_QCB^K
+
+<#0060d8>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Fruits of Labor		_QCF_QCF^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

@@ -1,0 +1,456 @@
+[statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = floor(EnemyNear,Map(WinQuoteNum))
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "TSUG" && EnemyNear,Name != "TSUX" && EnemyNear,Name != "TSUK"
+trigger1 = EnemyNear,Name != "REAP" && EnemyNear,Name != "REAX"
+trigger1 = EnemyNear,Name != "JUST" && EnemyNear,Name != "JUSX"
+trigger1 = EnemyNear,Name != "BAXT" && EnemyNear,Name != "BAXX" && EnemyNear,Name != "BAXK"
+trigger1 = EnemyNear,Name != "CICI" && EnemyNear,Name != "CICX" && EnemyNear,Name != "CICK"
+trigger1 = EnemyNear,Name != "GOLI" && EnemyNear,Name != "GOLX" && EnemyNear,Name != "GOLK"
+trigger1 = EnemyNear,Name != "NECC" && EnemyNear,Name != "NECX" && EnemyNear,Name != "NECK"
+trigger1 = EnemyNear,Name != "TERI" && EnemyNear,Name != "TERX" && EnemyNear,Name != "TERK"
+trigger1 = EnemyNear,Name != "JANE" && EnemyNear,Name != "JANX" && EnemyNear,Name != "JANK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "NECC" && EnemyNear,Name != "NECX" && EnemyNear,Name != "NECK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+[State 0, WinQuote]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random <= 1
+trigger1 = Time = 1
+value = 69
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 200, 2]
+type = PlaySnd
+triggerall = Anim = 160
+trigger1 = AnimElem = 4
+value = F0, 3
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 160
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 5
+x = 12
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 160
+trigger1 = AnimElem = 8
+trigger2 = AnimElem = 9
+x = -12
+
+;============================
+; RUN SOUND
+;============================
+
+[State 0, Snd Run Step]
+type = PlaySnd
+triggerall = Anim = 100 || Anim = 910 || Anim = 7050
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 6
+value = F2,2
+channel = 2
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 5325 || Anim = 5326
+trigger1 = AnimElem = 5
+x = 8
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 5325 || Anim = 5326
+trigger1 = AnimElem = 8
+trigger2 = AnimTime = 0
+x = 16
+
+;============================
+; NECROSS - FX
+;============================
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = !Map(FXColor) && RoundState = 1
+map = "FXColor"
+value = ifelse(Var(59)=1,16310440,ifelse(Var(59)=2,16306304,ifelse(Var(59)=3,11067640,ifelse(Var(59)=4,15268000,ifelse(Var(59)=5,16314560,ifelse(Var(59)=6,15778040,ifelse(Var(59)=7,15792376,ifelse(Var(59)=8,11563200,ifelse(Var(59)=9,16285888,ifelse(Var(59)=10,4249816,ifelse(Var(59)=11,12619920,ifelse(Var(59)=12,547048,ifelse(Var(59)=13,12587104,ifelse(Var(59)=14,16312416,ifelse(Var(59)=15,16314496,ifelse(Var(59)=16,12114144,ifelse(Var(59)=17,16308320,ifelse(Var(59)=18,10485760,ifelse(Var(59)=19,8409184,ifelse(Var(59)=20,11010112,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15255560,43072)))))))))))))))))))))))
+
+;========================================================
+; NECC COMBO PREVENTION
+;========================================================
+
+[State 0, MapSet]
+type = MapSet
+triggerall = Map(NeccLastCharge) != -1
+trigger1 = Var(51) = 0
+trigger2 = Var(8) = 1
+trigger2 = StateNo%100 != 10
+trigger3 = StateNo = 3005
+map = "NeccLastCharge"
+value = -1
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapSet
+triggerall = Map(NeccPursuit) != 0
+trigger1 = Var(51) = 0
+map = "NeccPursuit"
+value = 0
+ignorehitpause = 1
+
+;========================================================
+; CHARGE EFFECT
+;========================================================
+
+[State 0, Var Reset]
+type = MapSet
+trigger1 = Map(NeccChargeEffect)
+map = "NeccPal"
+value = 8 + 4 * (Name!="NECK")
+[State 0, LifeSubtract]
+type = LifeAdd
+trigger1 = Name = "NECC"
+trigger1 = Map(NeccChargeEffect)
+value = -40 - 30 * (Var(51)>0)
+kill = 0
+[State 0, Var Regen Timer]
+type = VarSet
+trigger1 = Name = "NECC"
+trigger1 = Map(NeccChargeEffect)
+v = 23
+value = 96
+[State 0, Var Gauge Gain]
+type = VarAdd
+trigger1 = Name = "NECC"
+trigger1 = Map(NeccChargeEffect)
+v = 18
+value = 50
+[State 0, Var Reset]
+type = MapSet
+trigger1 = Map(NeccChargeEffect)
+map = "NeccChargeEffect"
+value = 0
+
+[State 0, Pal FX Wetness]
+type = PalFX
+trigger1 = Map(NeccPal) > 0
+trigger1 = Map(HitFXTimer) = 0
+time = 2
+add = floor((Map(FXColor)%16777216)*0.0000152587890625*0.05*Map(NeccPal)),floor((Map(FXColor)%65536)*0.00390625*0.05*Map(NeccPal)),floor((Map(FXColor)%256)*0.05*Map(NeccPal))
+mul = 256 - 21 * Map(NeccPal) + floor((Map(FXColor)%16777216)*0.0000152587890625*0.125*Map(NeccPal)),256 - 21 * Map(NeccPal) + floor((Map(FXColor)%65536)*0.00390625*0.125*Map(NeccPal)),256 - 21 * Map(NeccPal) + floor((Map(FXColor)%256)*0.125*Map(NeccPal))
+color = 256 - 21 * Map(NeccPal)
+ignorehitpause = 1
+
+[State 0, Var Reset]
+type = MapAdd
+trigger1 = Map(NeccPal)
+map = "NeccPal"
+value = -1
+ignorehitpause = 1
+
+;========================================================
+; NECX COUNTDOWN VAMPIRES
+;========================================================
+[State 0, Map Countdown Reset]
+type = MapSet
+trigger1 = Map(NecxCountdown) != 0
+trigger1 = RoundState < 2
+map = "NecxCountdown"
+value = 0
+[State 0, Map Countdown Set]
+type = MapSet
+triggerall = Name = "NECX"
+trigger1 = Map(NecxCountdown) < Var(51) - Map(NecxCountoff)
+map = "NecxCountdown"
+value = max(0,Var(51) - Map(NecxCountoff))
+ignorehitpause = 1
+[State 0, Map Countdown Limiter Reset]
+type = MapSet
+trigger1 = Map(NecxCountoff)
+trigger1 = Var(51) = 0 || MoveType = H
+map = "NecxCountoff"
+value = 0
+ignorehitpause = 1
+
+;========================================================
+; NECX CHOIR
+;========================================================
+
+[State 0, Map Choir Timer]
+type = MapSet
+triggerall = Name = "NECX"
+trigger1 = Map(NecxChoir)
+trigger1 = !Var(54)
+map = "NecxChoir"
+value = max(0.0 + 0.1 * !!Var(51),Map(NecxChoir)-0.1-0.1*(MoveType=H&&StateNo>160))
+ignorehitpause = 1
+;[State 0, Map Choir Reducto]
+;type = MapSet
+;triggerall = Name = "NECX"
+;triggerall = Map(NecxChoir)
+;triggerall = Var(8) = 1 && MoveHit && NumTarget
+;trigger1 = StateNo = 215
+;trigger2 = StateNo = 315
+;trigger3 = StateNo = 415
+;trigger4 = StateNo = 515
+;trigger5 = StateNo = 615
+;trigger6 = StateNo = 715
+;map = "NecxChoir"
+;value = max(0.0 + 0.1 * !!Var(51),Map(NecxChoir) - 9.5)
+;ignorehitpause = 1
+[State 0, Map Choir Reducto]
+type = MapSet
+triggerall = Name = "NECX"
+triggerall = Map(NecxChoir)
+triggerall = AnimElem = 4
+trigger1 = StateNo = 215
+trigger2 = StateNo = 315
+trigger3 = StateNo = 415
+trigger4 = StateNo = 515
+trigger5 = StateNo = 615
+trigger6 = StateNo = 715
+map = "NecxChoir"
+value = max(0.0 + 0.1 * !!Var(51),Map(NecxChoir) - 9.5)
+ignorehitpause = 1
+[State 0, Map Choir Reset]
+type = MapSet
+triggerall = Name = "NECX"
+trigger1 = Map(NecxChoir)
+trigger1 = RoundState != 2
+map = "NecxChoir"
+value = 0
+ignorehitpause = 1
+[State 0, Explod Super Aura]
+type = Explod
+triggerall = Name = "NECX"
+trigger1 = Map(NecxChoir) > 0.1
+trigger1 = MoveType != H || StateNo = [120,160)
+trigger1 = GameTime%6 = 0
+anim = 2411
+pos = -const(size.ground.back)+random%abs(const(size.ground.front)*2),-random%abs(const(size.head.pos.y))
+postype = p1
+vel = Vel X * 0.1 * !Var(8),Vel Y * 0.5 * !Var(8)
+pausemovetime = -1
+supermovetime = -1
+sprpriority = -2 + random%9
+ownpal = 1
+ignorehitpause = 1
+
+;========================================================
+; NECX CHOIR
+;========================================================
+
+[State 0, Map Doll Default]
+type = MapSet
+trigger1 = RoundState = 0
+trigger1 = Name = "NECK"
+trigger1 = Map(NeckDoll) != 4
+map = "NeckDoll"
+value = 4
+[State 0, Map Doll Big Default]
+type = MapSet
+trigger1 = RoundState = 0
+trigger1 = Name = "NECK"
+trigger1 = Map(NeckDollBig)
+map = "NeckDollBig"
+value = 0
+
+;============================
+; VAR 30 - AFTERIMAGE
+;============================
+
+[State 0, Var AfterImage Turn Off]
+type = VarSet
+triggerall = Var(30)
+triggerall = StateNo != [2000,3000) || MoveType = H
+triggerall = Name = "NECX"
+trigger1 = MoveType = H 
+trigger2 = Var(30) = 1 && !Var(11)
+trigger3 = Var(30) > 1 && (Map(NecxChoir)<=0.1 || RoundState != 2 || MoveType = H)
+v = 30
+value = 0
+[State 0, Var Choir]
+type = VarSet
+trigger1 = Name = "NECX"
+trigger1 = Map(NecxChoir) > 0.1
+trigger1 = StateNo != [2000,3000)
+trigger1 = MoveType != H 
+v = 30
+value = 7
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) < 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 210
+trigger2 = StateNo = 310
+trigger3 = StateNo = 410
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610
+trigger6 = StateNo = 710
+trigger7 = StateNo = 205
+trigger8 = StateNo = 215
+trigger9 = StateNo = 220
+trigger10 = StateNo = 305
+trigger11 = StateNo = 315
+trigger12 = StateNo = 325
+trigger13 = StateNo = 415
+trigger14 = StateNo = 515
+trigger15 = StateNo = 615
+trigger16 = StateNo = 715
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 900
+trigger2 = StateNo = 913
+trigger3 = StateNo = 1000 || StateNo = 1050
+trigger4 = StateNo = 1100
+trigger5 = StateNo = 1400
+trigger6 = StateNo = 1500 || StateNo = 1550
+trigger7 = StateNo = 1850
+trigger8 = StateNo = 912
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+trigger1 = StateNo = 810 && AnimElem = 4, >= 1
+trigger2 = StateNo = 830 && AnimElem = 8, >= 1
+trigger3 = StateNo = 860 && EnemyNear,StateNo >= 871 && EnemyNear,Time >= 2 && Var(51) > 1
+trigger4 = StateNo = 1210 && AnimElem = 22, 5
+trigger5 = StateNo = 1310 && Time = 14 && Name="NECC"
+trigger6 = StateNo = 2550
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0 && StateNo != 2110 && StateNo != 2150 && StateNo != 2310 && StateNo != 2510 && StateNo != 2710
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+trigger1 = StateNo != 1060 && StateNo != 1410
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+trigger2 = Map(NecxChoir)
+fv = 15
+value = 0.5
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 0
+text = "%d    %d    %d"; %d %f"
+params = floor(Map(Cutscene)),Var(20),EnemyNear,Var(20)
+ignorehitpause = 1

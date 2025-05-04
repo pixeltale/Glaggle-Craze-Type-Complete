@@ -1,0 +1,62 @@
+<#e89850>:Unique Trait:</>		"Threats from Abbadon"
+Necross has access to empowered versions of her Strong
+normals as unique command normals. Any move listed with _NE
+costs health to use, but adds various properties to her
+attacks.
+Throws and Special Moves can be followed up with her
+Craze Technique by holding ^CT
+
+<#e89850>:Craze Technique:</>
+Last Will and Testament		^CT
+
+<#e89850>:Throws:</>
+Third Sphere: Angel's Talon		^GP
+Third Sphere: Angel's Blight		_B^GP
+Third Sphere: Angel's Plummet		_AO^GP
+
+<#e89850>:Command Normals:</>
+Third Sphere: Archangel's Staff		_F^LP
+Third Sphere: Tower of Babel		_B^SP
+Cherubim Mimic: Eagle _NE		_F^SP
+Cherubim Mimic: Bull _NE		_F^SK
+Cherubim Mimic: Phalanx _NE		_DF^SP
+Cherubim Mimic: Gauntlet _NE		_DF^SK
+Cherubim Mimic: Lion _NE		_AO_D^SP
+Cherubim Mimic: Talon _NE		_AO_D^SK
+
+<#e89850>:Special Moves:</>
+Second Sphere: Dominion's Request		_QCF^P
+_! Second Sphere: Dominion's Leash		^P
+Second Sphere: Dominion's Leash		_AO_QCF^P
+Second Sphere: Power's Advance		_QCB^K
+Second Sphere: Principalities' Demand		_DP^K
+First Sphere: Seraphim's Roar		_HCB^P or _360^P
+First Sphere: Cherubim's Cord		_HCF^K
+
+<#e89850>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+First Sphere: Seraphim's Sword		_QCF_QCF^K
+First Sphere: Seraphim's Smash		_HCB^2P or _360^2P
+
+<#e89850>:All-Out EX:</> <#bebebe>(2 Stock)</>
+First Sphere: Seraphim's Smash EX		_HCB^2K or _360^2K
+
+<#e89850>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+First Sphere: Seraphim's Ecstasy		_QCF_QCF^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

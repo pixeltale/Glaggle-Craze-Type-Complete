@@ -1,0 +1,469 @@
+;-----------------------------------------------------------
+; Ikemen feature
+[Info]
+localcoord = 640,480 ;Local coordinate space width and height
+
+;-----------------------------------------------------------
+[Files]
+sff = fight.sff
+snd = fight.snd
+font1 = BC_timer.def
+font2 = BC_barname.def
+fightfx.sff = fightfx.sff
+fightfx.air = fightfx.air
+common.snd = common.snd
+
+;-----------------------------------------------------------
+[FightFx]
+scale = 2
+
+;-----------------------------------------------------------
+[Lifebar]
+p1.pos    = 0,0
+p2.pos    = 0,0
+
+[Simul Lifebar]
+p1.pos    = 0,0
+p2.pos    = 0,0
+p3.pos    = 0,0
+p4.pos    = 0,0
+
+[Turns Lifebar]
+p1.pos    = 0,0
+p2.pos    = 0,0
+
+;-----------------------------------------------------------
+[Powerbar]
+p1.pos    = 0,0
+p2.pos    = 0,0
+
+; --level sounds---
+level1.snd = 21,0
+level2.snd = 21,0
+level3.snd = 21,0
+level4.snd = 21,0
+level5.snd = 21,0
+level6.snd = 21,0
+level7.snd = 21,0
+level8.snd = 21,0
+level9.snd = 21,0
+
+;-----------------------------------------------------------
+[Face]
+;Player 1
+p1.pos    = 0,0
+p2.pos    = 0,0
+
+[Simul Face]
+p1.pos    = 0,0
+p2.pos    = 0,0
+p3.pos    = 0,0
+p4.pos    = 0,0
+
+[Turns Face]
+p1.pos    = 0,0
+p2.pos    = 0,0
+
+;-----------------------------------------------------------
+[Name]
+p1.pos = 120,-94
+p1.name.font = 2,0, 0
+p1.name.layerno = 2
+p2.pos = 544,-94
+p2.name.font = 2,0, 0
+p2.name.layerno = 2
+
+[Simul Name]
+p1.pos = 120,-94
+p1.name.font = 2,0, 0
+p1.name.layerno = 2
+p2.pos = 544,-94
+p2.name.font = 2,0, 0
+p2.name.layerno = 2
+
+; Ikemen feature
+[Simul_3P Name]
+p1.pos = 120,-94
+p1.name.font = 2,0, 0
+p1.name.layerno = 2
+p2.pos = 544,-94
+p2.name.font = 2,0, 0
+p2.name.layerno = 2
+
+; Ikemen feature
+[Simul_4P Name]
+p1.pos = 120,-94
+p1.name.font = 2,0, 0
+p1.name.layerno = 2
+p2.pos = 544,-94
+p2.name.font = 2,0, 0
+p2.name.layerno = 2
+
+; Ikemen feature
+[Tag Name]
+p1.pos = 120,-94
+p1.name.font = 2,0, 0
+p1.name.layerno = 2
+p2.pos = 544,-94
+p2.name.font = 2,0, 0
+p2.name.layerno = 2
+
+[Turns Name]
+p1.pos = 120,-94
+p1.name.font = 2,0, 0
+p1.name.layerno = 2
+p2.pos = 544,-94
+p2.name.font = 2,0, 0
+p2.name.layerno = 2
+
+;-----------------------------------------------------------
+[Time]
+pos = 320,41
+counter.offset = 0,0
+counter.font = 1,0, 0
+counter.layerno = 2
+framespercount = 60
+
+;-----------------------------------------------------------
+[Combo]
+team1.pos = 0,0
+team2.pos = 0,0
+
+;-----------------------------------------------------------
+[Round]
+match.wins = 2
+match.maxdrawgames = -1
+start.waittime = 8
+
+pos = 0,0
+
+; ROUND X
+round.time = 0
+round.default.displaytime = 138
+round.default.anim = 5000
+round.default.snd = 500,9
+round1.anim = 5001
+round2.anim = 5002
+round3.anim = 5003
+round4.anim = 5004
+round5.anim = 5005
+round1.snd = 500,0
+round2.snd = 500,2
+round3.snd = 500,3
+round4.snd = 500,4
+round5.snd = 500,5
+round6.snd = 500,6
+round7.snd = 500,7
+round8.snd = 500,8
+round9.snd = 500,9
+round.sndtime = 0
+
+; FIGHT
+fight.time = 0
+fight.anim = 5010
+fight.snd = 500,1
+fight.sndtime = 0
+callfight.time = 136
+ctrl.time = 38
+
+; KO
+KO.anim  = -1
+; Double KO
+DKO.anim = -1
+; Time Over
+TO.anim = 50
+TO.offset = 320, 0
+TO.displaytime = 32
+KO.sndtime = 0
+slow.time  = 0            ;Time for KO slowdown (in ticks)
+over.waittime = 0         ;Time to wait after KO before player control is stopped
+over.hittime = 1          ;Time after KO that players can still damage each other (for double KO)
+over.wintime = 64          ;Time to wait before players change to win states
+over.time = 192            ;Time to wait before round ends
+; Time to wait before showing win/draw message
+win.time = 60
+; Win text
+win.anim = -1
+; 2-player win text
+win2.anim = -1
+; Draw text
+draw.offset = 320, 0
+draw.anim = 100
+draw.displaytime = 666
+
+; TIME!
+[Begin Action 50]
+50,0, 0,96, 2
+50,1, 0,208, 2
+50,1, 0,112, 2
+50,1, 0,176, 2
+50,1, 0,128, 2
+50,1, 0,160, 2
+50,1, 0,136, 2
+50,1, 0,152, 2
+50,1, 0,144, 16
+
+; Failure...
+[Begin Action 100]
+-1,0,0,0, 32
+100,0, 0,-80, 2
+100,0, 0,0, 2
+100,0, 0,80, 2
+100,0, 0,128, 2
+100,0, 0,160, 2
+100,0, 0,176, 2
+100,0, 0,184, 2
+100,0, 0,192, -1
+
+; Round X
+[Begin Action 5000]
+-1,0, 0,0, 2
+5000,0, 0,0, 2
+5000,1, 0,0, 2
+5000,2, 0,0, 2
+5000,3, 0,0, 2
+5000,4, 0,0, 2
+5000,5, 0,0, 2
+5000,10, 0,0, 2
+5000,11, 0,0, 2
+5000,12, 0,0, 2
+5000,13, 0,0, 2
+5000,14, 0,0, 2
+5000,15, 0,0, 2
+5000,16, 0,0, 112
+
+; Round 1
+[Begin Action 5001]
+-1,0, 0,0, 2
+5000,0, 0,0, 2
+5000,1, 0,0, 2
+5000,2, 0,0, 2
+5000,3, 0,0, 2
+5000,4, 0,0, 2
+5000,5, 0,0, 2
+5000,20, 0,0, 2
+5000,21, 0,0, 2
+5000,22, 0,0, 2
+5000,23, 0,0, 2
+5000,24, 0,0, 2
+5000,25, 0,0, 2
+5000,26, 0,0, 112
+
+; Round 2
+[Begin Action 5002]
+-1,0, 0,0, 2
+5000,0, 0,0, 2
+5000,1, 0,0, 2
+5000,2, 0,0, 2
+5000,3, 0,0, 2
+5000,4, 0,0, 2
+5000,5, 0,0, 2
+5000,30, 0,0, 2
+5000,31, 0,0, 2
+5000,32, 0,0, 2
+5000,33, 0,0, 2
+5000,34, 0,0, 2
+5000,35, 0,0, 2
+5000,36, 0,0, 112
+
+; Round 3
+[Begin Action 5003]
+-1,0, 0,0, 2
+5000,0, 0,0, 2
+5000,1, 0,0, 2
+5000,2, 0,0, 2
+5000,3, 0,0, 2
+5000,4, 0,0, 2
+5000,5, 0,0, 2
+5000,40, 0,0, 2
+5000,41, 0,0, 2
+5000,42, 0,0, 2
+5000,43, 0,0, 2
+5000,44, 0,0, 2
+5000,45, 0,0, 2
+5000,46, 0,0, 112
+
+; Round 4
+[Begin Action 5004]
+-1,0, 0,0, 2
+5000,0, 0,0, 2
+5000,1, 0,0, 2
+5000,2, 0,0, 2
+5000,3, 0,0, 2
+5000,4, 0,0, 2
+5000,5, 0,0, 2
+5000,50, 0,0, 2
+5000,51, 0,0, 2
+5000,52, 0,0, 2
+5000,53, 0,0, 2
+5000,54, 0,0, 2
+5000,55, 0,0, 2
+5000,56, 0,0, 112
+
+; Round 5
+[Begin Action 5005]
+-1,0, 0,0, 2
+5000,0, 0,0, 2
+5000,1, 0,0, 2
+5000,2, 0,0, 2
+5000,3, 0,0, 2
+5000,4, 0,0, 2
+5000,5, 0,0, 2
+5000,60, 0,0, 2
+5000,61, 0,0, 2
+5000,62, 0,0, 2
+5000,63, 0,0, 2
+5000,64, 0,0, 2
+5000,65, 0,0, 2
+5000,66, 0,0, 112
+
+; RAKE!!
+[Begin Action 5010]
+5000,6, 0,0, 2
+5000,7, 0,0, 2
+5000,8, 0,0, 2
+5000,9, 0,0, 32
+-1,0,0,0, 32
+
+;-----------------------------------------------------------
+[WinIcon]
+p1.pos = 244,15
+p2.pos = 395,15
+; Offset for next icon (x,y)
+p1.iconoffset = -40,0  
+p2.iconoffset = 40,0
+p1.bg0.spr = 10,0
+p1.bg0.layerno = 2
+p2.bg0.spr = 10,0
+p2.bg0.layerno = 2
+; Counter text font and offset for representing wins
+p1.counter.offset = -16,16
+p1.counter.font = 2,1
+p2.counter.offset = 16,16
+p2.counter.font = 2,1
+; Win by normal
+p1.n.anim = 10
+p1.n.layerno = 2
+p2.n.anim = 10
+p2.n.layerno = 2
+; Win by special
+p1.s.anim = 11
+p1.s.layerno = 2
+p2.s.anim = 11
+p2.s.layerno = 2
+; Win by hyper (super)
+p1.h.anim = 12
+p1.h.layerno = 2
+p2.h.anim = 12
+p2.h.layerno = 2
+; Win by normal throw
+p1.throw.anim = 13
+p1.throw.layerno = 2
+p2.throw.anim = 13
+p2.throw.layerno = 2
+; Win by cheese
+p1.c.anim = 14
+p1.c.layerno = 2
+p2.c.anim = 14
+p2.c.layerno = 2
+; Win by time over
+p1.t.anim = 15
+p1.t.layerno = 2
+p2.t.anim = 15
+p2.t.layerno = 2
+; Win by suicide (here's a fun one)
+p1.suicide.anim = 16
+p1.suicide.layerno = 2
+p2.suicide.anim = 16
+p2.suicide.layerno = 2
+; Opponent beaten by his own teammate (another fun one)
+p1.teammate.anim = 16
+p1.teammate.layerno = 2
+p2.teammate.anim = 16
+p2.teammate.layerno = 2
+; Win by perfect (overlay icon)
+p1.perfect.spr = 12,0
+p1.perfect.layerno = 2
+p2.perfect.spr = 12,0
+p2.perfect.layerno = 2
+; Use icons up until this number of wins
+useiconupto = 4
+
+; WinIcon V
+[Begin Action 10]
+11,0,0,0, 1
+
+; WinIcon SP
+[Begin Action 11]
+11,2,0,0, 1
+
+; WinIcon AOA
+[Begin Action 12]
+11,4,0,0, 1
+
+; WinIcon T
+[Begin Action 13]
+11,6,0,0, 1
+
+; WinIcon C
+[Begin Action 14]
+11,8,0,0, 1
+
+; WinIcon 0
+[Begin Action 15]
+11,10,0,0, 1
+
+; WinIcon X
+[Begin Action 16]
+11,12,0,0, 1
+
+
+;-----------------------------------------------------------
+; Ikemen feature
+[Match]
+pos = 136,37
+;bg.spr = 
+text.font = 2,0, -1
+text.layerno = 2
+text.text = MATCH %s
+
+enabled.arcade = 1
+enabled.netplaysurvivalcoop = 1
+enabled.survival = 1
+enabled.survivalcoop = 1
+enabled.vs100kumite = 1
+;-----------------------------------------------------------
+; Ikemen feature
+[AILevel]
+p1.pos = 118,37
+;p1.bg.spr = 
+p1.text.font = 2,0, -1
+; %s = integer value, %p = percentage
+p1.text.layerno = 2
+p1.text.text = CPU-%s
+
+p2.pos = 520,37
+;p2.bg.spr = 
+p2.text.font = 2,0, 1
+p2.text.layerno = 2
+p2.text.text = CPU-%s
+
+format.decimal.places = 0
+format.decimal.separator = .
+
+p1.enabled.watch = 1
+
+p2.enabled.arcade = 1
+p2.enabled.bossrush = 1
+p2.enabled.freebattle = 1
+p2.enabled.netplaysurvivalcoop = 1
+p2.enabled.netplayteamcoop = 1
+p2.enabled.scorechallenge = 1
+p2.enabled.survival = 1
+p2.enabled.survivalcoop = 1
+p2.enabled.teamcoop = 1
+p2.enabled.timeattack = 1
+p2.enabled.timechallenge = 1
+p2.enabled.training = 1
+p2.enabled.vs100kumite = 1
+p2.enabled.watch = 1

@@ -1,0 +1,61 @@
+<#203080>:Unique Trait:</>		"Advanced Wrestling Technique"
+La Justicia has access to multiple different throws by 
+inputting the Grapple command and then any direction.
+Her Craze Techniques can summon a chair to act as a
+barrier, and can be launched as a projectile if she
+hits it.
+
+<#203080>:Craze Technique:</>
+Throne of Justice		^CT
+Throne Driver		_F^CT
+Overthrone		_B^CT
+
+<#203080>:Throws:</>
+Power Bomb		^GP
+German Suplex		_B^GP
+Running Scoop Slam		_F^GP
+Fireman’s Heave-Ho		_U^GP
+Bear Hug		_D^GP
+Air Dynamic Driver		_AO^GP
+
+<#203080>:Command Normals:</>
+Bodacious Haymaker		_F^LP
+Dropkick Jr.!		_F^LK
+Duck and Roll		_DF^SK
+_! Senton		Hold ^SK
+
+<#203080>:Special Moves:</>
+Revolution Slash		_QCF^P
+Flamingo Splash		_AO_QCF^PK
+Rising Star		_QCF^K
+_! Meteor Clutch		^K
+Justice Hammer		_HCB^P or _360^P
+Sunset Slam		_HCB^K or _360^K
+
+<#203080>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Moment of Truth		_QCF_QCF^P
+Defining Verdict		_HCB^2P or _360^2P
+
+<#203080>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Moment of Truth EX		_QCF_QCF^2P
+
+<#203080>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+And Justice for All		_HCB^2K or _360^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

@@ -1,0 +1,610 @@
+[statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = EnemyNear,Map(WinQuoteNum)
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "AJIT" && EnemyNear,Name != "AJIX" && EnemyNear,Name != "AJIK"
+trigger1 = EnemyNear,Name != "REAP" && EnemyNear,Name != "REAX" && EnemyNear,Name != "REAK"
+trigger1 = EnemyNear,Name != "JUST" && EnemyNear,Name != "JUSX" && EnemyNear,Name != "JUSK"
+trigger1 = EnemyNear,Name != "BOUN" && EnemyNear,Name != "BOUX" && EnemyNear,Name != "BOUK"
+trigger1 = EnemyNear,Name != "CICI" && EnemyNear,Name != "CICX" && EnemyNear,Name != "CICK"
+trigger1 = EnemyNear,Name != "NECC" && EnemyNear,Name != "NECX" && EnemyNear,Name != "NECK"
+trigger1 = EnemyNear,Name != "GABB" && EnemyNear,Name != "GABX" && EnemyNear,Name != "GABK"
+trigger1 = EnemyNear,Name != "ISAB" && EnemyNear,Name != "ISAX" && EnemyNear,Name != "ISAK"
+trigger1 = EnemyNear,Name != "IKUE" && EnemyNear,Name != "IKUX" && EnemyNear,Name != "IKUK"
+trigger1 = EnemyNear,Name != "TERI" && EnemyNear,Name != "TERX" && EnemyNear,Name != "TERK"
+trigger1 = EnemyNear,Name != "BERN" && EnemyNear,Name != "BERX" && EnemyNear,Name != "BERK"
+trigger1 = EnemyNear,Name != "JANE" && EnemyNear,Name != "JANX" && EnemyNear,Name != "JANK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "TYRA" && EnemyNear,Name != "TYRX" && EnemyNear,Name != "TYRK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+;============================
+; GUARD FX
+;============================
+
+[State 0, Explod Guard Start/End]
+type = Explod
+trigger1 = Anim = [120,130)
+trigger2 = Anim = [140,150)
+anim = 123 + (Anim%10=1)
+postype = p1
+pausemovetime = 1
+sprpriority = -1
+ownpal = 1
+ignorehitpause = 1
+[State 0, Explod Guard Normal]
+type = Explod
+trigger1 = Anim = [130,140)
+trigger2 = (Anim = [150,160)) && AnimElemNo(0) = 2
+anim = 133 + floor(0.5 * (GameTime%4)) + (Anim%10=1) * 2
+postype = p1
+pausemovetime = 1
+sprpriority = -1
+ownpal = 1
+ignorehitpause = 1
+[State 0, Explod Guard Hit]
+type = Explod
+trigger1 = (Anim = [150,160)) && AnimElemNo(0) = 1
+anim = 153 + floor(0.5 * (GameTime%4)) + (Anim%10=1) * 2
+pos = (-1+GameTime%3)*!HitShakeOver,0
+postype = p1
+pausemovetime = 1
+sprpriority = -1
+ownpal = 1
+ignorehitpause = 1
+
+;============================
+; TYRA - FXColor
+;============================
+
+[State 0, Map FX Fire]
+type = MapSet
+triggerall = Time = 1
+trigger1 = StateNo = 210
+trigger2 = StateNo = 610
+trigger3 = StateNo = 1300
+trigger4 = StateNo = 1500
+trigger5 = StateNo = 2100
+trigger6 = StateNo = 2410
+map = "FXColor"
+value = ifelse(Var(59)=1,15767584,ifelse(Var(59)=2,10506480,ifelse(Var(59)=3,11065344,ifelse(Var(59)=4,2136304,ifelse(Var(59)=5,15749216,ifelse(Var(59)=6,12110056,ifelse(Var(59)=7,13648088,ifelse(Var(59)=8,4227312,ifelse(Var(59)=9,4253792,ifelse(Var(59)=10,10502392,ifelse(Var(59)=11,11018480,ifelse(Var(59)=12,15767584,ifelse(Var(59)=13,15767584,ifelse(Var(59)=14,11049128,ifelse(Var(59)=15,12116216,ifelse(Var(59)=16,15767584,ifelse(Var(59)=17,16285760,ifelse(Var(59)=18,13123824,ifelse(Var(59)=19,10508408,ifelse(Var(59)=20,14164032,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15777800,43072)))))))))))))))))))))))
+
+[State 0, Map FX Red]
+type = MapSet
+triggerall = Time = 1
+trigger1 = StateNo = 1175
+map = "FXColor"
+value = ifelse(Var(59)=1,16273472,ifelse(Var(59)=2,6308088,ifelse(Var(59)=3,2152528,ifelse(Var(59)=4,4206648,ifelse(Var(59)=5,16261184,ifelse(Var(59)=6,1069216,ifelse(Var(59)=7,15761600,ifelse(Var(59)=8,4215016,ifelse(Var(59)=9,15786080,ifelse(Var(59)=10,8448064,ifelse(Var(59)=11,11026680,ifelse(Var(59)=12,14213304,ifelse(Var(59)=13,12120232,ifelse(Var(59)=14,10496144,ifelse(Var(59)=15,16544,ifelse(Var(59)=16,16295984,ifelse(Var(59)=17,16302176,ifelse(Var(59)=18,16273480,ifelse(Var(59)=19,10508408,ifelse(Var(59)=20,14164032,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15777800,43072)))))))))))))))))))))))
+
+[State 0, Map FX Lightning]
+type = MapSet
+triggerall = Time = 1
+trigger1 = StateNo = 2310
+trigger2 = StateNo = 1131
+trigger3 = StateNo = 1160
+trigger4 = StateNo = 2510
+trigger5 = StateNo = 2800
+trigger6 = StateNo = 226
+map = "FXColor"
+value = ifelse(Var(59)=1,13150432,ifelse(Var(59)=2,14729392,ifelse(Var(59)=3,11061472,ifelse(Var(59)=4,12630240,ifelse(Var(59)=5,6299744,ifelse(Var(59)=6,12634320,ifelse(Var(59)=7,14723272,ifelse(Var(59)=8,6351072,ifelse(Var(59)=9,11065424,ifelse(Var(59)=10,14731432,ifelse(Var(59)=11,11542704,ifelse(Var(59)=12,10489904,ifelse(Var(59)=13,13680832,ifelse(Var(59)=14,10496144,ifelse(Var(59)=15,10535144,ifelse(Var(59)=16,15247408,ifelse(Var(59)=17,15761472,ifelse(Var(59)=18,16273480,ifelse(Var(59)=19,10508408,ifelse(Var(59)=20,14164032,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15777800,43072)))))))))))))))))))))))
+
+;============================
+; TYRA - EX
+;============================
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = RoundState = 0
+map = "TyraEXStack"
+value = 0
+
+[State 0, Snd EX Active]
+type = PlaySnd
+trigger1 = !Map(TyraEXAct) && Map(TyraEXStack) = 3
+value = S901,0
+ignorehitpause = 1
+[State 0, EX Active On]
+type = MapAdd
+trigger1 = !Map(TyraEXAct) && Map(TyraEXStack) = 3
+trigger2 = Map(TyraEXAct) && Map(TyraEXStack) < 3
+map = "TyraEXAct"
+value = (Map(TyraEXStack)=3)
+ignorehitpause = 1
+
+[State 0, Snd EX Activate]
+type = PlaySnd
+trigger1 = Map(EXPal) = 1
+value = S1050,0
+ignorehitpause = 1
+[State 0, EX Pal Add]
+type = MapAdd
+trigger1 = Map(EXPal)
+map = "EXPal"
+value = 1
+ignorehitpause = 1
+[State 0, EX Pal Reset]
+type = MapSet
+triggerall = Map(EXPal)
+trigger1 = MoveType = H && StateNo != 999
+trigger2 = Ctrl
+trigger3 = StateNo != [900,2000)
+map = "EXPal"
+value = 0
+ignorehitpause = 1
+[State 0, MapSet]
+type = RemapPal
+trigger1 = 1
+source = 1,1
+dest = 1 + (Map(EXPal)%5=1||Map(EXPal)%5>=3),Var(59)
+ignorehitpause = 1
+
+;============================
+; TYRX - IMPENDING DOOM
+;============================
+
+[State 0, Map Doom Reset]
+type = MapSet
+triggerall = Name = "TYRX"
+triggerall = Map(TyrxDoomTimer)
+trigger1 = RoundState = 0
+trigger2 = !Alive
+map = "TyrxDoomTimer"
+value = 0
+[State 0, Map Doom Reset]
+type = MapSet
+triggerall = Name = "TYRX"
+triggerall = Map(TyrxDoom)
+trigger1 = RoundState = 0
+trigger2 = !Alive
+map = "TyrxDoom"
+value = 0
+[State 0, Map Doom Reset]
+type = MapSet
+triggerall = Name = "TYRX"
+triggerall = Map(TyrxDoomRate) != 0.25
+trigger1 = RoundState = 0
+trigger2 = !Alive
+trigger3 = EnemyNear,Var(51) >= 1
+trigger3 = StateNo != 930 && StateNo != 999
+map = "TyrxDoomRate"
+value = 0.25
+
+[State 0, Map Doom Countdown]
+type = MapSet
+triggerall = Name = "TYRX"
+trigger1 = RoundState = 2 && !Var(54)
+trigger1 = Map(TyrxDoomTimer) < 5000
+trigger1 = !(MoveType = H && EnemyNear,Var(51))
+trigger2 = Map(TyrxDoomTimer) > 5000
+map = "TyrxDoomTimer"
+value = min(5000,Map(TyrxDoomTimer) + Map(TyrxDoomRate))
+ignorehitpause = 1
+
+[State 0, Map Pal FX]
+type = MapSet
+trigger1 = Name = "TYRX"
+trigger1 = RoundState = 2
+trigger1 = !Map(TyrxDoom)
+trigger1 = Map(TyrxDoomTimer) >= 5000
+map = "TyrxPal"
+value = 16
+[State 0, Map Doom On]
+type = MapSet
+triggerall = Name = "TYRX"
+trigger1 = RoundState = 2
+trigger1 = !Map(TyrxDoom)
+trigger1 = Map(TyrxDoomTimer) >= 5000
+map = "TyrxDoom"
+value = 1
+
+[State 0, Snd Doom On]
+type = PlaySnd
+triggerall = Map(TyrxPal) = 16
+trigger1 = Map(TyrxDoom)
+trigger2 = Map(TyrkWarCry)
+value = S900,1
+[State 0, Var Doom FX Reduce]
+type = MapAdd
+trigger1 = Map(TyrxPal) > 0
+map = "TyrxPal"
+value = -1
+ignorehitpause = 1
+[State 0, Pal Doom FX]
+type = PalFX
+trigger1 = Map(TyrxPal)
+time = 1
+add = 8 * Map(TyrxPal),0,0
+mul = 256 - 16 * Map(TyrxPal),256 - 16 * Map(TyrxPal),256 - 16 * Map(TyrxPal)
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Name = "TYRX" && RoundState = 2
+trigger1 = Map(SpeedMod) = 1 && Map(TyrxDoom)
+map = "SpeedMod"
+value = 1.0 + 0.25 * !!Map(TyrxDoom)
+
+[State 0, Var Super Trail]
+type = VarSet
+trigger1 = Var(30) = 0
+trigger1 = RoundState = 2
+trigger1 = Map(TyrxDoom)
+trigger1 = MoveType != H
+v = 30
+value = 6
+
+;============================
+; TYRK - THE INEVITABLE
+;============================
+
+[State 0, Map WarCry Reset]
+type = MapSet
+triggerall = Map(TyrkWarCry)
+trigger1 = RoundState = 0
+trigger2 = !Alive
+map = "TyrkWarCry"
+value = 0
+
+[State 0, Map Horizontal Charge]
+type = MapSet
+trigger1 = Var(40) && Facing > 0
+trigger2 = Var(42) && Facing < 0
+map = "TyrkHori"
+value = max(1,ifelse(Facing>0,(Var(40)>=24)+(Var(40)>=60)+(Var(40)>=90)+(Var(40)>=120)+(Var(40)>=150)+(Var(40)>=180)+(Var(40)>=210)+(Var(40)>=240)+(Var(40)>=270)+(Var(40)>=300),(Var(42)>=24)+(Var(42)>=60)+(Var(42)>=90)+(Var(42)>=120)+(Var(42)>=150)+(Var(42)>=180)+(Var(42)>=210)+(Var(42)>=240)+(Var(42)>=270)+(Var(42)>=300)))
+ignorehitpause = 1
+[State 0, Map Vertical Charge]
+type = MapSet
+trigger1 = Var(44)
+map = "TyrkVert"
+value = max(1,(Var(44)>=24)+(Var(44)>=60)+(Var(44)>=90)+(Var(44)>=120)+(Var(44)>=150)+(Var(44)>=180)+(Var(44)>=210)+(Var(44)>=240)+(Var(44)>=270)+(Var(44)>=300))
+ignorehitpause = 1
+
+;============================
+; CRAZE CANCEL
+;============================
+
+[State 0, Explod]
+type = Explod
+trigger1 = Anim = 3000
+trigger1 = AnimElem = 1, 1
+trigger1 = StateNo != [3120,3122]
+anim = 3005
+pos = 0,0
+postype = p1
+bindtime = 666
+removetime = 23
+supermovetime = 23
+sprpriority = -5
+ownpal = 1
+removeongethit = 1
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 0, Explod]
+type = Explod
+triggerall = Anim = 160
+trigger1 = AnimElem = 6, 1
+anim = 1112
+ID = 3000
+postype = p1
+bindtime = 2
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+[State 200, 2]
+type = PlaySnd
+triggerall = Anim = 160
+trigger1 = AnimElem = 5
+value = F0, 4
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 8
+x = 8
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimTime = 0
+x = 16
+
+;============================
+; VAR 30 - AFTERIMAGE
+;============================
+
+[State 0, Var AfterImage Turn Off]
+type = VarSet
+triggerall = Var(30)
+triggerall = Name = "TYRX"
+trigger1 = Var(30) = [2,4]
+trigger1 = StateNo != [2000,3000)
+trigger2 = MoveType = H 
+trigger3 = Var(30) = 1 && !Var(11)
+trigger4 = Var(30) = 6 && !Map(TyrxDoom) && Name = "TYRX"
+trigger5 = Var(30) = 6 && (RoundState > 2 || Map(Cutscene))
+v = 30
+value = 0
+
+;============================
+; VAR 40 - CHARGE MOTIONS
+;============================
+
+[State 0, VarSet Reset L]
+type = VarSet
+triggerall = Name = "TYRK"
+trigger1 = Var(41) >= 8
+trigger2 = Time = 1 && PrevStateNo != 999
+trigger2 = StateNo = 1400 || StateNo = 1500
+value = 0
+v = 40
+ignorehitpause = 1
+[State 0, VarSet Reset L]
+type = VarSet
+triggerall = Name = "TYRK"
+trigger1 = command = "holdback" && facing = 1
+trigger2 = command = "holdfwd" && facing = -1
+trigger3 = Var(41) >= 8
+value = 0
+v = 41
+ignorehitpause = 1
+
+[State 0, VarAdd Charge L +1]
+type = VarAdd
+triggerall = Name = "TYRK"
+triggerall = Var(40) < 24 || RoundState = 2
+trigger1 = command = "holdback" && facing = 1
+trigger2 = command = "holdfwd" && facing = -1
+trigger3 = Var(15) && facing = 1
+v = 40
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge L +1]
+type = VarAdd
+triggerall = Name = "TYRK"
+triggerall = Var(40) != 0
+trigger1 = !(command = "holdback" && facing = 1)
+trigger1 = !(command = "holdfwd" && facing = -1)
+v = 41
+value = 1
+ignorehitpause = 1
+
+[State 0, VarSet Reset R]
+type = VarSet
+triggerall = Name = "TYRK"
+trigger1 = Var(43) >= 8
+trigger2 = Time = 1 && PrevStateNo != 999
+trigger2 = StateNo = 1400 || StateNo = 1500
+value = 0
+v = 42
+ignorehitpause = 1
+[State 0, VarSet Reset R]
+type = VarSet
+triggerall = Name = "TYRK"
+trigger1 = command = "holdback" && facing = -1
+trigger2 = command = "holdfwd" && facing = 1
+trigger3 = Var(43) >= 8
+value = 0
+v = 43
+ignorehitpause = 1
+
+[State 0, VarAdd Charge R +1]
+type = VarAdd
+triggerall = Name = "TYRK"
+triggerall = Var(42) < 24 || RoundState = 2
+trigger1 = command = "holdback" && facing = -1
+trigger2 = command = "holdfwd" && facing = 1
+trigger3 = Var(15) && facing = -1
+v = 42
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge R +1]
+type = VarAdd
+triggerall = Name = "TYRK"
+triggerall = Var(42) != 0
+trigger1 = !(command = "holdback" && facing = -1)
+trigger1 = !(command = "holdfwd" && facing = 1)
+v = 43
+value = 1
+ignorehitpause = 1
+
+[State 0, VarSet Reset D]
+type = VarSet
+triggerall = Name = "TYRK"
+trigger1 = Var(45) >= 8
+trigger2 = Time = 1 && PrevStateNo != 999
+trigger2 = StateNo = 1600 || StateNo = 1700
+value = 0
+v = 44
+ignorehitpause = 1
+[State 0, VarSet Reset D]
+type = VarSet
+triggerall = Name = "TYRK"
+trigger1 = command = "holddown"
+trigger2 = Var(45) >= 8
+value = 0
+v = 45
+ignorehitpause = 1
+
+[State 0, VarAdd Charge D +1]
+type = VarAdd
+triggerall = Name = "TYRK"
+triggerall = Var(44) < 24 || RoundState = 2
+trigger1 = command = "holddown"
+trigger2 = Var(15)
+v = 44
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge D +1]
+type = VarAdd
+triggerall = Name = "TYRK"
+triggerall = Var(44) != 0
+trigger1 = !command = "holddown"
+v = 45
+value = 1
+ignorehitpause = 1
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) != 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1 
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+trigger7 = StateNo = 1150
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1 
+trigger1 = StateNo = 210 || StateNo = 220
+trigger2 = StateNo = 310
+trigger3 = StateNo = 410
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610
+trigger6 = StateNo = 710
+trigger7 = StateNo = 205
+trigger8 = StateNo = 305
+trigger9 = StateNo = 505
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 900 || StateNo = 930 || StateNo = 920
+trigger2 = StateNo = 1000 || StateNo = 1050
+trigger3 = StateNo = 1110 || StateNo = 1120
+trigger4 = StateNo = 1210 || StateNo = 1220 || StateNo = 1270
+trigger5 = StateNo = 1400
+trigger6 = StateNo = 1550
+trigger7 = StateNo = 1700 || StateNo = 1710
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S X]
+type = VarSet
+trigger1 = StateNo = 1131 && AnimElem = 15, 1
+trigger2 = StateNo = 1160 && AnimElem = 21, 1
+trigger3 = StateNo = 1613 && AnimElem = 17, 3
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0 && StateNo != 2310 && StateNo != 2410 && StateNo != 2600 && StateNo != 2710
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+fv = 15
+value = 0.5
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "%f";  %d %f"
+params = sysfvar(1)
+ignorehitpause = 1

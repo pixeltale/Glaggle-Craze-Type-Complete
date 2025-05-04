@@ -1,0 +1,150 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 0
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 17
+ground.front = 17
+air.back = 5
+air.front = 5
+height = 44
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -88
+mid.pos = 0, -52
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2
+walk.back = -1.85
+run.fwd  = 6, 0
+run.back = -6.25,-1.5
+jump.neu = 0,-9
+jump.back = -2.5
+jump.fwd = 2.5
+runjump.fwd = 3.5,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 5
+BC.VoiceBankWeakKO = 3
+BC.VoiceBankHeartBreaker = 4
+BC.VoiceBankCrazeCancel = 12
+BC.VoiceBankPain = 20
+BC.VoiceBankGuardBreak = 5
+BC.VoiceBankThrowTech = 8
+BC.VoiceBankExert = 18
+
+[Quotes]
+victory0  = "This world is stranger than I expected... everyone just seems aching for a fight!"
+victory1  = "Doesn't take the world's greatest detective to tell ya you should have tried harder."
+victory2  = "You know, they say jazz soothes the soul. Considering you just got stomped, your soul is in dire need of some soothing."
+victory3  = "Another fight, no leads. Can't believe these people haven't seen a RED DISC."
+victory4  = "Peerless blade nets me another win! What would I do without ya, Denjin?"
+victory5  = "Did Gravitas choose this world 'cause she wanted a good fight? She might have had a good idea..."
+victory6  = "Ah, now for some peace and quiet. Smooth jazz for the soul."
+victory7  = "Hm..."
+victory8  = "Intira's never gonna believe this..."
+victory9  = "You're a billion years too early to go against the World's Greatest Detective."
+victory10 = "It was an honor, Sinha. Arigato." ; AJIT
+victory11 = "Hey, Japanese gals night after this? I know a great enka club... back home. On second thought, Japanese gals night can wait." ; TSUG
+victory12 = "Not the first time I've seen robot clones. Still, you're not like any robot I've seen before... interesting..." ; TSUK
+victory13 = "Look... I dunno what kinda weird fetish you have, but I'm not going along with it." ; SHER
+victory14 = "Better watch yourself when you try to gain power like that. Knew a lady like that once. Didn't end well." ; SHEX
+victory15 = "Revenant, eh? Why's your blood red then, pal?" ; WALL
+victory16 = "...Nevermind. My mistake. I'm a bit cagey around mechanical stuff. Let's just forget this happened." ; REAP
+victory17 = "I could put an end to this tech before it spirals out of control, or keep the timestream stable... timestream it is. Don't wanna stop existing 'cause I was impulsive." ; REAK
+victory18 = "Nojel would love you. Your wrestling that is. Personality, not so much." ; JUST
+victory19 = "Doesn't take a detective to see you're not fooling anyone. Just be yourself! No need for the tough gal act!" ; JUSK
+victory20 = "Those portals seem pretty useful... mind if I, uh, 'borrow' one for a bit?" ; BOUN
+victory21 = "Guess the Brits are animals here too, eh?" ; BAXT
+victory22 = "You're a slippery one. Eh? Get it? You're wet... and I'm a detective. I'm funny." ; CICI
+victory23 = "Had my fill of big angry bugs, thanks." ; GOLI
+victory24 = "Find your own path to enlightenment, and you'll find the peace you've wanted. If you can find it through God, then so be it, but never be afraid to try on your own." ; NECC
+victory25 = "Hey, Japanese gals night after this? I know a great enka club... back home. On second thought, Japanese gals night can wait." ; EMIC
+victory26 = "Never seen a vampire stone? What the hell kinda vampire are you? ...Dhampir!?" ; LUCY
+victory27 = "Won't take too much sleuthing to fix you back up, Gabriella. This nightmare's gonna end." ; GABB
+victory28 = "That sword's got nothing on Denjin. Thanks all the same, Gardet." ; ISAB
+victory29 = "Robots, megalomaniacs, demons... Just another day for a detective, I guess." ; TYRA
+victory30 = "Crappy clone... That blade even looks cheap." ; IKUE
+victory31 = "Jeez... you got the strength of a tiger... and the beauty of one, too... I UH, I MEAN-!" ; TERI
+victory32 = "Dunno what a KHRONOK is, but if you need some interuniversal sleuthing, I'm your gal! Just, please don't try to beat me up again." ; BERN
+victory33 = "Feels nice to meet a witch who isn't evil for once. Could do without the pumpkins, though." ; JANE
+victory69 = "HMMM!?"
+victory97 = "Definitely not gonna lose the title of 'world's greatest detective' to a putty copy anytime soon." ; IKUK
+victory98 = "Alright, okay, nobody told me I'd have to deal with discount Petron in this world, too!" ; KAHL
+victory99 = "You no hoper, screw off!" ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 31  -  Projectile Dist
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  [IKUK] Invigorated
+; 41  -  [IKUX] Denjin Stacks
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 12 -  Final Move Damage
+; 15 -  Meter Halve
+; 20 -  [IKUX] Invigoration Bonus Damage
+; 27 -  Guard Damage Multiplier
+; 35 -  Cornerpush Amount
+;---------------------------------------------------------------------------

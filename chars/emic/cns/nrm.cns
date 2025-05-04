@@ -1,0 +1,814 @@
+;---------------------------------------------------------------------------
+; Walljump
+[Statedef 60]
+type    = A
+physics = N
+ctrl = 0
+anim = 60
+velset = 0,0
+
+[State 0, Turn]
+type = Turn
+trigger1 = !Time
+trigger1 = FrontEdgeDist < BackEdgeDist
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+x = -280 * Facing
+
+[State 45, 6]
+type = VelSet
+trigger1 = AnimTime = 0
+x = const(velocity.jump.fwd.x) * 1
+y = const(velocity.jump.y) * 0.75
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = !Time
+v = 1
+value = -1
+
+[State 45, 7]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 61
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Jump Up (Air Control)
+[Statedef 61]
+type    = A
+physics = A
+
+[State 50, 2]
+type = ChangeAnim
+trigger1 = Time = 0
+value = ifelse(Vel X > 0,42,ifelse(Vel X < 0,43,41))
+elem = 2
+
+[State 0, VelMul]
+type = VelMul
+trigger1 = Time <= 8
+trigger1 = Abs(Vel X) > 2.75
+x = 0.95
+[State 0, VelMul]
+type = VelMul
+trigger1 = Time <= 8
+trigger1 = PrevStateNo = 1710
+x = 0.9
+
+[State 0, VelAdd]
+type = VelSet
+triggerall = Time > 8
+triggerall = name = "EMIK"
+trigger1 = command = "holdfwd"; && Vel X < 3
+x = min(2.75,Vel X + 0.5)
+[State 0, VelAdd]
+type = VelSet
+triggerall = Time > 8
+triggerall = name = "EMIK"
+trigger1 = command = "holdback"; && Vel X > -3
+x = max(-2.75,Vel X - 0.5)
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = Vel Y > -1
+trigger1 = !Ctrl
+value = 1
+
+;---------------------------------------------------------------------------
+; Taunt
+[Statedef 165]
+type = S
+ctrl = 0
+anim = 165
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = -1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = AnimElem = 6
+trigger1 = command = "holds"
+trigger2 = Time < 40
+value = Anim
+elem = 5
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 2
+x = 8
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 4
+x = 4
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 8
+trigger2 = AnimElem = 9
+x = -8
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 33
+value = 165
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 34
+value = random%7
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = Time%512 = 152
+trigger1 = AnimElemNo(0) = 5
+v = 33
+value = 166
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = Time%512 = 152
+trigger1 = AnimElemNo(0) = 5
+v = 34
+value = random%5
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 96
+trigger1 = AnimElemNo(0) = 5
+;trigger1 = NumHelper(166) = 0
+helpertype = normal ;player
+name = "FWOGGY"
+ID = 166
+stateno = 166
+pos = 24 - 16,-68
+postype = p1
+ownpal = 1
+
+[State 195, 1]
+type = CtrlSet
+trigger1 = AnimElem = 8
+value = 1
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; H - Fwoggy1
+[Statedef 166]
+type    = C
+movetype= I
+physics = N
+anim = 11650
+sprpriority = 0
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 24 - 16,-68
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimElem = 6
+trigger1 = Random > 250
+value = Anim
+elem = AnimElemNo(0) - 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 6, 1
+trigger1 = Random < 250
+value = S2300,2 
+channel = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Parent,AnimElemNo(0) >= 7
+trigger2 = Parent,StateNo != 165
+value = 167
+
+;---------------------------------------------------------------------------
+; H - Fwoggy2
+[Statedef 167]
+type    = C
+movetype= I
+physics = N
+anim = 11651
+velset = 4,2
+sprpriority = 0
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = 1
+y = 0.75
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Pos Y + Vel Y > 8
+value = 2303
+
+;---------------------------------------------------------------------------
+; Time Out
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170
+velset = 0,0
+
+[State 180, Lose as Copy]
+type = ChangeState
+trigger1 = !Time
+trigger1 = Var(58)
+value = ifelse(Var(58)=3,3683,3696)
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 33
+value = 170
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 34
+value = random%4
+
+;---------------------------------------------------------------------------
+; Win 1 - TOO BAD
+[Statedef 180]
+type = S
+velset = 0,0
+ctrl = 0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = !Time
+y = 0
+[State 0, VarSet]
+type = VarAdd
+trigger1 = !Time
+v = 55
+value = 1
+
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = F0,2
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = AnimElem = 6
+v = 9
+value = 6
+
+[State 180, Win as Copy]
+type = ChangeState
+triggerall = Time = 0
+triggerall = Var(58)
+trigger1 = MatchOver && !TeamMode = Turns
+trigger2 = Random >= 500
+trigger2 = TeamMode = Turns
+value = ifelse(Var(58)=3,3682,3695)
+[State 180, 1]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = Var(22) >= LifeMax && Life > LifeMax * 0.8 || LifeMax * 0.15 > (Var(22)*0.2 + Life)
+value = 182
+[State 180, 1]
+type = ChangeState
+triggerall = Time = 0
+trigger1 = MatchOver && !TeamMode = Turns
+trigger2 = Random >= 500
+trigger2 = TeamMode = Turns
+value = 181
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = !Time
+value = 180
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 6
+anim = 11800
+postype = p1
+bindtime = 666
+sprpriority = 5
+
+[State 0, Snd Geetar]
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = 1100,random%4
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 8
+v = 33
+value = 180
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 8
+v = 34
+value = random%6
+
+[State 0, VarSet I Win!]
+type = VarSet
+trigger1 = Time = 144
+trigger1 = MatchOver && Win
+v = 32
+value = 59
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time < 152 + (MatchOver * 128)
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; Win 2 - MISSION COMPLETE
+[Statedef 181]
+type = S
+ctrl = 0
+velset = 0,0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = FrontEdgeDist < BackEdgeDist
+[State 0, Turn]
+type = Turn
+trigger1 = !Time
+trigger1 = Var(5)
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = Var(5)
+scale = -1,1
+angle = 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time = 40
+value = 181
+
+[State 0, Snd Dash]
+type = PlaySnd
+trigger1 = Time = 16
+trigger2 = Time = 24
+trigger3 = Time = 32
+value = F2,3
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = Anim = 181
+trigger1 = AnimElem = 5
+v = 33
+value = 181
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = Anim = 181
+trigger1 = AnimElem = 5
+v = 34
+value = random%4
+
+[State 0, Explod Friend White Dash]
+type = Explod
+trigger1 = Time = 0
+anim = 11913
+pos = -20 - 12 * 44,-1
+postype = p1
+removetime = 40
+vel = 12,0
+facing = -1
+sprpriority = -2
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend Pink Dash]
+type = Explod
+trigger1 = Time = 8
+anim = 11914
+pos = 20 - 12 * 44,-1
+postype = p1
+removetime = 40
+vel = 12,0
+facing = -1
+sprpriority = -3
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend Black Dash]
+type = Explod
+trigger1 = Time = 16
+anim = 11915
+pos = -40 - 12 * 44,0
+postype = p1
+removetime = 40
+facing = -1
+vel = 12,0
+sprpriority = 3
+shadow = -1
+ownpal = 1
+
+[State 0, Explod Friend White Turn]
+type = Explod
+trigger1 = Time = 40 + 0
+anim = 11810
+pos = -20 - 32,-1
+postype = p1
+removetime = 8
+vel = 8,0
+accel = -1,0
+sprpriority = -2
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend Pink Turn]
+type = Explod
+trigger1 = Time = 40 + 8
+anim = 11812
+pos = 20 - 32,-1
+postype = p1
+removetime = 8
+vel = 8,0
+accel = -1,0
+sprpriority = -3
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend Black Turn]
+type = Explod
+trigger1 = Time = 40 + 16
+anim = 11814
+pos = -40 - 32,0
+postype = p1
+removetime = 8
+vel = 8,0
+accel = -1,0
+sprpriority = 3
+shadow = -1
+ownpal = 1
+
+[State 0, Explod Friend White Stand]
+type = Explod
+trigger1 = Time = 40 + 8
+anim = 11910
+pos = -20,-1
+postype = p1
+removetime = 20
+sprpriority = -2
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend Pink Stand]
+type = Explod
+trigger1 = Time = 40 + 8 + 8
+anim = 11911
+pos = 20,-1
+postype = p1
+removetime = 13
+sprpriority = -3
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend Black Stand]
+type = Explod
+trigger1 = Time = 40 + 8 + 16
+anim = 11912
+pos = -40,0
+postype = p1
+removetime = 6
+sprpriority = 3
+shadow = -1
+ownpal = 1
+
+[State 0, Explod Friend White Pose]
+type = Explod
+trigger1 = Time = 40 + 28
+anim = 11811
+pos = -20,-1
+postype = p1
+removetime = -1
+sprpriority = -2
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend Pink Pose]
+type = Explod
+trigger1 = Time = 40 + 28 + 1
+anim = 11813
+pos = 20,-1
+postype = p1
+removetime = -1
+sprpriority = -3
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend Black Pose]
+type = Explod
+trigger1 = Time = 40 + 28 + 2
+anim = 11815
+pos = -40,0
+postype = p1
+removetime = -1
+sprpriority = 3
+shadow = -1
+ownpal = 1
+
+[State 0, VarSet I Win!]
+type = VarSet
+trigger1 = Time = 128
+trigger1 = MatchOver && Win
+v = 32
+value = 59
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time < 144 + (MatchOver * 96)
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; Win 3 - Frogstomp
+[Statedef 182]
+type = A
+ctrl = 0
+anim = 182
+velset = 0,0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 9
+helpertype = normal
+name = "Froggy"
+ID = 2303
+stateno = 2303
+pos = -32,0
+postype = p1
+
+[State 0, VarSet I Win!]
+type = VarSet
+trigger1 = Time = 128
+trigger1 = MatchOver && Win
+v = 32
+value = 59
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time < 128 + (MatchOver * 128)
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; Intro - roll on in
+[Statedef 190]
+type = A
+ctrl = 0
+velset = 0,0
+
+[State 180, 1]
+type = ChangeState
+trigger1 = Time = 0
+trigger1 = Anim != 190
+trigger1 = Random >= 500
+value = 191
+[State 191, 1]
+type = ChangeAnim
+trigger1 = !Time
+value = 190
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 2
+anim = 11900
+postype = p1
+bindtime = 666
+removetime = 32
+sprpriority = 3
+ownpal = 1
+removeongethit = 1
+
+[State 0, Snd Paper]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 190,0
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 8
+v = 33
+value = 190
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 8
+v = 34
+value = random%4
+
+[State 0, Var Intro TimeStart]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = 192
+[State 0, Var Intro Timer]
+type = VarAdd
+trigger1 = Var(5)
+v = 5
+value = -1
+[State 191, Intro Flag]
+type = AssertSpecial
+trigger1 = AnimElemNo(0) <= 31
+flag = Intro
+[State 0, ChangeState]
+type = ChangeAnim
+triggerall = TeamSide = 2 && Time >= 1
+trigger1 = EnemyNear,Var(5) > 16
+value = Anim
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 2
+statetype = S
+
+[State 191, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - leave it to me
+[Statedef 191]
+type = S
+ctrl = 0
+anim = 191
+velset = 0,0
+sprpriority = 1
+
+[State 0, Explod Friend 1 Stand]
+type = Explod
+trigger1 = AnimElemNo(0) = [1,3) && AnimTime < 0
+anim = 11910
+pos = -20,-1
+postype = p1
+removetime = 1
+sprpriority = -2
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend 2 Stand]
+type = Explod
+trigger1 = AnimElemNo(0) = [1,5) && AnimTime < 0
+anim = 11911
+pos = 20,-1
+postype = p1
+removetime = 1
+sprpriority = -3
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend 3 Stand]
+type = Explod
+trigger1 = AnimElemNo(0) = [1,7) && AnimTime < 0
+anim = 11912
+pos = 44,0
+postype = p1
+removetime = 1
+sprpriority = -1
+shadow = -1
+ownpal = 1
+
+[State 0, Explod Friend 1 Run]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 11913
+pos = -20,-1
+postype = p1
+vel = -12,0
+accel = 0.33,0
+removetime = 28
+sprpriority = -2
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend 2 Run]
+type = Explod
+trigger1 = AnimElem = 5
+anim = 11914
+pos = 20,-1
+postype = p1
+vel = -12,0
+accel = 0.33,0
+removetime = 28
+sprpriority = -3
+shadow = -1
+ownpal = 1
+[State 0, Explod Friend 3 Run]
+type = Explod
+trigger1 = AnimElem = 7
+anim = 11915
+pos = 44,0
+postype = p1
+vel = -12,0
+accel = 0.33,0
+removetime = 28
+sprpriority = -1
+shadow = -1
+ownpal = 1
+
+[State 0, Explod BigDust FX]
+type = Explod
+trigger1 = AnimElem = 3
+anim = F85
+postype = p1
+pos = -20,0
+facing = -1
+ownpal = 1
+sprpriority = -3
+[State 0, Explod BigDust FX]
+type = Explod
+trigger1 = AnimElem = 5
+anim = F85
+postype = p1
+pos = 20,0
+facing = -1
+ownpal = 1
+sprpriority = -5
+[State 0, Explod BigDust FX]
+type = Explod
+trigger1 = AnimElem = 7
+anim = F85
+postype = p1
+pos = 44,0
+facing = -1
+ownpal = 1
+sprpriority = -4
+
+[State 0, Snd Dash]
+type = PlaySnd
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 5
+trigger3 = AnimElem = 7
+value = F2,3
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 33
+value = 191
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 34
+value = random%4
+
+[State 0, Var Intro TimeStart]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = 160
+[State 0, Var Intro Timer]
+type = VarAdd
+trigger1 = Var(5)
+v = 5
+value = -1
+[State 191, Intro Flag]
+type = AssertSpecial
+trigger1 = AnimElemNo(0) <= 10
+flag = Intro
+[State 0, ChangeState]
+type = ChangeAnim
+triggerall = TeamSide = 2 && Time >= 1
+trigger1 = EnemyNear,Var(5) > 16
+value = Anim
+
+[State 191, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+; Intro - my sweetheart
+[Statedef 192]
+type = S
+ctrl = 0
+anim = 192
+velset = 0,0
+sprpriority = 1
+
+[State 0, Snd Dash]
+type = PlaySnd
+trigger1 = AnimElem = 24
+value = F0,3
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 26
+v = 33
+value = 192
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 34
+value = random%2
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 26
+v = 34
+value = 2 + random%2
+
+[State 191, Intro Flag]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 191, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0

@@ -1,0 +1,146 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 0
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 19
+ground.front = 19
+air.back = 5
+air.front = 5
+height = 41
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -82
+mid.pos = 0, -44
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.1
+walk.back = -1.95
+run.fwd  = 5.5, 0
+run.back = -6.25,-1.1
+jump.neu = 0,-7.5
+jump.back = -2.25
+jump.fwd = 2.25
+runjump.fwd = 4.5,-9
+
+[Movement]
+yaccel = .4
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 2
+BC.VoiceBankWeakKO = 2
+BC.VoiceBankHeartBreaker = 4
+BC.VoiceBankCrazeCancel = 5
+BC.VoiceBankPain = 9
+BC.VoiceBankGuardBreak = 4
+BC.VoiceBankThrowTech = 4
+BC.VoiceBankExert = 8
+
+BC.GetHitGaugeGain = 0
+
+[Quotes]
+victory0  = "I've lit the road I want to go down. Yours, however, is still obscured."
+victory1  = "Open Signal for Paramedic Help for the Enemy. It looks really bad."
+victory2  = "I scanned your chances at winning this fight. You got 10%."
+victory3  = "Scroll Data for Critique and Criticism on Self-Defense for the Enemy. 404 NOT FOUND."
+victory4  = "I don't look down on humanity. I wish they could do the same for me."
+victory5  = "I only engage in Self-Defense. Don't pick fights with people like me for fun."
+victory6  = "Keep your distance from me! Oh, you already did a good job doing just that."
+victory7  = "You wish you had armaments like mine. Sometimes, for me, they can be a burden."
+victory8  = "Someday, I hope to help the world in its future. The promise that BioCorps once held."
+victory9  = "My power? All clean energy from the sun. You could use some."
+victory10 = "Even us machines hold importance in the world. I'll be sure to keep that order in line." ; AJIT
+victory11 = "I don't short circuit so easily. I was built with plenty of failsafes for such." ; TSUG
+victory12 = "You're a unique automaton, aren't you? But I'm really curious, why are you impersonating that boxer?" ; TSUK
+victory13 = "I take it you collect games. I do have a vast library of ROMs in my databanks, it helps me fight boredom." ; SHER
+victory14 = "That destructive power, all without questioning their choices. Is this what BioCorps wanted me for?" ; SHEX
+victory15 = "You take life for granted. I won't take yours, but please consider others before yourself." ; WALL
+victory16 = "Another unit awake? No, just a cheap replica." ; REAP
+victory17 = "I know it's hard, I've been through it myself. But you need to stop and think this over." ; REAK
+victory18 = "Clearly being able to deflect bullets with your abs was a lie since you can't do that with simple energy." ; JUST
+victory19 = "I can see it now, we both hide beneath the mask for different reasons." ; JUSK
+victory20 = "You can keep your information to yourself, but I can aid you in your cause. I'll apply first-aid treatment right away." ; BOUN
+victory21 = "You could have helped the world, but threw your goodwill down the drain. I cannot sympathize with you." ; BAXT
+victory22 = "As a word of caution, I suggest you leave BioCorps. and find your true self." ; CICI
+victory23 = "Even as a result of the meddling of BioCorps., you still have a heart. Actually, I should translate that to beetle first." ; GOLI
+victory24 = "It's never too late to back out of your mission. Fight for yourself, not your superiors." ; NECC
+victory25 = "With Lock-On technology, getting a bullseye each time was no trouble." ; EMIC
+victory26 = "Don't consider me an accessory to BioCorps. I fight for my own ideals." ; LUCY
+victory27 = "How did you hack into my mainframe? Your signatures don't show any signs of a virus, but you act like one." ; GABB
+victory28 = "I truly appreciate what you've done to help me. You really fueled my heart." ; ISAB
+victory29 = "I decide my destiny, even if my origin betrays it. No one decides what I am but me!" ; TYRA
+victory30 = "I have no association with the A-GEB. Such a name doesn't exist in my databanks." ; IKUE
+victory31 = "Your energy signatures are giving off multiple different readings. Are you sure you're human?" ; TERI
+victory32 = "You've had a bad experience against ammunition like mine, haven't you? I apologize, but I still need to defend myself!" ; BERN
+victory33 = "We're both a one person army. It all came down to who had the better toys." ; JANE
+victory97 = "QUASARS? What the hell are you talking about?" ; REAK
+victory98 = "You never truly know what it's like to lose your individuality to clones. Good riddance to you." ; KAHL
+victory99 = "...The Devil's Triangle? Scroll Data for... oh no.." ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  [REAP] Connection Level
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 12 -  Final Move Damage
+; 27 -  Guard Damage Multiplier
+; 35 -  Cornerpush Amount
+;---------------------------------------------------------------------------

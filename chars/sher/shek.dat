@@ -1,0 +1,58 @@
+<#400068>:Unique Trait:</>		"Messatsu Mortis"
+After Sherm's life drops below a certain point, his damage 
+will be increased for the rest of the round.
+
+<#400068>:Craze Technique:</>
+Messatsu Flip		^CT
+_!Messatsu Flip-Jouken		^LP
+_!Messatsu On The Palm		^SP
+_!Messatsu Footsie		^LK
+_!Messatsu Screw		^SK
+_!Messatsu Garbage Grab		^GP
+_!Messatsu Hyper-Go-Zankuu <#bebebe>(1 Stock)</>		_QCF_QCF^P
+
+<#400068>:Throws:</>
+That Won't Messatsu		^GP
+Look! Messatsu!		_B^GP
+I Messatsu My Back		_AO^GP
+
+<#400068>:Command Normals:</>
+Can I Get Uuuuuuuuh Messatsu?		_F^LP
+Messatsie!		_DB^SK
+
+<#400068>:Special Moves:</>
+Messatsu Habjouken		_AA_QCF^P
+Double Messatsu Habjouken		_HCB^P
+Messatsu Shermryuken		_DP^P
+Messatsu Hurricane Senpuukyakuu		_AA_QCB^K
+A-Sherm-Raw Warp		_CH_DP^2K or _RDP^2K
+
+<#400068>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Messatsu Hyper-Jouken		_QCF_QCF^P
+Messatsu Hyper-Go-Zankuu		_AO_QCF_QCF^P
+Messatsu Go Shermryu		_QCF_QCF^K
+
+<#400068>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Messatsu Hurricane Gore Fest		_QCF_QCF^2K
+
+<#400068>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Messatsu To All That Oppose Me Slash		_QCB_QCB^2P or _D_D_D^2P
+Shin Goku Messatsu		^LP^LP_F^LK^SP
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

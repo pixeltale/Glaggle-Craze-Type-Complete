@@ -1,0 +1,53 @@
+<#c0a8f8>:Unique Trait:</>
+"I Can Treat Myself to Some Blood Plasma Every Now and Then"
+Counter hits and triggering Dire Combo Effects steal
+some of the opponents Craze Gauge.
+
+<#c0a8f8>:Craze Technique:</>
+Seems Like All Vampires Know This Trick		^CT
+
+<#c0a8f8>:Throws:</>
+You Couldn't React?		^GP
+This You Should've Seen Coming		_B^GP
+You Picked a Bad Spot to Be		_AO^GP
+
+<#c0a8f8>:Command Normals:</>
+You're in my Way, Get Out!		_F^SK
+Dare You to Come Closer		_F^SP
+I Want To Take You For a Ride		_AO_D^SK
+
+<#c0a8f8>:Special Moves:</>
+Cut You To Ribbons, Shreds, etc.		_QCF^P
+Here I Spin Again On My Own		_DP^P
+Wallace Forgot This, I Didn't		_CH_QCB^P
+_! Cancel		While holding ^SP, _F_F or _B_B
+My Table Manners are Good, Honest		_QCB^K
+_! I Know Your Every Move		_CH_QCF^K
+
+<#c0a8f8>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+I Call This One, The Sword of the Witch		_QCF_QCF^P
+Yeah, No Thanks		_QCF_QCF^K
+
+<#c0a8f8>:All-Out EX:</> <#bebebe>(2 Stock)</>
+You're Really Getting On My Nerves		_QCB_QCB^2P
+
+<#c0a8f8>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+This is My Last Resort, So Say Your Prayers		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

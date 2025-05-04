@@ -1,0 +1,466 @@
+;--------------------------------------------------------
+[Info]
+name = "Jane Bane Stage X"
+displayname = "Universe-SUZE: Gateway Grove 'L'" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+attachedchar = ZZZStageSFX.def
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = .2
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/c_janx.mp3
+bgmloopstart = 15055
+bgmloopend = 9041696
+;-------------------------------------
+[BGdef]
+spr = XJaneBaneStage.sff
+debugbg = 0
+;----------
+
+[BG Sky]
+type  = normal
+spriteno = 3, 0
+layerno = 0
+start = 0, -450
+delta = .6, .6
+mask  = 0
+velocity = -.4,0
+tile = 1,0
+tilespacing = 0,0
+
+[BG Hallow Heights, Castle Carrion]
+type  = normal
+spriteno = 2, 1
+layerno = 0
+start = 0, -300
+delta = .9, .9
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+
+[BG Fake Shadows]
+type  = normal
+spriteno = 4, 0
+layerno = 0
+start = 0, -300
+delta = 1, 1
+mask  = 0
+trans = addalpha
+alpha = 150,150
+
+[BG Dang, is that all one sprite?]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = 0, -260
+delta = .98, .98
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+
+[BG Overlay Gate 1]
+type  = normal
+spriteno = 2, 2
+layerno = 0
+start = 0, -260
+delta = .98, .98
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+id = 1
+trans = addalpha
+alpha = 0,255
+[BG Overlay Gate 2]
+type  = normal
+spriteno = 2, 2
+layerno = 0
+start = 0, -260
+delta = .98, .98
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+id = 2
+trans = addalpha
+alpha = 64,192
+[BG Overlay Gate 3]
+type  = normal
+spriteno = 2, 2
+layerno = 0
+start = 0, -260
+delta = .98, .98
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+id = 3
+trans = addalpha
+alpha = 128,128
+[BG Overlay Gate 4]
+type  = normal
+spriteno = 2, 2
+layerno = 0
+start = 0, -260
+delta = .98, .98
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+id = 4
+trans = addalpha
+alpha = 192,64
+[BG Overlay Gate 5]
+type  = normal
+spriteno = 2, 2
+layerno = 0
+start = 0, -260
+delta = .98, .98
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+id = 5
+trans = addalpha
+alpha = 255,0
+
+[BG Signs. Not the M. Night Movie]
+type  = normal
+spriteno = 2, 3
+layerno = 0
+start = 0, -260
+delta = .99, .99
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+sin.y = 5,500,0
+
+[BG Overlay Sign 1]
+type  = normal
+spriteno = 2, 4
+layerno = 0
+start = 0, -260
+delta = .99, .99
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+sin.y = 5,500,0
+id = 6
+trans = addalpha
+alpha = 0,255
+[BG Overlay Sign 2]
+type  = normal
+spriteno = 2, 4
+layerno = 0
+start = 0, -260
+delta = .99, .99
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+sin.y = 5,500,0
+id = 7
+trans = addalpha
+alpha = 64,192
+[BG Overlay Sign 3]
+type  = normal
+spriteno = 2, 4
+layerno = 0
+start = 0, -260
+delta = .99, .99
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+sin.y = 5,500,0
+id = 8
+trans = addalpha
+alpha = 128,128
+[BG Overlay Sign 4]
+type  = normal
+spriteno = 2, 4
+layerno = 0
+start = 0, -260
+delta = .99, .99
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+sin.y = 5,500,0
+id = 9
+trans = addalpha
+alpha = 192,64
+[BG Overlay Sign 5]
+type  = normal
+spriteno = 2, 4
+layerno = 0
+start = 0, -260
+delta = .99, .99
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+sin.y = 5,500,0
+id = 10
+trans = addalpha
+alpha = 255,0
+
+[BG Castle Carrion Gates]
+type  = normal
+spriteno = 1, 0
+layerno = 0
+start = 0, -260
+delta = .99, .99
+mask  = 1
+velocity = -.5,0
+tile = 1,0
+tilespacing = 0,0
+
+[BG Stump]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, -290
+delta = 1, 1
+mask  = 1
+
+[BG Fake Fog]
+type  = normal
+spriteno = 4, 0
+layerno = 0
+start = 0, -300
+delta = 1, 1
+mask  = 0
+trans = addalpha
+alpha = 100,255
+
+[BGCtrlDef GateLight1]
+ctrlID = 1
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 0
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 8
+value = 0
+[BGCtrlDef GateLight2]
+ctrlID = 2
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 8
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 16
+value = 0
+[BGCtrlDef GateLight3]
+ctrlID = 3
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 16
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 24
+value = 0
+[BGCtrlDef GateLight3]
+ctrlID = 4
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 24
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 32
+value = 0
+[BGCtrlDef GateLight4]
+ctrlID = 5
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 32
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 40
+value = 0
+[BGCtrlDef GateLight4]
+ctrlID = 4
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 40
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 48
+value = 0
+[BGCtrlDef GateLight4]
+ctrlID = 3
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 48
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 56
+value = 0
+[BGCtrlDef GateLight4]
+ctrlID = 2
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 56
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 0
+value = 0
+
+[BGCtrlDef SignLight1]
+ctrlID = 6
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 0
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 8
+value = 0
+[BGCtrlDef SignLight2]
+ctrlID = 7
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 8
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 16
+value = 0
+[BGCtrlDef SignLight3]
+ctrlID = 8
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 16
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 24
+value = 0
+[BGCtrlDef SignLight3]
+ctrlID = 9
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 24
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 32
+value = 0
+[BGCtrlDef SignLight4]
+ctrlID = 10
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 32
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 40
+value = 0
+[BGCtrlDef SignLight4]
+ctrlID = 9
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 40
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 48
+value = 0
+[BGCtrlDef SignLight4]
+ctrlID = 8
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 48
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 56
+value = 0
+[BGCtrlDef SignLight4]
+ctrlID = 7
+looptime = 64
+[BGCtrl On]
+type = Visible
+time = 56
+value = 1
+[BGCtrl Off]
+type = Visible
+time = 0
+value = 0

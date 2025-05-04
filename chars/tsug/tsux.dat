@@ -1,0 +1,57 @@
+<#0060d8>:Unique Trait:</>		"Raijin Godspeed"
+Tsugumi's Craze Technique, as well as Counter Hits, grant
+her charge stacks, up to 8. Her movement speed is slightly
+increased per stack. _TS attacks consume a stack to deal
+more damage, including all stacks excess of 4.
+While she has more than 4 charge stacks, _TS specials
+will cause Dire Hit effects.
+
+<#0060d8>:Craze Technique:</>
+I Can Keep Going!		^CT
+
+<#0060d8>:Throws:</>
+I Gotchya Now!		^GP
+I'm Too Quick for You!		_B^GP
+Go Down for the Count!		_AO^GP
+
+<#0060d8>:Command Normals:</>
+I'll Break Your Guard!		_F^LP
+I'm Covering All Angles of Approach!		_DF^SP
+
+<#0060d8>:Special Moves:</>
+This'll Hurt! _TS		_QCF^LP
+You Can't Stop My Approach! _TS		_QCF^SP
+Watch Your Step! _TS							_QCF^LK
+Not a Chance!							_QCF^SK
+Going Up! _TS		_DP^LP
+I'll Aim for Greater Heights! _TS		_DP^SP
+I'll Overwhelm You Until You Quit!		_QCB^P
+
+<#0060d8>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Feel My Power! _TS		_QCF_QCF^P
+I'll Punch You Straight To Pluto!		_QCB_QCB^K
+My Own Take on Exodus!		_QCF_QCF^K
+
+<#0060d8>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Feel My Power EX! _TS		_QCF_QCF^2P
+
+<#0060d8>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+My Ultimate Move, the Raijin Break!		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

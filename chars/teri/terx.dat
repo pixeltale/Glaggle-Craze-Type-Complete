@@ -1,0 +1,65 @@
+<#408030>:Unique Trait:</>		"Inner Demon"
+Driven Under and non-standard throws grant Teri Feral
+stacks. Pressing ^CT during _TU moves will consume
+a stack and cause her to perform a follow-up, based on
+which direction you hold. Canceling on block requires
+at least 2 stacks. If she has 3 stacks, all are
+consumed and the attack provides a combo extension.
+
+<#408030>:Craze Technique:</>
+Get There Some Time		^CT
+_! Driven Under _TU		Hold^CT
+Driven Under		_AO^CT
+
+<#408030>:Throws:</>
+Help from the Shadows		^GP
+Assist from Afar		_B^GP
+Silencer		_AO^GP
+
+<#408030>:Command Normals:</>
+Puncture Claw		_F^SP
+Broad Stroke		_F^SK
+
+<#408030>:Special Moves:</>
+Huntress _TU		_QCF^LP
+_! Loop Slice _TU		^P
+_! Unleashed _TU		^K
+Trapper _TU		_QCF^SP
+Oppress Claw _TU		_QCB^P
+Crowd Control		_CH_HCB^Kor_360^K
+
+<#408030>:Inner Demon Cancels:</>
+Migraine		^CT
+Bancho		_F^CT
+Tusk		_B^CT
+Shifter		_D^CT
+
+<#408030>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Bottom Falls Out		_QCF_QCF^LP
+Top Falls Down		_QCF_QCF^SP
+_! Bottom Falls Out		_QCF_QCF^P
+Tear Out		_CH_QCB_QCB^K
+
+<#408030>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Burn Out		_QCF_QCF^2K
+
+<#408030>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Strip Down		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

@@ -1,0 +1,581 @@
+[Statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = EnemyNear,Map(WinQuoteNum) + 30 * (random%3)
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "SHEX"
+trigger1 = EnemyNear,Name != "BAXT" && EnemyNear,Name != "BAXX" && EnemyNear,Name != "BAXK"
+trigger1 = EnemyNear,Name != "CICI" && EnemyNear,Name != "CICX" && EnemyNear,Name != "CICK"
+trigger1 = EnemyNear,Name != "LUCY" && EnemyNear,Name != "LUCX" && EnemyNear,Name != "LUCK"
+trigger1 = EnemyNear,Name != "ISAB" && EnemyNear,Name != "ISAX" && EnemyNear,Name != "ISAK"
+trigger1 = EnemyNear,Name != "TYRA" && EnemyNear,Name != "TYRX" && EnemyNear,Name != "TYRK"
+trigger1 = EnemyNear,Name != "BERN" && EnemyNear,Name != "BERX" && EnemyNear,Name != "BERK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "BERN" && EnemyNear,Name != "BERX" && EnemyNear,Name != "BERK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),37,38) + 30 * (random%2)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 39 + 30 * (random%3)
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 200, 2]
+type = PlaySnd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 2
+value = F0, 3
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 3
+x = max(0,min(8,P2BodyDist X+666*(abs(P2Dist Y)>const(size.height))))
+[State 0, PosAdd]
+type = PosAdd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 4
+x = max(0,min(24,P2BodyDist X+666*(abs(P2Dist Y)>const(size.height))))
+[State 0, PosAdd]
+type = PosAdd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 7
+x = -12
+[State 0, PosAdd]
+type = PosAdd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 8
+x = -20
+[State 0, PosAdd]
+type = PosAdd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 9
+x = -8
+
+;============================
+; RUN SOUND
+;============================
+
+[State 0, Snd Run Step]
+type = PlaySnd
+triggerall = Anim = 100
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 7
+trigger3 = AnimElem = 11
+value = F2,2
+channel = 2
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimElem = 8
+trigger2 = AnimElem = 9
+x = 8
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimTime = 0
+x = 16
+
+;============================
+; FIRE FX
+;============================
+
+[State 0, Map FX Explosion]
+type = MapSet
+triggerall = Time = 1
+trigger1 = StateNo = 961
+trigger2 = StateNo = 2000
+trigger3 = StateNo = 2700
+trigger4 = StateNo = 2800
+map = "FXColor"
+value = ifelse(Var(59)=14,4243696,ifelse(Var(59)=18,8388848,15761408))
+
+[State 0, Map FX Ice]
+type = MapSet
+triggerall = Time = 1
+trigger1 = StateNo = 1050
+map = "FXColor"
+value = 8438008
+
+[State 0, Map FX Elec]
+type = MapSet
+triggerall = Time = 1
+trigger1 = StateNo = 1060
+map = "FXColor"
+value = ifelse(Var(59)=1,10543344,ifelse(Var(59)=2,16279552,ifelse(Var(59)=3,16310432,ifelse(Var(59)=4,10547352,ifelse(Var(59)=5,15788224,ifelse(Var(59)=6,15769816,ifelse(Var(59)=7,13691128,ifelse(Var(59)=8,13647952,ifelse(Var(59)=9,16281760,ifelse(Var(59)=10,7383288,ifelse(Var(59)=11,14704704,ifelse(Var(59)=12,6324384,ifelse(Var(59)=13,15259896,ifelse(Var(59)=14,10541304,ifelse(Var(59)=15,16310464,ifelse(Var(59)=16,15249440,ifelse(Var(59)=17,12582960,ifelse(Var(59)=18,12582944,ifelse(Var(59)=19,6303824,ifelse(Var(59)=20,11010112,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15777800,43072)))))))))))))))))))))))
+
+;============================
+; VAR 31 - PROJECTILE DIST
+;============================
+
+[State 0, Var Reset]
+type = VarSet
+trigger1 = Var(31) != 0
+v = 31
+value = Var(31) * (NumHelper(1010)>0)
+
+;============================
+; VAR 41, 42 - JIMMY & LEE (its not a double dragon reference. seriously.)
+;============================
+
+[State 0, Var Jimmy Timer]
+type = VarAdd
+trigger1 = Var(41) > -32 
+trigger1 = !Var(54) && !NumHelper(910)
+trigger1 = Var(48) = 0 || GameTime%4 = 0
+v = 41
+value = -1 - (!!Map(BernTimer)) * (Var(41)>1&&!Var(48))
+ignorehitpause = 1
+[State 0, Map Jimmy Reduce Trait]
+type = MapAdd
+triggerall = Map(BernTimer) > 0
+trigger1 = Var(41) >= 0 
+trigger1 = !Var(54) && !NumHelper(910)
+trigger1 = Var(48) = 0; || GameTime%4 = 0
+map = "BernTimer"
+value = -1
+ignorehitpause = 1
+[State 0, Var Lee Timer]
+type = VarAdd
+trigger1 = Var(42) > -32 
+trigger1 = !Var(54) && !NumHelper(920)
+trigger1 = Var(49) = 0; || GameTime%4 = 0
+v = 42
+value = -1 - (!!Map(BernTimer)) * (Var(42)>1&&!Var(49))
+ignorehitpause = 1
+[State 0, Map Lee Reduce Trait]
+type = MapAdd
+triggerall = Map(BernTimer) > 0
+trigger1 = Var(42) >= 0 
+trigger1 = !Var(54) && !NumHelper(920)
+trigger1 = Var(49) = 0; || GameTime%4 = 0
+map = "BernTimer"
+value = -1
+ignorehitpause = 1
+
+[State 0, VarRangeSet]
+type = VarRangeSet
+trigger1 = Var(48) || Var(49)
+trigger1 = !Var(51)
+value = 0
+first = 48
+last = 49
+
+[State 0, Var Reset Round End]
+type = VarRangeSet
+trigger1 = RoundState > 2
+trigger1 = !(Var(41) = -32 && Var(42) = -32)
+value = -32
+first = 41
+last = 42
+[State 0, Var Reset Round End]
+type = VarSet
+trigger1 = RoundState > 2
+trigger1 = Var(43) > 0
+v = 43
+value = 0
+
+;============================
+; VAR 44 - Tobacco Charge
+;============================
+
+[State 0, Var Tobacco Default]
+type = VarSet
+trigger1 = RoundState = 0
+trigger1 = Var(44) = 0
+v = 44
+value = 1
+
+;=============================
+; VAR 46 - TRIAL OF THE MENTAL
+;=============================
+
+[State 0, Map Hit Check]
+type = MapSet
+triggerall = Name = "BERK"
+trigger1 = Map(BerkHitCheck) = 0 && HitCount = 1
+trigger1 = StateNo != 160 && EnemyNear,StateNo != 160
+trigger1 = NumTarget && EnemyNear,MoveType = H && EnemyNear,StateNo != [120,160)
+trigger1 = Var(10) = [1,3]
+trigger1 = Var(8) = 1
+trigger1 = StateNo = [200,3000) && MoveHit
+trigger1 = StateNo != [900,1000)
+map = "BerkHitCheck"
+value = min(2,1 + (Map(BerkDice1)&&Map(BerkDice2)&&!Map(BerkRoll1)&&!Map(BerkRoll2)||Var(10)=2))
+ignorehitpause = 1
+
+[State 0, Var Predator Poised]
+type = VarAdd
+trigger1 = Map(BerkHitCheck) = 2
+trigger1 = Map(BerkDice1) && Map(BerkDice2) && !Map(BerkRoll1) && !Map(BerkRoll2)
+v = 18
+value = 50 * Map(BerkDice1) + 50 * Map(BerkDice2)
+ignorehitpause = 1
+[State 0, Var Predator Poised]
+type = MapSet
+trigger1 = Map(BerkHitCheck) = 2
+trigger1 = Map(BerkDice1) && Map(BerkDice2) && !Map(BerkRoll1) && !Map(BerkRoll2)
+map = "BerkChips"
+value = min(99,Map(BerkChips) + Map(BerkDice1) + Map(BerkDice2))
+ignorehitpause = 1
+
+;[State 0, Var Losses]
+;type = MapSet
+;triggerall = Map(BerkDice1) && Map(BerkDice2)
+;trigger1 = MoveType = H && EnemyNear,Var(51) && StateNo != 999
+;map = "BerkChips"
+;value = max(0,Map(BerkChips) - Map(BerkDice1) - Map(BerkDice2))
+;ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapAdd
+trigger1 = Map(BerkRoll1) > 2
+trigger2 = Map(BerkRoll1) > 1 && Var(51) != 1 && StateNo != 970
+map = "BerkRoll1"
+value = -1
+[State 0, MapSet]
+type = MapAdd
+trigger1 = Map(BerkRoll2) > 2
+trigger2 = Map(BerkRoll2) > 1 && Var(51) != 1 && StateNo != 970
+map = "BerkRoll2"
+value = -1
+
+[State 0, Var Poised]
+type = MapSet
+trigger1 = Map(BerkHitCheck) >= 1
+trigger1 = Map(BerkRoll1) = 0 && Map(BerkDice1) = 0
+trigger1 = Map(BerkRoll2) = 0 && Map(BerkDice2) = 0
+map = "BerkRoll1"
+value = 20
+ignorehitpause = 1
+[State 0, Var Poised]
+type = MapSet
+trigger1 = Map(BerkHitCheck) >= 1
+trigger1 = (Map(BerkDice1) != 0 && Map(BerkRoll1) != 20 || Map(BerkRoll1) = [1,20)) && Map(BerkDice2) = 0
+trigger2 = EnemyNear,Var(51) && Map(BerkDice1) = Map(BerkDice2) && Map(BerkDice2)
+map = "BerkRoll2"
+value = 20
+ignorehitpause = 1
+
+[State 0, Map Set Rolled Die 1]
+type = MapSet
+trigger1 = Map(BerkRoll1) = 20
+map = "BerkDice1"
+value = 1 + random%6
+ignorehitpause = 1
+[State 0, Map Set Rolled Die 2]
+type = MapSet
+trigger1 = Map(BerkRoll2) = 20
+map = "BerkDice2"
+value = 1 + random%6
+ignorehitpause = 1
+
+[State 0, Map Roll 1 Reset]
+type = MapSet
+triggerall = Name = "BERK"
+triggerall = Map(BerkRoll1)
+trigger1 = RoundState < 2
+trigger2 = Map(BerkRoll1) <= 1
+map = "BerkRoll1"
+value = 0
+ignorehitpause = 1
+[State 0, Map Roll 2 Reset]
+type = MapSet
+triggerall = Name = "BERK"
+triggerall = Map(BerkRoll2)
+trigger1 = RoundState < 2
+trigger2 = Map(BerkRoll2) <= 1
+map = "BerkRoll2"
+value = 0
+ignorehitpause = 1
+[State 0, Map Dice 1 Reset]
+type = MapSet
+triggerall = Name = "BERK"
+triggerall = Map(BerkDice1)
+trigger1 = RoundState < 2
+trigger2 = Map(BerkHitCheck) = 2
+trigger2 = Map(BerkDice1) && Map(BerkDice2) && !Map(BerkRoll1) && !Map(BerkRoll2)
+map = "BerkDice1"
+value = 0
+ignorehitpause = 1
+[State 0, Map Dice 2 Reset]
+type = MapSet
+triggerall = Name = "BERK"
+triggerall = Map(BerkDice2)
+trigger1 = RoundState < 2
+trigger2 = Map(BerkHitCheck) = 2
+trigger2 = !Map(BerkDice1) && Map(BerkDice2) && !Map(BerkRoll2)
+map = "BerkDice2"
+value = 0
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "BERK"
+triggerall = Map(BerkChips)
+trigger1 = RoundState < 2
+map = "BerkChips"
+value = 0
+ignorehitpause = 1
+
+[State 0, Map Hit Check]
+type = MapSet
+trigger1 = Map(BerkHitCheck) != 0
+map = "BerkHitCheck"
+value = 0
+ignorehitpause = 1
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) != 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 210
+trigger2 = StateNo = 310
+trigger3 = StateNo = 410
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610
+trigger6 = StateNo = 710
+trigger7 = StateNo = 205
+trigger8 = StateNo = 415
+trigger9 = StateNo = 215
+trigger10 = StateNo = 225
+trigger11 = StateNo = 615
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = [1010,1200) ; QCF+P
+trigger2 = StateNo = 1440
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S X]
+type = VarSet
+trigger1 = StateNo = 1210 && Time = 38
+trigger2 = StateNo = 1420 && Time = 48
+trigger3 = StateNo = 885 && Time = 37
+trigger4 = StateNo = 888 && Time = 29
+trigger5 = StateNo = 891 && Time = 32
+trigger6 = StateNo = 894 && Time = 63
+trigger7 = StateNo = 1215 && Time = 38
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0 && StateNo != 2010 && StateNo != 2050 
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+fv = 15
+value = 0.5
+
+;========================================================
+; SYSVAR 4 - RESET HITCOUNT / DIRE
+;========================================================
+
+[State 0, Var Reset HitCount Timer]
+type = VarAdd
+trigger1 = sysvar(4)
+sysvar(4) = -1
+[State 0, Var Reset HitCount]
+type = VarSet
+trigger1 = EnemyNear,sysvar(4) = 1
+v = 51
+value = 0
+[State 0, Var Reset Dire]
+type = VarSet
+trigger1 = EnemyNear,sysvar(4) = 1
+v = 11
+value = 0
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "%f";  %d %f"
+params = floor(enemynear,Map(TrainReact))
+ignorehitpause = 1
+
+;============================
+; VAR 40 - STREETWISE (but it doesnt reduce your item consumption rates this time)
+;============================
+
+[State 0, Var Streetwise]
+type = VarSet
+triggerall = !IsHelper
+trigger1 = !Var(51) && EnemyNear,MoveType != H
+trigger1 = Var(40) != (Var(10)=[1,2])
+trigger1 = !Var(8)
+trigger2 = Var(40) && StateNo=[2000,3000)
+trigger3 = StateNo = [880,900)
+v = 40
+value = (Var(10)=[1,2])
+ignorehitpause = 1
+
+;============================
+; MAP - FEEL THE BERN
+;============================
+
+[State 0, Map Cernie Reset]
+type = MapSet
+triggerall = Map(BernTimer)
+trigger1 = RoundState = 0
+map = "BernTimer"
+value = 0
+
+[State 0, Map Cernie Check]
+type = MapSet
+trigger1 = !Var(51) && EnemyNear,MoveType != H
+trigger1 = Map(BernCheck) != (!!Var(10))
+trigger1 = !Var(8)
+map = "BernCheck"
+value = (!!Var(10))
+ignorehitpause = 1
+
+[State 0, Map Cernie Add]
+type = MapSet
+triggerall = Map(BernCheck)
+trigger1 = Var(51)
+trigger2 = StateNo = [810,850) || StateNo = 860
+trigger2 = MoveType = A
+map = "BernTimer"
+value = min(Map(BernTimer)+75,500)
+ignorehitpause = 1
+[State 0, Map Cernie Add]
+type = MapSet
+triggerall = MoveType != H
+trigger1 = Var(8) = 1 && HitCount = 1 && NumTarget
+trigger2 = StateNo = 810 && AnimElem = 5
+trigger3 = StateNo = 830 && AnimElem = 5
+trigger4 = StateNo = 860 && AnimElem = 13
+trigger5 = StateNo = 1210 && AnimElem = 9
+trigger6 = StateNo = 1215 && AnimElem = 10
+map = "BernTimer"
+value = min(Map(BernTimer)+10,500)
+ignorehitpause = 1
+[State 0, Map Cernie Add]
+type = RootMapSet
+triggerall = IsHelper
+trigger1 = Var(8) = 1 && HitCount = 1 && NumTarget
+map = "BernTimer"
+value = min(Root,Map(BernTimer)+10,500)
+ignorehitpause = 1
+
+[State 0, Map Cernie Check]
+type = MapSet
+triggerall = Map(BernCheck)
+trigger1 = Var(51)
+trigger2 = StateNo = [810,850) || StateNo = 860
+trigger2 = MoveType = A
+map = "BernCheck"
+value = 0
+ignorehitpause = 1

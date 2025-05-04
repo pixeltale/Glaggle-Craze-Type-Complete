@@ -1,0 +1,52 @@
+<#e02800>:Unique Trait:</>		"Tandem Link"
+Ajit gains a small attack bonus for the rest of the round
+after landing a Dire Counter or parrying with Future Sight.
+
+<#e02800>:Craze Technique:</>
+Future Sight		_AA^CT
+
+<#e02800>:Throws:</>
+Wake Up!		^GP
+Back Shoot		_B^GP
+Sunset Driver		_AO^GP
+
+<#e02800>:Command Normals:</>
+Lion Fang		_F^LK
+One-Inch Punch		_F^LP
+
+<#e02800>:Special Moves:</>
+Lion's Sunspot		_QCF^P
+Roc Twister		_AA_QCB^K
+Tiger Strike		_DP^P
+_! Tiger's Whip		^SP
+Dragon's Blaze		_HCB^P
+Cobra Gatling		_RDP^P
+
+<#e02800>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Solar Flare		_QCF_QCF^P
+Heatstroke		_AA_QCB_QCB^K
+Exodus		_QCF_QCF^K
+
+<#e02800>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Exodus EX		_QCF_QCF^2K
+
+<#e02800>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Pillar of Fire, Pillar of Soul		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

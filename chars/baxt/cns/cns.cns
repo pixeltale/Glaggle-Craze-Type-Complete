@@ -1,0 +1,155 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 21
+ground.front = 21
+air.back = 6
+air.front = 6
+height = 32
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -64
+mid.pos = 0, -40
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 1.7
+walk.back = -1.6
+run.fwd  = 4.5, 0
+run.back = -5.75,-0.975
+jump.neu = 0,-7.5
+jump.back = -2.25
+jump.fwd = 2.25
+runjump.fwd = 3,-9
+
+[Movement]
+yaccel = .366
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankPain = 13
+BC.VoiceBankKO = 4
+BC.VoiceBankWeakKO = 2
+BC.VoiceBankCrazeCancel = 4
+BC.VoiceBankGuardBreak = 2
+BC.VoiceBankThrowTech = 5
+BC.VoiceBankHeartBreaker = 2
+BC.VoiceBankExert = 11
+
+[Quotes]
+victory0  = "I got no time to be rational, mate! I just slays what I sees!"
+victory1  = "With a brain like mine, you realize there is no good or evil, just predators and prey!"
+victory2  = "You still screaming? I'll shut your trap real quick!"
+victory3  = "Intelligence always has a price to pay, and that's why I'm committing fraud!"
+victory4  = "You're just a shrimp not worth eating. Sod off, mate."
+victory5  = "When you're done squirmin', let me know when you want me to start digging into your flesh!"
+victory6  = "Life's like a box of chocolates. You never know what chump will stand in yer path!"
+victory7  = "I'm done making calculations! Thinking is for low lives like you!"
+victory8  = "I can't leave you to rot! I gotta eat! I GOTTA EAT!"
+victory9  = "Even if you run, I'll just reach out and grab ya! Just accept your fate, mate!"
+victory10 = "Must suck knowing what's gonna happen next all the time. I know that feelin' too, mate. Not so much losing, though!" ; AJIT
+victory11 = "You lost? Real shocker. Hah!" ; TSUG
+victory12 = "Surprised you weren't a BioCorps reject. Those guys would actually hold their own!" ; TSUK
+victory13 = "I really doubt your condition, mate. You really human?" ; SHER
+victory14 = "I really doubt your condition, mate. You really human?" ; SHEX
+victory15 = "Guess brain does win against brawn! But brawn is still nice to have, don't ya think?" ; WALL
+victory16 = "Oh, I know ALL about you, but you'll only get answers if you win! Which you never will, you cheap tin can!" ; REAP
+victory17 = "Right, right, sure. You're not weak, but you're no stronger than me!" ; REAK
+victory18 = "Even if you fight for justice, there's always gonna be scum that'll come back where you failed to sweep!" ; JUST
+victory19 = "I never understood the whole wrestling thing meself. Guess that's where true idiocy hides!" ; JUSK
+victory20 = "You came to pick my brain, but it ended up with me picking at your flesh, mate!" ; BOUN
+victory21 = "I thought there was only one of me in development. Clearly, you're just a cheap bootleg, mate!" ; BAXT
+victory22 = "Ignorance is bliss, as it's been said. I wish I was as empty-headed as you." ; CICI
+victory23 = "You got strength, mate, but you got too much hubris!" ; GOLI
+victory24 = "Sometimes you make it too easy. Now they're comin' at me half dead!" ; NECC
+victory25 = "I just rocked your world, missy! Rockin' on a roll!" ; EMIC
+victory26 = "You came to pick my brain, but it ended up with me picking at your flesh, mate!" ; LUCY
+victory27 = "Mind over matter? Maybe it doesn't matter in my mind!" ; GABB
+victory28 = "I'm beyond your rules, mate. You can try to put a leash on me, but I'll fight back!" ; ISAB
+victory29 = "Now then, I know that little side project of yours. Don't think I won't take full advantage of it." ; TYRA
+victory30 = "You're certainly not a cut above the rest, just the same scum I deal with on a daily basis!" ; IKUE
+victory31 = "Don't see much worth in humanity me'self. Can't understand why you'd cling onto something so sodding worthless!" ; TERI
+victory32 = "I may look like a beast you've brawled with before, but I certainly think better than they have, mate!" ; BERN
+victory33 = "If you're looking for an eye of newt, then you've found the wrong lizard, your travels moot!" ; JANE
+victory97 = "My smarts are startin' to pay off. That clone's got no chance without any sorta glue in its head!" ; BAXK
+victory98 = "Should've stayed mortal when you had the chance, mate. You've just wasted hundreds of years for your failed research!" ; KAHL
+victory99 = "All your films rated low like paper doing limbo! Get a clue when you've been washed out, mate!" ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 31  -  Projectile Dist
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  [BAXT] Charge Motion L Length
+; 41  -  [BAXT] Charge Motion L Release
+; 42  -  [BAXT] Charge Motion R Length
+; 43  -  [BAXT] Charge Motion R Release
+; 44  -  [BAXT] Charge Motion D Length
+; 45  -  [BAXT] Charge Motion D Release
+; 46  -  [BAXT] Spin Speed
+; 47  -  [BAXT] Spin Gauge Needle
+; 48  -  [BAXT] Full Palette Special Cancel
+; 49  -  [BAXT] Full Palette Timer
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 5  -  Temp 1
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 15 -  Meter Reduction
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

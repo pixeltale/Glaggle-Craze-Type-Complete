@@ -1,0 +1,56 @@
+<#2020c0>:Unique Trait:</>		"Minerva's Lust"
+Counter Hits and Dire Counter Hits deal bonus damage and 
+have longer hit stun. This bonus is always active during
+Rage Burst.
+
+<#2020c0>:Craze Technique:</>
+Concentrate		^CT
+Rage Burst		<#bebebe>(3 Gauge)</> ^CT
+Short Hop		_B^CT or _F^CT
+Defensive Roll		_DB^CT or _DF^CT
+Spot Dodge		_D^CT
+
+<#2020c0>:Throws:</>
+Crossroads Killing		^GP
+Sendoff		_B^GP
+Thorny Rose		_AO^GP
+
+<#2020c0>:Command Normals:</>
+Tornado Kick		_F^LK
+Pine Cutter		_F^SP
+Daffodil Slide		_DF^SK
+Mockingbird		_AO_D^LK
+
+<#2020c0>:Special Moves:</>
+Trimming Meadow		_QCF^P
+Sun's Brilliance		_DP^P
+Stroll in the Wind		_QCF^K
+Crashing Wave		_QCB^K
+Petals Gather		_HCB^P or _360^P
+Swallow Counter		_AO_QCB^P
+
+<#2020c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Garden of Warriors		_QCF_QCF^P
+_! Serene Nightfall		<#bebebe>(1 Stock)</> _QCF_QCF^P
+Dragonfly Flight		_QCB_QCB^P
+
+<#2020c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Telluric Meadow		_QCB_QCB^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

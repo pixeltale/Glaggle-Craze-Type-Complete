@@ -1,0 +1,161 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 0
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 17
+ground.front = 17
+air.back = 5
+air.front = 5
+height = 32
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -64
+mid.pos = 0, -38
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.5
+walk.back = -2.4
+run.fwd  = 5.5, 0
+run.back = -6.25,-1.5
+jump.neu = 0,-9
+jump.back = -3
+jump.fwd = 3
+runjump.fwd = 4,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankPain = 20
+BC.VoiceBankKO = 5
+BC.VoiceBankWeakKO = 2
+BC.VoiceBankCrazeCancel = 4
+BC.VoiceBankGuardBreak = 6
+BC.VoiceBankThrowTech = 7
+BC.VoiceBankHeartBreaker = 3
+BC.VoiceBankExert = 44
+
+[Quotes]
+victory0  = "Your play just puts me to sleep!"
+victory1  = "When you reach the top, the heavens still tower above you. Remember this."
+victory2  = "You should have brought yourself a pillow if you're gonna nap there. You can borrow mine."
+victory3  = "I'm always prepared for two things: fighting and napping."
+victory4  = "I won't be stopped. Too much is at stake for me to lose!"
+victory5  = "Fighting doesn't seem to be your forte, but losing suits you just fine."
+victory6  = "The future itself is full of uncertainty. All you need is to brace yourself for it."
+victory7  = "If you can't handle the heat, then train more and try again!"
+victory8  = "If you hoped to defeat me, then you should've done more than dream about it!"
+victory9  = "Your style is like vanilla ice cream: bland. It doesn't even have vanilla beans!"
+victory10 = "Merely an illusion. Even for a daydreamer like me, I can see beyond your false visage!" ; AJIT
+victory11 = "You're improving, and that's the important part. Now, how about we get some grub?" ; TSUG
+victory12 = "You're definitely not the Tsugumi I know. Just stop with this gig and find your true self." ; TSUK
+victory13 = "If you push yourself too far, you lose sight of what is important in battle. With that in mind, do you want to run that back?" ; SHER
+victory14 = "It is never too late to turn back from the road of helpless destruction. Find the light within yourself once again!" ; SHEK
+victory15 = "I'm surprised all that headbutting hasn't given you a concussion. Wonder if well-placed force could finally crack through?" ; WALL
+victory16 = "We all have some purpose to fulfill in this world, but you have to find it on your own." ; REAP
+victory17 = "This dream of mine... Maybe there's more to it than I initially thought?" ; REAK
+victory18 = "I can see why Tsugumi likes you so much. You have a strong body and attitude." ; JUST
+victory19 = "I don't buy it for a second. Be honest with yourself." ; JUSK
+victory20 = "I take it you've heard rumors about me? That also means you know what's going to happen at this tournament - at least a piece of it. Tell me what you know." ; BOUN
+victory21 = "I've seen people condition their bodies to stretch their limbs, but a creature like you doing it is a first." ; BAXT
+victory22 = "The sea birthed life but you forgot the heat that sustains all life!" ; CICI
+victory23 = "Interesting. You have the heart of an honorable fighter deep in that exoskeleton." ; GOLI
+victory24 = "Let me take care of this. You have other important business to deal with." ; NECC
+victory25 = "Was kinda more of a disco person myself. Guess it shows our different rhythms in battle too." ; EMIC
+victory26 = "Get your nose out of my business before I break yours! I don't need you to veer me off this path." ; LUCY
+victory27 = "You must be some kind of apparition. I didn't feel any soul in that fight at all." ; GABB
+victory28 = "This has been a big mistake, and we're almost out of time. Now, LISTEN to me..." ; ISAB
+victory29 = "In truth, I'm just an average guy, but I was the only one who knew you would show up here. When it came down to the wire, I knew I couldn't lose!" ; TYRA
+victory30 = "You're not from any future I know. Where are you from?" ; IKUE
+victory31 = "Even a fierce tiger's heart still has the docile nature of a housecat! You're no exception." ; TERI
+victory32 = "Karma works in mysterious ways. Sometimes, you have to let the world figure itself out for you." ; BERN
+victory33 = "Pumpkins. Why did it have to be pumpkins? And explosive ones, too?" ; JANE
+victory69 = "I have no strong feelings about ice cream flavors."
+victory97 = "If you're gonna replicate me, at least make me look good." ; SIDE-K MIRROR
+victory98 = "You'll never succeed if you can't capture the fighting spirit of mankind!" ; KAHL
+victory99 = "I've seen you in my dream. You must know what's going to happen soon, so tell me!" ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 31  -  Projectile Dist
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  [AJIT] Trait Stacks
+; 41  -  [AJIX] Buffering
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 56  -  What's My Name?
+; 58  -  Am I SHIFT? Q-SHIFT? Kahl?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 18 -  Craze Gauge Gain Multiplier
+; 15 -  Meter Reduction
+; 20 -  [AJIT] Trait Bonus Damage
+; 25  -  [TRAI] Setting: Stance Type
+; 26  -  [TRAI] Setting: Guard
+; 27  -  [TRAI] Setting: Button
+; 28  -  [TRAI] Setting: Counter
+; 29  -  [TRAI] Setting: Regen
+; 30  -  [TRAI] Setting: Getup
+; 31  -  [TRAI] Damage Count
+; 32  -  [TRAI] Advantage Count
+; 33  -  [TRAI] Startup Count
+; 34  -  [TRAI] Plus or Minus
+; 35  -  [TRAI] Button Timer
+; 36  -  [TRAI] Damage Count Single
+;---------------------------------------------------------------------------

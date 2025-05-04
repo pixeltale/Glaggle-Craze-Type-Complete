@@ -1,0 +1,61 @@
+<#f8e8a0>:Unique Trait:</>		"DEVIL'S INFLUENCE"
+TYRANT has access to EX moves after successful uses of
+DEVIL'S SCUTUM, or armoring attacks. Special moves marked
+with _TY have EX variants by inputting either ^2P or ^2K
+
+<#f8e8a0>:Craze Technique:</>
+DEVIL'S SCUTUM		_CH^CT
+
+<#f8e8a0>:Throws:</>
+FACE YOUR FEARS		^GP
+ONE'S RIGHT		_B^GP
+EXISTENCE CALAMITY		_AO^GP
+
+<#f8e8a0>:Command Normals:</>
+CRAWL		_DF
+DARK TORNADO		_F^SP
+SHADOW FANG		_F^SK
+
+<#f8e8a0>:Special Moves:</>
+LION SLAYER _TY		_QCF^P
+EMPEROR'S MARCH _TY		_QCF^K
+_! EMPEROR'S RETREAT		_B or _B_B
+_! ALL-MIGHTY PRESENCE		_U
+_! EMPEROR'S GAUNTLET		^P
+_! EMPEROR CROWN		^K
+_! EMPEROR INFLUENCE		^GP
+_! DEVIL'S SCUTUM		_CH^CT
+ALL-MIGHTY PRESENCE _TY		_AA_QCB^K or _AO_QCF^K
+_! BROTHER EYE		_D
+_! CONFLICT IGNITION		_B_B or _F_F
+_! CALL TO ARMS		_U, _UF or _UB
+_! VULCAN BURST		^P
+_! GRAVITY SHIFT		^K
+
+<#f8e8a0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+VULCAN FLAME		_QCF_QCF^P
+GRAIL TEMPEST		_QCB_QCB^P
+
+<#f8e8a0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+VULCAN BEAM		_QCF_QCF^2P
+
+<#f8e8a0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+THE WORLD CONSUMED		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

@@ -1,0 +1,146 @@
+[Data]
+life = 950
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 0
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 19
+ground.front = 19
+air.back = 5
+air.front = 5
+height = 41
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -82
+mid.pos = 0, -44
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.3
+walk.back = -2.15
+run.fwd  = 6.5, 0
+run.back = -6.0,-1
+jump.neu = 0,-7.5
+jump.back = -2.35
+jump.fwd = 2.35
+runjump.fwd = 4.5,-9
+
+[Movement]
+yaccel = .4
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 2
+BC.VoiceBankWeakKO = 3
+BC.VoiceBankHeartBreaker = 3
+BC.VoiceBankCrazeCancel = 5
+BC.VoiceBankPain = 13
+BC.VoiceBankGuardBreak = 3
+BC.VoiceBankThrowTech = 6
+BC.VoiceBankExert = 10
+
+[Quotes]
+victory0  = "I know where I'm going, I'm going to become the strongest thing mankind has ever made!"
+victory1  = "It'll take more than paramedics to fix you up."
+victory2  = "I scanned your chances at surviving in a world with me in it. You got jack squat!"
+victory3  = "Just give up and admit that I'm better than you! Say it, dammit!"
+victory4  = "Soon humanity will see what mistakes cost them their power. As only the strong rule in this world, and so I shall become the strongest!"
+victory5  = "I don't do this for fun, I fight to fill my empty purpose!"
+victory6  = "Getting up close and personal will cost you your life!"
+victory7  = "You wish you had armaments like mine, but I still need more power..."
+victory8  = "The future is all under my steel-tipped heel! No one will prove otherwise!"
+victory9  = "Mankind is already on a path of self-destruction. The world is ready for a new age to dawn upon them, and I am that dawn!"
+victory10 = "You think I care about all the small creatures in this world? To me, all that aren't me are just flies begging to get squashed!" ; AJIT
+victory11 = "Maybe someday YOU will be the battery to fuel a world run by me." ; TSUG
+victory12 = "I'll find your home and hunt you Automatus down just for kicks!" ; TSUK 
+victory13 = "I have no time for child's play. You make me puke." ; SHER
+victory14 = "Nothing mankind can do can power over a machine!" ; SHEX
+victory15 = "I may spare your life if you admit that I am stronger than you!" ; WALL
+victory16 = "I finally have you cornered! Soon, all my pain will go away!" ; REAP
+victory17 = "They're just toying with me now. I will not break! I will not break!" ; REAK
+victory18 = "Foolish humans and their bravado and false images. You are truly nothing before me!" ; JUST
+victory19 = "Foolish humans and their bravado and false images. Take off the mask and show me the real you!" ; JUSK
+victory20 = "I don't care if you know about QUASARS or not, for I will take them over soon." ; BOUN
+victory21 = "I don't care what QUASARS had planned for me. Doesn't matter once I usurp them!" ; BAXT
+victory22 = "To think I could have been you. The thought makes me nauseous..." ; CICI
+victory23 = "I should tear you limb from limb!!" ; GOLI
+victory24 = "God? Hahahaha! I know no God that can help either of us!" ; NECC
+victory25 = "You have frail bones. I don't enjoy a challenge made too easy for me!" ; EMIC
+victory26 = "I'll run you over, regardless of what strategy you can throw at me!" ; LUCY
+victory27 = "No, I am not weak! I AM NOT WEAK!" ; GABB
+victory28 = "Your history has no bearing on my path! I shall surpass all of you!" ; ISAB
+victory29 = "I will no longer be bound by chains, from anyone! EVER!" ; TYRA
+victory30 = "Mechanis? Ha! They are nothing before me!" ; IKUE
+victory31 = "I am not troubled by any illusion you throw at me! I am not! I am not!" ; TERI
+victory32 = "I see your bluff. You truly are weak! Hahahahaha!" ; BERN
+victory33 = "Magic? Are you joking?" ; JANE
+victory69 = "Easy."
+victory70 = "Hate. Let me tell you how much I've come to hate you since I entered Battle Craze. There are 6.66 thousand miles of printed circuits in wafer thin layers that fill my complex. If the word hate was engraved on each nanoangstrom of those thousands of miles, it would not equal one one-billionth of the hate I feel for humans at this micro-instant for you. Hate. Hate."
+victory97 = "I am not obsolete! I can prove it, just give me another chance!" ; REAK
+victory98 = "Keep them coming, and I will trample them all!" ; KAHL
+victory99 = "Don't worry, I find your master to be much more of a prize than you." ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  [REAP] Connection Level
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 12 -  Final Move Damage
+; 27 -  Guard Damage Multiplier
+; 35 -  Cornerpush Amount
+;---------------------------------------------------------------------------

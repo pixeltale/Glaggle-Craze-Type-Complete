@@ -1,0 +1,58 @@
+<#603830>:Unique Trait:</>		"Dohyo Daioh"
+Goliath's damage increases the closer his opponent's back is 
+to a corner of the screen, but his defense decreases the 
+closer his back is to a corner.
+
+<#603830>:Craze Technique:</>
+1,000 Kabuto		_CH^CT
+
+<#603830>:Throws:</>
+Grub Buster		^GP
+Apex Thrash		_B^GP
+Beetle Basher		_AO^GP
+
+<#603830>:Command Normals:</>
+Crawl		_DF
+Raw Claw		_F^LP
+Exo-Headbutt		_F^SP
+_! Exo-Fakeout		Hold^SP
+
+<#603830>:Special Moves:</>
+Rikishi Lancer		~B^P
+_! Rikishi Izori		_B^P
+Rikishi Bunker		~D^K
+Rikishi Bunker (Air)		_AO~U^Kor_D^2K
+Rikishi Push		_AA_CH_QCB^P
+_! Rikishi Sidle		_UDLR
+_! Cancel		^K
+Rikishi Quake		_QCB^K
+
+<#603830>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Rikishi Flamberge		_QCF_QCF^P
+Rikishi Oni		_QCF_QCF^K
+
+<#603830>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Rikishi Flamberge EX		_QCF_QCF^2P
+
+<#603830>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Rikishi Shogunate		_QCB_QCB^2K
+_! Rikishi Blast		^GP
+_! Rikishi Spear		_F^SP
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

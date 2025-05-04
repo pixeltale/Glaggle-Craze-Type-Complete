@@ -1,0 +1,59 @@
+<#408030>:Unique Trait:</>		"Torn to Pieces"
+Attacks that use Teri's claws grant her Feral tallies on
+contact, adding up to 5 for a stack. _TU moves can consume
+stacks to gain extra benefits.
+If you have at least 2 stacks, they can be consumed to
+special cancel into Million Cross.
+
+<#408030>:Craze Technique:</>
+Demon		^CT
+
+<#408030>:Throws:</>
+Help from the Shadows		^GP
+Assist from Afar		_B^GP
+Silencer		_AO^GP
+
+<#408030>:Command Normals:</>
+Puncture Claw		_F^SP
+Broad Stroke		_F^SK
+
+<#408030>:Special Moves:</>
+Huntress		_QCF^LP
+_! Loop Slice		^P
+_! Unleashed		^K
+Trapper		_QCF^SP
+Oppress Claw		_QCB^LP
+Million Cross _TU		_CH_QCB^SP
+_! Undercurrent		_F^K
+Undercurrent		_QCF^K
+Knock Down Walls _TU		_QCB^K
+
+<#408030>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Bottom Falls Out		_QCF_QCF^LP
+Top Falls Down		_QCF_QCF^SP
+_! Bottom Falls Out		_QCF_QCF^P
+Carve Out		_QCB_QCB^K
+
+<#408030>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Wicked Hunt _TU		_QCF_QCF^2K
+
+<#408030>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Long Forgotten		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

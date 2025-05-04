@@ -1,0 +1,612 @@
+[Statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "I found a little black book listing you, Rita, and several other women."
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = EnemyNear,Map(WinQuoteNum)
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "AJIT" && EnemyNear,Name != "AJIX" && EnemyNear,Name != "AJIK"
+trigger1 = EnemyNear,Name != "GOLI" && EnemyNear,Name != "GOLX" && EnemyNear,Name != "GOLK"
+trigger1 = EnemyNear,Name != "GABB" && EnemyNear,Name != "GABX" && EnemyNear,Name != "GABK"
+trigger1 = EnemyNear,Name != "ISAB" && EnemyNear,Name != "ISAX" && EnemyNear,Name != "ISAK"
+trigger1 = EnemyNear,Name != "TYRA" && EnemyNear,Name != "TYRX" && EnemyNear,Name != "TYRK"
+trigger1 = EnemyNear,Name != "JANE" && EnemyNear,Name != "JANX" && EnemyNear,Name != "JANK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "GABB" && EnemyNear,Name != "GABX" && EnemyNear,Name != "GABK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = NumExplod(2310)
+flag = invisible
+
+;============================
+; PALETTE
+;============================
+
+[State 0, MapSet]
+type = RemapPal
+triggerall = !(Name="GABK"&&!!Map(GabkMono))
+triggerall = !(Name="GABX"&&NumHelper(960))
+trigger1 = RoundState > 0
+trigger1 = Map(GabbFacing) != Facing * Map(GabkSwap) * (1-2*(TeamSide=2))
+trigger2 = Name = "GABX" && NumHelper(910)
+source = 1,1
+dest = 1 + (Facing=-1&&Map(GabkSwap)=1||Facing=1&&Map(GabkSwap)=-1),Var(59) ;1 + (Facing*(1-2*(TeamSide=2))=-1),Var(59)
+[State 0, MapSet]
+type = MapSet
+triggerall = !(Name="GABK"&&!!Map(GabkMono))
+triggerall = !(Name="GABX"&&NumHelper(960))
+trigger1 = RoundState > 0
+trigger1 = Map(GabbFacing) != Facing * Map(GabkSwap) * (1-2*(TeamSide=2))
+map = "GabbFacing"
+value = Facing * Map(GabkSwap) * (1-2*(TeamSide=2))
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = RemapPal
+triggerall = RoundState > 0
+trigger1 = (Name="GABK"&&!!Map(GabkMono))
+trigger1 = StateNo = [2500,2600) || StateNo = 2700
+trigger2 = Name = "GABX"
+trigger2 = cond(NumHelper(960),Helper(960),Time=1,0)
+source = 1,1
+dest = 3 + (Map(GabkMono)=-1) + (Facing=-1) * (Name="GABX"),Var(59)
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 200, 2]
+type = PlaySnd
+triggerall = Anim = 160
+trigger1 = AnimElem = 4
+value = F0, 3
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 8
+trigger3 = AnimTime = 0
+x = 8
+
+;============================
+; GLOBAL AIR CONTROL
+;============================
+
+[State 0, VelAdd]
+type = VelSet
+triggerall = !IsHelper && MoveType != H
+;triggerall = Name != "GABX" || !Map(GabxCardUsed)
+triggerall = command = "holdfwd"
+trigger1 = StateNo = 1210 && MoveHit
+trigger1 = Anim = 1211 && AnimElemNo(0) >= 4
+trigger2 = StateNo = [600,800)
+trigger2 = PrevStateNo = 1210 || PrevStateNo = 1230
+trigger3 = StateNo = 1230 && Ctrl
+x = min(2.75,Vel X + 0.5)
+[State 0, VelAdd]
+type = VelSet
+triggerall = !IsHelper && MoveType != H
+;triggerall = Name != "GABX" || !Map(GabxCardUsed)
+triggerall = command = "holdback"
+trigger1 = StateNo = 1210 && MoveHit
+trigger1 = Anim = 1211 && AnimElemNo(0) >= 4
+trigger2 = StateNo = [600,800)
+trigger2 = PrevStateNo = 1210 || PrevStateNo = 1230
+trigger3 = StateNo = 1230 && Ctrl
+x = max(-2.75,Vel X - 0.5)
+
+;============================
+; MAP - MASKERADO
+;============================
+
+[State 0, Map Mirage Reset]
+type = MapSet
+triggerall = Name = "GABB"
+triggerall = Map(GabbMask) != 0
+trigger1 = RoundState = 0
+map = "GabbMask"
+value = 0
+[State 0, Map Mirage Tick]
+type = MapAdd
+triggerall = Name = "GABB"
+trigger1 = RoundState = 2
+trigger1 = !Var(54)
+trigger1 = StateNo != [900,1000) && !NumHelper(910)
+trigger1 = Map(GabbMask) < 64
+map = "GabbMask"
+value = 0.2
+ignorehitpause = 1
+
+;============================
+; MAP - MIKSI
+;============================
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = Name = "GABX"
+triggerall = Map(GabxCard1) = 0 || Map(GabxCard2) = 0 || Map(GabxCard3) = 0
+triggerall = command = "holdy" && command = "holdb" || command = "holdc"
+trigger1 = Time = 1 && StateNo = 1015
+trigger2 = Time = 1 && StateNo = 1205
+trigger3 = AnimTime = 0 && Anim = 1420 && StateNo = 1420
+value = ifelse(!Map(GabxCard2)&&command="holddown",922,ifelse(!Map(GabxCard3)&&command="holdback",923,ifelse(!Map(GabxCard1)&&command="holdfwd",921,920)))
+
+[State 0, Map Card 1 Remove]
+type = MapSet
+triggerall = Name = "GABX"
+triggerall = Map(GabxCard1)
+trigger1 = RoundState = 0
+trigger2 = Map(GabxCard1) = 1
+trigger2 = ((Map(GabxCard1)=1)+(Map(GabxCard2)=1)+(Map(GabxCard3)=1)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxJackSpend)
+trigger3 = Map(GabxCard1) = 2
+trigger3 = ((Map(GabxCard1)=2)+(Map(GabxCard2)=2)+(Map(GabxCard3)=2)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxQueenSpend)
+trigger4 = Map(GabxCard1) = 3
+trigger4 = ((Map(GabxCard1)=3)+(Map(GabxCard2)=3)+(Map(GabxCard3)=3)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxKingSpend)
+trigger5 = Map(GabxCard1) = 4
+trigger5 = ((Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxJokerSpend)
+map = "GabxCard1"
+value = 0
+[State 0, Map Card 2 Remove]
+type = MapSet
+triggerall = Name = "GABX"
+triggerall = Map(GabxCard2)
+trigger1 = RoundState = 0
+trigger2 = Map(GabxCard2) = 1
+trigger2 = ((Map(GabxCard1)=1)+(Map(GabxCard2)=1)+(Map(GabxCard3)=1)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxJackSpend)
+trigger3 = Map(GabxCard2) = 2
+trigger3 = ((Map(GabxCard1)=2)+(Map(GabxCard2)=2)+(Map(GabxCard3)=2)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxQueenSpend)
+trigger4 = Map(GabxCard2) = 3
+trigger4 = ((Map(GabxCard1)=3)+(Map(GabxCard2)=3)+(Map(GabxCard3)=3)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxKingSpend)
+trigger5 = Map(GabxCard2) = 4
+trigger5 = ((Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxJokerSpend)
+map = "GabxCard2"
+value = 0
+[State 0, Map Card 3 Remove]
+type = MapSet
+triggerall = Name = "GABX"
+triggerall = Map(GabxCard3)
+trigger1 = RoundState = 0
+trigger2 = Map(GabxCard3) = 1
+trigger2 = ((Map(GabxCard1)=1)+(Map(GabxCard2)=1)+(Map(GabxCard3)=1)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxJackSpend)
+trigger3 = Map(GabxCard3) = 2
+trigger3 = ((Map(GabxCard1)=2)+(Map(GabxCard2)=2)+(Map(GabxCard3)=2)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxQueenSpend)
+trigger4 = Map(GabxCard3) = 3
+trigger4 = ((Map(GabxCard1)=3)+(Map(GabxCard2)=3)+(Map(GabxCard3)=3)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxKingSpend)
+trigger5 = Map(GabxCard3) = 4
+trigger5 = ((Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxJokerSpend)
+map = "GabxCard3"
+value = 0
+[State 0, Map Card 1 Remove Joker]
+type = MapSet
+triggerall = Name = "GABX"
+triggerall = Map(GabxCard1) = 4
+trigger1 = ((Map(GabxCard1)=1)+(Map(GabxCard2)=1)+(Map(GabxCard3)=1)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxJackSpend)
+trigger2 = ((Map(GabxCard1)=2)+(Map(GabxCard2)=2)+(Map(GabxCard3)=2)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxQueenSpend)
+trigger3 = ((Map(GabxCard1)=3)+(Map(GabxCard2)=3)+(Map(GabxCard3)=3)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxKingSpend)
+map = "GabxCard1"
+value = 0
+[State 0, Map Card 2 Remove Joker]
+type = MapSet
+triggerall = Name = "GABX"
+triggerall = Map(GabxCard2) = 4
+trigger1 = ((Map(GabxCard1)=1)+(Map(GabxCard2)=1)+(Map(GabxCard3)=1)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxJackSpend)
+trigger2 = ((Map(GabxCard1)=2)+(Map(GabxCard2)=2)+(Map(GabxCard3)=2)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxQueenSpend)
+trigger3 = ((Map(GabxCard1)=3)+(Map(GabxCard2)=3)+(Map(GabxCard3)=3)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxKingSpend)
+map = "GabxCard2"
+value = 0
+[State 0, Map Card 3 Remove Joker]
+type = MapSet
+triggerall = Name = "GABX"
+triggerall = Map(GabxCard3) = 4
+trigger1 = ((Map(GabxCard1)=1)+(Map(GabxCard2)=1)+(Map(GabxCard3)=1)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxJackSpend)
+trigger2 = ((Map(GabxCard1)=2)+(Map(GabxCard2)=2)+(Map(GabxCard3)=2)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxQueenSpend)
+trigger3 = ((Map(GabxCard1)=3)+(Map(GabxCard2)=3)+(Map(GabxCard3)=3)+(Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)) > Map(GabxKingSpend)
+map = "GabxCard3"
+value = 0
+
+[State 0, Map Add Jack]
+type = MapSet
+triggerall = Name = "GABX"
+trigger1 = Map(GabxJack) != (Map(GabxCard1)=1)+(Map(GabxCard2)=1)+(Map(GabxCard3)=1)
+map = "GabxJack"
+value = ((Map(GabxCard1)=1)+(Map(GabxCard2)=1)+(Map(GabxCard3)=1))
+[State 0, Map Add Queen]
+type = MapSet
+triggerall = Name = "GABX"
+trigger1 = Map(GabxQueen) != (Map(GabxCard1)=2)+(Map(GabxCard2)=2)+(Map(GabxCard3)=2)
+map = "GabxQueen"
+value = (Map(GabxCard1)=2)+(Map(GabxCard2)=2)+(Map(GabxCard3)=2)
+[State 0, Map Add King]
+type = MapSet
+triggerall = Name = "GABX"
+trigger1 = Map(GabxKing) != (Map(GabxCard1)=3)+(Map(GabxCard2)=3)+(Map(GabxCard3)=3)
+map = "GabxKing"
+value = (Map(GabxCard1)=3)+(Map(GabxCard2)=3)+(Map(GabxCard3)=3)
+[State 0, Map Add Joker]
+type = MapSet
+triggerall = Name = "GABX"
+trigger1 = Map(GabxJoker) != (Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)
+map = "GabxJoker"
+value = (Map(GabxCard1)=4)+(Map(GabxCard2)=4)+(Map(GabxCard3)=4)
+
+[State 0, Map Card Spend Reset]
+type = MapSet
+triggerall = Name = "GABX"
+trigger1 = Map(GabxJackSpend) != Map(GabxJack)+Map(GabxJoker)
+map = "GabxJackSpend"
+value = Map(GabxJack)+Map(GabxJoker)
+[State 0, Map Card Spend Reset]
+type = MapSet
+triggerall = Name = "GABX"
+trigger1 = Map(GabxQueenSpend) != Map(GabxQueen)+Map(GabxJoker)
+map = "GabxQueenSpend"
+value = Map(GabxQueen)+Map(GabxJoker)
+[State 0, Map Card Spend Reset]
+type = MapSet
+triggerall = Name = "GABX"
+trigger1 = Map(GabxKingSpend) != Map(GabxKing)+Map(GabxJoker)
+map = "GabxKingSpend"
+value = Map(GabxKing)+Map(GabxJoker)
+[State 0, Map Card Spend Reset]
+type = MapSet
+triggerall = Name = "GABX"
+trigger1 = Map(GabxJokerSpend) != Map(GabxJoker)
+map = "GabxJokerSpend"
+value = Map(GabxJoker)
+
+;============================
+; MAP - DARK FORCE
+;============================
+
+[State 0, MapSet]
+type = MapSet
+triggerall = Map(GabxDarkForce)
+trigger1 = StateNo != [200,5000)
+trigger1 = RoundState > 2
+trigger2 = StateNo = [2000,3000)
+map = "GabxDarkForce"
+value = 0
+[State 0, MapSet]
+type = MapSet
+trigger1 = Map(GabxDarkForce)
+map = "GabxDarkForce"
+value = max(0,Map(GabxDarkForce)-1-0.5*(Var(8)||Var(51)))
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Map(GabxDarkForce) && Map(SpeedMod) <= 1
+trigger2 = !Map(GabxDarkForce) && Map(SpeedMod) > 1
+map = "SpeedMod"
+value = 1 + 0.35 * !!Map(GabxDarkForce)
+
+[State 0, Helper]
+type = Helper
+trigger1 = Name = "GABX"
+trigger1 = !NumHelper(960) && Map(GabxDarkForce)
+name = "I need to talk toJack."
+ID = 960
+stateno = 960 
+pos = 0,0
+postype = p1
+
+;============================
+; MAP - DU VIZAGOJ
+;============================
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = RoundState = 0
+trigger1 = Map(GabkSwap) != 1
+map = "GabkSwap"
+value = 1
+[State 0, MapSet]
+type = MapSet
+trigger1 = RoundState = 0
+trigger1 = Map(GabkMono) != 0
+map = "GabkMono"
+value = 0
+[State 0, MapSet]
+type = MapSet
+trigger1 = RoundState = 0
+trigger1 = Map(GabkHarvey) != 0
+map = "GabkHarvey"
+value = 0
+[State 0, MapSet]
+type = MapSet
+trigger1 = RoundState = 0
+trigger1 = Map(GabkDent) != 0
+map = "GabkDent"
+value = 0
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "GABK"
+triggerall = !Map(GabkMono)
+trigger1 = RoundState > 0
+trigger1 = Map(GabkFacing) != Facing * (1-2*(TeamSide=2)) * Map(GabkSwap)
+trigger1 = MoveType != A || Time <= 1
+trigger1 = !((StateNo = [1000,1010]) && Var(51))
+map = "GabkFacing"
+value = Facing * (1-2*(TeamSide=2)) * Map(GabkSwap)
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Name = "GABK"
+trigger1 = !!Map(GabkMono)
+trigger1 = Map(GabkFacing) != Map(GabkMono)
+map = "GabkFacing"
+value = Map(GabkMono)
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapAdd
+triggerall = Map(GabkPassTimer) > 0
+trigger1 = RoundState = 2 && !Var(54)
+trigger1 = !(MoveType = H && StateNo != [120,160))
+map = "GabkPassTimer"
+value = -1 - (!!Var(51)) - (!!Map(GabkMono))
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Map(GabkPassTimer) <= 0
+triggerall = !((StateNo=[1000,1010)||StateNo=1010)&&Map(GabkMono)=1)
+trigger1 = Map(GabkFacing) = -1
+trigger2 = Map(GabkMono) != 0
+map = "GabkHarvey"
+value = min(5,Map(GabkHarvey) + 1)
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Map(GabkPassTimer) <= 0
+trigger1 = Map(GabkFacing) = 1
+trigger2 = Map(GabkMono) != 0
+map = "GabkDent"
+value = min(5,Map(GabkDent) + 1)
+ignorehitpause = 1
+[State 0, Map Timer Reset]
+type = MapSet
+trigger1 = Map(GabkPassTimer) <= 0
+map = "GabkPassTimer"
+value = 240
+ignorehitpause = 1
+
+;============================
+; VAR 44, 45 - CHARGE MOTIONS
+;============================
+
+[State 0, VarSet Reset D]
+type = VarSet
+triggerall = Name = "GABB" || Name = "GABK"
+trigger1 = Var(45) >= 16
+trigger2 = Var(45) >= 8
+trigger2 = Var(44) < 64
+value = 0
+v = 44
+ignorehitpause = 1
+[State 0, VarSet Reset D]
+type = VarSet
+triggerall = Name = "GABB" || Name = "GABK"
+trigger1 = command = "holddown"
+trigger2 = Var(45) >= 16
+trigger3 = Var(45) >= 8
+trigger3 = Var(44) < 64
+value = 0
+v = 45
+ignorehitpause = 1
+
+[State 0, VarAdd Charge D +1]
+type = VarAdd
+triggerall = Name = "GABB" || Name = "GABK"
+triggerall = Var(44) < 64
+trigger1 = command = "holddown"
+trigger2 = Var(15)
+v = 44
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge D +1]
+type = VarAdd
+triggerall = Name = "GABB" || Name = "GABK"
+triggerall = Var(44) != 0
+trigger1 = !command = "holddown"
+v = 45
+value = 1
+ignorehitpause = 1
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) != 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1 
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1 
+trigger1 = StateNo = 210
+trigger2 = StateNo = 310
+trigger3 = StateNo = 410
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610
+trigger6 = StateNo = 710
+trigger7 = StateNo = 305
+trigger8 = StateNo = 205
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 950
+trigger2 = StateNo = 1010 && (!Var(40) || Var(51) = 0 || Name = "GABX")
+trigger3 = StateNo = 1210
+trigger4 = StateNo = 1220
+trigger5 = StateNo = 1420
+trigger6 = StateNo = 1500
+trigger7 = StateNo = 1550
+trigger8 = StateNo = 1600
+trigger9 = StateNo = 1700
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S X]
+type = VarSet
+trigger1 = StateNo = 941 && AnimElem = 9, 1
+trigger2 = StateNo = 1110 && AnimElem = 24, 1
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+fv = 15
+value = 0.5
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 0
+text = "%d  %d";  %d %f"
+params = floor(Map(GabxQueen)+Map(GabxJoker)),(Map(GabxQueen)+Map(GabxJoker))>=(1+(!!MoveHit))
+ignorehitpause = 1
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = IsHelper
+trigger1 = StateNo = 165 || StateNo = [911,919]
+value = 0
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = IsHelper
+trigger1 = StateNo = [911,919]
+trigger1 = Parent,StateNo = 165
+trigger1 = StateType != A
+value = 165
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = IsHelper
+trigger1 = StateNo = 165 || StateNo = [911,919]
+trigger1 = Var(5) < 32
+value = SCA
+time = 1
+[State 0, ReversalDef]
+type = ReversalDef
+trigger1 = IsHelper
+trigger1 = StateNo = 165 || StateNo = [911,919]
+trigger1 = Var(5) >= 32
+reversal.attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+sparkno = -1
+hitsound = -1
+pausetime = 0,8
+p1stateno = 910
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = IsHelper
+trigger1 = StateNo = [911,919]
+trigger1 = Parent,MoveType = H
+trigger2 = StateNo = [5000,5150]
+value = 910

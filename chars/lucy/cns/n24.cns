@@ -1,0 +1,581 @@
+[Statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = EnemyNear,Map(WinQuoteNum)
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "AJIT" && EnemyNear,Name != "AJIX" && EnemyNear,Name != "AJIK"
+trigger1 = EnemyNear,Name != "WALL" && EnemyNear,Name != "WALX" && EnemyNear,Name != "WALK"
+trigger1 = EnemyNear,Name != "EMIC" && EnemyNear,Name != "EMIX" && EnemyNear,Name != "EMIK"
+trigger1 = EnemyNear,Name != "LUCY" && EnemyNear,Name != "LUCX" && EnemyNear,Name != "LUCK"
+trigger1 = EnemyNear,Name != "ISAB" && EnemyNear,Name != "ISAX" && EnemyNear,Name != "ISAK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "LUCY" && EnemyNear,Name != "LUCX" && EnemyNear,Name != "LUCK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+;============================
+; REMAP SPRITE
+;============================
+
+[State 0, RemapSprite]
+type = RemapSprite
+trigger1 = !Map(LucyAsmosOn)
+trigger1 = Map(LucyRemap) != Map(LucyAsmosOn)
+reset = 1
+[State 0, RemapSprite]
+type = RemapSprite
+trigger1 = Map(LucyAsmosOn) && !Map(AsmosBusy)
+trigger1 = Map(LucyRemap) != Map(LucyAsmosOn)
+preset = "AsmosOn"
+reset = 1
+[State 0, MapSet]
+type = MapSet
+trigger1 = Map(LucyRemap) != (Map(LucyAsmosOn) && !Map(AsmosBusy))
+map = "LucyRemap"
+value = Map(LucyAsmosOn)&&RoundState>0
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 6
+x = max(0,min(8,p2bodydist x + 360 * (EnemyNear,Pos Y < -32)))
+[State 0, PosAdd]
+type = PosAdd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 3
+x = max(0,min(16,p2bodydist x + 360 * (EnemyNear,Pos Y < -32)))
+[State 0, PosAdd]
+type = PosAdd
+triggerall = StateNo = 160
+trigger1 = AnimElem = 8
+trigger2 = AnimElem = 9
+x = -8
+
+[State 200, 2]
+type = PlaySnd
+triggerall = Anim = 160
+trigger1 = AnimElem = 5
+value = F0, 3
+
+[State 0, Explod Throw Break FX]
+type = Explod
+trigger1 = Anim = 5381
+trigger1 = AnimElem = 5
+anim = 214
+ID = 3000
+pos = 12,0
+postype = p1
+bindtime = 666
+sprpriority = 5
+removeongethit = 1
+
+;============================
+; DASH FX
+;============================
+
+[State 0, Explod Air Dash]
+type = Explod
+triggerall = !NumHelper(990)
+triggerall = Time%3 = 1
+trigger1 = StateNo = 110 && Time < 16
+trigger2 = StateNo = 115 && Time < 16
+anim = F87
+pos = -4+random%9,-8 - (GameTime%7) * 12
+postype = p1
+vel = ifelse(Vel X<0,4,-8),0
+accel = ifelse(Vel X<0,-0.5,1),0
+sprpriority = GameTime%5
+ownpal = 1
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = [5325,5326]
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 8
+trigger3 = AnimTime = 0
+x = 8
+
+;============================
+; MAP - ASMOS
+;============================
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = !NumHelper(4000)
+trigger1 = RoundState < 2
+map = "AsmosDistX"
+value = -128.0
+[State 0, MapSet]
+type = MapSet
+trigger1 = !NumHelper(4000)
+trigger1 = RoundState < 2
+map = "AsmosDistY"
+value = 0.0
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = NumHelper(4000)
+trigger1 = !Map(AsmosBusy); || Helper(4000),StateNo = 4150
+trigger1 = StateNo = 3005
+trigger1 = Time = 1
+trigger2 = StateNo = 2000 && Time = 2
+trigger3 = StateNo = 2100 && Time = 4
+trigger4 = StateNo = 2210 && Time = 2
+trigger5 = StateNo = 2300 && Time = 2
+trigger6 = StateNo = 2400 && Time = 1
+redirectid = Helper(4000),id
+[State 0, Helper]
+type = Helper
+triggerall = !NumHelper(4000)
+trigger1 = Name != "LUCK"
+trigger1 = RoundState = [1,2]
+trigger1 = StateNo != [190,191] && StateNo != [3500,4000) && !(PrevStateNo=190&&NumExplod(190))
+helpertype = normal
+name = "THE MAN HIMSELF"
+pos = Map(AsmosDistX),Map(AsmosDistY)
+ID = 4000
+stateno = 4000 + floor(StateNo * 0.1) * (StateNo=2100||StateNo=2300) + 225 * (StateNo=2210)
+supermovetime = ifelse(StateNo=[3000,3005],24,Var(54))
+ownpal = 1
+[State 0, Map Asmos Attached Default]
+type = MapSet
+triggerall = RoundState < 2
+trigger1 = Name = "LUCY"
+trigger2 = Name = "LUCX"
+map = "LucyAsmosOn"
+value = 1
+
+[State 0, LUCX Copy Reset]
+type = MapSet
+trigger1 = Map(LucxCopy) && RoundState = 0
+map = "LucxCopy"
+value = 0
+[State 0, LUCX Timer Reset]
+type = MapSet
+trigger1 = Map(LucxTimer) && RoundState = 0
+map = "LucxTimer"
+value = 0
+
+;============================
+; MAP - GAUGE STEAL
+;============================
+
+[State 0, VarAdd]
+type = MapAdd
+triggerall = Name = "LUCX"
+triggerall = Var(10) = [1,2]
+triggerall = Var(8) = 1 && MoveHit && NumTarget
+trigger1 = StateNo = [200,800)
+trigger2 = StateNo = [1000,3000)
+map = "LucxSteal"
+value = 1
+ignorehitpause = 1
+
+[State 0, Var Gauge Gain]
+type = VarAdd
+triggerall = Name = "LUCX"
+trigger1 = Map(LucxSteal)
+v = 18
+value = min(EnemyNear,Var(18),100)
+ignorehitpause = 1
+[State 0, Var Gauge Drain]
+type = VarAdd
+triggerall = Name = "LUCX"
+trigger1 = Map(LucxSteal)
+v = 18
+value = -100
+redirectid = EnemyNear,ID
+ignorehitpause = 1
+[State 0, Map Steal Reset]
+type = MapSet
+trigger1 = Map(LucxSteal)
+map = "LucxSteal"
+value = 0
+ignorehitpause = 1
+
+;============================
+; MAP - GEMS!
+;============================
+
+[State 0, Helper]
+type = Helper
+triggerall = NumHelper(4900) + NumHelper(4901) + NumHelper(4902) + NumHelper(4903) < 4
+trigger1 = Name = "LUCK"
+trigger1 = RoundState = [1,2]
+trigger1 = StateNo != [190,191] && StateNo != [3500,4000)
+name = "Gemothy"
+pos = 0,-48
+ID = 4900 + NumHelper(4900) + NumHelper(4901) + NumHelper(4902)
+stateno = 4900 + NumHelper(4900) + NumHelper(4901) + NumHelper(4902)
+supermovetime = -1
+ownpal = 1
+
+[State 0, Map Gems Reset]
+type = MapSet
+trigger1 = RoundState%2 && Map(LuckGems)
+trigger1 = Name = "LUCK"
+map = "LuckGems"
+value = 0
+
+[State 0, Map Gem Color 1 Gluttony]
+type = MapSet
+trigger1 = Name = "LUCK"
+trigger1 = RoundState = 0
+map = "LuckGemFX1"
+value = ifelse(Var(59)=1,2146552,ifelse(Var(59)=2,8413408,ifelse(Var(59)=3,4219104,ifelse(Var(59)=4,5032152,ifelse(Var(59)=5,9484512,ifelse(Var(59)=6,6324448,ifelse(Var(59)=7,8433880,ifelse(Var(59)=8,2121920,ifelse(Var(59)=9,12078296,ifelse(Var(59)=10,3166424,ifelse(Var(59)=11,15255648,ifelse(Var(59)=12,16308256,ifelse(Var(59)=13,14172304,ifelse(Var(59)=14,7870664,ifelse(Var(59)=15,12591168,ifelse(Var(59)=16,2130048,ifelse(Var(59)=17,2147488,ifelse(Var(59)=18,4212832,ifelse(Var(59)=19,4735072,ifelse(Var(59)=20,8397032,6303824))))))))))))))))))))
+[State 0, Map Gem Color 2 Envy]
+type = MapSet
+trigger1 = Name = "LUCK"
+trigger1 = RoundState = 0
+map = "LuckGemFX2"
+value = ifelse(Var(59)=1,3188816,ifelse(Var(59)=2,4237360,ifelse(Var(59)=3,3188864,ifelse(Var(59)=4,3188784,ifelse(Var(59)=5,7907328,ifelse(Var(59)=6,6334568,ifelse(Var(59)=7,6334560,ifelse(Var(59)=8,2144320,ifelse(Var(59)=9,3166376,ifelse(Var(59)=10,3188896,ifelse(Var(59)=11,5255336,ifelse(Var(59)=12,15753224,ifelse(Var(59)=13,24736,ifelse(Var(59)=14,4241584,ifelse(Var(59)=15,4235392,ifelse(Var(59)=16,11067536,ifelse(Var(59)=17,13689072,ifelse(Var(59)=18,43072,ifelse(Var(59)=19,11010112,ifelse(Var(59)=20,12591200,6303824))))))))))))))))))))
+[State 0, Map Gem Color 3 Greed]
+type = MapSet
+trigger1 = Name = "LUCK"
+trigger1 = RoundState = 0
+map = "LuckGemFX3"
+value = ifelse(Var(59)=1,16308256,ifelse(Var(59)=2,16300064,ifelse(Var(59)=3,15257664,ifelse(Var(59)=4,13690944,ifelse(Var(59)=5,15259696,ifelse(Var(59)=6,15257792,ifelse(Var(59)=7,16312448,ifelse(Var(59)=8,15255616,ifelse(Var(59)=9,8448248,ifelse(Var(59)=10,15259848,ifelse(Var(59)=11,16271592,ifelse(Var(59)=12,2146552,ifelse(Var(59)=13,15786184,ifelse(Var(59)=14,13164784,ifelse(Var(59)=15,15249456,ifelse(Var(59)=16,13160616,ifelse(Var(59)=17,12599376,ifelse(Var(59)=18,6307920,ifelse(Var(59)=19,6309952,ifelse(Var(59)=20,8388752,6303824))))))))))))))))))))
+[State 0, Map Gem Color 4 Sloth]
+type = MapSet
+trigger1 = Name = "LUCK"
+trigger1 = RoundState = 0
+map = "LuckGemFX4"
+value = ifelse(Var(59)=1,15753224,ifelse(Var(59)=2,15736840,ifelse(Var(59)=3,15231056,ifelse(Var(59)=4,15771656,ifelse(Var(59)=5,12607488,ifelse(Var(59)=6,15753280,ifelse(Var(59)=7,15769696,ifelse(Var(59)=8,14172192,ifelse(Var(59)=9,15730784,ifelse(Var(59)=10,12058656,ifelse(Var(59)=11,549104,ifelse(Var(59)=12,3188816,ifelse(Var(59)=13,15745032,ifelse(Var(59)=14,12582944,ifelse(Var(59)=15,14731456,ifelse(Var(59)=16,14735584,ifelse(Var(59)=17,5259336,ifelse(Var(59)=18,11010112,ifelse(Var(59)=19,43072,ifelse(Var(59)=20,14159904,6303824))))))))))))))))))))
+
+[State 0, Map Gem Rotate]
+type = MapAdd
+trigger1 = Name = "LUCK"
+trigger1 = Map(LuckGemSpd)
+map = "LuckGemRot"
+value = Map(LuckGemSpd)
+ignorehitpause = 1
+
+[State 0, Map Gems Speed Average]
+type = MapSet
+trigger1 = Name = "LUCK"
+trigger1 = Alive
+map = "LuckGemSpd"
+value = (1+Map(LuckGemSpd)*19+Abs(Vel X)+Abs(Vel Y))*0.05
+ignorehitpause = 1
+
+[State 0, Map Gem Speed Wacky]
+type = MapAdd
+triggerall = Name = "LUCK"
+triggerall = Time = [1,21]
+trigger1 = StateNo = 3005
+trigger2 = StateNo = 2500
+trigger3 = StateNo = 2600
+map = "LuckGemSpd"
+value = 4
+
+[State 0, DefenceMulSet]
+type = DefenceMulSet
+trigger1 = RoundState = 2
+trigger1 = Name = "LUCK"
+trigger1 = (Map(LuckGems)&8)
+value = 1.1 ; IKEMEN, WHAT?
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = RoundState = 2
+trigger1 = Name = "LUCK"
+map = "SpeedMod"
+value = 1.0 + 0.25 * !!(Map(LuckGems)&4)
+
+[State 0, Var Air Action]
+type = VarSet
+triggerall = Name = "LUCK"
+trigger1 = Var(1) != (1 + !!(Map(LuckGems)&4))
+trigger1 = StateType != A
+v = 1
+value = (1 + !!(Map(LuckGems)&4))
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) != 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1 
+trigger1 = StateNo = 210
+trigger2 = StateNo = 310
+trigger3 = StateNo = 410
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610
+trigger6 = StateNo = 710
+trigger7 = StateNo = 315 || StateNo = 325
+trigger8 = StateNo = 225
+trigger9 = StateNo = 725
+trigger10 = StateNo = 205
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 1000 || StateNo = 1050
+trigger2 = StateNo = 1100
+trigger3 = StateNo = 1500
+trigger4 = StateNo = 1800
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S X]
+type = VarSet
+trigger1 = StateNo = 1210 && Time = 40
+trigger2 = StateNo = 1230 && Time = 28
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+fv = 15
+value = 0.5
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = ishelper
+text = "%d  |  %f  |  %f  |  %f"
+params = Root,Var(8),Map(PosMul),Map(XOff),Map(YOff)
+ignorehitpause = 1
+
+; ASMOS DIST
+[State 0, MapSet]
+type = ParentMapSet
+trigger1 = IsHelper
+trigger1 = StateNo = [4000,4900)
+map = "AsmosDistX"
+value = -ParentDist X * Facing * Parent,Facing
+[State 0, MapSet]
+type = ParentMapSet
+trigger1 = IsHelper
+trigger1 = StateNo = [4000,4900)
+map = "AsmosDistY"
+value = -ParentDist Y
+
+; ASMOS TEAMSIDE INDICATOR
+[State 0, Explod TeamSide Indicator]
+type = Explod
+triggerall = IsHelper
+triggerall = StateNo = [4000,4900)
+triggerall = !Parent,Map(LucyAsmosOn)
+trigger1 = EnemyNear,Name = "LUCY" || EnemyNear,Name = "LUCX"
+anim = F699 + TeamSide
+ID = 700
+pos = 0,-80
+postype = p1
+facing = facing
+removetime = 1
+supermovetime = 1
+sprpriority = 9
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+; ASMOS LUCX TIMER
+[State 0, Lucx Timer Countdown]
+type = ParentMapAdd
+trigger1 = IsHelper
+trigger1 = StateNo = 4000
+trigger1 = Parent,Map(LucxTimer)
+map = "LucxTimer"
+value = -1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = IsHelper
+trigger1 = StateNo = 4000
+trigger1 = Parent,Name = "LUCX"
+trigger1 = !Parent,Map(LucyAsmosOn)
+trigger1 = !Parent,Map(LucxTimer)
+value = 4091
+[State 0, MapSet]
+type = ParentMapSet
+trigger1 = IsHelper
+trigger1 = StateNo = 4000
+trigger1 = Parent,Name = "LUCX"
+trigger1 = !Parent,Map(LucyAsmosOn)
+trigger1 = !Parent,Map(LucxTimer)
+map = "LucyAsmosOn"
+value = 1
+
+; ASMOS COMMON HIT INFO
+[State 0, Counter Check Reset]
+type = VarSet
+trigger1 = IsHelper
+trigger1 = StateNo = [4000,4900)
+trigger1 = !Var(8)
+v = 10
+value = Root,Var(10)
+ignorehitpause = 1
+[State 0, Scaling Reset]
+type = VarSet
+trigger1 = IsHelper
+trigger1 = StateNo = [4000,4900)
+trigger1 = !MoveContact
+fv = 10
+value = max(Root,FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+ignorehitpause = 1
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = IsHelper
+trigger1 = StateNo = [4800,4900) && MoveType = A
+trigger1 = !(StateNo = 4818 && MoveContact)
+value = 1
+ignorehitpause = 1
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = IsHelper
+trigger1 = StateNo = [4000,4900) && StateNo != 4220
+value = SCA
+time = 666
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = IsHelper
+trigger1 = StateNo = [4000,4900)
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 4501
+time = 666
+
+[State 0, Dampening S]
+type = RootVarSet
+triggerall = IsHelper
+triggerall = StateNo = [4000,4900)
+triggerall = Var(8) = 1 && HitCount = 1
+triggerall = NumTarget && MoveHit
+triggerall = Root,StateNo != [2000,3000)
+trigger1 = Target,StateNo = [5000,6000);,5100) && Target,StateNo%10 = 0
+fv = 8
+value = Parent,FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(Parent,FVar(8)<1,1-Parent,FVar(8),0))
+ignorehitpause = 1
+
+[State 0, Asmos Hit Add]
+type = RootVarAdd
+trigger1 = IsHelper
+trigger1 = StateNo = [4000,4900) && MoveType = A
+trigger1 = Var(8) = 1 && MoveHit && NumTarget
+v = 51
+value = 1
+ignorehitpause = 1
+
+; ASMOS DARKEN
+[State 0, PalFX]
+type = PalFX
+trigger1 = IsHelper
+trigger1 = StateNo = 4000
+trigger1 = !Parent,Map(LucyAsmosOn) && Anim = 4090
+trigger1 = Parent,Name = "LUCX"
+time = 1
+mul = 192,192,192

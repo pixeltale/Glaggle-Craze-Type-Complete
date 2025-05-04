@@ -1,0 +1,143 @@
+[Data]
+life = 900
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 17
+ground.front = 17
+air.back = 5
+air.front = 5
+height = 32
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -64
+mid.pos = 0, -34
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.75
+walk.back = -2.6
+run.fwd  = 7, 0
+run.back = -7,-1.5
+jump.neu = 0,-9
+jump.back = -3
+jump.fwd = 3
+runjump.fwd = 4,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 8
+BC.VoiceBankWeakKO = 11
+BC.VoiceBankHeartBreaker = 3
+BC.VoiceBankCrazeCancel = 6
+BC.VoiceBankExert = 46
+BC.VoiceBankPain = 22
+BC.VoiceBankGuardBreak = 6
+BC.VoiceBankThrowTech = 9
+
+[Quotes]
+victory0  = "I'm the call of thunder, and the whiplash of lightning! The Unpredictable Storm, Tsugumi Honda!"
+victory1  = "Totalled. You're not coming back from this one."
+victory2  = "Your fists are too weak! You haven't conditioned them against a body as tough as mine!"
+victory3  = "Another win means nothing to me anymore. It's all about my improvements and understanding the situation."
+victory4  = "It stings, doesn't it? Not the lightning, but the feeling of defeat after your hubris betrayed you!"
+victory5  = "Fear not the sound of thunder, but the impact of my lightning!"
+victory6  = "Take this seriously, or lose again. Your call."
+victory7  = "The secret to my fighting prowess? Self-improvement and motivation!"
+victory8  = "Most scars don't heal. They are reminders of our hardships, our defeats, and overcoming all odds."
+victory9  = "Pat yourself on the back. You can learn a lot from defeat."
+victory10 = "Still as strong as ever, dude, but I think I can take it from here." ; AJIT
+victory11 = "I am beyond what I was years ago! You are just a mirror of my past -- shattered!" ; TSUG
+victory12 = "You think this is funny? Well, I'd be laughing if you weren't just... creepy." ; TSUK
+victory13 = "You're a joke, and not a funny one at that." ; SHER
+victory14 = "Tch." ; SHEK
+victory15 = "Don't act so cocky before you get in a scrap. The bigger they are, the harder they fall!" ; WALL
+victory16 = "I hope I didn't short circuit anything. I can get a bit carried away in the heat of battle, you know?" ; REAP
+victory17 = "It takes more than brute strength to come out on top. I used to have that way of thinking myself." ; REAK
+victory18 = "I hope you aren't too hurt. I need you to sign my poster now that I've won!" ; JUST
+victory19 = "... Justicia? I thought you'd never use that gimmick again!" ; JUSK
+victory20 = "You take duck and weave to a whole new level! But you still have room for improvement." ; BOUN
+victory21 = "Try making a meal out of me with broken teeth. Wear a mouthguard next time." ; BAXT
+victory22 = "You take duck and weave to a whole new level! But you still have room for improvement." ; CICI
+victory23 = "Hm. I guess we're more similar than I first thought." ; GOLI
+victory24 = "Why do you fight if your heart isn't into it? You weren't forced to, were you?" ; NECC
+victory25 = "I'm sorry about what I said earlier. I'm just really nervous and skirt around being direct." ; EMIC
+victory26 = "Consider that my interview. I speak with my fists." ; LUCY
+victory27 = "Do you want to start fighting for real, or do you want to continue playing games? I'm not in the mood for it." ; GABB
+victory28 = "I've seen beauty and grace before in action, and you certainly radiate both. That was marvelous." ; ISAB
+victory29 = "Call yourself a king now after you suffered defeat. Go on." ; TYRA
+victory30 = "Sister issues? I know the feeling." ; IKUE
+victory31 = "You gotta introduce me to your friends sometime. I'm interested in fighting more otherworldly people!" ; TERI
+victory32 = "Now, you wanna try again without those brass knuckles? I'd be more than happy to help you evaluate your true skill!" ; BERN
+victory33 = "No matter what you throw at me, I'll simply punch right through!" ; JANE
+victory69 = ""
+victory97 = "Clearly your research is out of date. I've grown a lot since my first time in the ring!" ; SIDE-K MIRROR
+victory98 = "This isn't the kind of experience you need. Get some research on the field next time." ; KAHL
+victory99 = "Not so talkative now, are we? I prefer it this way." ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 32  -  Side Message Queue
+; 35  -  Cornerpush Type
+; 40  -  [TSUK] Battery Gauge
+; 41  -  [TSUK] Unglued Timer
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 15 -  Meter Reduction
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

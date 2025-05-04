@@ -1,0 +1,59 @@
+<#f880c0>:Unique Trait:</>		"Maskerado"
+GABBY's Craze Technique, Fasadon, creates a fake image of
+herself that acts differently depending on the direction
+held. If this image is attacked, GABBY is rewarded with
+Craze Gauge. This image lasts longer depending on how long
+she waits between uses and, at maximum length, they can
+push the opponent.
+
+<#f880c0>:Craze Technique:</>
+Fasadon		_CH_UDLR^CT
+
+<#f880c0>:Throws:</>
+Veka Voko		^GP
+Sentu Timon		_B^GP
+Rimarku		_AO^GP
+
+<#f880c0>:Command Normals:</>
+Kun Flugiloj		_F^SP
+Kompaso		_F^LK
+Kompaso (Falseto)		_F^SK
+
+<#f880c0>:Special Moves:</>
+Falstelo		_AA_QCF^P
+_! Deziru		_UDLR^P
+Tamburrulado		_HCB^P or _360^P
+Pordisto		_AA_QCB^K
+_! Kaptilo		^P
+_! Mortigu Ungegon		^LK
+_! Cimbalo Kraso		^SK
+_! Mirago		_CH^CT
+Mielabelo		_AO_QCB^P
+
+<#f880c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Supernovao		_AA_QCF_QCF^P
+Aiken Tamburo		_QCF_QCF^K
+
+<#f880c0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Aiken Tamburo EX 		_QCF_QCF^2K
+
+<#f880c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Lucidaj Songoj		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

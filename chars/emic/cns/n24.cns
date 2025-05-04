@@ -1,0 +1,550 @@
+[statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = floor(EnemyNear,Map(WinQuoteNum))
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "TSUG" && EnemyNear,Name != "TSUX" && EnemyNear,Name != "TSUK"
+trigger1 = EnemyNear,Name != "SHER" && EnemyNear,Name != "SHEX" && EnemyNear,Name != "SHEK"
+trigger1 = EnemyNear,Name != "REAK"
+trigger1 = EnemyNear,Name != "BAXT" && EnemyNear,Name != "BAXX" && EnemyNear,Name != "BAXK"
+trigger1 = EnemyNear,Name != "CICI" && EnemyNear,Name != "CICX" && EnemyNear,Name != "CICK"
+trigger1 = EnemyNear,Name != "EMIC" && EnemyNear,Name != "EMIX" && EnemyNear,Name != "EMIK"
+trigger1 = EnemyNear,Name != "GABB" && EnemyNear,Name != "GABX" && EnemyNear,Name != "GABK"
+trigger1 = EnemyNear,Name != "ISAB" && EnemyNear,Name != "ISAX" && EnemyNear,Name != "ISAK"
+trigger1 = EnemyNear,Name != "TYRA" && EnemyNear,Name != "TYRX" && EnemyNear,Name != "TYRK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "EMIC" && EnemyNear,Name != "EMIX" && EnemyNear,Name != "EMIK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(Map(WinQuoteNum)=EnemyNear,Map(WinQuoteNum),97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Map(WinQuoteNum) != EnemyNear,Map(WinQuoteNum)
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 200, 2]
+type = PlaySnd
+triggerall = Anim = 160
+trigger1 = AnimElem = 5
+value = 1100,random%4
+[State 0, Explod]
+type = Explod
+triggerall = Anim = 160
+trigger1 = AnimElem = 5
+anim = 911
+ID = 3000
+pos = 0,0
+postype = p1
+bindtime = 4
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+
+;============================
+; RUN SOUND
+;============================
+
+[State 0, Snd Run Step]
+type = PlaySnd
+triggerall = Anim = 100 || Anim = 7050
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 5
+value = F2,2
+channel = 2
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 5325 || Anim = 5326
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 4
+trigger3 = AnimElem = 7
+trigger4 = AnimElem = 8
+x = 4
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 5325 || Anim = 5326
+trigger1 = AnimTime = 0
+x = 8
+
+;============================
+; THROW BREAK
+;============================
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = StateNo = 5381
+trigger1 = AnimElemNo(0) = [2,9]
+trigger2 = Anim = 3100
+trigger2 = AnimElemNo(0) = 2
+map = "EMICBlink"
+value = 8
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = StateNo = 5381
+trigger1 = AnimElemNo(0) = [2,9]
+trigger2 = Anim = 3100
+trigger2 = AnimElemNo(0) = 2
+flag = invisible
+[State 0, Snd Poof]
+type = PlaySnd
+triggerall = StateNo = 5381 || Anim = 3100
+trigger1 = Time = 1
+value = 1010,0
+[State 0, Explod]
+type = Explod
+triggerall = StateNo = 5381 || Anim = 3100
+trigger1 = Time = 1
+anim = 1010
+postype = p1
+sprpriority = 5
+shadow = -1
+ownpal = 1
+[State 0, Helper]
+type = Helper
+triggerall = StateNo = 5381 || Anim = 3100
+trigger1 = Time = 1
+name = "DECOY"
+ID = 950
+stateno = 950
+pos = 0,-16
+postype = p1
+ownpal = 1
+
+;============================
+; EMIC - FXColor
+;============================
+
+[State 0, Map FX Explosion]
+type = MapSet
+triggerall = Time = 1
+trigger1 = StateNo = 830
+trigger2 = StateNo = 1405
+trigger3 = StateNo = 2105
+trigger4 = StateNo = 2500
+map = "FXColor"
+value = ifelse(Var(59)=18,8388848,15761408)
+
+[State 0, Map FX Fire]
+type = MapSet
+triggerall = Time = 1
+trigger1 = StateNo = 860
+trigger2 = StateNo = 1000
+trigger3 = StateNo = 2000
+trigger4 = StateNo = 2200
+map = "FXColor"
+value = ifelse(Var(59)=1,16287808,ifelse(Var(59)=2,5267704,ifelse(Var(59)=3,14692432,ifelse(Var(59)=4,8396896,ifelse(Var(59)=5,14696528,ifelse(Var(59)=6,4227320,ifelse(Var(59)=7,8443968,ifelse(Var(59)=8,3195056,ifelse(Var(59)=9,14688320,ifelse(Var(59)=10,3188800,ifelse(Var(59)=11,16275496,ifelse(Var(59)=12,16275496,ifelse(Var(59)=13,15253568,ifelse(Var(59)=14,16275496,ifelse(Var(59)=15,16275496,ifelse(Var(59)=16,14172376,ifelse(Var(59)=17,16275496,ifelse(Var(59)=18,14156024,ifelse(Var(59)=19,6303824,ifelse(Var(59)=20,11010112,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15777800,43072)))))))))))))))))))))))
+
+;============================
+; MAP: EMIC BLINK
+;============================
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+triggerall = Map(EMICBlink) 
+trigger1 = GameTime%2
+flag = invisible
+ignorehitpause = 1
+[State 0, MapAdd]
+type = MapAdd
+trigger1 = Map(EMICBlink) > 0
+map = "EMICBlink"
+value = -1
+ignorehitpause = 1
+
+;============================
+; MAP: EMIK REGEN
+;============================
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = Name = "EMIK"
+trigger1 = Life < Var(22)
+v = 23
+value = 666
+
+[State 0, Map Regen Reset]
+type = MapSet
+trigger1 = Map(EmikRegen) != 1
+trigger1 = !Var(51) && StateNo != [900,1000)
+map = "EmikRegen"
+value = 1
+
+[State 0, LifeAdd Light Normal]
+type = LifeAdd
+triggerall = Name = "EMIK"
+triggerall = MoveHit && Var(8) = 1
+triggerall = NumTarget
+trigger1 = StateNo = [200,800) && StateNo%100 = 0
+value = min(ceil((10 + Var(12)*0.25)*Map(EmikRegen)),Var(22)-Life)
+ignorehitpause = 1
+[State 0, LifeAdd Heavy Normal]
+type = LifeAdd
+triggerall = Name = "EMIK"
+triggerall = MoveHit && Var(8) = 1
+triggerall = NumTarget
+trigger1 = StateNo = [200,800) && StateNo%100 != 0
+value = min(ceil((15 + Var(12)*0.30)*Map(EmikRegen)),Var(22)-Life)
+ignorehitpause = 1
+[State 0, LifeAdd Heavy Special]
+type = LifeAdd
+triggerall = Name = "EMIK"
+trigger1 = MoveHit && Var(8) = 1
+trigger1 = NumTarget
+trigger1 = StateNo = [1000,2000) || StateNo = 2300 || StateNo = 2400
+trigger2 = StateNo = 810 && AnimElem = 5
+trigger3 = StateNo = 830 && AnimElem = 7
+value = min(ceil((20 + Var(12)*0.35)*Map(EmikRegen)),Var(22)-Life)
+ignorehitpause = 1
+
+;============================
+; MAP: EMIK SOUL EXTRACT
+;============================
+
+[State 0, Helper]
+type = Helper
+triggerall = Name = "EMIX"
+triggerall = MoveHit && NumTarget && Var(8) = 1
+;triggerall = !Var(48)
+trigger1 = StateNo = 210 && !Var(5)
+trigger2 = StateNo = 415 && !Var(5)
+trigger3 = StateNo = 610 && !Var(5)
+trigger4 = StateNo = 1200 && !Var(6)
+trigger5 = (StateNo = 1800 || StateNo = 1810) && !Var(5)
+name = "SOOOUUUL"
+ID = 930
+stateno = 931
+pos = P2Dist X,P2Dist Y - 32
+postype = p1
+facing = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = Var(48) != 0
+trigger1 = !NumHelper(930)
+v = 48
+value = 0
+
+;[State 0, Var Empowered Soul Active]
+;type = VarAdd
+;trigger1 = Var(48)
+;v = 48
+;value = -1
+;ignorehitpause = 1
+
+;============================
+; VAR 40 - CHARGE MOTIONS
+;============================
+
+[State 0, VarSet Reset L]
+type = VarSet
+trigger1 = Var(41) >= 16
+trigger2 = Var(41) >= 8
+trigger2 = Var(40) < 64
+value = 0
+v = 40
+ignorehitpause = 1
+[State 0, VarSet Reset L]
+type = VarSet
+trigger1 = command = "holdback" && facing = 1
+trigger2 = command = "holdfwd" && facing = -1
+trigger3 = Var(41) >= 16
+trigger4 = Var(41) >= 8
+trigger4 = Var(40) < 64
+value = 0
+v = 41
+ignorehitpause = 1
+
+[State 0, VarAdd Charge L +1]
+type = VarAdd
+triggerall = Var(40) < 64
+trigger1 = command = "holdback" && facing = 1
+trigger2 = command = "holdfwd" && facing = -1
+trigger3 = Var(15) && facing = 1
+v = 40
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge L +1]
+type = VarAdd
+triggerall = Var(40) != 0
+trigger1 = !(command = "holdback" && facing = 1)
+trigger1 = !(command = "holdfwd" && facing = -1)
+v = 41
+value = 1
+ignorehitpause = 1
+
+[State 0, VarSet Reset R]
+type = VarSet
+trigger1 = Var(43) >= 16
+trigger2 = Var(43) >= 8
+trigger2 = Var(42) < 64
+value = 0
+v = 42
+ignorehitpause = 1
+[State 0, VarSet Reset R]
+type = VarSet
+trigger1 = command = "holdback" && facing = -1
+trigger2 = command = "holdfwd" && facing = 1
+trigger3 = Var(43) >= 16
+trigger4 = Var(43) >= 8
+trigger4 = Var(42) < 64
+value = 0
+v = 43
+ignorehitpause = 1
+
+[State 0, VarAdd Charge R +1]
+type = VarAdd
+triggerall = Var(42) < 64
+trigger1 = command = "holdback" && facing = -1
+trigger2 = command = "holdfwd" && facing = 1
+trigger3 = Var(15) && facing = -1
+v = 42
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge R +1]
+type = VarAdd
+triggerall = Var(42) != 0
+trigger1 = !(command = "holdback" && facing = -1)
+trigger1 = !(command = "holdfwd" && facing = 1)
+v = 43
+value = 1
+ignorehitpause = 1
+
+[State 0, VarSet Reset D]
+type = VarSet
+trigger1 = Var(45) >= 16
+trigger2 = Var(45) >= 8
+trigger2 = Var(44) < 64
+value = 0
+v = 44
+ignorehitpause = 1
+[State 0, VarSet Reset D]
+type = VarSet
+trigger1 = command = "holddown"
+trigger2 = Var(45) >= 16
+trigger3 = Var(45) >= 8
+trigger3 = Var(44) < 64
+value = 0
+v = 45
+ignorehitpause = 1
+
+[State 0, VarAdd Charge D +1]
+type = VarAdd
+triggerall = Var(44) < 64
+trigger1 = command = "holddown"
+trigger2 = Var(15)
+v = 44
+value = 1
+ignorehitpause = 1
+[State 0, VarAdd Charge D +1]
+type = VarAdd
+triggerall = Var(44) != 0
+trigger1 = !command = "holddown"
+v = 45
+value = 1
+ignorehitpause = 1
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) < 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 210
+trigger2 = StateNo = 310
+trigger3 = StateNo = 410
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610
+trigger6 = StateNo = 710
+trigger7 = StateNo = 305
+trigger8 = StateNo = 705
+trigger9 = StateNo = 715
+trigger10 = StateNo = 215
+trigger11 = StateNo = 225
+trigger12 = StateNo = 415
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+triggerall = HitCount = 1
+trigger1 = StateNo = 910
+trigger2 = StateNo = 915
+trigger3 = StateNo = 1000
+trigger4 = StateNo = 1100
+trigger5 = StateNo = 1200
+trigger6 = StateNo = 1800
+trigger7 = StateNo = 1810
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+trigger1 = StateNo = 1310 && AnimElem = 10,1
+trigger2 = StateNo = 1610 && AnimElem = 41,1
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0 && StateNo != 2110 && StateNo != 2150 && StateNo != 2310 && StateNo != 2510 && StateNo != 2710
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+trigger2 = StateNo = [1000,1500) && MoveType=A
+trigger2 = PrevStateNo = 1010 || PrevStateNo = 1110 || PrevStateNo = 1210 || PrevStateNo = 1305 || StateNo = 1405
+fv = 15
+value = 0.5
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 0
+text = "%f"; %d %f"
+params = p2bodydist x
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapSet
+triggerall = Time = 1 && !IsHelper
+trigger1 = !Var(48) && Name = "EMIX"
+trigger1 = Var(5)
+trigger1 = StateNo = 210 || StateNo = 415 || StateNo = 610 || StateNo = 1800 || StateNo = 1810
+trigger2 = !Var(48) && Name = "EMIX"
+trigger2 = Var(6)
+trigger2 = StateNo = 1200
+trigger3 = StateNo = 2710
+map = "FXColor"
+value = ifelse(Var(59)=1,2160832,ifelse(Var(59)=2,16308288,ifelse(Var(59)=3,59640,ifelse(Var(59)=4,8452192,ifelse(Var(59)=5,16312352,ifelse(Var(59)=6,14692576,ifelse(Var(59)=7,12646464,ifelse(Var(59)=8,2138264,ifelse(Var(59)=9,16294120,ifelse(Var(59)=10,3717336,ifelse(Var(59)=11,16296000,ifelse(Var(59)=12,16304160,ifelse(Var(59)=13,2140408,ifelse(Var(59)=14,16314600,ifelse(Var(59)=15,16312320,ifelse(Var(59)=16,16277752,ifelse(Var(59)=17,13164792,ifelse(Var(59)=18,14156024,ifelse(Var(59)=19,14155824,ifelse(Var(59)=20,11010112,ifelse(Var(59)=21,8396928,ifelse(Var(59)=22,41088,ifelse(Var(59)=23,15777800,43072)))))))))))))))))))))))
+[State 0, MapSet]
+type = MapSet
+triggerall = Time = 1 && !IsHelper
+trigger1 = Var(48) && Name = "EMIX"
+trigger1 = Var(5)
+trigger1 = StateNo = 210 || StateNo = 415 || StateNo = 610 || StateNo = 1800 || StateNo = 1810
+trigger2 = Var(48) && Name = "EMIX"
+trigger2 = Var(6)
+trigger2 = StateNo = 1200
+trigger3 = StateNo = 2710 && Life <= 10
+map = "FXColor"
+value = ifelse(Var(59)=1,16269376,ifelse(Var(59)=2,16277504,ifelse(Var(59)=3,4210880,ifelse(Var(59)=4,2134144,ifelse(Var(59)=5,11014208,ifelse(Var(59)=6,6308056,ifelse(Var(59)=7,12599360,ifelse(Var(59)=8,8405088,ifelse(Var(59)=9,6308008,ifelse(Var(59)=10,3182640,ifelse(Var(59)=11,4206672,ifelse(Var(59)=12,12599296,ifelse(Var(59)=13,16261248,ifelse(Var(59)=14,532608,ifelse(Var(59)=15,4210936,ifelse(Var(59)=16,13111368,ifelse(Var(59)=17,3158144,ifelse(Var(59)=18,15212608,ifelse(Var(59)=19,6303824,ifelse(Var(59)=20,2109528,ifelse(Var(59)=21,2130048,ifelse(Var(59)=22,10485888,ifelse(Var(59)=23,581880,5775408)))))))))))))))))))))))
+
+[State 0, MapSet]
+type = RootMapSet
+triggerall = Name = "EMIX"
+triggerall = Time = 1 && IsHelper
+triggerall = Anim%2
+trigger1 = StateNo = 935
+map = "FXColor"
+value = ifelse(Root,Var(59)=1,2160832,ifelse(Root,Var(59)=2,16308288,ifelse(Root,Var(59)=3,59640,ifelse(Root,Var(59)=4,8452192,ifelse(Root,Var(59)=5,16312352,ifelse(Root,Var(59)=6,14692576,ifelse(Root,Var(59)=7,12646464,ifelse(Root,Var(59)=8,2138264,ifelse(Root,Var(59)=9,16294120,ifelse(Root,Var(59)=10,3717336,ifelse(Root,Var(59)=11,16296000,ifelse(Root,Var(59)=12,16304160,ifelse(Root,Var(59)=13,2140408,ifelse(Root,Var(59)=14,16314600,ifelse(Root,Var(59)=15,16312320,ifelse(Root,Var(59)=16,16277752,ifelse(Root,Var(59)=17,13164792,ifelse(Root,Var(59)=18,14156024,ifelse(Root,Var(59)=19,14155824,ifelse(Root,Var(59)=20,11010112,ifelse(Root,Var(59)=21,8396928,ifelse(Root,Var(59)=22,41088,ifelse(Root,Var(59)=23,15777800,43072)))))))))))))))))))))))
+[State 0, MapSet]
+type = RootMapSet
+triggerall = Name = "EMIX"
+triggerall = Time = 1 && IsHelper
+triggerall = !(Anim%2)
+trigger1 = StateNo = 935
+map = "FXColor"
+value = ifelse(Root,Var(59)=1,16269376,ifelse(Root,Var(59)=2,16277504,ifelse(Root,Var(59)=3,4210880,ifelse(Root,Var(59)=4,2134144,ifelse(Root,Var(59)=5,11014208,ifelse(Root,Var(59)=6,6308056,ifelse(Root,Var(59)=7,12599360,ifelse(Root,Var(59)=8,8405088,ifelse(Root,Var(59)=9,6308008,ifelse(Root,Var(59)=10,3182640,ifelse(Root,Var(59)=11,4206672,ifelse(Root,Var(59)=12,12599296,ifelse(Root,Var(59)=13,16261248,ifelse(Root,Var(59)=14,532608,ifelse(Root,Var(59)=15,4210936,ifelse(Root,Var(59)=16,13111368,ifelse(Root,Var(59)=17,3158144,ifelse(Root,Var(59)=18,15212608,ifelse(Root,Var(59)=19,6303824,ifelse(Root,Var(59)=20,2109528,ifelse(Root,Var(59)=21,2130048,ifelse(Root,Var(59)=22,10485888,ifelse(Root,Var(59)=23,581880,5775408)))))))))))))))))))))))

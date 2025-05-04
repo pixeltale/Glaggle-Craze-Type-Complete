@@ -1,0 +1,408 @@
+;--------------------------------------------------------
+[Info]
+name = "Tsugumi Stage"
+displayname = "Japan: Shinjuku Night" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+attachedchar = ZZZStageSFX.def
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/c_tsug.mp3
+bgmloopstart = 1419129
+bgmloopend = 6381595
+;-------------------------------------
+[BGdef]
+spr = 2TsugumiStage.sff
+debugbg = 0
+;----------
+
+[BG Sky]
+type  = normal
+spriteno = 1, 1
+layerno = 0
+start = 0, 0
+delta = .1, .2
+mask  = 0
+
+[BG Cityline]
+type  = normal
+spriteno = 1, 0
+layerno = 0
+start = -100, 0
+delta = .5, .4
+mask  = 1
+
+[BG Further Buildings]
+type  = normal
+spriteno = 2, 1
+layerno = 0
+start = -100, 0
+delta = .6, .88
+mask  = 1
+
+[BG Further Building Lights]
+type  = anim
+actionno = 2
+layerno = 0
+start = -100, 0
+delta = .6, .88
+mask  = 1
+
+[Begin Action 2] ;Further Building Lights
+2,2,0,0,11
+2,3,0,0,11
+
+
+[BG Vee Place Sign]
+type  = anim
+actionno = 5
+layerno = 0
+start = -100, -50
+delta = .69, .89
+mask  = 1
+
+[Begin Action 5] ;Vee Place Sign
+2,7,0,0,12
+2,8,0,0,12
+
+[BG Vee Place]
+type  = normal
+spriteno = 2, 6
+layerno = 0
+start = 0, 0
+delta = .7, .9
+mask  = 1
+
+[BG Melly Corp. Sign]
+type  = anim
+actionno = 4
+layerno = 0
+start = 0, -50
+delta = .69, .89
+mask  = 1
+
+[Begin Action 4] ;Melly Corp. Sign
+2,4,0,0,12
+2,5,0,0,12
+
+[BG Melly Corp.]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = 0, 0
+delta = .7, .9
+mask  = 1
+
+[BG City Lights]
+type  = normal
+spriteno = 4, 0
+layerno = 0
+start = 0, 0
+delta = 1, 1
+mask  = 0
+trans = addalpha
+alpha = 100,256
+
+[BG Monitor]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = -200, -75
+delta = .89, 1
+mask  = 1
+
+[BG Monitor Ads]
+type  = anim
+actionno = 3
+layerno = 0
+start = -200, -75
+delta = .89, 1
+mask  = 0
+
+[Begin Action 3] ;Monitor Ads
+5,0,0,0,10
+5,1,0,0,10
+5,0,0,0,10
+5,1,0,0,10
+5,0,0,0,10
+5,1,0,0,10
+5,0,0,0,10
+5,1,0,0,10
+5,0,0,0,10
+5,1,0,0,10
+5,0,0,0,10
+5,1,0,0,10
+5,0,0,0,10
+5,1,0,0,10
+5,0,0,0,10
+5,1,0,0,10
+5,0,0,0,10
+5,1,0,0,10
+5,0,0,0,10
+5,1,0,0,10
+
+5,2,0,0,10
+5,3,0,0,10
+5,2,0,0,10
+5,3,0,0,10
+5,2,0,0,10
+5,3,0,0,10
+5,2,0,0,10
+5,3,0,0,10
+5,2,0,0,10
+5,3,0,0,10
+5,2,0,0,10
+5,3,0,0,10
+5,2,0,0,10
+5,3,0,0,10
+5,2,0,0,10
+5,3,0,0,10
+5,2,0,0,10
+5,3,0,0,10
+5,2,0,0,10
+5,3,0,0,10
+
+5,4,0,0,10
+5,5,0,0,10
+5,4,0,0,10
+5,5,0,0,10
+5,4,0,0,10
+5,5,0,0,10
+5,4,0,0,10
+5,5,0,0,10
+5,4,0,0,10
+5,5,0,0,10
+5,4,0,0,10
+5,5,0,0,10
+5,4,0,0,10
+5,5,0,0,10
+5,4,0,0,10
+5,5,0,0,10
+5,4,0,0,10
+5,5,0,0,10
+5,4,0,0,10
+5,5,0,0,10
+
+5,6,0,0,10
+5,7,0,0,10
+5,6,0,0,10
+5,7,0,0,10
+5,6,0,0,10
+5,7,0,0,10
+5,6,0,0,10
+5,7,0,0,10
+5,6,0,0,10
+5,7,0,0,10
+5,6,0,0,10
+5,7,0,0,10
+5,6,0,0,10
+5,7,0,0,10
+5,6,0,0,10
+5,7,0,0,10
+5,6,0,0,10
+5,7,0,0,10
+5,6,0,0,10
+5,7,0,0,10
+
+5,8,0,0,10
+5,9,0,0,10
+5,8,0,0,10
+5,9,0,0,10
+5,8,0,0,10
+5,9,0,0,10
+5,8,0,0,10
+5,9,0,0,10
+5,8,0,0,10
+5,9,0,0,10
+5,8,0,0,10
+5,9,0,0,10
+5,8,0,0,10
+5,9,0,0,10
+5,8,0,0,10
+5,9,0,0,10
+5,8,0,0,10
+5,9,0,0,10
+5,8,0,0,10
+5,9,0,0,10
+
+5,10,0,0,10
+5,11,0,0,10
+5,10,0,0,10
+5,11,0,0,10
+5,10,0,0,10
+5,11,0,0,10
+5,10,0,0,10
+5,11,0,0,10
+5,10,0,0,10
+5,11,0,0,10
+5,10,0,0,10
+5,11,0,0,10
+5,10,0,0,10
+5,11,0,0,10
+5,10,0,0,10
+5,11,0,0,10
+5,10,0,0,10
+5,11,0,0,10
+5,10,0,0,10
+5,11,0,0,10
+
+5,13,0,0,200
+5,14,0,0,10
+5,15,0,0,100
+5,16,0,0,10
+5,17,0,0,10
+5,18,0,0,100
+5,19,0,0,10
+5,20,0,0,10
+5,21,0,0,200
+5,22,0,0,10
+5,23,0,0,200
+
+5,25,0,0,8
+5,26,0,0,8
+5,27,0,0,8
+5,28,0,0,8
+5,29,0,0,8
+5,30,0,0,8
+5,31,0,0,8
+5,32,0,0,50
+5,34,0,0,8
+5,35,0,0,8
+5,36,0,0,8
+5,37,0,0,8
+5,38,0,0,8
+5,39,0,0,8
+5,40,0,0,8
+5,41,0,0,50
+5,43,0,0,8
+5,44,0,0,8
+5,45,0,0,8
+5,46,0,0,8
+5,47,0,0,8
+5,48,0,0,8
+5,49,0,0,8
+5,50,0,0,50
+5,52,0,0,8
+5,53,0,0,8
+5,54,0,0,8
+5,55,0,0,8
+5,56,0,0,8
+5,57,0,0,8
+5,58,0,0,8
+5,59,0,0,50
+5,60,0,0,10
+5,61,0,0,10
+5,62,0,0,10
+5,63,0,0,25
+5,64,0,0,15
+5,65,0,0,250
+
+[BG Right Sign]
+type  = normal
+spriteno = 0, 1
+layerno = 0
+start = 200, -50
+delta = .89, 1
+mask  = 1
+
+[BG Right Sign Lights]
+type  = anim
+actionno = 1
+layerno = 0
+start = 200, -50
+delta = .89, 1
+mask  = 1
+
+[Begin Action 1] ;Right Sign Lights
+0,2,0,0,100
+0,3,0,0,10
+0,2,0,0,10
+0,3,0,0,10
+0,2,0,0,5
+0,3,0,0,5
+0,2,0,0,5
+0,3,0,0,5
+0,2,0,0,5
+0,3,0,0,5
+0,2,0,0,5
+0,3,0,0,5
+0,2,0,0,50
+0,3,0,0,5
+
+;[BG Extra Floor]
+;type  = normal
+;spriteno = 3, 2
+;layerno = 0
+;start = 0, 0
+;delta = 1, 1
+;mask  = 1
+
+[BG Floor]
+type  = normal
+spriteno = 3, 0
+layerno = 0
+start = 0, -50
+delta = 1, 1
+mask  = 1
+;xscale = .78, .7
+;yscalestart = 175
+;yscaledelta = 0
+;width = 1200,1500
+
+[BG Roof Rim]
+type  = normal
+spriteno = 3, 1
+layerno = 0
+start = 0, 0
+delta = 1, 1
+mask  = 1

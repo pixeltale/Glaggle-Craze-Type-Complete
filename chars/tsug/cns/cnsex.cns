@@ -1,0 +1,143 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 17
+ground.front = 17
+air.back = 5
+air.front = 5
+height = 32
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -64
+mid.pos = 0, -34
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 2.75
+walk.back = -2.6
+run.fwd  = 7, 0
+run.back = -7,-1.5
+jump.neu = 0,-9
+jump.back = -3
+jump.fwd = 3
+runjump.fwd = 4,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 3
+BC.VoiceBankWeakKO = 3
+BC.VoiceBankHeartBreaker = 4
+BC.VoiceBankExert = 19
+BC.VoiceBankCrazeCancel = 5
+BC.VoiceBankPain = 19
+BC.VoiceBankGuardBreak = 2
+BC.VoiceBankThrowTech = 6
+
+[Quotes]
+victory0  = "WHO AM I? I'M THE RISING STAR, ROBO-TSUGUMI, BEEP BEEP!"
+victory1  = "SCRAPPED. GO TO THE TRASH HEAP WHERE YOU BELONG."
+victory2  = "WHEN YOU'RE DONE GROVELING, I'D LIKE A SODA PLEASE, BEEP BEEP."
+victory3  = "HEY, MAYBE SOMEDAY YOU'LL SEE ME ON THE STAGE AND REGRET EVER CROSSING PATHS WITH ME!"
+victory4  = "IF YOU'RE GONNA LOSE, AT LEAST LOOK CUTE BEFORE YOU START TO FIGHT, BEEP BEEP."
+victory5  = "NO, NOT TSUGUMI HONDA! ROBO-TSUGUMI. GET IT RIGHT!"
+victory6  = "TAKE ME SERIOUSLY OR LOSE AGAIN. I CAN KEEP GOING, BEEP BEEP!"
+victory7  = "THE SECRET TO MY FIGHTING PROWESS? UH, LUCK I GUESS?"
+victory8  = "DOES IT MATTER WHERE I CAME FROM? I'M HERE NOW, AND THAT'S THE IMPORTANT PART TO TAKE OUT-BZZZZT."
+victory9  = "I DON'T HAVE TIME FOR LOSERS! STEP OFF, BEEP BEEP!"
+victory10 = "ROBO-AJIT COULD DO BETTER THAN YOU." ; AJIT
+victory11 = "SHIT JUST HAPPENS, AND SOMETIMES YOU'LL MEET PEOPLE THAT ARE JUST LIKE YOU. THAT'S LIFE, BEEP BEEP." ; TSUG
+victory12 = "FAULTY COPY, YOU CAN'T MATCH UP TO ME!" ; TSUK
+victory13 = "I'M GOING TO RIP YOU IN HALF NOW." ; SHER
+victory14 = "TCH, BEEP BEEP." ; SHEK
+victory15 = "ALL THAT REVENANT BLOOD WENT TO YOUR BRAIN, APPARENTLY. YOU NEED COOLANT IN YOUR SYSTEM, BEEP BEEP." ; WALL
+victory16 = "THESE MAN-MADE MODELS ARE KINDA FAULTY, AREN'T THEY?" ; REAP
+victory17 = "QUASARS? I'VE SEEN YOU ASSHOLES AROUND HOME. COUNT THIS AS REVENGE, BEEP BEEP." ; REAK
+victory18 = "HEY, GIMMIE THAT SPOTLIGHT! I'M GONNA MARK MY NAME IN HISTORY!" ; JUST
+victory19 = "WRESTLING IS KINDA ABSURD WHEN YOU THINK ABOUT IT, BEEP BEEP." ; JUSK
+victory20 = "C'MON, MAKE IT EASIER FOR ME TO HIT YOU. YOU KNOW YOU'RE GONNA LOSE, SO WHY EVEN TRY?" ; BOUN
+victory21 = "... AND I THOUGHT I HAD A SAILOR MOUTH, BEEP BEEP." ; BAXT
+victory22 = "C'MON, MAKE IT EASIER FOR ME TO HIT YOU. YOU KNOW YOU'RE GONNA LOSE, SO WHY EVEN TRY?" ; CICI
+victory23 = "DON'T THINK YOU CAN HANDLE MY VOLTAGE OUTPUT, MY FRIEND!" ; GOLI
+victory24 = "KEEP THAT NOISE TO YOURSELF. I FOLLOW THE BEAT OF MY OWN DRUM!" ; NECC
+victory25 = "I'LL DO ANYTHING TO REACH STARDOM! EVEN IF IT MEANS STEPPING OVER YOU TO DO IT!" ; EMIC
+victory26 = "SOMETIMES I WONDER WHAT IT'S LIKE TO BE A VAMPIRE, KYU~N." ; LUCY
+victory27 = "I THOUGHT I HAD AN ANTI-VIRUS INSTALLED, BUT I GUESS MY WARRANTY RAN OUT." ; GABB
+victory28 = "PUT ALL EYES ON ME! GIMMIE THOSE CONTRACTS! GIMMIE THAT FAME!" ; ISAB
+victory29 = "WOW, GOD-COMPLEX MUCH?" ; TYRA
+victory30 = "MECHANIS? NAH, YOU GOT IT WRONG. I'M AN AUTOMATUS, BEEP BEEP." ; IKUE
+victory31 = "ERICA? I HAVE NO CLUE WHAT YOU'RE TALKING ABOUT. I'M NO ERICA." ; TERI
+victory32 = "LIKE A CAR CRASH, YOU TRY TO WORK THROUGH THE WRECKAGE POST-MOTOR'M!" ; BERN
+victory33 = "THANKS, I NEED SOMETHING FOR MY HALLOWEEN FASHION." ; JANE
+victory69 = ""
+victory97 = "FAULTY COPY, YOU CAN'T MATCH UP TO ME!" ; SIDE-K MIRROR
+victory98 = "I BET YOU REGRET NOT USING AUTOMATOMITE FOR YOUR CREATIONS NOW!" ; KAHL
+victory99 = "HOW PEOPLE SAW SOME AMOUNT OF WORTH IN YOU IS BIZARRE. ALL THAT FAME SHOULD'VE GONE TO ME!" ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 32  -  Side Message Queue
+; 35  -  Cornerpush Type
+; 40  -  [TSUK] Battery Gauge
+; 41  -  [TSUK] Unglued Timer
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 15 -  Meter Reduction
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

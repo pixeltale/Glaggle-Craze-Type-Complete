@@ -1,0 +1,63 @@
+<#2020c0>:Unique Trait:</>		"Minerva's Deceit"
+During specific moves, Isabella's sword will blink, which 
+acts as a block. Blocking an attack with one of these moves 
+gives her access to Deceit Cancel specials.
+
+<#2020c0>:Craze Technique:</>
+Faultless Guard		^CT
+Faultless March		_F^CT
+_! Halt		_DB
+
+<#2020c0>:Deceit Cancel Moves:</>
+Le Crysantheme		^LP
+Eclat du Soleil		^SP
+Vague Ecrasante		^LK
+Balade en Vent		^SK
+Regroupement de Petales		^GP
+Envol de la Libellule		<#bebebe>(1 Stock)</> _QCB^2P or _QCB_QCB^P
+
+<#2020c0>:Throws:</>
+Mort au Carrefour		^GP
+Adieu		_B^GP
+Rose epineuse		_AO^GP
+
+<#2020c0>:Command Normals:</>
+Coup de pied Tornade		_F^LK
+Coupe-pin		_F^SP
+Glissade de la Jonquille		_DF^SK
+Oiseau Moqueur		_AO_D^LK
+
+<#2020c0>:Special Moves:</>
+Coupeuse d'herbe		_QCF^P
+Eclat de Lune		_DP^P
+Grace de la Princesse		_QCF^K
+_! Faultless March		^CT
+Contre de l'hirondelle		_AO_QCB^P
+
+<#2020c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Jardin des Guerriers		_QCF_QCF^P
+Envol de la Libellule		_QCB_QCB^P
+
+<#2020c0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Flux de l'Ombre Nocturne		_QCF_QCF^2K
+
+<#2020c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Prairie Tellurique		_QCB_QCB^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

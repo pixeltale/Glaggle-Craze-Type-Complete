@@ -1,0 +1,319 @@
+[statedef -2]
+
+[State 0, Helper]
+type = Helper
+trigger1 = numhelper(6000) = 0
+name = "SYSTEM HELPER"
+ID = 6000
+stateno = 6000
+ownpal = 0
+supermovetime = 65535
+pausemovetime = 65535
+ignorehitpause = 1
+
+;============================
+; WINQUOTE
+;============================
+
+[State 0, WinQuote Vs]
+type = VictoryQuote
+triggerall = MatchOver
+trigger1 = Time = 1
+value = EnemyNear,Map(WinQuoteNum)
+[State 0, WinQuote Default]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = Random < 500
+trigger1 = EnemyNear,Name != "TSUG" && EnemyNear,Name != "TSUX"
+trigger1 = EnemyNear,Name != "SHEX"
+trigger1 = EnemyNear,Name != "REAK"
+trigger1 = EnemyNear,Name != "JUST" && EnemyNear,Name != "JUSX" && EnemyNear,Name != "JUSK"
+trigger1 = EnemyNear,Name != "BAXT" && EnemyNear,Name != "BAXX" && EnemyNear,Name != "BAXK"
+trigger1 = (EnemyNear,Name != "EMIC" && EnemyNear,Name != "EMIX" && EnemyNear,Name != "EMIK") || Name = "JUSK"
+trigger1 = (EnemyNear,Name != "LUCY" && EnemyNear,Name != "LUCX" && EnemyNear,Name != "LUCK") || Name = "JUSK"
+trigger1 = EnemyNear,Name != "GABB" && EnemyNear,Name != "GABX" && EnemyNear,Name != "GABK"
+trigger1 = EnemyNear,Name != "TYRA" && EnemyNear,Name != "TYRX" && EnemyNear,Name != "TYRK"
+trigger2 = EnemyNear,Var(58)
+trigger2 = EnemyNear,Name != "JUST" && EnemyNear,Name != "JUSX" && EnemyNear,Name != "JUSK"
+value = random%10
+
+[State 0, WinQuote Vs KAHL]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Random < 500
+triggerall = Time = 1
+trigger1 = EnemyNear,Var(58) = 3
+value = ifelse(EnemyNear,Map(WinQuoteNum)=[18,19],97,98)
+[State 0, WinQuote Vs SHIT]
+type = VictoryQuote
+triggerall = MatchOver
+triggerall = Time = 1
+trigger1 = EnemyNear,Map(WinQuoteNum)!=[18,19]
+trigger1 = EnemyNear,Var(58) = [1,2]
+value = 99
+
+;============================
+; HEARTBREAKER
+;============================
+
+[State 0, VelAdd]
+type = VelAdd
+triggerall = Anim = 160
+trigger1 = AnimElemNo(0) = 3
+x = 1.5
+[State 200, 2]
+type = PlaySnd
+triggerall = Anim = 160
+trigger1 = AnimElem = 3
+value = F0, 3
+
+;============================
+; CRUMPLE
+;============================
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 5325 || Anim = 5326
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 8
+x = 8
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 5325 || Anim = 5326
+trigger1 = AnimElem = 7
+x = 16
+
+;========================================================
+; THRONE YOUR WEIGHT AROUND
+;========================================================
+
+[State 0, NotHitBy]
+type = NotHitBy
+triggerall = NumHelper(920)
+trigger1 = Helper(920),ParentDist X = [-64,0]
+trigger1 = Helper(920),P2Dist X > 0
+trigger2 = Helper(920),ParentDist X = [64,0]
+trigger2 = Helper(920),P2Dist X < 0
+value = ,NP,SP,HP
+time = 1
+
+;========================================================
+; HEAT IT UP
+;========================================================
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = RoundState < 2
+trigger1 = Map(JuskHeat) != 0
+map = "JuskHeat"
+value = 3.0
+
+;============================
+; VAR 31 - PROJECTILE DIST
+;============================
+
+[State 0, Var Reset]
+type = VarSet
+trigger1 = Var(31) != 0
+v = 31
+value = Var(31) * (NumHelper(1010)>0)
+
+;============================
+; VAR 40 - CHAIR
+;============================
+
+[State 0, Var Chair Timer]
+type = VarAdd
+trigger1 = Name = "JUSX"
+trigger1 = Var(40) < 500
+trigger1 = !NumHelper(920)
+v = 40
+value = 1; min(3,abs(500-Var(40))) + (RoundState < 2)*7
+;what the hell was i doing??
+ignorehitpause = 1
+[State 0, Var Chair Timer Reset]
+type = VarSet
+triggerall = Name = "JUSX"
+trigger1 = Var(40) > 500
+trigger2 = RoundState < 2
+v = 40
+value = 500
+
+;============================
+; MAP - FIGHTING SPIRIT
+;============================
+
+[State 0, Map Throw N Reset]
+type = MapSet
+trigger1 = RoundState = 0
+map = "JustThrowN"
+value = 0
+[State 0, Map Throw F Reset]
+type = MapSet
+trigger1 = RoundState = 0
+map = "JustThrowF"
+value = 0
+[State 0, Map Throw B Reset]
+type = MapSet
+trigger1 = RoundState = 0
+map = "JustThrowB"
+value = 0
+[State 0, Map Throw D Reset]
+type = MapSet
+trigger1 = RoundState = 0
+map = "JustThrowD"
+value = 0
+[State 0, Map Throw U Reset]
+type = MapSet
+trigger1 = RoundState = 0
+map = "JustThrowU"
+value = 0
+
+;============================
+; MAP - HEAT UP
+;============================
+
+[State 0, Map Heat Reset]
+type = MapSet
+trigger1 = Map(JuskHeat) != 0
+trigger1 = RoundState < 2
+map = "JuskHeat"
+value = 0
+[State 0, VarSet]
+type = VarSet
+triggerall = RoundState = 2
+trigger1 = FVar(20) != 1 && Name != "JUSK"
+trigger2 = Name = "JUSK"
+fv = 20
+value = 1 + 0.025 * max(0,min(6,Map(JuskHeat)-6))
+ignorehitpause = 1
+[State 0, MapSet]
+type = MapSet
+triggerall = Map(JuskCombo) > -1
+trigger1 = !Var(51) && (StateNo != [900,2000) || EnemyNear,StateNo = [5000,6000))
+trigger2 = Ctrl
+map = "JuskCombo"
+value = -1
+
+;========================================================
+; FVAR 8, 9, 10 - DAMAGE MULTIPLIER
+;========================================================
+
+[State 0, Dampening Minimal]
+type = VarSet
+trigger1 = FVar(8) < 0
+fv = 8
+value = 0
+[State 0, Dampening Reset]
+type = VarSet
+triggerall = FVar(8) < 1
+trigger1 = Var(51) = 0
+fv = 8
+value = 1
+[State 0, Dampening L]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+;triggerall = Var(10) != 2
+trigger1 = StateNo = 200
+trigger2 = StateNo = 300
+trigger3 = StateNo = 400
+trigger4 = StateNo = 500
+trigger5 = StateNo = 600
+trigger6 = StateNo = 700
+fv = 8
+value = FVar(8)*(ifelse(Var(51)<=1,const(BC.ScalingA1),const(BC.ScalingL1)) + ifelse(Var(51)<=1,const(BC.ScalingA2),const(BC.ScalingL2)) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening H]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+;triggerall = Var(10) != 2
+trigger1 = StateNo = 210 || StateNo = 205 || StateNo = 206 || StateNo = 215 || StateNo = 225
+trigger2 = StateNo = 310 || StateNo = 305
+trigger3 = StateNo = 410 || StateNo = 420
+trigger4 = StateNo = 510
+trigger5 = StateNo = 610 || StateNo = 615
+trigger6 = StateNo = 710
+fv = 8
+value = FVar(8)*(const(BC.ScalingM1) + const(BC.ScalingM2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+triggerall = MoveHit
+triggerall = Var(8) = 1
+trigger1 = StateNo = 900 || StateNo = 912
+trigger2 = StateNo = [965,968] || StateNo = [981,984]
+trigger3 = StateNo = 1000
+trigger4 = StateNo = 1400
+trigger5 = StateNo = 1500 || StateNo = 1550
+trigger6 = StateNo = 1600
+trigger7 = StateNo = 2400
+trigger8 = StateNo = 2500
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+[State 0, Dampening S]
+type = VarSet
+;triggerall = Var(11) <= 0
+trigger1 = StateNo = 1110 && Anim = 1110 && AnimElem = 5, 1
+trigger2 = StateNo = 1210 && AnimElem = 12, 1
+trigger3 = StateNo = 870 && AnimTime = 0
+trigger4 = StateNo = 1310 && AnimElem = 14, 1
+trigger5 = StateNo = 971 && AnimElem = 14, 1
+trigger6 = StateNo = 1100 && MoveHit = 1 && !Var(8)
+trigger7 = StateNo = 1215 && AnimElem = 12, 1
+trigger8 = StateNo = 986 && AnimElem = 13, 1
+fv = 8
+value = FVar(8)*(const(BC.ScalingH1) + const(BC.ScalingH2) * ifelse(FVar(8)<1,1-FVar(8),0))
+ignorehitpause = 1
+
+[State 0, VarSet Super Dampening Reset]
+type = VarSet
+triggerall = FVar(9) != 1.0 || FVar(9) <= 1 && Var(10)
+trigger1 = Var(51) = 0 && StateNo != 2110 && StateNo != 2150 && StateNo != 2310 && StateNo != 2510 && StateNo != 2710
+fv = 9
+value = 1.0 + (const(BC.SuperCounter) * (Var(10) = 1)) + (const(BC.SuperDire) * (Var(10) = 2))
+[State 0, VarSet Super Dampening]
+type = VarSet
+trigger1 = FVar(8) < FVar(9)
+trigger1 = FVar(9) <= 1 || StateNo < 2000
+trigger1 = Var(51) != 0
+fv = 9
+value = FVar(8)
+
+[State 0, VarSet Overall Damage]
+type = VarSet
+triggerall = MoveType = A
+trigger1 = (!Var(51) || !MoveContact)
+fv = 10
+value = max(FVar(8) + (Var(10)=1)*const(BC.CounterBonus),const(BC.ScalingMin))
+
+;========================================================
+; FVAR 15 - METER GAIN REDUCTION
+;========================================================
+
+[State 0, VarSet Default Meter Gain]
+type = VarSet
+triggerall = FVar(15) < 1
+trigger1 = Var(51) = 0
+fv = 15
+value = 1.0
+[State 0, VarSet Lower Meter Gain]
+type = VarSet
+triggerall = FVar(15) > 0.5
+trigger1 = StateNo = [2000,3000)
+fv = 15
+value = 0.5
+
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef -4]
+
+[State 0, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = 1
+text = "%d"; %d %f"
+params = floor(Map(JuskCombo))
+ignorehitpause = 1

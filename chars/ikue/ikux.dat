@@ -1,0 +1,58 @@
+<#b8d0e0>:Unique Trait:</>		"Piercing Blade"
+Normals that utilize Ikue's sword deal chip damage.
+She can also perform EX versions of her Special Moves
+after using the normal versions of them, or using an
+equivilant All-Out Attack.
+
+<#b8d0e0>:Craze Technique:</>
+Crescent Slash		_AA_CH^CT
+
+<#b8d0e0>:Throws:</>
+Kenjutsu Practice		^GP
+Raijin Slash		_B^GP
+Falling Denjin		_AO^GP
+
+<#b8d0e0>:Command Normals:</>
+Blunt Force		_CH_F^LP
+Helm Breaker		_CH_F^SP
+Back Slash		_B^SP
+Heaven Piercer		_AO_D^SP
+
+<#b8d0e0>:Special Moves:</>
+Blade Bullet		_QCF^P
+Slash Kick		_QCB^K
+Rising Dragon		_DP^P
+
+<#b8d0e0>:EX Special Moves:</> <#bebebe>(After Denjin Charge)</>
+Blade Bulletstorm		_QCF^CT
+Blade Tempest		_QCB^CT
+Denjin Bolt		_DP^CT
+
+<#b8d0e0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Infinite Blade		_QCF_QCF^P
+Killing Blade		_QCB_QCB^P
+Soaring Blade		_QCF_QCF^K
+
+<#b8d0e0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Decimating Blade		_QCB_QCB^2P
+
+<#b8d0e0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Blade Finale		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

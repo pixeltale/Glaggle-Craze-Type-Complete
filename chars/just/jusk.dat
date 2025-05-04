@@ -1,0 +1,88 @@
+<#a00030>:Unique Trait:</>		"Overheated"
+la Tirania has several_JTStance moves with unique followups.
+She can also chain into these Stances out of other Stances'
+followups, or from Tyranny Slash, at the cost of generating
+Heat.
+
+Heat has 12 pips, and can be reduced by landing throws or
+using Oversell. Each pip past 6 will grant her a small damage
+boost, but will cause her to be Counter prone. If she has all
+12 pips, she is instead Dire prone, and generating more Heat
+will instead cause her to enter Cooldown.
+
+<#a00030>:Craze Technique:</>
+Stand-Off_JT		_CH^CT
+Heel Turn_JT		_CH_F^CTor_B^CT
+Demon Sway_JT		_CH_DF^CTor_DB^CT
+Terror Train_JT		_HCF
+Oversell		Landing from a recoverable attack, hold^CT
+
+<#a00030>:Stand-Off Cancels:</>
+Heel Turn_JT		_F^CTor_B^CT
+Demon Sway_JT		_DF^CTor_DB^CT
+Terror Train_JT		_HCF
+Off the Tightrope...?		_DP^K
+Dash Cancel		_F_For_B_B
+Gut Reaction		^LP
+Dropkick Sr.		_CH^LK
+Guillotine Senton		^SP
+Dominator		_CH^SK
+Demon's DDT		^GP
+Turn Up The Heat		^S
+
+<#a00030>:Terror Train Cancels:</>
+Stand-Off_JT		_CH^CT
+Heel Turn_JT		_F^CT or _B^CT
+Demon Sway_JT		_DF^CT or _DB^CT
+Off the Tightrope...?		_DP^K
+Dash Cancel		_F_For_B_B
+Stop		_DB
+Tenacious Tenderizer		_CH^LP
+Blast Knee		^LK
+Throne of Injustice		^SP
+Power Slide		^SK
+Tirania de los Muertos		^GP
+
+<#a00030>:Throws:</>
+Power Bomb		^GP
+German Suplex		_B^GP
+Air Dynamic Driver		_AO^GP
+
+<#a00030>:Command Normals:</>
+Throat Chop		_F^LP
+Shark Splash		_AO_D^SP
+
+<#a00030>:Special Moves:</>
+Tyranny Slash		_CH_DP^P
+Devil's Whip		_HCB^P or _360^P
+Off the Tightrope...?		_DP^K
+Red Friday Drop		_AO_QCB^P
+
+<#a00030>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Lights Out		_QCF_QCF^P
+_! Caliente Catapult		(During^SP)_QCF_QCF^P
+Defining Testament		_HCB^2P or _360^2P
+
+<#a00030>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Defining Testament EX		_HCB^2K or _360^2K
+
+<#a00030>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+1,000 Feet Under		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

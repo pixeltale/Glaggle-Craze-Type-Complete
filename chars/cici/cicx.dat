@@ -1,0 +1,63 @@
+<#800070>:Unique Trait:</>		"Self-Containment"
+Ci-Ci has a Moist Gauge that increase certain properties
+of his _CC attacks, as well as reduce his friction.
+He gains moisture from using his Craze Technique, and
+loses it when using boosted moves or being knocked down.
+
+<#800070>:Craze Technique:</>
+Torpedoman's Tweeker		^CT
+Flood Rider		_AO^CTor_UDLR^CT
+
+<#800070>:Throws:</>
+Are You Ready For This?		^GP
+Oops!		_B^GP
+Cowabunga!		_AO^GP
+
+<#800070>:Command Normals:</>
+Buoy Bash Swing		_F^SP
+Flying Cod Crash		_DF^SP
+
+<#800070>:Special Moves:</>
+Sailfish Dash_CC		_QCF^P
+_!Scuba Scuba Scuba!		_F^P
+_!Torpedoman's Tweeker		^CT
+Shora-Ora-Ora!_CC		_AO_QCF^P
+Dunker Diver_CC		_AO_QCB^P
+Rebreathe Burst_CC		_DP^P
+Evaporation Invigoration		_QCB^P
+Sea Spin		_QCF^K or _QCB^K
+_!Sea Stop		^LP
+_!Dunker Diver_CC		^SP
+_!Sea Sea Spin		^LKor_B^LK
+_!Weary Waves_CC		^SK
+_!Evaporation Invigoration		^GP
+_!Torpedoman's Tweeker		^CT
+
+<#800070>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Bottom Feeder Blitz_CC		_QCF_QCF^P
+Clamshell Combo		_QCB_QCB^K
+Pressure Geyser		_QCB_QCB^P
+
+<#800070>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Clamshell Combo EX		_QCB_QCB^2K
+
+<#800070>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+In the Wake of Poseidon!		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

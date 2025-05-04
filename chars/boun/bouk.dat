@@ -1,0 +1,78 @@
+<#4820c0>:Unique Trait:</>		"Boons of the Gods"
+Boundary can enter several stances, each granting him 
+certain passive benefits while issuing their own 
+drawbacks. Stances can be chosen through Craze Techniques,
+which are cancellable out of most attacks, but will
+briefly lock him out of stance changing.
+Bastet Pounce can be cancelled into any move associated
+with the current Stance.
+
+:<#4040f8>Nu</> Stance:		_AA ^CT
+Movement speed is increased and Boundary gains extra air
+mobility while damage decreases
+Decreases startup time of Drift of Nu
+
+:<#40f840>Osiris</> Stance:		_AA _B^CT
+Defense and health regeneration increase while speed
+decreases
+Makes_SPAura of Osiris a reversal
+
+:<#f8e840>Ptah</> Stance:		_AA _D^CT
+Attacks have more advantage and hit velocity while defense
+is decreased
+Adds an additional hit to Gift of Ptah's projectile
+
+:<#f84040>Anhur</> Stance:		_AA _F^CT
+Damage is increased while advantage is decreased
+
+Using any Craze Cancel will temporarily put Boundary in a
+perfect stance, granting him each stance's benefits for a
+short period of time, but disabling him from cancelling.
+
+<#4820c0>:Throws:</>
+De-Facer		^GP
+Parallel Suplex		_B^GP
+Descent		_AO^GP
+
+<#4820c0>:Command Normals:</>
+Sobek Slash		_Bor_F^SP
+Sidewinder		_DF^SK
+
+<#4820c0>:Special Moves:</>
+Bastet Pounce		_QCF^P
+Drift of Nu		_AA_CH_D_D^PK
+_! _D_D^PCancel		^K
+_! _D_D^KCancel		^P
+Aura of Osiris		_AA_DP^K
+Gift of Ptah		_QCB^K
+March of Anhur		_HCB^Por_360^P
+Neith's Hunt		_AO_UDLR^2K
+
+<#4820c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Sphynx Cross		_QCF_QCF^P
+Spirit Rider		_AA_QCB_QCB^K
+Karmatic Weight		_QCB_QCB^P
+
+<#4820c0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Spirit Crush		_QCB_QCB^2K
+
+<#4820c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Field Corruption		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

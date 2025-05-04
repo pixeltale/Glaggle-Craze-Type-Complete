@@ -1,0 +1,57 @@
+<#603830>:Unique Trait:</>		"Auto-Static Charge (A.S.C.)"
+Goliath will automatically charge electricity around him, 
+causing his next Special to be buffed, gaining additional 
+properties.
+Hitting with Beetle Battery speeds up this charge rate.
+
+<#603830>:Craze Technique:</>
+Beetle Battery		^CT
+Hover		_AO_Uor^CT
+
+<#603830>:Throws:</>
+Grub Buster		^GP
+Apex Thrash		_B^GP
+Beetle Basher		_AO^GP
+
+<#603830>:Command Normals:</>
+Crawl		_DF
+Raw Claw		_F^LP
+Exo-Headbutt		_F^SP
+_! Exo-Fakeout		Hold^SP
+
+<#603830>:Special Moves:</>
+Volt Lancer		~B^P
+Volt Javelin		~B^K
+_! Volt Slicer		_F^K
+Volt Riser		~D^P
+Volt Halberd		~D^K
+_! Hover		_U_Uor^CT
+Volt Zweihander		_AO~U^Kor_D^2K
+
+<#603830>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Volt Flamberge		_QCF_QCF^P
+Lightning Bunker		_AA_QCF_QCF^K
+
+<#603830>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Volt Flamberge EX		_QCF_QCF^2P
+
+<#603830>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+King of Voltage		_QCB_QCB^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

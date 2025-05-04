@@ -1,0 +1,32 @@
+;Meldo's Stage Ambience code for Battle Craze
+;Coding borrowed from Lasombra Demon, Kamekaze and Ahuron's creations 
+
+[Info]
+name = "meldo is a dork"
+displayname = "meldo's sexy sound box"
+versiondate = 12/NOV/2022
+mugenversion = 1.1
+author = "Meldo"
+pal.defaults = 1,2,3,4
+localcoord = 320,240
+
+[Files]
+cmd     = ZZZstageSFX.cmd
+cns     = ZZZStageSFX.cns
+st      = ZZZStageSFX.cns
+stcommon = common1.cns.zss
+sprite  = 0TrainingStage.sff
+anim    = 0TrainingStage.def
+sound   = ZZZstageSFX.snd
+
+[Palette Keymap]
+x = 1
+y = 2
+z = 3
+a = 4
+b = 5
+c = 6
+
+; Arcade mode
+[Arcade]
+

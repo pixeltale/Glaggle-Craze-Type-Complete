@@ -1,0 +1,257 @@
+;--------------------------------------------------------
+[Info]
+name = "GABBY Stage"
+displayname = "The Nightscape: Cecropian Carnival" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+attachedchar = ZZZStageSFX.def
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 10
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/c_gabb.mp3
+bgmloopstart = 913492
+bgmloopend = 7873566
+;-------------------------------------
+[BGdef]
+spr = 19GABBYStage.sff
+debugbg = 0
+;----------
+
+[BG Tent]
+type  = normal
+spriteno = 3, 0
+layerno = 0
+start = 0, -400
+delta = .5, .5
+mask  = 0
+
+[BG Bleachers Back]
+type  = normal
+spriteno = 2, 3
+layerno = 0
+start = 0, -300
+delta = .7, .7
+mask  = 1
+
+[BG Audience]
+type  = anim
+actionno = 1
+layerno = 0
+start = 0, -320
+delta = .8, .8
+tile = 1,0
+tilespacing = 285,0
+mask  = 1
+
+[Begin Action 1] ;Audience
+4,0,0,0,10
+4,1,0,0,10
+4,2,0,0,10
+4,3,0,0,10
+4,4,0,0,10
+4,5,0,0,10
+4,6,0,0,10
+4,7,0,0,10
+
+[BG Bleachers Front]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = 0, -340
+delta = .8, .8
+mask  = 1
+
+[BG Decorative Doohickies]
+type  = normal
+spriteno = 2, 1
+layerno = 0
+start = 0, -320
+delta = .9, .9
+mask  = 1
+
+[BG Stage Floor]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, -320
+delta = 1, 1
+mask  = 1
+
+[BG Curtains Pole]
+type  = normal
+spriteno = 1, 2
+layerno = 0
+start = 0, -320
+delta = 1, 1
+mask  = 1
+
+[BG Curtains Left]
+type  = normal
+spriteno = 1, 0
+layerno = 0
+start = 475, -320
+delta = 1, 1
+mask  = 1
+id = 2
+
+; Curtains Left
+[BGCtrlDef BG Scroll]
+;looptime = 16
+ctrlID = 2
+[BGCtrl 1]
+type = VelAdd
+time = 80
+x = -0.5
+[BGCtrl 1]
+type = VelAdd
+time = 96
+x = -0.5
+[BGCtrl 1]
+type = VelAdd
+time = 112
+x = -0.5
+[BGCtrl 1]
+type = VelAdd
+time = 128
+x = -0.5
+[BGCtrl 1]
+type = VelAdd
+time = 144
+x = -0.5
+[BGCtrl 1]
+type = VelAdd
+time = 160
+x = -0.5
+
+[BG Curtains Right]
+type  = normal
+spriteno = 1, 1
+layerno = 0
+start = -475, -320
+delta = 1, 1
+mask  = 1
+id = 3
+
+; Curtains Right
+[BGCtrlDef BG Scroll]
+;looptime = 16 
+ctrlID = 3
+[BGCtrl 1]
+type = VelAdd
+time = 80
+x = 0.5
+[BGCtrl 1]
+type = VelAdd
+time = 96
+x = 0.5
+[BGCtrl 1]
+type = VelAdd
+time = 112
+x = 0.5
+[BGCtrl 1]
+type = VelAdd
+time = 128
+x = 0.5
+[BGCtrl 1]
+type = VelAdd
+time = 144
+x = 0.5
+[BGCtrl 1]
+type = VelAdd
+time = 160
+x = 0.5
+
+; Curtains InitStop
+[BGCtrlDef BG Scroll]
+ctrlID = 2, 3
+[BGCtrl 1]
+type = VelSet
+time = 284
+x = 0
+
+[BG Intro Lighting]
+type  = anim ;Haha I get to reuse code from my old ass Mugen stages
+layerno = 1
+start = 0,0   
+actionno = 4
+tile = 1,1
+tilespacing = 640,480
+mask = 0
+
+[Begin Action 4]
+5,0, 0,0, 88,,AS100D100
+5,0, 0,0, 10,,AS100D100
+5,0, 0,0, 5,,AS100D100
+5,0, 0,0, 5,,AS100D100
+5,0, 0,0, 5,,AS100D100
+5,0, 0,0, 5,,AS100D100
+5,0, 0,0, 5,,AS100D100
+5,0, 0,0, 5,,AS100D100
+5,0, 0,0, 5,,AS100D100
+5,0, 0,0, 5,,AS100D100
+5,0, 0,0, 5,,AS100D100
+5,0, 0,0, 5,,AS100D110
+5,0, 0,0, 5,,AS100D120
+5,0, 0,0, 5,,AS100D130
+5,0, 0,0, 5,,AS100D140
+5,0, 0,0, 5,,AS100D150
+5,0, 0,0, 5,,AS100D160
+5,0, 0,0, 5,,AS90D170
+5,0, 0,0, 5,,AS80D180
+5,0, 0,0, 5,,AS70D190
+5,0, 0,0, 5,,AS60D200
+5,0, 0,0, 5,,AS50D210
+5,0, 0,0, 5,,AS40D220
+5,0, 0,0, 5,,AS30D230
+5,0, 0,0, 5,,AS20D240
+5,0, 0,0, 5,,AS10D250
+9999,1, 0,0, -1,,AS0D256

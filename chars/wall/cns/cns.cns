@@ -1,0 +1,140 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.front = 32
+ground.back = 24
+air.front = 8
+air.back = 4
+height = 44
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -88
+mid.pos = 0, -54
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 1.5
+walk.back = -1.4
+run.fwd  = 3.50, 0
+run.back = -5.75,-1
+jump.neu = 0,-7
+jump.back = -2.4
+jump.fwd = 2.4
+runjump.fwd = 3.5,-7
+
+[Movement]
+yaccel = .366
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 2
+BC.VoiceBankWeakKO = 2
+BC.VoiceBankHeartBreaker = 5
+BC.VoiceBankCrazeCancel = 6
+BC.VoiceBankPain = 13
+BC.VoiceBankGuardBreak = 2
+BC.VoiceBankThrowTech = 6
+BC.ScalingMin = 0.090
+;BC.ScalingL1 = 0.750
+;BC.ScalingL2 = 0.250
+BC.ScalingM1 = 0.600
+BC.ScalingM2 = 0.200
+;BC.ScalingH1 = 0.300
+;BC.ScalingH2 = 0.700
+
+[Quotes]
+victory0  = "Again? You might as well ask the reaper that!"
+victory1  = "Those below my heel are better fit to eat dirt than to fight!"
+victory2  = "Your bounty is pitiful, but every bit helps for a suit without your damn blood on it!"
+victory3  = "Try to run for help after I crack your legs open like a crab!"
+victory4  = "Time and age means nothing to me! So as long as I keep breathing, I'll keep on battling!"
+victory5  = "If you heard me coming from a mile away and did nothing, then you forfeited your chance to run!"
+victory6  = "You're not worth the money in your pockets! Now scram, unless you want your ribs broken again!"
+victory7  = "Is that it? I'm not invigorated enough!!"
+victory8  = "I am unstoppable not because of my physique, but because of my insatiable bloodlust!"
+victory9  = "You're bleeding? Oh, boo hoo! Cry yourself a river and swim away!"
+victory10 = "Seeing is believing, but a close look can be deadly!" ; AJIT
+victory11 = "A little lightning can't stop me! I'll just power through the paralysis!" ; TSUG
+victory12 = "What is this dust you kick up? Dammit, I don't care, just keep that to yourself!" ; TSUK
+victory13 = "Throw techs? Wake-up DP? Geeze, what the hell are you talking about?" ; SHER
+victory14 = "You don't have the body to use power like that. It would be better off in my hands!" ; SHEX
+victory15 = "Doppelgangers don't understand what makes me so powerful! Oh, and the real me would NEVER leave my shoes so dirty!" ; WALL
+victory16 = "No one as hesitant to kill as you should bear the name 'reaper'! Soon, you will meet the real one and repent!" ; REAP
+victory17 = "You've got quite the thirst for blood, but you'll forever be parched once I throw you to the scrapheap!" ; REAK
+victory18 = "Back in my age as a wrestler, we were practical! I guess you youngsters are more about flare than the sport itself!" ; JUST
+victory19 = "I like the cut of your jib! Maybe you'll see me back in the ring if you'd like!" ; JUSK
+victory20 = "If Anubis tried to judge me then things might have been different, and you are no Anubis!" ; BOUN
+victory21 = "Like thrashing a ragdoll! Nothing you could do would've satisfied my needs anyway!" ; BAXT
+victory22 = "Are you mocking me? Exposing your head like that just leaves your weak point wide open!" ; CICI
+victory23 = "Once a bug, always a bug! Now that you've been squashed, pick on someone your own skill!" ; GOLI
+victory24 = "If you intend to punish me with God's word, then I will climb my way into Heaven to shut Him up!" ; NECC
+victory25 = "I take more issue with you cutting up my suit than I do cutting through my flesh!" ; EMIC
+victory26 = "You still need more study out on the field than in the books. You're lucky you're someone I actually give a damn about, or else you would have flatlined." ; LUCY
+victory27 = "People like you get under my skin. Find some other obsession, as fighting isn't your strong suit!" ; GABB
+victory28 = "You threw a great shin-dig here! But I still need my payment, one way or another!" ; ISAB
+victory29 = "Even gods cannot compare to my raw power! Now, to see what it feels like to kill one..." ; TYRA
+victory30 = "Nice knife." ; IKUE
+victory31 = "A tiger comes at me with no claws or teeth, and expects to survive?" ; TERI
+victory32 = "Why deny your fate? Eventually, the devil always gets his due!" ; BERN
+victory33 = "Heh, this isn't my first rodeo with witches. You aren't up to snuff to their standard!" ; JANE
+victory97 = "I take no pleasure in destroying a false image of myself. I'd rather see the fear in your own sunken eyes!" ; WALK
+victory98 = "If you plan on ruining my gloves, at least offer a challenge for me! You know how hard it is to wash clay out of things?" ; KAHL
+victory99 = "What say you now after I break your spirit and your head?"
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 2   -  Armor State
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 44  -  [WALL] Charge Motion D Length
+; 45  -  [WALL] Charge Motion D Release
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

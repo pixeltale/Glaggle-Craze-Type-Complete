@@ -1,0 +1,63 @@
+<#f880c0>:Unique Trait:</>		"Malfermu la Ludon"
+GABBY can store cards by using her Craze Technique, which
+grant her access to unique projectiles or special move
+cancels. Using _B, _D, or _F and ^CT will place cards in
+empty slots, or launch stored cards as a projectile with
+properties unique to its rank.
+When you have a card stored, it can be consumed to cancel a
+special into the special associated with that card. This
+requires a pair of cards when cancelling on hit.
+
+Korol _GB
+Valet _GA
+Dama _GK
+
+<#f880c0>:Craze Technique:</>
+Miksi		^CT,_B^CT,_D^CTor_F^CT
+Triope_GB_GA_GK		^CT
+
+<#f880c0>:Throws:</>
+Veka Voko		^GP
+Sentu Timon		_B^GP
+Rimarku		_AO^GP
+
+<#f880c0>:Command Normals:</>
+Kun Flugiloj		_F^SP
+Kompaso		_F^LK
+Kompaso (Falseto)		_F^SK
+
+<#f880c0>:Special Moves:</>
+Falstelo _GA		_AA_QCF^P
+Mielabelo _GB		_AA_QCB^P
+Mortigu Ungegon _GB		_AA_QCB^K
+Korktirilo _GK		_QCF^K
+Cimbalo Kraso _GK		_AO_QCF^K
+
+<#f880c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Supernovao		_AA_QCF_QCF^P
+Aiken Tamburo		_QCF_QCF^K
+Miksi Jokero		_QCB_QCB^K
+
+<#f880c0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Aiken Tamburo EX		_QCF_QCF^2K
+
+<#f880c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Lucidaj Songoj		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

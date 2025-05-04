@@ -1,0 +1,215 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 18
+ground.front = 18
+air.back = 6
+air.front = 6
+height = 43
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -86
+mid.pos = 0, -56
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 1.9
+walk.back = -1.7
+run.fwd  = 4.5, 0
+run.back = -5.75,-1.5
+jump.neu = 0,-9
+jump.back = -2.75
+jump.fwd = 2.75
+runjump.fwd = 3,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankPain = 14
+BC.VoiceBankKO = 4
+BC.VoiceBankWeakKO = 4
+BC.VoiceBankCrazeCancel = 8
+BC.VoiceBankGuardBreak = 5
+BC.VoiceBankThrowTech = 6
+BC.VoiceBankHeartBreaker = 4
+BC.VoiceBankExert = 28
+;BC.ScalingMin = 0.075
+;BC.ScalingL1 = 0.700 ;0.700
+;BC.ScalingL2 = 0.250 ;0.0625
+;BC.ScalingM1 = 0.450 ;0.600
+;BC.ScalingM2 = 0.250 ;0.100
+;BC.ScalingH1 = 0.300 ;0.300
+;BC.ScalingH2 = 0.000 ;0.500
+
+[Quotes]
+victory0  = "(Bernie) Well, that was pointless. You people aren't one for making a good first impression."
+victory1  = "(Jimmy) You gotta admit Bern, this sure beats being locked in that damn office all day."
+victory2  = "(Lee) So... we're stopping soon for a dinner break, right? You promised, Cyclops!"
+victory3  = "(Bernie) If you can't help us leave, can you at least spare a drink? Or a smoke?"
+victory4  = "(Jimmy) For all I've heard about this 'Earth,' I didn't think I'd be so sick of it already!"
+victory5  = "(Lee) I'm low on ammo already? Damn, I hope the gun shops here don't charge out the ass."
+victory6  = "(Bernie) Agh... my back... I can't keep doing this forever."
+victory7  = "(Jimmy) Man, Monti was right. I was better off staying home today. Or was it tonight? Yesterday? Damn it, how long has it been?!"
+victory8  = "(Lee) Next time I feel like I need a vacation, I'm keeping my mouth shut."
+victory9  = "(Bernie) Look, we don't have any quarrel with you. Just stay out of our way, and we'll return the favor."
+victory10 = "(Bernie) You SURE your sleep schedule's alright, kid? I got caffeine patches, if you need one." ; AJIT
+victory11 = "(Bernie) Trust me on this, revenge is a deadly motivator. Don't lose yourself to whatever demons you're bottling up." ; TSUG
+victory12 = "(Bernie) The hell's an Automatus? Do I even want to know? Don't answer that." ; TSUK
+victory13 = "(Bernie) I knew a guy like you once, back in the slammer. He crossed the wrong inmate, and was found dead not even a week later." ; SHER
+victory14 = "(Bernie) Killing you wouldn't just be unnecessary, it'd be embarrassing for us both, since you're more than halfway close to doing that yourself." ; SHEX
+victory15 = "(Bernie) I'd hardly call killing for people who can't solve their own problems a purpose in life. There's being lost, and then there's you." ; WALL
+victory16 = "(Bernie) Being in the drink's certainly done a number on you. We'll let you off easy, but I can't speak for anyone else you might face out there." ; REAP
+victory17 = "(Bernie) Doesn't take much to grind your gears, I see. Get outta here." ; REAK
+victory18 = "(Bernie) Real hard to find an honest performer in your line of work. Best of luck with retirement, ma'am." ; JUST
+victory19 = "(Bernie) Is there something you're trying to prove with this nonsense? Surely you've got better avenues open than making a jackass of yourself." ; JUSK
+victory20 = "(Bernie) Last time a guy in a mask wanted us to 'come quietly', we've seen things you wouldn't believe. Why should we trust you?" ; BOUN
+victory21 = "(Bernie) It might not be easy being green, but you're making it a hell of a lot harder for yourself." ; BAXT
+victory22 = "(Bernie) You know that if you've got too much water, you actually can poi-... y'know what, nevermind." ; CICI
+victory23 = "(Bernie) I've squashed scorpions that are more intimidating than you. Buzz off." ; GOLI
+victory24 = "(Bernie) I dunno how you can keep trusting who you're working for, when this is how they brought you back. Every operation's got some rot at its core, y'know." ; NECC
+victory25 = "(Bernie) Can't say I'm one for your style of rock, but I hope you'll get your dues eventually." ; EMIC
+victory26 = "(Bernie) We've been through hell and back where we came from, miss. I think we can handle whatever you're saying is going on back home." ; LUCY
+victory27 = "(Bernie) Your act's over, fool. Don't expect any encores." ; GABB
+victory28 = "(Bernie) We'd love to leave, Ms. Gardet. Really, we would. But you're just holding us up, dammit!" ; ISAB
+victory29 = "(Bernie) Another eldritch abomination that's all talk. Shocker. Now get us the hell out of here already!" ; TYRA
+victory30 = "(Bernie) I'm not exactly on the best of terms with detectives, but there is something you could probably help me with. What do you know about 'infernals'?" ; IKUE
+victory31 = "(Bernie) We're just as lost here as you kids are. We might be able to go back to our homes faster if we put our heads together." ; TERI
+victory32 = "(Bernie) Whatever you are, here's a pointer: If you're gonna take my likeness, at least do your homework. I'd NEVER fight that sloppily." ; BERN
+victory33 = "(Bernie) Whatever it is you're looking for here, I wouldn't know how to help. I'm not good with any of that 'toil and trouble' crap." ; JANE
+victory37 = "(Bernie) ...Is this some bad joke?" ; BERK
+victory38 = "(Bernie) You ramble on about survival, but it doesn't quite seem to be your forte. If you're done wasting our time now, we're gonna get going. " ; KAHL
+victory39 = "(Bernie) If I never meet another smoky asswipe that's a puppet for some primordial evil, it'll be too goddamn soon." ; SHIT
+victory40 = "(Jimmy) Can you really see the future through sleeping? Quick man, what are next week's lottery numbers?!" ; AJIT
+victory41 = "(Jimmy) Y'know, I know an egg back on Galdakilus that would be interested in sparring a few rounds with somebody like you..." ; TSUG
+victory42 = "(Jimmy) Hm. I don't think I'd be able to make much back if I scrapped this thing for cash..." ; TSUK
+victory43 = "(Jimmy) Dude, you call THAT fighting?! Even Phillipberg could mop the floor with your scrawny ass!" ; SHER
+victory44 = "(Jimmy) Did Whester send you? 'Cause you look like you're hopped up on one of his sour flashbangs!" ; SHEX
+victory45 = "(Jimmy) Size doesn't matter nearly as much as you think it does. Don't quit your day job, Phantransjer." ; WALL
+victory46 = "(Jimmy) Heh, pawning off this walking tin can could pay off our debts, and then some!" ; REAP
+victory47 = "(Jimmy) What's eatin' you, Rust Bucket? Sprung a leak in your liquid cooling?" ; REAK
+victory48 = "(Jimmy) Okay, there's gotta be something I'm missing here... 'cause where the hell did you get all of these chairs from?!" ; JUST
+victory49 = "(Jimmy) If you're that desperate for performers in your little circus troupe, try literally anyone else here. Or is that cheap mask cutting off the blood flow to your brain?" ; JUSK
+victory50 = "(Jimmy) If you REALLY wanna be useful with all that portal garbage, you'll make us one that gets us outta here!" ; BOUN
+victory51 = "(Jimmy) I can't even begin to imagine what your deal is. Lemme guess, you were born with building blocks for bones and a brain made of putty?" ; BAXT
+victory52 = "(Jimmy) There's so much more to life than being a weapon for some fat-cats that'll scrap you the second they don't need you anymore. But I doubt you're willing to even consider that." ; CICI
+victory53 = "(Jimmy) Poor guy. Evolution hasn't quite caught up on this planet yet, it looks like." ; GOLI
+victory54 = "(Jimmy) It might be moot in this world, but I pray to Nazirin that you may find peace again." ; NECC
+victory55 = "(Jimmy) Dunno how much you know about interdimensional travel, but if you find us on our own turf, lemme get your band in touch with Kolou! You'll make it big with her as another vocalist!" ; EMIC
+victory56 = "(Jimmy) I'm not here for any damn interviews. Not again. Whatever mysteries you have about me or my race, you're just gonna have to let them keep you up at night." ; LUCY
+victory57 = "(Jimmy) I almost forgot how much I hate clowns - 'til we met you. So thanks for that." ; GABB
+victory58 = "(Jimmy) That sword... It bears an aura like that of the Blade of Osmekus. How is this possible?" ; ISAB
+victory59 = "(Jimmy) Never again will the Oninjins be bastardized by cosmic warmongers! Not as long as my blood still burns!" ; TYRA
+victory60 = "(Jimmy) Oh, crap, you AREN'T some fed from KHRONOK? Uhh... oops." ; IKUE
+victory61 = "(Jimmy) I'd call you a cool cat, but jazz just isn't my style. So, where'd you two blow in from?" ; TERI
+victory62 = "(Jimmy) What a piss-poor attempt at trying to besmirch us. Besides, that knife's barely been taken care of. I can see the rust spots from here!" ; BERN
+victory63 = "(Jimmy) Eeeegh! Damn it! It's gonna take weeks to get all this pumpkin splatter out of my sweater!" ; JANE
+victory67 = "(Jimmy) If I have to fight, let alone see, another off-model caricature of myself or my friends around here, I'm just about ready to implode!" ; BERK
+victory68 = "(Jimmy) Can't say I've tried working with clay before. Maybe I should sculpt you into an ashtray!" ; KAHL
+victory69 = "(Jimmy) Thank Nazirin that's over. Any more dumbass one-liners and I would've smashed that tacky goldfish bowl you call a head!" ; SHIT
+victory70 = "(Lee) Wakey wakey, eggs and bakey! Reality's a knockin', and you're past due for a check-in!" ; AJIT
+victory71 = "(Lee) Yo, lightning-infused punches?! You GOTTA show me how to do that! Pretty please?" ; TSUG
+victory72 = "(Lee) Huh, first time I've seen a paunchy android. I wonder if there's more like you out there?" ; TSUK
+victory73 = "(Lee) I think you've got the wrong venue, The LARPer club's two blocks down." ; SHER
+victory74 = "(Lee) Ah, so you're a LARPer AND a psycho! Got it! Also, consider getting some deodorant. Seriously." ; SHEX
+victory75 = "(Lee) Hey meathead, maybe keel over a little less intensely? Your dirt's gonna foul up my jacket!" ; WALL
+victory76 = "(Lee) Every machine's got a margin for error somewhere in its programming. There's just no beating a genuine markswoman!" ; REAP
+victory77 = "(Lee) Look, sorry you didn't make it to mass production or whatever, but picking fights with random people left and right really isn't going to solve much." ; REAK
+victory78 = "(Lee) Ah, sorry miss! I hope my bullets didn't scrape you and those beautiful muscles up too badly..." ; JUST
+victory79 = "(Lee) A faceplate? That's the best you could come up with for a heel look? Do your writers work for peanuts or something?" ; JUSK
+victory80 = "(Lee) For somebody who touts space-time powers, what you've got on would NOT be my first choice for a costume." ; BOUN
+victory81 = "(Lee) Ah yew 'avin' a laff? You better not be, 'cause I only have so much ammo to pop off on your stuffed up hide! " ; BAXT
+victory82 = "(Lee) Damn boy, you don't just bootlick - you've got the whole freakin' boot wedged in your throat!" ; CICI
+victory83 = "(Lee) Keep your exoskeleton on, scruffy! I don't eat beetles! ...Well, not raw anyway. They're better when broiled and seasoned." ; GOLI
+victory84 = "(Lee) I get that you're already dead, but that hocus pocus you do with your bones? That looks so painful..." ; NECC
+victory85 = "(Lee) Sucks you can't fight as well as you can shred! Hey, you guys got a demo tape or something? Raula's gotta hear those sick riffs!" ; EMIC
+victory86 = "(Lee) If I may fill your shoes of a 'data collector' for a sec, who's your ghost friend? She's pretty cute..." ; LUCY
+victory87 = "(Lee) How much do we wanna bet this bitch took 'the show must go on' a little too literally? Anyone?" ; GABB
+victory88 = "(Lee) Say, is that prize money still up for grabs? It wasn't our first priority, but we'll gladly take it if no one else is!" ; ISAB
+victory89 = "(Lee) The monster suits in the movies I watched back home look more threatening than you do, and you're a genuine article! That's just depressing." ; TYRA
+victory90 = "(Lee) Eesh, talk about a hopeless romantic. Gimme a call sometime after this' over, I can help you be a lady's woman in no time!" ; IKUE
+victory91 = "(Lee) Yeah, I think we got off on the wrong foot here. Lemme try again. I'm Lee. You wanna help us all find a way out of this trash heap?" ; TERI
+victory92 = "(Lee) ...Am I really that fat? Oh, and that gunfighting sucked ASS, by the way. You need more time in the shooting range!" ; BERN
+victory93 = "(Lee) Y'know, your flame magic kicks ass and all, but I'm burning up enough just being here. I REALLY don't need your help with that, thanks." ; JANE
+victory97 = "(Lee) This clone garbage wasn't funny the first time, and it's even less so now! I hate this!" ; BERK
+victory98 = "(Lee) Whatever your client's paying you, you'd better just take the money and run. I doubt they're gonna be happy about hearing a loss like this from you, nerd." ; KAHL
+victory99 = "(Lee) I've never been more relieved to finish a fight before this motormouth loser. You want my advice? Get help." ; SHIT
+victory100 = "hello i'm japanese telephone box"
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 17  -  AI Decision
+; 18  -  Lucid Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 24  -  Guard Meter Max
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 31  -  Projectile Dist
+; 32  -  Side Message Queue
+; 33  -  Voice Bank
+; 34  -  Voice Number
+; 35  -  Voice Timer
+; 40  -  (BERN) Streetwise
+; 41  -  (BERN) Jimmy Timer / (BERK) Duo Timer
+; 42  -  (BERN) Lee Timer
+; 43  -  (BERN) Ramblin Inventory Charge
+; 44  -  (BERX) Tobacco Charge
+; 45  -  (BERK) Ki Charge
+; 46  -  (BERK) Armor Stacks
+; 48  -  (BERN) Jimmy Cooldown Reductor
+; 49  -  (BERN) Lee Cooldown Reductor
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 54  -  Am I SuperPause?
+; 55  -  Rounds Won
+; 58  -  Am I SHIFT?
+; 59  -  Palette
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Super Damage Dampening
+; 10 -  Final Damage Percentage
+; 15 -  Meter Halve
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

@@ -1,0 +1,189 @@
+;--------------------------------------------------------
+[Info]
+name = "La Justicia Stage X"
+displayname = "Puerto Rico: Ultra Wrasslin' Stadium 'L'" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = .2
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/c_gabb.mp3
+bgmloopstart = 913492
+bgmloopend = 7873566
+;-------------------------------------
+[BGdef]
+spr = XLaJusticiaStage.sff
+debugbg = 0
+;----------
+
+[BG Sky (Or I guess the roof?]
+type  = normal
+spriteno = 4, 0
+layerno = 0
+start = 0, -150
+delta = .8, .7
+mask  = 0
+
+;[BG Audience Furthest Back]
+;type  = anim
+;actionno = 1
+;layerno = 0
+;start = 0, 0
+;delta = .8, .8
+;mask  = 1
+
+[Begin Action 1] ;Audience Furthest Back
+3,0,0,0,10
+3,0,0,5,10
+
+;[BG Audience Further]
+;type  = anim
+;actionno = 2
+;layerno = 0
+;start = 0, 0
+;delta = .9, .8
+;mask  = 1
+
+[Begin Action 2] ;Audience Further
+3,1,0,0,9
+3,1,0,5,9
+
+;[BG Audience]
+;type  = anim
+;actionno = 3
+;layerno = 0
+;start = 0, 0
+;delta = .95, .8
+;mask  = 1
+
+[Begin Action 3] ;Audience
+3,2,0,0,8
+3,2,0,5,8
+
+[BG Thing that prevents the audience from spilling out]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = 0, 100
+delta = .85, .8
+mask  = 1
+
+[BG Jumbotron (I hope that word isn't copyrighted]
+type  = normal
+spriteno = 1, 0
+layerno = 0
+start = 0, -150
+delta = .9, .9
+mask  = 1
+
+[BG Titantron Screen]
+type  = anim
+actionno = 6
+layerno = 0
+start = 0, -150
+delta = .9, .9
+mask  = 1
+
+[Begin Action 6] ;Titantron
+7,1,0,0,8
+7,2,0,0,8
+7,3,0,0,8
+7,4,0,0,8
+
+;[BG Other Wrasslers to the Left]
+;type  = anim
+;actionno = 4
+;layerno = 0
+;start = -450, 250
+;delta = .91, .91
+;mask  = 1
+
+[Begin Action 4] ;Left Wrasslers
+5,0,0,0,8
+5,1,0,0,8
+5,2,0,0,8
+5,3,0,0,8
+5,4,0,0,8
+5,5,0,0,8
+
+[BG Other Wrasslers to the Right]
+type  = anim
+actionno = 5
+id = 6
+layerno = 0
+start = 50, 260
+delta = .91, .91
+mask  = 1
+
+[Begin Action 5] ;Right Wrasslers
+6,0,0,0,24
+6,1,0,0,24
+
+[BG Ropes]
+type  = normal
+spriteno = 0, 1
+layerno = 0
+start = 0, 175
+delta = .99, .9
+mask  = 1
+
+[BG Mat]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, 325
+delta = 1, 1
+mask  = 1
+;xscale = .76, 1.25
+;yscalestart = 100
+;yscaledelta = 0
+

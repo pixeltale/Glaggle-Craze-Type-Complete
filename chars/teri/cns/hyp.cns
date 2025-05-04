@@ -1,0 +1,4102 @@
+;---------------------------------------------------------------------------
+; 2QCF+SP (Top Falls Down)
+[Statedef 2000]
+type    = S
+movetype= A
+physics = S
+velset = 0,0
+anim = 2000
+poweradd = -1000
+ctrl = 0
+sprpriority = 2
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time >= 2
+trigger1 = Time <= 2 + 40
+flag = globalnoshadow
+[State 0, BGPalFX]
+type = Helper
+trigger1 = Time = 2
+name = "SUPER"
+ID = 2995
+stateno = 2995
+postype = back
+facing = 1
+ownpal = 1
+supermovetime = -1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 17
+time = 2
+add = 255,255,255
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 21
+time = 2
+add = 255,255,-255
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 30
+value = 2
+[State 0, Explod Super FX]
+type = Explod
+trigger1 = Time = 2 + 8
+anim = f100
+pos = 8,-36
+postype = p1
+supermovetime = 666
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+time = 40
+anim = -1
+sound = 20,0
+movetime = 40
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, Var SuperPause Notifier]
+type = VarSet
+trigger1 = Time = 2
+v = 54
+value = 40
+[State 210, Announcer ALL-OUT!]
+type = PlaySnd
+triggerall = Var(58) = 3
+trigger1 = Time = 2
+value = F60, random%4
+abspan = 0
+channel = 7
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 6
+value = 0
+[State 0, VarSet]
+type = VarSet
+trigger1 = Time >= 40
+trigger1 = Power >= 1000
+trigger1 = map(QCFQC)
+trigger1 = map(b_x) || map(b_y)
+v = 6
+value = 1
+
+[State 0, Map Demon Off]
+type = MapSet
+trigger1 = !Time
+map = "TerkDemon"
+value = 0
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 10
+trigger2 = AnimElem = 11
+trigger3 = AnimElem = 14
+trigger4 = AnimElem = 15
+trigger5 = AnimElem = 16
+trigger6 = AnimElem = 17
+trigger7 = AnimElem = 18
+trigger8 = AnimElem = 19
+x = max(0,min(8,P2BodyDist X+666*(abs(P2Dist Y)>const(size.height))))
+
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 11
+value = F0,2
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 17
+value = F0,8
+[State 0, Snd Slam]
+type = PlaySnd
+trigger1 = AnimElem = 19
+value = F7,1
+[State 0, Snd Sign Slam]
+type = PlaySnd
+trigger1 = AnimElem = 19
+value = S2000,0
+[State 0, Snd Sign Drop]
+type = PlaySnd
+trigger1 = AnimElem = 24
+value = S2000,1
+
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = random%2
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 11
+trigger2 = AnimElem = 18
+v = 33
+value = 2000 + Var(5)
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 11
+trigger2 = AnimElem = 18
+v = 34
+value = ifelse(Var(5)=0,random%3,random%2) + 10 * (AnimElemNo(0)>=18)
+
+[State 5100, 8]
+type = Explod
+trigger1 = AnimElem = 18
+anim = 2003
+postype = p1
+bindtime = 2
+removetime = 2
+ownpal = 1
+sprpriority = 3
+[State 5100, 8]
+type = Explod
+trigger1 = AnimElem = 19
+anim = F62
+postype = p1
+pos = 84,0
+supermovetime = -1
+sprpriority = -1
+[State 5100, 8]
+type = Explod
+trigger1 = AnimElem = 22
+anim = 2002
+postype = p1
+ownpal = 1
+sprpriority = 3
+[State 5100, 8]
+type = Explod
+trigger1 = AnimElem = 22
+anim = 2001
+id = 1922
+postype = p1
+ownpal = 1
+removetime = -1
+sprpriority = -1
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = !Time
+v = 12
+value = 96
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = AnimElem = 18
+v = 12
+value = 152
+
+[State 0, HitDef]
+type = HitDef
+trigger1 = !MoveContact && !MoveReversed
+trigger1 = AnimElemNo(0) < 18
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = heavy
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 8, 16
+guard.pausetime = 8,8
+sparkno = 10 + random%4
+guard.sparkno = 40
+sparkxy = -16,-48+Floor(P2Dist Y*0.5)
+hitsound = 1,2
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.5
+air.fall = 1
+fall.recover = 0
+fall.recovertime = 16
+ground.velocity = -4
+air.velocity = -1,-5 - (EnemyNear,Pos Y) * 0.025
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+[State 0, HitDef]
+type = HitDef
+trigger1 = AnimElem = 19
+attr = S,HA
+hitflag = MAFD
+guardflag = M
+animtype = heavy
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 8, 16
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -16,-32+Floor(P2Dist Y*0.5)
+hitsound = 1,4
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.51
+fall = 1
+fall.recover = 0
+fall.recovertime = 16
+ground.velocity = -2,8
+air.velocity = -2,8
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget
+triggerall = AnimElemNo(0) > 18
+trigger1 = MoveHit && Var(8) = 1
+trigger1 = Target,MoveType = H && (Target,StateNo = [5000,5100))
+value = ifelse(Target,Pos Y > -2,2010,5355)
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = AnimElem = 19
+v = 9
+value = 16
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 20
+movetype = I
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = RoundState = 2
+trigger1 = AnimElemNo(0) = 21
+trigger1 = Var(6)
+value = 2051
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------
+; 2QCF+P V1
+[Statedef 2010]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+anim = 5080
+
+[State 1027, Pos]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 1027, Stop moving]
+type = PosFreeze
+trigger1 = 1
+x = 1
+y = 1
+
+[State 0, VarAdd P.Life Reduction]
+type = VarAdd
+trigger1 = !Time
+v = 22
+value = -floor((EnemyNear,Var(12) * ((const(BC.Super1MaxDamage)*EnemyNear,FVar(9))+const(BC.Super1MinDamage))) * const(BC.GetHitPLife))
+ignorehitpause = 1
+[State 0, VarAdd Lucid Meter Gain]
+type = VarAdd
+trigger1 = !Time
+v = 18
+value = floor((EnemyNear,Var(12) * ((const(BC.Super1MaxDamage)*EnemyNear,FVar(9))+const(BC.Super1MinDamage))) * const(BC.GetHitGaugeGain) * FVar(18))
+ignorehitpause = 1
+
+[State 1027, State]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 2011
+
+;------------------
+; 2QCF+P V2
+[Statedef 2011]
+type    = A
+movetype= H
+physics = N
+anim = 5160
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NA,SA,HA,NP,SP,NT,ST,HT
+time = 1
+
+[State 1028, Vel Y]
+type = VelSet
+trigger1 = Time = 0
+y = -2
+
+[State 1028, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .2
+
+[State 5110, 12]
+type = VarSet
+trigger1 = !Time
+sysvar(2) = 16
+ignorehitpause = 1
+
+[State 1028, Hit ground]
+type = SelfState
+trigger1 = Time > 1
+trigger1 = vel y + pos y >= 0
+value = 5109
+
+;---------------------------------------------------------------------------
+; 2QCF+LP (Killing Communication)
+[Statedef 2050]
+type    = S
+movetype= A
+physics = S
+velset = 0,0
+anim = 2050
+poweradd = -1000
+ctrl = 0
+sprpriority = 2
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time >= 2
+trigger1 = Time <= 2 + 40
+flag = globalnoshadow
+[State 0, BGPalFX]
+type = Helper
+trigger1 = Time = 2
+name = "SUPER"
+ID = 2995
+stateno = 2995
+postype = back
+facing = 1
+ownpal = 1
+supermovetime = -1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 17
+time = 2
+add = 255,255,255
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 21
+time = 2
+add = 255,255,-255
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 30
+value = 2
+[State 0, Explod Super FX]
+type = Explod
+trigger1 = Time = 2 + 8
+anim = f100
+pos = 8,-36
+postype = p1
+supermovetime = 666
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+time = 40
+anim = -1
+sound = 20,0
+movetime = 40
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, Var SuperPause Notifier]
+type = VarSet
+trigger1 = Time = 2
+v = 54
+value = 40
+[State 210, Announcer ALL-OUT!]
+type = PlaySnd
+triggerall = Var(58) = 3
+trigger1 = Time = 2
+value = F60, random%4
+abspan = 0
+channel = 7
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+trigger2 = NumHelper(2060)
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, Map Demon Off]
+type = MapSet
+trigger1 = !Time
+map = "TerkDemon"
+value = 0
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 10
+trigger2 = AnimElem = 11
+trigger3 = AnimElem = 12
+trigger4 = AnimElem = 13
+trigger5 = AnimElem = 14
+trigger6 = AnimElem = 15
+x = max(0,min(8,P2BodyDist X+666*(abs(P2Dist Y)>const(size.height))))
+
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 13
+value = S2000,3
+
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = random%2
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 14
+v = 33
+value = 2000 + Var(5)
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 14
+v = 34
+value = ifelse(Var(5)=0,random%3,random%2) + 10 * (AnimElemNo(0)>=14)
+
+[State 5100, 8]
+type = Explod
+trigger1 = AnimElem = 14
+anim = 2003
+postype = p1
+bindtime = 2
+removetime = 2
+ownpal = 1
+sprpriority = 3
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 15
+name = "Intellivision Amico"
+ID = 2060
+stateno = 2060
+pos = max(32,min(64,p2dist x)),0
+postype = p1
+ownpal = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 15
+movetype = I
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; 2QCF+P 2 (Killing Communication)
+[Statedef 2051]
+type    = S
+movetype= A
+physics = S
+velset = 0,0
+anim = 2051
+poweradd = -1000
+ctrl = 0
+sprpriority = 2
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time >= 2
+trigger1 = Time <= 2 + 40
+flag = globalnoshadow
+[State 0, BGPalFX]
+type = Helper
+trigger1 = Time = 2
+trigger1 = NumHelper(2995) = 0
+name = "SUPER"
+ID = 2995
+stateno = 2995
+postype = back
+facing = 1
+ownpal = 1
+supermovetime = -1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 17
+time = 2
+add = 255,255,255
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 21
+time = 2
+add = 255,96,-255
+[State 0, VarSet AfterImage]
+type = VarSet
+trigger1 = !Time
+v = 30
+value = 3
+[State 0, Explod Super FX]
+type = Explod
+trigger1 = Time = 2 + 8
+anim = f105
+pos = 8,-36
+postype = p1
+supermovetime = 666
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+time = 40
+anim = -1
+pos = 8,-56
+sound = 20,0
+movetime = 40
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, Var SuperPause Notifier]
+type = VarSet
+trigger1 = Time = 2
+v = 54
+value = 40
+[State 210, Announcer EX!]
+type = PlaySnd
+triggerall = Var(58) = 3
+trigger1 = Time = 2
+value = F61, random%2
+abspan = 0
+channel = 7
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+trigger2 = NumHelper(2060)
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 3
+trigger3 = AnimElem = 4
+trigger4 = AnimElem = 5
+trigger5 = AnimElem = 6
+trigger6 = AnimElem = 7
+x = max(0,min(8,P2BodyDist X+666*(abs(P2Dist Y)>const(size.height))))
+
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 5
+value = S2000,3
+
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = random%2
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 5
+v = 33
+value = 200
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 5
+v = 34
+value = random%15
+
+[State 5100, 8]
+type = Explod
+trigger1 = AnimElem = 6
+anim = 2003
+postype = p1
+bindtime = 2
+removetime = 2
+ownpal = 1
+sprpriority = 3
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 7
+name = "Caleco Chameleon"
+ID = 2060
+stateno = 2060
+pos = max(32,min(64,p2dist x)),0
+postype = p1
+ownpal = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 7
+movetype = I
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; H - i saw the sign
+[Statedef 2060]
+type    = A
+movetype= A
+physics = N
+anim = 2060
+velset = 16,0
+sprpriority = 3
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = (Root,StateNo=2051)
+
+[State 0, Counter Check Reset]
+type = VarSet
+trigger1 = !MoveContact
+v = 10
+value = Parent,Var(10)
+ignorehitpause = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = !Time
+value = SCA
+time = 666
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time 
+v = 12
+value = 72 + 144 * (!Var(5)||!Root,Var(51))
+
+[State 0, HitDef]
+type = HitDef
+trigger1 = !MoveContact && !MoveReversed
+attr = A,HP
+hitflag = MAF
+guardflag = MA
+animtype = medium
+priority = 3,Hit
+damage = Ceil(Var(12) * ((const(BC.Super1MaxDamage)*Parent,FVar(9))+const(BC.Super1MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 4,12
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -16,-48
+hitsound = 1,4
+guardsound = 5,1
+ground.type = Low
+ground.slidetime = 16
+ground.hittime = 8
+guard.hittime = 8
+yaccel = 0.51
+fall = 1
+ground.velocity = -4,-4
+air.velocity = -4,-4
+guard.velocity = -2
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+[State 0, HitDef]
+type = HitDef
+triggerall = Var(5)
+trigger1 = !MoveContact && !MoveReversed
+attr = A,HP
+hitflag = MAF
+guardflag = MA
+animtype = medium
+priority = 3,Hit
+damage = Ceil(Var(12) * ((const(BC.Super2MaxDamage)*Parent,FVar(9))+const(BC.Super2MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 4,12
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -16,-48
+hitsound = 1,4
+guardsound = 5,1
+ground.type = Low
+ground.slidetime = 16
+ground.hittime = 8
+guard.hittime = 8
+yaccel = 0.51
+fall = 1
+ground.velocity = -4,-4
+air.velocity = -4,-4
+guard.velocity = -2
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+
+[State 0, HitAdd]
+type = ParentVarAdd
+triggerall = NumTarget && MoveHit && Var(8) = 1
+trigger1 = Target,StateNo = [5000,5100) && Target,StateNo%10 = 0
+v = 51
+value = 1
+ignorehitpause = 1
+
+[State 0, Var Shake]
+type = ParentVarSet
+triggerall = NumTarget && MoveHit && Var(8) = 1
+trigger1 = Target,StateNo = [5000,5100) && Target,StateNo%10 = 0
+v = 9
+value = 6
+ignorehitpause = 1
+
+[State 0, VarSet Counter!]
+type = ParentVarSet
+triggerall = NumTarget && MoveHit && Var(8) = 1
+trigger1 = Var(10) > 0
+v = 32
+value = 63 + (Var(10) = 2) + (Var(10) = 3) * 10
+ignorehitpause = 1
+
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget && MoveHit && Var(8) = 1
+trigger1 = Target,StateNo = [5000,5100) && Target,StateNo%10 = 0
+value = 5350
+ignorehitpause = 1
+
+[State 0, Snd Clank]
+type = PlaySnd
+triggerall = NumTarget && Var(8) = 1
+trigger1 = Target,StateNo = [5000,5100) && Target,StateNo%10 = 0
+value = S2000,2
+ignorehitpause = 1
+
+[State 0, DestroySelf]
+type = ChangeState
+trigger1 = MoveContact || MoveReversed
+trigger1 = NumTarget
+trigger2 = Root,MoveType = H && Root,StateNo != [120,160)
+value = 2061
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = FrontEdgeDist < -64
+
+;---------------------------------------------------------------------------
+; H - it hurt ow
+[Statedef 2061]
+type    = A
+movetype= A
+physics = N
+anim = 666
+movehitpersist = 1
+velset = 0,0
+sprpriority = 5
+
+[State 0, Explod]
+type = Explod
+trigger1 = !Time
+anim = 2061
+pos = 0,0
+postype = p1
+vel = (-100-random%201)*0.01,(-300-random%301)*0.01
+accel = 0,0.5
+facing = facing
+removetime = 32
+sprpriority = 3
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Time = 1
+
+;---------------------------------------------------------------------------
+; 2QCB+LK (Tear Out)
+[Statedef 2100]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 2100 + (PrevStateNo=2101)
+poweradd = -1000
+ctrl = 0
+sprpriority = 2
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+var(5) = (PrevStateNo=2101)
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time >= 4
+trigger1 = Time <= 4 + 40
+flag = globalnoshadow
+[State 0, BGPalFX]
+type = Helper
+trigger1 = Time = 4
+name = "SUPER"
+ID = 2995
+stateno = 2995
+postype = back
+facing = 1
+ownpal = 1
+supermovetime = -1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 4 + 17
+time = 2
+add = 255,255,255
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 4 + 21
+time = 2
+add = 255,255,-255
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 30
+value = 2
+[State 0, Explod Super FX]
+type = Explod
+trigger1 = Time = 4 + 8
+anim = f100
+pos = 8,-64
+postype = p1
+supermovetime = 666
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 4
+time = 40
+anim = -1
+sound = 20,0
+movetime = 40
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, Var SuperPause Notifier]
+type = VarSet
+trigger1 = Time = 4
+v = 54
+value = 40
+[State 210, Announcer ALL-OUT!]
+type = PlaySnd
+triggerall = Var(58) = 3
+trigger1 = Time = 4
+value = F60, random%4
+abspan = 0
+channel = 7
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = Var(51)
+triggerall = Anim = 2101
+trigger1 = AnimElem = 3, 2
+trigger2 = AnimElem = 4, 6
+value = Anim
+elem = AnimElemNo(0) + 1
+
+[State 0, VelSet]
+type = VelAdd
+triggerall = Anim = 2101
+trigger1 = AnimElemNo(0) = 2
+x = max(0,min(2.5 + !!Var(51),p2dist x * 0.02))
+[State 0, VelMul]
+type = VelMul
+triggerall = Anim = 2101
+trigger1 = AnimElemNo(0) = 3
+x = 0.9
+[State 0, VelMul]
+type = VelMul
+triggerall = Anim = 2101
+trigger1 = AnimElemNo(0) = [3,4]
+trigger1 = P2Dist X = [-4,32]
+x = 0.5
+[State 0, VelMul]
+type = VelMul
+triggerall = Anim = 2101
+trigger1 = AnimElemNo(0) = 4 
+x = 0.6
+[State 0, VelSet]
+type = VelSet
+triggerall = Anim = 2101
+trigger1 = AnimElem = 5
+x = 0
+
+[State 0, Explod Big Dust FX]
+type = Explod
+triggerall = Anim = 2101
+trigger1 = AnimElem = 2
+anim = F85
+postype = p1
+removetime = -2
+ownpal = 1
+sprpriority = 4
+[State 0, Explod Teri FX]
+type = Explod
+triggerall = Anim = 2101
+trigger1 = AnimElem = 3
+anim = 2102
+;ID = 3000
+vel = -4,0
+accel = 0.5,0
+postype = p1
+sprpriority = 3
+ownpal = 1
+removeongethit = 1
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 2100
+trigger1 = AnimElem = 6
+trigger2 = AnimElem = 7
+x = 3
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 2101
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 3
+x = 12
+
+[State 410, Snd Dash]
+type = PlaySnd
+triggerall = Anim = 2101
+trigger1 = AnimElem = 3
+value = S1300, 0
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = Time = 4
+v = 33
+value = 2100
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = Time = 4
+v = 34
+value = random%4
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 6
+v = 33
+value = 1200
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 6
+v = 34
+value = random%8
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 0
+
+[State 800, 1]
+type = HitDef
+trigger1 = P2BodyDist X = [-8,const(size.ground.front)*1.33333]
+trigger1 = Time = 44
+trigger1 = Anim = 2100
+trigger2 = P2BodyDist X = [-8,const(size.ground.front)]
+trigger2 = Time = 56
+trigger2 = Anim = 2101
+attr = S, HT
+hitflag = M-
+priority = 7, Miss
+sparkno = 50
+sparkxy = -8,-52
+hitsound = F1, 9
+p1sprpriority = 1
+p1facing = 1
+p2facing = 1
+p1stateno = 2110
+p2stateno = 2120
+numhits = 0
+guard.dist = 0
+fall = 1
+[State 800, 1]
+type = HitDef
+trigger1 = EnemyNear,MoveType = H && EnemyNear,StateNo != [120,160)
+attr = S, HT
+hitflag = MAF+
+priority = 7, Miss
+sparkno = 50
+sparkxy = -8,-52
+hitsound = F1, 9
+p1sprpriority = 1
+p1facing = 1
+p2facing = 1
+p1stateno = 2110
+p2stateno = 2120
+numhits = 0
+guard.dist = 0
+fall = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time < 44 && Anim = 2100
+trigger2 = Time < 56 && Anim = 2101
+value = ,NA,SA,HA,NT,ST,NP,SP,HP
+time = 2
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 6
+movetype = I
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; 2QCB+SK
+[Statedef 2101]
+type    = S
+movetype= A
+physics = S
+anim = 666
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = !Time
+value = 2100
+
+;---------------------------------------------------------------------------
+; 2QCB+K S
+[Statedef 2110]
+type    = S
+movetype= A
+physics = N
+anim = 2110
+velset = 0,0
+sprpriority = -1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+var(6) = (!Var(5) && command = "holda") || (Var(5) && command = "holdb")
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 7
+value = !!Var(51)
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = AnimElemNo(0) < 15
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, ParentVarSet Counter Message]
+type = VarSet
+triggerall = !Time
+trigger1 = Var(10)
+v = 32
+value = 63 + (Var(10) = 2) + (Var(10) = 3) * 10
+
+[State 0, Turn]
+type = Turn
+trigger1 = Var(6)
+trigger1 = AnimElem = 13
+
+[State 0, Width]
+type = Width
+trigger1 = !Time
+edge = 48,0
+[State 0, Width]
+type = Width
+trigger1 = Time < 16 && Var(6)
+edge = 16 + Time * 4,0
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = AnimElemNo(0) = [2,5]
+trigger2 = Time <= 6
+time = 1
+pos = 42 - (AnimElemNo(0) * 2),0
+
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget
+trigger1 = AnimElemNo(0) = 12
+trigger1 = Time%3 = 0
+value = 2121 + random%2
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget
+trigger1 = AnimElem = 15
+value = 2123
+
+[State 0, PosAdd]
+type = VelAdd
+trigger1 = AnimElemNo(0) = [10,11]
+x = 2
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 12
+trigger2 = AnimElem = 15
+x = 0
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 13
+x = -24
+[State 0, VelMul]
+type = VelMul
+trigger1 = AnimElemNo(0) = [13,14]
+x = 0.5
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = AnimElem = 12
+x = EnemyNear,Pos X
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElemNo(0) = [13,14]
+x = -8
+
+[State 0, Explod Slash FX]
+type = Explod
+trigger1 = AnimElem = 12
+trigger2 = AnimElem = 12, 16
+anim = 2111
+pos = p2dist x,0
+postype = p1
+facing = ifelse(AnimElem = 12,0 ,-1,1)
+sprpriority = 5
+ownpal = 1
+[State 0, Explod HitSpark H]
+type = Explod
+trigger1 = AnimElem = 6
+anim = F10 + random%4
+pos = 36,-60
+postype = p1
+sprpriority = 9
+supermovetime = 666
+ontop = 1
+ownpal = 1
+[State 0, Explod SlashSpark]
+type = Explod
+trigger1 = AnimElemNo(0) = 12
+trigger1 = Time%3 = 0
+anim = F25 + random%4
+pos = p2dist x - 24 + random%49,-8 - random%49
+postype = p1
+sprpriority = 9
+supermovetime = 666
+ontop = 1
+ownpal = 1
+[State 0, Explod HitSpark Final]
+type = Explod
+trigger1 = AnimElem = 15
+anim = F15 + random%4
+pos = p2dist x,-32
+postype = p1
+sprpriority = 9
+supermovetime = 666
+ontop = 1
+ownpal = 1
+
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = F0,4
+[State 0, Snd Slam]
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = F1,3
+[State 0, Snd Slash]
+type = PlaySnd
+trigger1 = AnimElemNo(0) = 12
+trigger1 = Time%3 = 0
+value = F1,7 + random%2
+channel = 1 + (Time%6 = 0)
+[State 0, Snd Final]
+type = PlaySnd
+trigger1 = AnimElem = 15
+value = F1,4
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 3
+v = 33
+value = 900
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 3
+v = 34
+value = random%3
+
+[State 0, HitAdd]
+type = VarAdd
+trigger1 = AnimElem = 6
+trigger2 = AnimElemNo(0) = 12
+trigger2 = Time%3 = 0
+trigger3 = AnimElem = 15
+v = 51
+value = 1
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = AnimElem = 6
+v = 12
+value = 52 - 16 * Var(7)
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = AnimElem = 12
+v = 12
+value = 12
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = AnimElem = 15
+v = 12
+value = 80 - 16 * Var(7)
+[State 0, LifeAdd]
+type = TargetLifeAdd
+trigger1 = AnimElem = 6
+trigger2 = AnimElemNo(0) = 12
+trigger2 = Time%3 = 0
+trigger3 = AnimElem = 15
+value = -Ceil(Var(12) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage)))
+kill = AnimElemNo(0)>=15
+[State 0, PowerAdd]
+type = TargetPowerAdd
+trigger1 = AnimElem = 6
+trigger2 = AnimElemNo(0) = 12
+trigger2 = Time%3 = 0
+trigger3 = AnimElem = 15
+value = Ceil(Var(12) * Map(ScaledPowerGiveHit))
+
+[State 0, Var Stack Gain]
+type = VarSet
+trigger1 = Name = "TERX"
+trigger1 = AnimElem = 15
+;trigger1 = Var(43) < 3
+v = 43
+value = 3
+[State 0, Var UR Activate]
+type = VarSet
+triggerall = Name = "TERI"
+trigger1 = AnimElem = 15
+v = 40
+value = 111
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; 2QCB+K V1
+[Statedef 2120]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 2
+
+[State 0, Width]
+type = Width
+trigger1 = 1
+edge = 0,p2dist x * -1 + EnemyNear,Vel X * -1
+
+[State 0, Offset]
+type = Offset
+triggerall = Anim = 2120
+trigger1 = AnimElemNo(0) = 3
+x = -1+random%3
+y = -1+random%3
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+value = 2120
+
+[State 0, VarAdd P.Life Reduction]
+type = VarAdd
+triggerall = EnemyNear,StateNo = 2110
+trigger1 = EnemyNear,AnimElem = 6
+v = 22
+value = -floor((EnemyNear,Var(12) * ((const(BC.Super1MaxDamage)*EnemyNear,FVar(9))+const(BC.Super1MinDamage))) * const(BC.GetHitPLife))
+ignorehitpause = 1
+[State 0, VarAdd Lucid Meter Gain]
+type = VarAdd
+triggerall = EnemyNear,StateNo = 2110
+trigger1 = EnemyNear,AnimElem = 6
+v = 18
+value = floor((EnemyNear,Var(12) * ((const(BC.Super1MaxDamage)*EnemyNear,FVar(9))+const(BC.Super1MinDamage))) * const(BC.GetHitGaugeGain) * FVar(18))
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = -6
+[State 0, VelMul]
+type = VelMul
+trigger1 = AnimElemNo(0) >= 4
+x = 0.8
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+sysvar(2) = 32
+
+[State 800, 2]
+type = SelfState
+Trigger1 = AnimTime = 0
+value = 5325
+
+;----------------------------------------------------------------------
+; RanbuHigh
+[Statedef 2121]
+type = S
+movetype = H
+physics = N
+facep2 = 1
+velset = 0,0
+
+[State 0, Width]
+type = Width
+trigger1 = !Time
+edge = 32,32
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time < 4
+value = 5001
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time = 4
+value = 5016
+
+[State 0, Offset]
+type = Offset
+trigger1 = Time < 4
+x = -2+random%5
+y = -1+random%3
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+
+[State 0, Turn]
+type = Turn
+trigger1 = !Time
+trigger1 = Random < 500
+
+[State 0, VarAdd P.Life Reduction]
+type = VarAdd
+trigger1 = !Time
+v = 22
+value = -floor((EnemyNear,Var(12) * ((const(BC.Super1MaxDamage)*EnemyNear,FVar(9))+const(BC.Super1MinDamage))) * const(BC.GetHitPLife))
+ignorehitpause = 1
+[State 0, VarAdd Lucid Meter Gain]
+type = VarAdd
+trigger1 = !Time
+v = 18
+value = floor((EnemyNear,Var(12) * ((const(BC.Super1MaxDamage)*EnemyNear,FVar(9))+const(BC.Super1MinDamage))) * const(BC.GetHitGaugeGain) * FVar(18))
+ignorehitpause = 1
+
+;----------------------------------------------------------------------
+; RanbuLow
+[Statedef 2122]
+type = S
+movetype = H
+physics = N
+facep2 = 1
+velset = 0,0
+
+[State 0, Width]
+type = Width
+trigger1 = !Time
+edge = 32,32
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time < 4
+value = 5011
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time = 4
+value = 5016
+
+[State 0, Offset]
+type = Offset
+trigger1 = Time < 4
+x = -2+random%5
+y = -1+random%3
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+
+[State 0, Turn]
+type = Turn
+trigger1 = !Time
+trigger1 = Random < 500
+
+[State 0, VarAdd P.Life Reduction]
+type = VarAdd
+trigger1 = !Time
+v = 22
+value = -floor((EnemyNear,Var(12) * ((const(BC.Super1MaxDamage)*EnemyNear,FVar(9))+const(BC.Super1MinDamage))) * const(BC.GetHitPLife))
+ignorehitpause = 1
+[State 0, VarAdd Lucid Meter Gain]
+type = VarAdd
+trigger1 = !Time
+v = 18
+value = floor((EnemyNear,Var(12) * ((const(BC.Super1MaxDamage)*EnemyNear,FVar(9))+const(BC.Super1MinDamage))) * const(BC.GetHitGaugeGain) * FVar(18))
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+; 2QCB+K V2
+[Statedef 2123]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+facep2 = 1
+sprpriority = 2
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 1,0
+[State 0, Width]
+type = Width
+trigger1 = 1
+edge = 0,p2dist x * -1 + EnemyNear,Vel X * -1
+
+[State 0, Offset]
+type = Offset
+Trigger1 = Time <= 8
+x = -1+random%3
+y = -1+random%3
+
+[State 0, ChangeAnim2]
+type = ChangeAnim
+trigger1 = Time < 8
+value = 5325
+[State 0, ChangeAnim2]
+type = ChangeAnim
+trigger1 = Time = 8
+trigger1 = !Alive
+value = 5326
+
+[State 0, VarAdd P.Life Reduction]
+type = VarAdd
+trigger1 = !Time
+v = 22
+value = -floor((EnemyNear,Var(12) * ((const(BC.Super1MaxDamage)*EnemyNear,FVar(9))+const(BC.Super1MinDamage))) * const(BC.GetHitPLife))
+ignorehitpause = 1
+[State 0, VarAdd Lucid Meter Gain]
+type = VarAdd
+trigger1 = !Time
+v = 18
+value = floor((EnemyNear,Var(12) * ((const(BC.Super1MaxDamage)*EnemyNear,FVar(9))+const(BC.Super1MinDamage))) * const(BC.GetHitGaugeGain) * FVar(18))
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+sysvar(2) = 12
+
+[State 5001, 6]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 5105
+
+;---------------------------------------------------------------------------
+; 2QCF+2K (Burn Out)
+[Statedef 2200]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 2200
+poweradd = -2000
+ctrl = 0
+sprpriority = 2
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time >= 2
+trigger1 = Time <= 2 + 40
+flag = globalnoshadow
+[State 0, BGPalFX]
+type = Helper
+trigger1 = Time = 2
+name = "SUPER"
+ID = 2995
+stateno = 2995
+postype = back
+facing = 1
+ownpal = 1
+supermovetime = -1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 17
+time = 2
+add = 255,255,255
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 21
+time = 2
+add = 255,96,-255
+[State 0, VarSet AfterImage]
+type = VarSet
+trigger1 = !Time
+v = 30
+value = 3
+[State 0, Explod Super FX]
+type = Explod
+trigger1 = Time = 2 + 8
+anim = f105
+pos = 8,-56
+postype = p1
+supermovetime = 666
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+time = 40
+anim = -1
+pos = 8,-56
+sound = 20,0
+movetime = 40
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, Var SuperPause Notifier]
+type = VarSet
+trigger1 = Time = 2
+v = 54
+value = 40
+[State 210, Announcer EX!]
+type = PlaySnd
+triggerall = Var(58) = 3
+trigger1 = Time = 2
+value = F61, random%2
+abspan = 0
+channel = 7
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time = [42,52)
+value = ,NA,SA,HA,NP,SP,HP
+time = 1
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time = [52,56]
+value = ,NA,SA,NP,SP
+time = 2
+
+[State 0, Width]
+type = Width
+trigger1 = 1
+edge = 48,0
+
+[State 0, Snd Teleport]
+type = PlaySnd
+trigger1 = AnimElem = 15
+value = S1300,0
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 17
+value = F0,2
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 33
+value = 193
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 34
+value = random%3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElemNo(0) = 15
+x = max(p2dist x*0.11,0.5)
+[State 0, VelMul]
+type = VelMul
+trigger1 = AnimElem = 16
+trigger2 = AnimElem = 17
+x = 0.7
+[State 0, VelMul]
+type = VelMul
+trigger1 = AnimElemNo(0) >= 18
+x = 0.7
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimElem = 15, 2
+trigger1 = Var(51)
+value = anim
+elem = 16
+
+[State 0, Explod SLAYER]
+type = Explod
+trigger1 = AnimElem = 15
+trigger2 = AnimElem = 15, 8
+anim = 112
+pos = 0,0
+postype = p1
+vel = 0,0
+shadow = -1
+removeongethit = 1
+[State 0, Explod SLAYER]
+type = Explod
+trigger1 = AnimElem = 16
+anim = 952
+postype = p1
+shadow = -1
+removeongethit = 1
+
+[State 0, Explod Slash FX 2]
+type = Explod
+trigger1 = AnimElem = 17
+anim = 1011
+ID = 3000
+postype = p1
+bindtime = 666
+pausemovetime = 666
+sprpriority = 3
+ownpal = 1
+removeongethit = 1
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = AnimElemNo(0) = 19
+id = 3000
+ignorehitpause = 1
+[State 0, Explod Slash FX 2]
+type = Explod
+trigger1 = AnimElemNo(0) = 19
+anim = 1012
+ID = 3000
+postype = p1
+bindtime = 4
+pausemovetime = 666
+supermovetime = 666
+sprpriority = 3
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = !Time
+v = 12
+value = 48
+
+[State 0, HitDef]
+type = HitDef
+trigger1 = !MoveContact && !MoveReversed
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = heavy
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super2MaxDamage)*FVar(9))+const(BC.Super2MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 20, 20
+guard.pausetime = 12,12
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -24,-48+Floor(P2Dist Y*0.5)
+hitsound = 1,8
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.51
+air.fall = 1
+fall.recover = 0
+fall.recovertime = 16
+ground.velocity = -4
+air.velocity = -4,-3.5
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = Var(8) = 1 && MoveHit
+trigger1 = Target,StateNo = [5000,6000)
+time = 1
+pos = max(32,min(64,abs(p2dist x))),-8 * (enemynear,statetype = A)
+ignorehitpause = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = MoveHit
+trigger1 = Target,StateNo = [5000,6000)
+trigger1 = Target,Alive
+value = 2210
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 20
+movetype = I
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; 2QCF+2K S
+[Statedef 2210]
+type    = S
+movetype= A
+physics = N
+anim = 2210
+velset = 0,0
+sprpriority = -1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, Width]
+type = Width
+trigger1 = 1
+edge = 64,0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 1
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 6
+x = 3
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 12
+x = 0
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 19 
+x = 4
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 19
+anim = 2211
+pos = 0,0
+postype = p1
+bindtime = 8
+sprpriority = 5
+ownpal = 1
+removeongethit = 1
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = !Time
+v = 12
+value = 56
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = AnimElem = 19
+v = 12
+value = 32
+
+[State 0, HitDef]
+type = HitDef
+trigger1 = AnimElem = 4
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = heavy
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super2MaxDamage)*FVar(9))+const(BC.Super2MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 20, 20
+guard.pausetime = 12,12
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -24,-48+Floor(P2Dist Y*0.5)
+hitsound = 1,7
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.5
+kill = 0
+air.fall = 1
+fall.recover = 0
+fall.recovertime = 16
+ground.velocity = -4
+air.velocity = -3,-4
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+[State 0, HitDef]
+type = HitDef
+trigger1 = AnimElem = 12
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = heavy
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super2MaxDamage)*FVar(9))+const(BC.Super2MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 20, 20
+guard.pausetime = 12,12
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -24,-48+Floor(P2Dist Y*0.5)
+hitsound = 1,8
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.5
+kill = 0
+air.fall = 1
+fall.recover = 0
+fall.recovertime = 16
+ground.velocity = -4
+air.velocity = -4,-4
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+[State 0, HitDef]
+type = HitDef
+trigger1 = AnimElemNo(0) >= 20
+trigger1 = Time%2 = 0
+trigger1 = Target,Alive
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = heavy
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super2MaxDamage)*FVar(9))+const(BC.Super2MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 4, 6
+guard.pausetime = 12,12
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -24,-48+Floor(P2Dist Y*0.5)
+hitsound = 1,8
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.5
+air.fall = 1
+fall.recover = 0
+fall.recovertime = 16
+ground.velocity = -4
+air.velocity = -4,-4
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+
+[State 0, Snd Hit Last]
+type = PlaySnd
+trigger1 = AnimElemNo(0) = 20
+trigger1 = Var(8) = 1
+value = F1,5
+channel = 1
+ignorehitpause = 1
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 13
+v = 33
+value = 2200
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 13
+v = 34
+value = random%4
+
+[State 0, TargetBind]
+type = TargetBind
+triggerall = AnimElemNo(0) <= 12
+trigger1 = Var(8) = 1 && MoveHit
+trigger1 = Target,StateNo = [5000,6000)
+time = 1
+pos = max(32,min(64,abs(p2dist x))),-8 * (enemynear,statetype = A)
+ignorehitpause = 1
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget
+triggerall = AnimElemNo(0) = [12,13]
+trigger1 = MoveHit = 1
+trigger1 = Target,StateNo = [5000,6000)
+value = 2211
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget
+triggerall = AnimElemNo(0) >= 19
+trigger1 = Var(8) = 1 && MoveHit
+trigger1 = Target,StateNo = [5000,6000)
+value = 5350
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 23
+movetype = I
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+ctrl = 1
+
+;------------------
+; Power Launch Fly
+[Statedef 2211]
+type    = A
+movetype= H
+physics = N
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 1,0
+
+[State 1028, Vel Y]
+type = VelSet
+trigger1 = Time = 0
+x = -0.15
+y = -10.75 - (Pos Y * 0.025)
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Anim != 5335
+trigger1 = Time = 0
+value = 5335
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Anim != 5336
+trigger1 = Vel Y > -1
+value = 5336
+
+[State 1028, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .45
+
+[State 1028, Hit ground]
+type = SelfState
+trigger1 = Time > 1
+trigger1 = vel y + pos y >= 0
+value = 5110
+
+;---------------------------------------------------------------------------
+; DBDF+2P (Strip Down)
+[Statedef 2300]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 2300
+poweradd = -3000
+ctrl = 0
+sprpriority = -1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time >= 32
+trigger1 = Time <= 32 + 40
+flag = globalnoshadow
+[State 0, BGPalFX]
+type = Helper
+trigger1 = Time = 32
+name = "SUPER"
+ID = 2995
+stateno = 2995
+postype = back
+facing = 1
+ownpal = 1
+supermovetime = -1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 32 + 17
+time = 2
+add = 255,255,255
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 32 + 21
+time = 2
+add = 255,-255,-255
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 30
+value = 4
+[State 0, Explod Super FX]
+type = Explod
+trigger1 = Time = 32 + 8
+anim = f110
+pos = -4,-76
+postype = p1
+supermovetime = 666
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 32
+time = 40
+anim = -1
+sound = 20,2
+movetime = 40
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, Var SuperPause Notifier]
+type = VarSet
+trigger1 = Time = 32
+v = 54
+value = 40
+[State 210, Announcer ALL-OUT!]
+type = PlaySnd
+triggerall = Var(58) = 3
+trigger1 = Time = 32
+value = F62, (random>750) * (1 + random%2)
+abspan = 0
+channel = 7
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = 0
+[State 0, VarSet]
+type = VarSet
+trigger1 = EnemyNear,StateNo = 5120
+v = 5
+value = 4
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = Var(5) > 0 
+v = 5
+value = -1
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 3
+x = 4
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 6
+x = -4
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 10
+trigger2 = AnimElem = 12
+trigger3 = AnimElem = 13
+trigger4 = AnimElem = 14
+x = 8
+
+[State 0, Snd Bam]
+type = PlaySnd
+trigger1 = AnimElem = 9, 2
+value = S2300,0
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = !Time
+trigger2 = AnimElem = 6
+v = 33
+value = 2300 + (AnimElemNo(0)>=6)
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = !Time
+trigger2 = AnimElem = 6
+v = 34
+value = random%2
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time < 78
+value = ,NA,SA,HA,NP,SP,HP
+time = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 9
+anim = 2301
+postype = p1
+bindtime = 8
+supermovetime = 10
+scale = 1,1
+sprpriority = -2
+ownpal = 1
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 0
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = !Time
+v = 12
+value = 72
+
+[State 0, HitDef]
+type = HitDef
+trigger1 = !MoveContact && !MoveReversed
+attr = S,HA
+hitflag = MAF
+;guardflag = M
+animtype = heavy
+priority = 9,Hit
+damage = Ceil(Var(12) * ((const(BC.Super3MaxDamage)*FVar(9))+const(BC.Super3MinDamage)));,ceil(var(12)*0.15)
+guardpoints = 0
+pausetime = 1, 17
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -16,-48+Floor(P2Dist Y*0.5)
+hitsound = 1,4
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.5
+fall = 1
+fall.recover = 0
+;kill = 0
+ground.velocity = -1,-5
+air.velocity = -1,-5
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+[State 0, HitDef]
+type = HitDef
+trigger1 = !MoveContact && !MoveReversed
+trigger1 = Var(5)
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = heavy
+priority = 9,Hit
+damage = Ceil(Var(12) * ((const(BC.Super3MaxDamage)*FVar(9))+const(BC.Super3MinDamage))),Ceil(400*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 1, 17
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -16,-48+Floor(P2Dist Y*0.5)
+hitsound = 1,4
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.5
+fall = 1
+fall.recover = 0
+;kill = 0
+guard.kill = 1
+ground.velocity = -1,-5
+air.velocity = -1,-5
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget
+trigger1 = MoveHit
+trigger1 = Target,StateNo = [5000,6000)
+trigger1 = Target,Alive
+value = 2320
+[State 200, 3]
+type = ChangeState
+trigger1 = MoveHit
+trigger1 = Target,StateNo = 2320
+trigger1 = Target,Alive
+value = 2310
+
+[State 0, Trans]
+type = Trans
+trigger1 = AnimElemNo(0) = [10,11]
+trans = addalpha
+alpha = (Time-74)**2,0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 11
+movetype = I
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; DBDF+2P S
+[Statedef 2310]
+type    = S
+movetype= A
+physics = N
+anim = 2310
+velset = 0,0
+sprpriority = -1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Map(Cutscene) < 16
+map = "SuperPauseTime"
+value = 32
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 5
+value = floor(p2dist x)
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 6
+value = floor(p2dist y) + const(size.mid.pos.y)
+
+[State 0, Remove Specific Explods]
+type = RemoveExplod
+trigger1 = !Time
+id = 1922
+
+[State 0, ParentVarSet Counter Message]
+type = VarSet
+triggerall = !Time
+trigger1 = Var(10)
+v = 32
+value = 63 + (Var(10) = 2) + (Var(10) = 3) * 10
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Time = [32,96]
+x = ((-64 * Facing) - Pos X) * 0.1 * Facing
+[State 0, PosAdd]
+type = VarAdd
+trigger1 = Time = [32,184)
+v = 5
+value = ceil((76 - Var(5)) * 0.05)
+[State 0, PosAdd]
+type = VarAdd
+trigger1 = Time = [32,184)
+v = 6
+value = ceil((-24 - Var(6)) * 0.1)
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Time = 184
+x = 24
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = Time < 184
+time = 1
+pos = var(5),var(6)
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = Time = 184
+time = 1
+pos = 80,0
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = Time <= 184
+time = 1
+add = min(Time*4,256),min(Time*4,256),min(Time*4,256)
+mul = 256,256,256
+color = 256-min(Time*8,256)
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Time <= 16
+map = "Cutscene"
+value = ifelse(Time=16,184,Time)
+
+[State 0, Explod Teri Shadow]
+type = Explod
+trigger1 = !Time
+anim = 2312
+postype = p1
+bindtime = 666
+sprpriority = 0
+shadow = -1
+ownpal = 1
+[State 0, Explod Void]
+type = Explod
+trigger1 = Time <= 184
+anim = 2313
+pos = 160,120
+postype = left
+sprpriority = -9
+scale = 12,1
+ownpal = 1
+trans = addalpha
+alpha = min(Time*4,256),256-min(Time*4,256)
+[State 0, Explod Void Blast]
+type = Explod
+trigger1 = Time = 96
+anim = 2314
+pos = 76,-28
+postype = p1
+bindtime = 666
+sprpriority = 4
+ownpal = 1
+[State 0, Explod DARKNESS]
+type = Explod
+trigger1 = Time = [184,200]
+anim = 2315
+pos = 76,-28
+postype = p1
+sprpriority = 9
+ownpal = 1
+trans = addalpha
+alpha = 256,(Time-184)*16
+[State 0, Explod HitSpark H]
+type = Explod
+trigger1 = Time = 180
+anim = F15 + random%4
+pos = 72,-32
+postype = p1
+sprpriority = 9
+supermovetime = 666
+ontop = 1
+ownpal = 1
+
+[State 0, Snd Hit Slash]
+type = PlaySnd
+trigger1 = Time = 150
+value = F1,8
+[State 0, Snd Hit Final]
+type = PlaySnd
+trigger1 = Time = 180
+value = F1,5
+[State 0, Snd Eerie]
+type = PlaySnd
+trigger1 = !Time
+value = S2300,1
+[State 0, Snd Shadow]
+type = PlaySnd
+trigger1 = Time = 8
+value = S2300,2
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time = 184
+value = 2311
+
+[State 0, HitAdd]
+type = VarAdd
+trigger1 = Time = 150
+trigger2 = Time = 180
+trigger3 = !Time
+v = 51
+value = 1
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = Time = 140
+v = 12
+value = 192 + 16 * (PrevStateNo=2350)
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = Time = 160
+v = 12
+value = 96 + 16 * (PrevStateNo=2350)
+[State 0, LifeAdd]
+type = TargetLifeAdd
+trigger1 = Time = 150
+trigger2 = Time = 180
+value = -Ceil(Var(12) * ((const(BC.Super3MaxDamage)*FVar(9))+const(BC.Super3MinDamage)))
+kill = Time > 160
+
+[State 0, PowerAdd]
+type = TargetPowerAdd
+trigger1 = Time = 150
+trigger2 = Time = 180
+value = Ceil(Var(12) * Map(ScaledPowerGiveHit))
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = Anim = 2311
+trigger1 = AnimElem = 10
+value = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Anim = 2311
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = Anim = 1
+value = 0
+ctrl = 1
+
+;------------------
+; DBDF+2P V
+[Statedef 2320]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 5
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = !Time
+id = 1922
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 0,0
+
+[State 0, Offset]
+type = Offset
+trigger1 = Time <= 16
+x = -1+random%3
+y = -1+random%3
+[State 0, Offset]
+type = Offset
+trigger1 = Time = [24,40)
+x = sin((GameTime+(Time-24)**2)*0.0025)*(Time-25)*8
+y = cos((GameTime+(Time-24)**2)*0.0025)*(Time-25)*8
+[State 0, Offset]
+type = Offset
+trigger1 = Time = [40,128]
+x = sin((GameTime+(Time-24)**2)*0.0025)*(120-Time)*1.5
+y = cos((GameTime+(Time-24)**2)*0.0025)*(120-Time)*1.5
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = Time = [96,132]
+;value = (Time-96)
+scale = 1-(Time-96)*0.025,1-(Time-96)*0.025
+
+[State 0, Trans]
+type = Trans
+trigger1 = Time = [96,184)
+trans = addalpha
+alpha = 256-(Time-96)*8,0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+value = 2320
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = Time = 128
+value = 666
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Time = 184
+value = 5325
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 184
+x = -4
+[State 0, VelMul]
+type = VelMul
+trigger1 = Anim = 5325
+x = 0.85
+
+[State 0, VarAdd P.Life Reduction]
+type = VarAdd
+triggerall = EnemyNear,StateNo = 2310
+trigger1 = EnemyNear,Time = 151
+trigger2 = EnemyNear,Time = 181
+trigger3 = Time = 1
+v = 22
+value = -floor((EnemyNear,Var(12) * ((const(BC.Super3MaxDamage)*EnemyNear,FVar(9))+const(BC.Super3MinDamage))) * const(BC.GetHitPLife))
+ignorehitpause = 1
+[State 0, VarAdd Lucid Meter Gain]
+type = VarAdd
+triggerall = EnemyNear,StateNo = 2310
+trigger1 = EnemyNear,Time = 151
+trigger2 = EnemyNear,Time = 181
+trigger3 = Time = 1
+v = 18
+value = floor((EnemyNear,Var(12) * ((const(BC.Super3MaxDamage)*EnemyNear,FVar(9))+const(BC.Super3MinDamage))) * const(BC.GetHitGaugeGain) * FVar(18))
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+sysvar(2) = 32
+
+[State 800, 2]
+type = SelfState
+Trigger1 = AnimTime = 0
+trigger1 = Anim = 5325
+value = 5105
+
+;---------------------------------------------------------------------------
+; DBDF+2P (Strip Down)
+[Statedef 2350]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 2300
+poweradd = -3000
+ctrl = 0
+sprpriority = -1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time >= 4
+trigger1 = Time <= 4 + 40
+flag = globalnoshadow
+[State 0, BGPalFX]
+type = Helper
+trigger1 = Time = 4
+name = "SUPER"
+ID = 2995
+stateno = 2995
+postype = back
+facing = 1
+ownpal = 1
+supermovetime = -1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 4 + 17
+time = 2
+add = 255,255,255
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 4 + 21
+time = 2
+add = 255,-255,-255
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 30
+value = 4
+[State 0, Explod Super FX]
+type = Explod
+trigger1 = Time = 4 + 8
+anim = f110
+pos = -4,-76
+postype = p1
+supermovetime = 666
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 4
+time = 40
+anim = -1
+sound = 20,2
+movetime = 40
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, Var SuperPause Notifier]
+type = VarSet
+trigger1 = Time = 4
+v = 54
+value = 40
+[State 210, Announcer ALL-OUT!]
+type = PlaySnd
+triggerall = Var(58) = 3
+trigger1 = Time = 4
+value = F62, (random>750) * (1 + random%2)
+abspan = 0
+channel = 7
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, Map Demon Off]
+type = MapSet
+trigger1 = !Time
+map = "TerkDemon"
+value = 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimElem = 2
+value = Anim
+elem = 5
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 10
+trigger2 = AnimElem = 12
+trigger3 = AnimElem = 13
+trigger4 = AnimElem = 14
+x = 8
+
+[State 0, Snd Bam]
+type = PlaySnd
+trigger1 = AnimElem = 9, 2
+value = S2300,0
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 6
+v = 33
+value = 2301
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 6
+v = 34
+value = random%2
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = AnimElemNo(0) < 10 && AnimTime < -1
+value = SCA
+time = 3
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 9
+anim = 2301
+postype = p1
+bindtime = 8
+supermovetime = 4
+scale = 1,1
+sprpriority = -2
+ownpal = 1
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = !Time
+v = 12
+value = 80
+
+[State 0, HitDef]
+type = HitDef
+trigger1 = !MoveContact && !MoveReversed
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = heavy
+priority = 9,Hit
+damage = Ceil(Var(12) * ((const(BC.Super3MaxDamage)*FVar(9))+const(BC.Super3MinDamage))),Ceil(400*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 0, 16
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -16,-48+Floor(P2Dist Y*0.5)
+hitsound = 1,4
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.5
+fall = 1
+fall.recover = 0
+kill = 0
+guard.kill = 1
+ground.velocity = -1,-5
+air.velocity = -1,-5
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget
+trigger1 = MoveHit
+trigger1 = Target,StateNo = [5000,6000)
+value = 2320
+[State 200, 3]
+type = ChangeState
+trigger1 = MoveHit
+trigger1 = Target,StateNo = 2320
+trigger1 = Target,Alive
+value = 2310
+
+[State 0, Trans]
+type = Trans
+trigger1 = AnimElemNo(0) = [10,11]
+trans = addalpha
+alpha = (Time-47)**2,0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 11
+movetype = I
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; 2QCB+K (Carve Out)
+[Statedef 2400]
+type    = S
+movetype= A
+physics = S
+velset = 0,0
+anim = 2400
+poweradd = -1000
+ctrl = 0
+sprpriority = -1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time >= 2
+trigger1 = Time <= 2 + 40
+flag = globalnoshadow
+[State 0, BGPalFX]
+type = Helper
+trigger1 = Time = 2
+name = "SUPER"
+ID = 2995
+stateno = 2995
+postype = back
+facing = 1
+ownpal = 1
+supermovetime = -1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 17
+time = 2
+add = 255,255,255
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 21
+time = 2
+add = 255,255,-255
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 30
+value = 2
+[State 0, Explod Super FX]
+type = Explod
+trigger1 = Time = 2 + 8
+anim = f100
+pos = 8,-56
+postype = p1
+supermovetime = 666
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+time = 40
+anim = -1
+sound = 20,0
+movetime = 40
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, Var SuperPause Notifier]
+type = VarSet
+trigger1 = Time = 2
+v = 54
+value = 40
+[State 210, Announcer ALL-OUT!]
+type = PlaySnd
+triggerall = Var(58) = 3
+trigger1 = Time = 2
+value = F60, random%4
+abspan = 0
+channel = 7
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, Map Demon Off]
+type = MapSet
+trigger1 = !Time
+map = "TerkDemon"
+value = 0
+
+[State 0, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = F0,3
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time <= 45
+trigger2 = MoveHit
+value = SCA
+time = 1
+ignorehitpause = 1
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 4
+v = 33
+value = 200
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 4
+v = 34
+value = random%15
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 5
+trigger3 = AnimElem = 8
+x = 6
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = !MoveContact && !MoveReversed
+v = 12
+value = 72
+
+[State 0, HitDef]
+type = HitDef
+trigger1 = !MoveContact && !MoveReversed
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = heavy
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage))),Ceil(216*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 12,32
+guard.pausetime = 12,12
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -40+Floor(P2Dist X*0.5),-56+Floor(P2Dist Y*0.5)
+hitsound = 1,3
+guardsound = 5,1
+ground.type = Low
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.5
+air.fall = 1
+fall.recover = 0
+ground.velocity = -6
+air.velocity = -2,-6
+guard.velocity = -4
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = Var(8)
+value = -1
+ignorehitpause = 1
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = NumTarget
+trigger1 = MoveHit
+trigger1 = Target,StateNo = [5000,5100)
+trigger1 = Enemy,Alive
+value = 2410
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 6
+movetype = I
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; 2QCB+K S
+[Statedef 2410]
+type    = A
+movetype= A
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2410
+sprpriority = -1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = AnimElemNo(0) < 9
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimElem = 9
+trigger1 = Time < 72
+value = Anim
+elem = 6
+
+[State 0, Explod]
+type = Explod
+trigger1 = Time = 34
+trigger2 = Time = 49
+trigger3 = Time = 64
+anim = 2111
+pos = p2dist x,p2dist y
+postype = p1
+bindtime = 666
+sprpriority = 5
+ownpal = 1
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = !MoveContact && !MoveReversed
+v = 12
+value = 12
+
+[State 0, HitDef]
+type = HitDef
+trigger1 = Time%8 = 0
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = light
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 0,8
+guard.pausetime = 12,12
+sparkno = -1;25 + random%4
+guard.sparkno = 40
+sparkxy = -16+Floor(P2Dist X*0.5) - random%33,-32+Floor(P2Dist Y*0.5) - random%33
+hitsound = 1,7
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+yaccel = 0.51
+air.fall = 1
+fall.recover = 0
+ground.velocity = -4
+air.velocity = -4,-1
+guard.velocity = -4
+p2facing = 1
+kill = 0
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+[State 0, HitDef]
+type = HitDef
+trigger1 = Time%8 = 4
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = light
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 0,8
+guard.pausetime = 12,12
+sparkno = -1;25 + random%4
+guard.sparkno = 40
+sparkxy = -16+Floor(P2Dist X*0.5) - random%33,-32+Floor(P2Dist Y*0.5) - random%33
+hitsound = 1,7
+guardsound = 5,1
+ground.type = Low
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+yaccel = 0.51
+air.fall = 1
+fall.recover = 0
+ground.velocity = -4
+air.velocity = -4,-1
+guard.velocity = -4
+p2facing = 1
+kill = 0
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+[State 0, HitDef]
+type = HitDef
+trigger1 = AnimElem = 9
+attr = S,HA
+hitflag = MAF
+guardflag = M
+animtype = heavy
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 8,16
+guard.pausetime = 12,12
+sparkno = 15 + random%4
+guard.sparkno = 40
+sparkxy = -8,-56+Floor(P2Dist Y*0.5)
+hitsound = 1,4
+guardsound = 5,1
+ground.type = Low
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+yaccel = 0.51
+fall = 1
+fall.recover = 0
+ground.velocity = -6,-1.5
+air.velocity = -6,-1.5
+guard.velocity = -4
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+
+[State 0, Var Feral Gain]
+type = VarSet
+trigger1 = MoveHit = 1
+v = 42
+value = min(Var(42)+1,100)
+ignorehitpause = 1
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = MoveHit = 1
+trigger1 = AnimElemNo(0) < 9
+v = 51
+value = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 9, 1
+movetype = I
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget
+trigger1 = AnimElemNo(0) = 9
+trigger1 = MoveHit && Var(8) = 1
+trigger1 = Target,StateNo = [5000,6000)
+value = 5390
+ignorehitpause = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; 2QCF+2K (Wicked Hunt)
+[Statedef 2500]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 2500
+poweradd = -2000
+ctrl = 0
+sprpriority = 2
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time >= 2
+trigger1 = Time <= 2 + 40
+flag = globalnoshadow
+[State 0, BGPalFX]
+type = Helper
+trigger1 = Time = 2
+name = "SUPER"
+ID = 2995
+stateno = 2995
+postype = back
+facing = 1
+ownpal = 1
+supermovetime = -1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 17
+time = 2
+add = 255,255,255
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 2 + 21
+time = 2
+add = 255,96,-255
+[State 0, VarSet AfterImage]
+type = VarSet
+trigger1 = !Time
+v = 30
+value = 3
+[State 0, Explod Super FX]
+type = Explod
+trigger1 = Time = 2 + 8
+anim = f105
+pos = 8,-56
+postype = p1
+supermovetime = 666
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+time = 40
+anim = -1
+pos = 8,-56
+sound = 20,0
+movetime = 40
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, Var SuperPause Notifier]
+type = VarSet
+trigger1 = Time = 2
+v = 54
+value = 40
+[State 210, Announcer EX!]
+type = PlaySnd
+triggerall = Var(58) = 3
+trigger1 = Time = 2
+value = F61, random%2
+abspan = 0
+channel = 7
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = MoveType = A
+value = SCA
+time = 1
+
+[State 0, Map Demon Off]
+type = MapSet
+trigger1 = !Time
+map = "TerkDemon"
+value = 0
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 0
+
+[State 0, Snd Teleport]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = S1300,0
+[State 0, Snd Dash]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = F2,3
+
+[State 0, Explod Big Dust FX]
+type = Explod
+trigger1 = AnimElem = 4
+anim = F85
+postype = p1
+removetime = -2
+supermovetime = 4
+ownpal = 1
+sprpriority = 4
+[State 0, Explod Dust Back]
+type = Explod
+trigger1 = AnimElemNo(0) = [5,7]
+trigger1 = GameTime%3 = 0
+anim = F84
+pos = 2-random%5,random%4
+postype = p1
+facing = -1+(2*random%2)
+vel = (-20-random%10)*0.1,(-20-random%10)*0.1
+accel = 0.05,0.15
+sprpriority = 4
+ownpal = 1
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 33
+value = 193
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 34
+value = random%3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 5
+x = 8
+[State 0, VelMul]
+type = VelMul
+trigger1 = AnimElemNo(0) = 7
+x = 0.7
+[State 0, VelMul]
+type = VelMul
+trigger1 = AnimElemNo(0) >= 8
+x = 0.5
+
+[State 0, Explod SLAYER]
+type = Explod
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 7
+anim = 112
+pos = 0,0
+postype = p1
+vel = 0,0
+shadow = -1
+removeongethit = 1
+
+[State 800, 1]
+type = HitDef
+trigger1 = Var(51)
+attr = S, HT
+hitflag = MAF+
+priority = 1, Miss
+sparkno = 50
+sparkxy = -8,-52
+hitsound = F1, 9
+p1sprpriority = 1
+p1facing = 1
+p2facing = 1
+p1stateno = 2510
+p2stateno = 2520
+[State 800, 1]
+type = HitDef
+trigger1 = !Var(51)
+attr = S, HT
+hitflag = M-
+priority = 1, Miss
+sparkno = 50
+sparkxy = -8,-52
+hitsound = F1, 9
+p1sprpriority = 1
+p1facing = 1
+p2facing = 1
+p1stateno = 2510
+p2stateno = 2520
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimElem = 6, >= 1 && AnimElemNo(0) = 6
+trigger1 = P2BodyDist X <= 0
+value = Anim
+elem = 7
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 7
+movetype = I
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; 2QCF+2K S
+[Statedef 2510]
+type    = S
+movetype= A
+physics = N
+anim = 2510
+sprpriority = 5
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = AnimElemNo(0) <= 2
+trigger2 = Var(42) >= 30
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, ParentVarSet Counter Message]
+type = VarSet
+triggerall = !Time
+trigger1 = Var(10)
+v = 32
+value = 63 + (Var(10) = 2) + (Var(10) = 3) * 10
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = PrevStateNo != 2500
+trigger1 = !Time
+x = P2Dist X * 0.5
+[State 0, Turn]
+type = Turn
+trigger1 = PrevStateNo != 2500
+trigger1 = !Time
+[State 0, Turn]
+type = Turn
+trigger1 = PrevStateNo != 2500
+trigger1 = !Time
+redirectid = Target,ID
+[State 0, TargetState]
+type = TargetState
+trigger1 = PrevStateNo != 2500
+trigger1 = !Time
+value = 2520
+[State 0, Var Feral Gain]
+type = VarSet
+trigger1 = PrevStateNo != 2500
+trigger1 = !Time
+v = 42
+value = max(Var(42)-30,0)
+ignorehitpause = 1
+[State 0, Explod]
+type = Explod
+trigger1 = PrevStateNo != 2500
+trigger1 = !Time
+anim = 112
+pos = 32,0
+postype = p1
+vel = -24,0
+sprpriority = 5
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimElemNo(0) = 1 && AnimTime < -1
+trigger1 = FrontEdgeDist > 16
+value = Anim
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = Vel X < (16 + 8 * (PrevStateNo!=2500)) && AnimElemNo(0) = 1 && AnimTime < -1
+x = 0.25 + 0.75 * PrevStateNo!=2500
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 0
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 2
+x = -72 + FrontEdgeDist
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = AnimElemNo(0) = 1 && AnimTime < -1
+time = 1
+pos = 8,0
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = AnimElem = 2
+time = 1
+pos = FrontEdgeDist,0
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = AnimElem = 3
+time = 1
+pos = 80,-56
+
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget
+trigger1 = AnimElem = 3
+value = 2521
+
+[State 5100, Explod HitWall]
+type = Explod
+trigger1 = AnimElem = 3
+anim = F70
+;facing = -1
+postype = p1
+pos = FrontEdgeDist,-48
+supermovetime = 666
+ownpal = 1
+sprpriority = -1
+[State 0, Explod HitSpark]
+type = Explod
+trigger1 = AnimElem = 3
+anim = F20;15 + random%4
+pos = p2dist x,-56
+postype = p1
+sprpriority = 9
+supermovetime = 666
+ontop = 1
+ownpal = 1
+
+[State 0, Explod Dust Back]
+type = Explod
+trigger1 = AnimElemNo(0) = 1 && AnimTime < -1
+trigger1 = GameTime%3 >= 2 - (Vel X > 8)
+anim = F84
+pos = -38-random%5,random%4
+postype = p1
+facing = -1+(2*random%2)
+vel = (-20-random%10)*0.1,(-20-random%10)*0.1
+accel = 0.05,0.15
+sprpriority = 4
+ownpal = 1
+
+[State 1027, Snd HitWall]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = F7,1
+[State 1027, Snd Swing]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = F0,3
+[State 1027, Snd HitHard]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = F1,4
+
+[State 0, Var HitAdd]
+type = VarAdd
+trigger1 = AnimElem = 3
+v = 51
+value = 1
+[State 0, Var HitShake]
+type = VarSet
+trigger1 = AnimElem = 3
+v = 9
+value = 16
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = AnimElem = 3
+v = 12
+value = 16 + 292 * (PrevStateNo=2500)
+[State 0, LifeAdd]
+type = TargetLifeAdd
+trigger1 = AnimElem = 3
+value = -Ceil(Var(12) * ((const(BC.Super2MaxDamage)*FVar(9))+const(BC.Super2MinDamage))) - 16 * (PrevStateNo!=2500)
+kill = Var(42) < 30
+
+[State 0, PowerAdd]
+type = TargetPowerAdd
+trigger1 = AnimElem = 3
+value = Ceil(Var(12) * Map(ScaledPowerGiveHit))
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimElem = 4, 8
+trigger1 = Var(42) >= 30
+value = 2510
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = Anim = 1
+value = 0
+ctrl = 1
+
+;------------------
+; 2QCF+2K V1
+[Statedef 2520]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 2
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 1,0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+value = 2520
+
+;------------------
+; 2QCF+2K V2
+[Statedef 2521]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 2
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = (Anim!=2521)
+movecamera = 1,0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 0, Offset]
+type = Offset
+trigger1 = Time < 16
+x = -1+random%3
+y = -1+random%3
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = Anim = 2521 && AnimTime = 0
+y = 0
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = !Time
+value = 2521
+[State 0, ChangeAnim2]
+type = ChangeAnim
+trigger1 = Anim = 2521 && AnimTime = 0
+value = 5325
+
+[State 0, VarAdd P.Life Reduction]
+type = VarAdd
+trigger1 = !Time
+v = 22
+value = -floor((EnemyNear,Var(12) * ((const(BC.Super2MaxDamage)*EnemyNear,FVar(9))+const(BC.Super2MinDamage))) * const(BC.GetHitPLife))
+ignorehitpause = 1
+[State 0, VarAdd Lucid Meter Gain]
+type = VarAdd
+trigger1 = !Time
+v = 18
+value = floor((EnemyNear,Var(12) * ((const(BC.Super2MaxDamage)*EnemyNear,FVar(9))+const(BC.Super2MinDamage))) * const(BC.GetHitGaugeGain) * FVar(18))
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+sysvar(2) = 8
+
+[State 5001, 6]
+type = SelfState
+trigger1 = Anim != 2521 && AnimTime = 0
+value = 5105
+
+;---------------------------------------------------------------------------
+; 2QCB+2P S-K (Long Forgotten)
+[Statedef 2600]
+type    = S
+movetype= A
+physics = N
+velset = 0,0
+anim = 2600
+poweradd = -3000
+ctrl = 0
+sprpriority = -1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time >= 12
+trigger1 = Time <= 12 + 40
+flag = globalnoshadow
+[State 0, BGPalFX]
+type = Helper
+trigger1 = Time = 12
+name = "SUPER"
+ID = 2995
+stateno = 2995
+postype = back
+facing = 1
+ownpal = 1
+supermovetime = -1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 12 + 17
+time = 2
+add = 255,255,255
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time = 12 + 21
+time = 2
+add = 255,-255,-255
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+v = 30
+value = 4
+[State 0, VarSet]
+type = VarSet
+trigger1 = AnimElem = 19
+v = 30
+value = 0
+[State 0, Explod Super FX]
+type = Explod
+trigger1 = Time = 12 + 8
+anim = f110
+pos = 16,-36
+postype = p1
+supermovetime = 666
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 1
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 12
+time = 40
+anim = -1
+sound = 20,2
+movetime = 40
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, Var SuperPause Notifier]
+type = VarSet
+trigger1 = Time = 12
+v = 54
+value = 40
+[State 210, Announcer ALL-OUT!]
+type = PlaySnd
+triggerall = Var(58) = 3
+trigger1 = Time = 12
+value = F62, (random>750) * (1 + random%2)
+abspan = 0
+channel = 7
+[State 0, MapSet]
+type = MapSet
+trigger1 = MoveType = A
+map = "SuperPauseTime"
+value = 2
+ignorehitpause = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time <= 54
+value = ,NA,SA,HA,NP,SP,HP,NT,ST
+time = 1
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time = (54,58]
+value = ,NA,SA,NP,SP,NT,ST
+time = 1
+
+[State 0, Map Demon Off]
+type = MapSet
+trigger1 = !Time
+map = "TerkDemon"
+value = 0
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = Anim = 2600 && AnimElemNo(0) = [18,28]
+value = 0
+movecamera = 0,1
+ignorehitpause = 1
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = MoveHit && NumTarget
+value = 0
+ignorehitpause = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = Anim = 2600
+trigger1 = AnimElem = 21
+trigger1 = !MoveHit || !NumTarget
+trigger2 = AnimElemNo(0) = 28
+trigger2 = MoveHit = 1
+value = 2600
+elem = 29
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Anim = 2600
+trigger1 = AnimElem = 28
+trigger1 = Time < 100
+value = 2600
+elem = 20
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Anim = 2600
+trigger1 = AnimElemNo(0) >= 29
+trigger1 = Pos Y + Vel Y > Map(StageGround)
+value = 2601
+
+[State 0, Explod]
+type = Explod
+trigger1 = Anim = 2600 && AnimElemNo(0) = 20
+trigger2 = Anim = 2600 && AnimElemNo(0) = 24
+trigger3 = Anim = 2600 && AnimElemNo(0) = 28
+anim = 2602
+ID = 3000
+pos = 0,-Vel Y;Pos Y * 3
+postype = p1
+facing = ifelse(AnimElemNo(0)=24,-1,1)
+removetime = 6
+sprpriority = -1
+ownpal = 1
+removeongethit = 1
+[State 0, Explod]
+type = Explod
+trigger1 = Var(8) = 1 && MoveHit && NumTarget
+anim = 2603
+ID = 3000
+pos = 0,0
+postype = p1
+facing = 1 - 2 * (AnimElemNo(0)=24)
+sprpriority = 7
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = Anim = 2601 && AnimElem = 1
+trigger1 = P2Dist X < 0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = Anim = 2601 && AnimElem = 1
+y = 0
+[State 0, VelSet]
+type = VelSet
+trigger1 = Anim = 2600
+trigger1 = AnimElem = 21 || AnimElem = 25
+trigger2 = Anim = 2601 && AnimElem = 1
+x = 0
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Anim = 2600 && AnimElem = 18
+x = 8
+y = -3.5
+[State 0, VelSet]
+type = VelSet
+trigger1 = Anim = 2600 && AnimElem = 20
+trigger2 = Anim = 2600 && AnimElem = 24
+trigger3 = Anim = 2600 && AnimElem = 28
+y = -7
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Anim = 2600 && AnimElemNo(0) = 20
+trigger2 = Anim = 2600 && AnimElemNo(0) = 28
+x = (FrontEdgeDist - 17) * (AnimElemTime(AnimElemNo(0)) * 0.1)
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Anim = 2600 && AnimElemNo(0) = 24
+x = (BackEdgeDist - 17) * (AnimElemTime(AnimElemNo(0)) * -0.1)
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Anim = 2600 && AnimElemNo(0) = [21,23]
+x = (FrontEdgeDist-17)
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Anim = 2600 && AnimElemNo(0) = [25,27]
+x = -(BackEdgeDist-17)
+
+[State 0, VelMul]
+type = VelSet
+trigger1 = Anim = 2600 && AnimElem = 29
+x = -2 + FrontEdgeDist * 0.025
+y = -4
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = Anim = 2600 && AnimElemNo(0) >= 29
+y = 0.5
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = MoveHit && NumTarget
+y = Vel Y * 3
+[State 0, Offset]
+type = Offset
+trigger1 = MoveHit && NumTarget
+y = Pos Y * -0.75
+ignorehitpause = 1
+[State 0, Offset]
+type = Offset
+trigger1 = Anim = 2601 && AnimElemTime(1) <= 3
+x = 8 * (1-2*(Time%2))
+[State 0, PalFX]
+type = PalFX
+trigger1 = Anim = 2601 && AnimElemTime(1) <= 2
+time = 1
+mul = 0,0,0
+
+[State 0, Var Voice Bank]
+type = VarSet
+trigger1 = Anim = 2600 && AnimElem = 3
+v = 33
+value = 193
+[State 0, Var Voice Variant]
+type = VarSet
+trigger1 = Anim = 2600 && AnimElem = 3
+v = 34
+value = random%3
+
+[State 0, Snd TIGER]
+type = PlaySnd
+trigger1 = Anim = 2600 && AnimElem = 20
+trigger2 = Anim = 2600 && AnimElem = 28
+value = S900,0
+channel = 0
+[State 0, Snd Dash]
+type = PlaySnd
+trigger1 = Anim = 2600 && AnimElem = 21
+trigger2 = Anim = 2600 && AnimElem = 25
+value = F2,0
+channel = 1
+[State 0, Snd Dash]
+type = PlaySnd
+trigger1 = Var(8) = 1 && MoveHit && NumTarget
+value = F1,8
+channel = 1
+ignorehitpause = 1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = Anim = 2600 && AnimElem = 17
+map = "DashDustFX"
+value = 1
+
+[State 0, Var Damage Value]
+type = VarSet
+trigger1 = !Time
+v = 12
+value = 80
+
+[State 0, HitDef]
+type = HitDef
+trigger1 = !MoveContact && !MoveReversed
+trigger2 = AnimElem = 20
+trigger3 = AnimElem = 24
+trigger4 = AnimElem = 28
+attr = A,HA
+hitflag = MAF
+guardflag = M
+animtype = heavy
+priority = 5,Hit
+damage = Ceil(Var(12) * ((const(BC.Super3MaxDamage)*FVar(9))+const(BC.Super3MinDamage))),Ceil(400*const(BC.ChipHeavy))
+guardpoints = 0
+pausetime = 4 + 8 * (AnimElemNo(0)>=28),4 + 8 * (AnimElemNo(0)>=28)
+guard.pausetime = 12,12
+sparkno = 5 + random%4 + 10 * (AnimElemNo(0)>=28)
+guard.sparkno = 40
+sparkxy = -16,-48;+Floor(P2Dist Y*0.125)
+hitsound = 1,3 + (AnimElemNo(0)>=28)
+guardsound = 5,1
+ground.type = High
+ground.slidetime = 32
+ground.hittime = 32
+guard.hittime = 15
+air.hittime = 32
+yaccel = 0.5
+fall = 1
+fall.recover = 0
+fall.recovertime = ifelse(AnimElemNo(0)>=28,16,4)
+ground.velocity = EnemyNear,Pos X * 0.05 * Facing,-10
+air.velocity =  EnemyNear,Pos X * 0.025 * Facing,-8
+p2facing = 1
+getpower = 0,0
+givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+
+[State 0, TargetState]
+type = TargetState
+triggerall = NumTarget
+triggerall = AnimElemNo(0) = 28
+trigger1 = MoveHit && Var(8) = 1
+trigger1 = Target,MoveType = H && (Target,StateNo = [5000,5100))
+value = 5350
+ignorehitpause = 1
+
+[State 0, Var Feral Gain]
+type = VarSet
+trigger1 = MoveHit && NumTarget
+trigger1 = Var(8) = 1
+v = 42
+value = min(Var(42)+10,100)
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = Anim = 2600 && AnimElem = 17
+statetype = A
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = Anim = 2601 && StateType != S
+statetype = S
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = Anim = 2600 && AnimElem = 29
+movetype = I
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = Anim = 2601
+trigger1 = AnimTime = 0
+value = 1
+[State 200, 3]
+type = ChangeState
+trigger1 = Anim = 1
+value = 0
+ctrl = 1

@@ -1,0 +1,143 @@
+;--------------------------------------------------------
+[Info]
+name = "Copycat Stage X"
+displayname = "Universe-LCD: Oleander Square 'L'" ;Name to display
+versiondate = 09,30,2009    ;Version date of stage (MM,DD,YYYY or X.XX)
+mugenversion = 1.0          ;Version of M.U.G.E.N stage works on (X.XX)
+author = "JNSJanis"         ;Stage author name
+attachedchar = ZZZStageSFX.def
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -300
+boundright = 300
+boundhigh = -100
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+;--------------------------------------------------------
+[Shadow]
+intensity = 25
+color = 100,50,50
+yscale = .3
+fade.range = 0,0
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/c_bern.mp3
+bgmloopstart = 1288533
+bgmloopend = 8940479
+
+;-------------------------------------
+[BGdef]
+spr = XCopycatStage.sff
+debugbg = 0
+;----------
+
+[BG Sky]
+type  = normal
+spriteno = 4, 0
+layerno = 0
+start = 0, -300
+delta = .8, .8
+mask  = 0
+
+[BG Earth, Wind and Fire]
+type  = normal
+spriteno = 3, 0
+layerno = 0
+start = 100, -290
+delta = .89, .89
+mask  = 1
+
+[BG More Trees]
+type  = normal
+spriteno = 2, 1
+layerno = 0
+start = 25, -280
+delta = .9, .9
+mask  = 1
+
+[BG Trees]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = 25, -290
+delta = .95, .95
+mask  = 1
+
+[BG River Shine (Apparently it is Milk?]
+type  = anim
+actionno = 2
+layerno = 0
+start = 25, -290
+delta = .95, .95
+mask  = 1
+
+[Begin Action 2] ;Doki Doki Love Sugar
+6,0,0,0,7
+6,1,0,0,7
+6,2,0,0,7
+
+[BG Town]
+type  = normal
+spriteno = 1, 0
+layerno = 0
+start = 25, -290
+delta = .99, .99
+mask  = 1
+
+[BG Plaza]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 50, -290
+delta = 1, 1
+mask  = 1
+
+[BG Fountain Water]
+type  = anim
+actionno = 1
+layerno = 0
+start = 50, -290
+delta = 1, 1
+mask  = 1
+
+[Begin Action 1] ;Fountain Water
+5,0,0,0,7
+5,1,0,0,7
+5,2,0,0,7
+

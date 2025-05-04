@@ -1,0 +1,66 @@
+<#f880c0>:Unique Trait:</>		"Du Vizagoj"
+GABBY's available moves depend on the direction she's
+facing, relative to which side she starts the match on.
+_GH moves are usable when she's front-facing, while
+_GD moves are available when she's turned around.
+Hitting with Subite allows more Deziru followups, while
+hitting with Militiso increases the charge rate of
+Naskiga Meso.
+
+<#f880c0>:Craze Technique:</>
+Militisto_GH		^CT
+Subite_GD		^CT
+
+<#f880c0>:Throws:</>
+Veka Voko		^GP
+Sentu Timon		_B^GP
+Rimarku		_AO^GP
+
+<#f880c0>:Command Normals:</>
+Kun Flugiloj		_F^SP
+Kompaso		_F^LK
+Kompaso (Falseto)		_F^SK
+
+<#f880c0>:Special Moves:</>
+Falstelo_GH		_AA_QCF^P
+_! Deziru		_UDLR^P
+Baso Kraso_GH		~D^K
+Mielabelo_GH		_AA_QCB^P
+Mortigu Ungegon_GH		_AA_QCB^K
+Naskiga Meso_GD		_QCF^P
+Papera Luno_GD		~D^K
+Desegnis_GD		_QCB^P
+Nostalgio_GD		_QCB^K
+_! Palpebrumi		^PK
+
+<#f880c0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+La Kometo de Gabby_GH		_AA_QCF_QCF^P
+Humu_GD		_QCF_QCF^P
+Mirinda Spegulo		_QCF_QCF^K
+Inverti		_QCB_QCB^LK
+Mi Estas Tuta 		_QCB_QCB^SK
+
+<#f880c0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Humu EX_GH		_QCF_QCF^2P
+La Kometo de Gabby EX_GD		_QCF_QCF^2P
+
+<#f880c0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Lucidaj Songoj		_QCB_QCB^2P
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

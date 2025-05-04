@@ -1,0 +1,52 @@
+<#f8e8a0>:Unique Trait:</>		"THE INEVITABLE"
+TYRANT's Special Moves use Charge Inputs. The longer_Bor_D
+is held, the stronger the Special Move is when used.
+Hitting with or fully charging WAR CRY will grant additional
+properties to TYRANT's next^SPor^SKSpecial Move.
+
+<#f8e8a0>:Craze Technique:</>
+WAR CRY		_CH^CT
+
+<#f8e8a0>:Throws:</>
+FACE YOUR FEARS		^GP
+ONE'S RIGHT		_B^GP
+EXISTENCE CALAMITY		_AO^GP
+
+<#f8e8a0>:Command Normals:</>
+CRAWL		_DF
+RAGE CURRENT		_DB^SP
+SHADOW STOMP		_DB^SK 
+
+<#f8e8a0>:Special Moves:</>
+VULCAN BREATH		~B^P
+EMPEROR'S AVALANCHE		~B^K
+EMPEROR'S MAGNITUDE		~D^P
+ANCIENT CREST		~D^K
+
+<#f8e8a0>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+LORD OF THE HUNT		_QCF_QCF^P
+LORD OF THE EARTH		_HCB^2Por_360^2P
+
+<#f8e8a0>:All-Out EX:</> <#bebebe>(2 Stock)</>
+LORD OF PUNISHMENT		_HCB^2Kor_360^2K
+
+<#f8e8a0>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+ULTIMATE DEVIL'S CRUSHER		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

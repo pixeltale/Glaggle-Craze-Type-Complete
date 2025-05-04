@@ -1,0 +1,59 @@
+<#c0a8f8>:Unique Trait:</>		"Asmos"
+Lucy's staff weapon, Asmos, can be connected and
+disconnected through her Craze Technique, which changes
+how her moves function. _AC moves can only be used while
+Asmos is connected, and _AD moves can only be used while
+Asmos is disconnected.
+
+<#c0a8f8>:Craze Technique:</>
+Hell Control		^CT
+
+<#c0a8f8>:Throws:</>
+You Couldn't React?		^GP
+This You Should've Seen Coming		_B^GP
+You Picked a Bad Spot to Be		_AO^GP
+
+<#c0a8f8>:Command Normals:</>
+You're in my Way, Get Out!		_F^SK
+Dare You to Come Closer_AC		_F^SP
+I Want To Take You For a Ride_AC		_AO_D^SK
+
+<#c0a8f8>:Special Moves:</>
+Cut You To Ribbons, Shreds, etc._AC		_QCF^P
+Here I Spin Again On My Own_AC		_DP^P
+My Table Manners are Good, Honest_AC		_QCB^K
+Wallace Forgot This, I Didn't_AC		_CH_QCB^P
+_! Cancel		While holding ^SP, _F_F or _B_B
+What Goes Up Must Come Down_AD		_QCF^Por_AC_QCF^CT
+You Should Keep Your Focus_AD		_QCB^Por_AC_QCB^CT
+I Should've Been a Meteorologist_AD		_DP^Por_AC_DP^CT
+Haven't You Got Eyeballs in Your Skull?_AD		_QCB^K
+
+<#c0a8f8>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+I Call This One, The Sword of the Witch_AC		_QCF_QCF^P
+Too Bad You Didn't Bring Headphones_AD		_QCF_QCF^P
+Yeah, No Thanks		_QCB_QCB^K
+
+<#c0a8f8>:All-Out EX:</> <#bebebe>(2 Stock)</>
+You're Really Getting On My Nerves		_QCB_QCB^2P
+
+<#c0a8f8>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+This is My Last Resort, So Say Your Prayers		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

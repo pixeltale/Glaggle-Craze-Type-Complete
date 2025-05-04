@@ -1,0 +1,65 @@
+<#60c040>:Unique Trait:</>		"Spin Speed"
+Baxter's_BSattacks are buffed by how much Spin Speed he 
+has. Spin Speed can be charged through Burn Roller and
+holding Grey Cannon or White Catapult. Spin Speed decays
+slowly over time, and more quickly when using special moves 
+marked with_BS.
+Baxter can Dash and use Specials while in Burn Roller.
+Holding^CTduring ground throws, landing
+from any specials, or during Lime Drop will cancel the 
+recovery state into Burn Roller.
+
+<#60c040>:Craze Technique:</>
+Burn Roller		_AA_CH^CT
+_! Cancel		_F_For_B_B
+_! Lime Drop		_AO_D_D
+_! Cerulean Leap		_AO_F_For_B_B
+Lime Drop		_AO_D^CT
+
+<#60c040>:Throws:</>
+Maroon Appetizer		^GP
+Sleet Bounce		_B^GP
+Orange Cross		_AO^GP
+
+<#60c040>:Command Normals:</>
+Scarlet Cleave		_For_B^SP
+Sky Blue Thrash		_DB^SK
+
+<#60c040>:Special Moves:</>
+Grey Cannon_BS		_AA_CH_QCF^P
+_! Cancel		^K
+White Catapult _BS		_CH_QCF^K
+_! Cancel		^P
+Blue Wave_BS		~D^P
+Indigo Scream_BS		_AA_QCB^K
+Multi-Chromatic Engine		_QCB^P
+
+<#60c040>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Garish Hues_BS		_QCF_QCF^P
+Contrast Bomber		_AA_QCB_QCB^P
+Full Palette		_QCB_QCB^K
+_! Violet Shot		During Special,^CT
+
+<#60c040>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Garish Hues EX		_QCF_QCF^2P
+
+<#60c040>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Polarized Flight		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

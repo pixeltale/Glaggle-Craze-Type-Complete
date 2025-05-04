@@ -1,0 +1,135 @@
+[Data]
+life = 1000
+attack = 100
+defence = 100
+fall.defence_up = 0
+liedown.time = 60
+airjuggle = 999
+sparkno = 2
+guard.sparkno = 40
+KO.echo = 0
+IntPersistIndex = 55
+FloatPersistIndex = 40
+
+[Size]
+xscale = 1
+yscale = 1
+ground.back = 15
+ground.front = 15
+air.back = 6
+air.front = 6
+height = 33
+attack.dist = 999
+proj.attack.dist = 90
+proj.doscale = 0
+head.pos = 0, -66
+mid.pos = 0, -40
+shadowoffset = 0
+draw.offset = 0,0
+
+[Velocity]
+walk.fwd  = 1.9
+walk.back = -1.75
+run.fwd  = 5.0, 0
+run.back = -5.75,-1.5
+jump.neu = 0,-9
+jump.back = -2.75
+jump.fwd = 2.75
+runjump.fwd = 3,-9
+
+[Movement]
+yaccel = .55
+stand.friction = .85
+crouch.friction = .85
+
+[Constants]
+BC.VoiceBankKO = 3
+BC.VoiceBankWeakKO = 2
+BC.VoiceBankHeartBreaker = 2
+BC.VoiceBankCrazeCancel = 6
+BC.VoiceBankPain = 17
+BC.VoiceBankGuardBreak = 2
+BC.VoiceBankThrowTech = 4
+BC.VoiceBankExert = 7
+
+[Quotes]
+victory0  = "...Amen..."
+victory1  = "They triumphed over him by the blood of the Lamb, and by the word of their testimony, they did not love their lives so much as to shrink from death. Revelation 12:11."
+victory2  = "You are worthy, O Lord, To receive glory and honor and power, For You created all things, And by Your will they exist and were created. Revelation 4:11."
+victory3  = "Kill not the moth, nor butterfly, for my judgement draweth nigh!"
+victory4  = "Here is a call for the endurance of the saints, those who keep the commandments of God and their faith in Jesus. Revelation 14:12."
+victory5  = "Those whom I love, I reprove and discipline, so be zealous and repent. Revelation 3:19."
+victory6  = "He will wipe away every tear from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore, for the former things have passed away... Revelation... 21:4..."
+victory7  = "I'm sorry. I just need the truth..."
+victory8  = "I have no intentions for you to join my cause, or my faith. God accepts all that he creates, and so shall I."
+victory9  = "I am simply God's instrument, doing what needs to be done in this world."
+victory10 = "You held your own very well. If anything, it is a sign that you were chosen for this upcoming catastrophe, which makes me wonder even more as to why I'm here..." ; AJIT
+victory11 = "What makes you think you can govern the power of the Heavens?" ; TSUG
+victory12 = "The innocence of a child, but the aura of the devil. What gives?" ; TSUK
+victory13 = "Don't blame the faith for what happened to you, but the person. People have twisted the word of the Lord for so long, it makes me sick..." ; SHER
+victory14 = "The weakest will always choose the easy way out. Expel that evil and accept your weakness." ; SHEX
+victory15 = "Fear not, I am the first and the last, and the living one. I died, and behold I am alive forevermore, and I have the keys of Death and Hades. Revelation 21:1 and 2." ; WALL
+victory16 = "You can find purpose in faith, but I don't want to push this upon you. Just consider it." ; REAP
+victory17 = "A man-made Satan... What has this world come to?" ; REAK
+victory18 = "You'd best not think you're the only savior in this world." ; JUST
+victory19 = "Evil is nothing to play with! You spit in the face of God for such acts!" ; JUSK
+victory20 = "The Devil's Triangle... It was in near my grasp once, and this time it won't slip again." ; BOUN
+victory21 = "What devil created you?" ; BAXT
+victory22 = "Everything God has made is perfect, but you were made by human hands. Even when I think about this, I believe you too can still find yourself in God." ; CICI
+victory23 = "All those gathered here will know that it is not by sword or spear that the Lord saves, for the battle is the Lord's, and he will give all of you into our hands. Samuel 17:47" ; GOLI
+victory24 = "Legion, if that is you, rest in pieces!" ; NECC
+victory25 = "You're a bigger embarrassment to rock music than Christian rock." ; EMIC
+victory26 = "I'm not supposed to do this, but I need you to look up a file on someone called ‘Bree O'Cuilinn'." ; LUCY
+victory27 = "I will smite you to Hell where you belong!" ; GABB
+victory28 = "I'm glad someone here can give me some sympathy. Even with my faith at my side, I still feel alone." ; ISAB
+victory29 = "Mercy comes to no being or person who dares try to rip apart the world God saw as perfect!" ; TYRA
+victory30 = "I have no time for questions, so stay out of my way. I still have a mission to complete." ; IKUE
+victory31 = "Don't blame the faith for what happened to you, but the person. People have twisted the word of the Lord for so long, it makes me sick..." ; TERI
+victory32 = "What a rag-tag bunch of individuals. Guess anyone can get along, huh?" ; BERN
+victory33 = "A world where witches are accepted as the norm? It makes me think..." ; JANE
+victory69 = "It is not by my hand that I am once again given flesh."
+victory97 = "You make me puke." ; NECK
+victory98 = "Play God, and you get His wrath." ; KAHL
+victory99 = "I will smite you to Hell where you belong!" ; SHIT
+
+;---------------------------------------------------------------------------
+; VARIABLE
+; 1   -  Air Action Available
+; 4   -  Perfect Guard Check
+; 5   -  Temp 1
+; 6   -  Temp 2
+; 7   -  Temp 3
+; 8   -  HitPause Time
+; 9   -  EnvShake
+; 10  -  Counter Check
+; 11  -  Dire Counter Stacks
+; 12  -  Attack Damage
+; 13  -  PauseTime
+; 14  -  TargetPauseTime
+; 15  -  AI Level
+; 16  -  AI Aggression Check
+; 18  -  Craze Gauge
+; 19  -  Perfect Guard Spark
+; 20  -  LifeBar Visibility
+; 21  -  LifeBar Pain Amount
+; 22  -  P.Life Amount
+; 23  -  P.Life Delay
+; 25  -  Guard Meter
+; 26  -  Guard Rise Delay
+; 27  -  Guard Meter Reduction of Current HitDef
+; 28  -  Poison Timer
+; 29  -  Poison Frequent
+; 30  -  AfterImage Type
+; 40  -  [NECX]
+; 50  -  Round Slide Check
+; 51  -  Combo Count
+; 52  -  Combo Count Timer
+; 53  -  Combo Number Display
+; 58  -  Am I SHIFT?
+;
+; FLOAT VAR
+; 8  -  Damage Dampening
+; 9  -  Counter Damage Multiplier
+; 10 -  Final Damage Percentage
+; 27 -  Guard Damage Multiplier
+;---------------------------------------------------------------------------

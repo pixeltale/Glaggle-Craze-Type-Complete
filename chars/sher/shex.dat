@@ -1,0 +1,51 @@
+<#00f8d8>:Unique Trait:</>		"Lazarus' Comeback Effect"
+After Sherm's life drops below a certain point, his Craze 
+Gauge will automatically fill up for the rest of the round.
+
+<#00f8d8>:Craze Technique:</>
+Ultimate Chesto Punch		_CH^CT
+_! Cancel		While holding, _F_F or _B_B
+
+<#00f8d8>:Throws:</>
+That Won't Work		^GP
+Look! Over There!		_B^GP
+I Broke My Back		_AO^GP
+
+<#00f8d8>:Command Normals:</>
+Can I Get Uuuuuuuuh Overhead?		_F^LP
+What If I Flip the Sprite? And...		_B or _F^SK
+Footsie!		_DB^SK
+
+<#00f8d8>:Special Moves:</>
+Habjouken		_AA_QCF^P
+Hurricane Senpuukyakuu		_AA_QCB^K
+Shermryuken		_AA_DP^P
+Jordan Shermtogeri		_HCF^K
+
+<#00f8d8>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Shin Stinky Habjouken		_CH_QCF_QCF^P
+Stinky Hurricane Senpuukyaku 		_AA_QCB_QCB^K
+
+<#00f8d8>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Denjin Habjouken		_CH_QCB_QCB^2P
+
+<#00f8d8>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+SHIN SHERMRYUKEN		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK

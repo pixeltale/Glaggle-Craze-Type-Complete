@@ -1,0 +1,55 @@
+<#60c040>:Unique Trait:</>		"Hex-F Flow"
+Baxter's Craze Technique, Blank Canvas Son, summons a
+spawn to fight autonomously, but requires a unique resource
+to use. If no spawns are on the field, this Technique can
+be used to charge up to the next level of spawn at the cost
+of increasing the startup time.
+
+<#60c040>:Craze Technique:</>
+Blank Canvas Son		_CH^CT
+
+<#60c040>:Throws:</>
+Maroon Appetizer		^GP
+Sleet Bounce		_B^GP
+Orange Cross		_AO^GP
+
+<#60c040>:Command Normals:</>
+Scarlet Cleave		_For_B^SP
+Sky Blue Thrash		_DB^SK
+
+<#60c040>:Special Moves:</>
+Grey Cannon		_AA_CH_QCF^P
+_! Cancel		^K
+White Catapult		_CH_QCF^K
+_! Cancel		^P
+Indigo Scream		_AA_QCB^K
+Multi-Chromatic Engine		_QCB^P
+Sepia Tone Seismo		_D_D^K
+
+<#60c040>:All-Out Attacks:</> <#bebebe>(1 Stock)</>
+Garish Hues		_QCF_QCF^P
+Contrast Bomber		_AA_QCB_QCB^P
+
+<#60c040>:All-Out EX:</> <#bebebe>(2 Stock)</>
+Garish Hues EX		_QCF_QCF^2P
+
+<#60c040>:All-Out Destruction:</> <#bebebe>(3 Stock)</>
+Polarized Flight		_QCF_QCF^2K
+
+<#a0a0a0>:Global Buttons:</>
+^GP(Throw)		^LP+^LK
+^CT(Craze Technique)		^SP+^SK
+
+<#a0a0a0>:Craze Cancels:</>
+When airborne or while using a projectile in neutral:
+_!<#a080f8>Craze Focus</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+During startup of an attack or on block:
+_!<#d880d8>Craze Assault</>		<#bebebe>(2 Gauge)</>^LP+^LK+^SP+^SK
+On hit:
+_!<#f88090>Craze Blitz</>		<#bebebe>(3 Gauge)</>^LP+^LK+^SP+^SK
+
+<#a0a0a0>:Craze Actions:</>
+In neutral:
+_!<#80a0f8>Craze Parry</>		<#bebebe>(1 Gauge)</>^LP+^LK+^SP+^SK
+Anytime you could use a Special, or on block:
+_!<#60c060>Craze Collision</>		<#bebebe>(2 Gauge)</>_QCF^LP+^LK+^SP+^SK
