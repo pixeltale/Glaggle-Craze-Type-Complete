@@ -480,7 +480,7 @@ guard.sparkno = 40
 sparkxy = -40+Floor(P2Dist X*0.5),-16+Floor(P2Dist Y*0.5)
 hitsound = 1,7
 guardsound = 5,0
-ground.type = Low
+ground.type = TRIP
 ground.slidetime = 21
 ground.hittime = 21
 guard.hittime = 13
@@ -521,6 +521,15 @@ air.velocity = -2 + (Var(10)=2),-2.5 - 3 * (Var(10)=2)
 p2facing = 1
 getpower = floor(Var(12)*Map(ScaledPowerGetHit)),floor(Var(12)*const(BC.PowerGetGuard))
 givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
+
+[State 0, ChangeState]
+type = TargetState
+triggerall = MoveHit && !MoveReversed
+triggerall = NumTarget && EnemyNear,MoveType = H
+trigger1 = EnemyNear,StateType = L
+trigger1 = Var(8) = 1
+value = 5020
+ignorehitpause = 1
 
 [State 0, Map Dire Trigger]
 type = MapSet

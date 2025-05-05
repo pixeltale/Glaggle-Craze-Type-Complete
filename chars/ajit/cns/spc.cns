@@ -5020,6 +5020,12 @@ movetype = I
 
 [State 0, ChangeState]
 type = ChangeState
+triggerall = movecontact
+trigger1 = (command="FF" || map(b_66))
+value = 100
+ctrl = 1
+[State 0, ChangeState]
+type = ChangeState
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
@@ -5180,6 +5186,12 @@ type = CtrlSet
 trigger1 = AnimElem = 22
 value = 1
 
+[State 0, ChangeState]
+type = ChangeState
+triggerall = movecontact
+trigger1 = (command="FF" || map(b_66))
+value = 100
+ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = AnimTime = 0

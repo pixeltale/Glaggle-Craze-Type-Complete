@@ -674,8 +674,7 @@ value = 1
 
 [State 0, MapAdd]
 type = MapSet
-trigger1 = AnimElem = 4
-trigger2 = AnimElem = 8
+trigger1 = AnimElem = 1 || animelem = 2 || animelem = 4 || animelem = 5
 map = "NeckDoll"
 value = min(8,Map(NeckDoll)+1)
 
@@ -4365,8 +4364,8 @@ animtype = medium
 priority = 5,Hit
 damage = Ceil(Var(12) * FVar(10) * (0.5 + 1.0 * !MoveHit)),Ceil(120*0.33*const(BC.ChipLight))
 guardpoints = floor((32 + Var(12)) * 0.5)
-pausetime = 4, 12 + Root,var(13)
-guard.pausetime = 4,12
+pausetime = 1, 1 + Root,var(13)
+guard.pausetime = 4,4
 sparkno = -1
 guard.sparkno = 40
 sparkxy = 0,-8
@@ -4374,12 +4373,13 @@ hitsound = -1
 guardsound = 5,1
 ground.type = Low
 ground.slidetime = 10
-ground.hittime = 10
+ground.hittime = 15
 guard.hittime = 6
 yaccel = 0.5
-air.fall = 1
-ground.velocity = -3 * (AnimElemNo(0)>=11),0
-air.velocity = -2 * (AnimElemNo(0)>=11),-1 - 2  * (AnimElemNo(0)>=11)
+air.fall = 0
+forcenofall = 1
+ground.velocity = 3 * (AnimElemNo(0)>=11),0
+air.velocity = 2 * (AnimElemNo(0)>=11),-1 - 2  * (AnimElemNo(0)>=11)
 getpower = floor(Var(12)*Root,Map(ScaledPowerGetHit)),floor(Var(12)*const(BC.PowerGetGuard))
 givepower = floor(Var(12)*Root,Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
 ground.cornerpush.veloff = 0
@@ -4860,13 +4860,22 @@ fall = 1
 fall.recovertime = 510 
 ground.velocity = -1,-5
 air.velocity = -1,-1.25
-down.velocity = -2,-2
+down.velocity = 2,-8
 getpower = floor(Var(12)*Root,Map(ScaledPowerGetHit)),floor(Var(12)*const(BC.PowerGetGuard))
 givepower = floor(Var(12)*Root,Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
+
+[State 0, ChangeState] ;OTG
+type = TargetState
+triggerall = MoveHit && !MoveReversed
+triggerall = NumTarget && EnemyNear,MoveType = H
+trigger1 = EnemyNear,StateType = L
+trigger1 = Var(8) = 1
+value = 5020
+ignorehitpause = 1
 
 [State 0, Snd Hit]
 type = PlaySnd
@@ -5003,7 +5012,7 @@ value = -1
 
 [State 0, MapAdd]
 type = MapAdd
-trigger1 = AnimElem = 15
+trigger1 = !time || animelem = 15
 map = "NeckDoll"
 value = -1
 
@@ -5040,7 +5049,7 @@ elem = 10
 type = ChangeAnim
 trigger1 = AnimElemNo(0) = [2,8]
 trigger1 = Var(7) = -1
-trigger1 = Time >= 16
+trigger1 = Time >= 4
 value = Anim
 elem = 17
 
@@ -5790,8 +5799,8 @@ value = -(8 + Gametime%2) * (Parent,Var(5)%2) * (1-2*(Parent,StateType=A))
 [State 0, PosSet]
 type = PosSet
 trigger1 = !MoveContact
-x = Parent,Pos X + Parent,Var(6) * Facing
-y = Parent,Pos Y + Parent,Var(7) - 52
+x = 2*Parent,Pos X + Parent,Var(6) * Facing
+y = 2*Parent,Pos Y + Parent,Var(7) - 52
 
 [State 0, PosAdd]
 type = PosAdd

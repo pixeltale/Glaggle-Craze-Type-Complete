@@ -123,14 +123,6 @@ triggerall = !(StateNo = 50 && NumHelper(56))
 trigger1 = (map(BB) || command = "BB") && !Var(15)
 trigger2 = Var(17) = 110 && Var(15)
 
-;---------------------------------------------------------------------------
-[State -1, S.Jump]
-Type = ChangeState
-value = 55
-triggerall = Ctrl || StateNo = 40 || StateNo = 100
-triggerall = statetype != A
-trigger1 = command = "DU" && !map(QCF) && !map(QCB) && !Var(15)
-trigger2 = Var(17) = 55 && Var(15)
 
 ;---------------------------------------------------------------------------
 [State -1, Jump]
@@ -538,7 +530,7 @@ type = ChangeState
 value = 1101
 triggerall = Name = "BAXT"
 triggerall = statetype != A || Var(48) && Pos Y >= -2 && StateNo = [1000,2000)
-triggerall = ctrl || StateNo = 40 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || Anim = 510 && AnimElemNo(0) < 9) && (MoveContact || Time <= 2) || StateNo = 900 && Time >= 8
+triggerall = ctrl || StateNo = [39,40]  || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || Anim = 510 && AnimElemNo(0) < 9) && (MoveContact || Time <= 2) || StateNo = 900 && Time >= 8
 trigger1 = map(b_y) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger2 = Var(17) = 1300 && Var(15) && Random < 500
@@ -550,7 +542,7 @@ type = ChangeState
 value = 1100
 triggerall = Name = "BAXT"
 triggerall = statetype != A || Var(48) && Pos Y >= -2 && StateNo = [1000,2000)
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || Anim = 510 && AnimElemNo(0) < 9) && (MoveContact || Time <= 2) || StateNo = 900 && Time >= 8
+triggerall = ctrl || StateNo = [39,40]  || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || Anim = 510 && AnimElemNo(0) < 9) && (MoveContact || Time <= 2) || StateNo = 900 && Time >= 8
 trigger1 = map(b_x) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger2 = Var(17) = 1100 && Var(15) && Random < 500

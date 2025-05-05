@@ -206,6 +206,67 @@ type = ChangeState
 trigger1 = command != "holdfwd" && command = "holddown"
 value = 11
 
+
+;---------------------------------------------------------------------------
+; Jump Cancel - Glaggle Craze
+[Statedef 39]
+type    = S
+physics = S
+anim = 40 + 4000 * (Name="BAXT"&&Var(49))
+ctrl = 0
+velset = Vel X * (Name="CICX"),0
+sprpriority = 1
+facep2 = 1
+
+[State 40, 1]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
+[State 40, 2]
+type = VarSet
+trigger1 = command = "holdfwd" && !Var(15)
+trigger2 = Var(15) && P2BodyDist X >= 8
+sysvar(1) = 1
+[State 40, 3]
+type = VarSet
+trigger1 = command = "holdback" && !Var(15)
+sysvar(1) = -1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 1
+
+[State 40, 4]
+type = VelSet
+trigger1 = Time = 4
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
+y = const(velocity.jump.y)
+[State 40, 5]
+type = VelSet
+trigger1 = Time = 4
+trigger1 = prevstateno = 100 ;RUN_FWD
+trigger1 = sysvar(1) = 1 || Var(15)
+x = const(velocity.jump.fwd.x) * 1.3 ;const(velocity.runjump.fwd.x)
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 4
+x = Vel X * (1.5+Map(SpeedMod)) * 0.5
+[State 0, VelAdd]
+type = VelAdd
+triggerall = Time = 4
+trigger1 = Name = "BAXT" && Var(49)
+trigger2 = Name = "TERI" && Var(41)
+y = -1.5
+
+[State 40, 6]
+type = ChangeState
+trigger1 = Time = 4
+value = 50
+ctrl = 1
+
 ;---------------------------------------------------------------------------
 ; Jump Start
 [Statedef 40]
@@ -331,6 +392,38 @@ ctrl = 1
 type    = A
 physics = A
 
+[State 0, MapSet]
+type = VarSet
+trigger1 = !Time
+sysvar(1) = 0
+[State 0, MapSet]
+type = VarSet
+trigger1 = command = "holdback"
+sysvar(1) = -1
+[State 0, MapSet]
+type = VarSet
+trigger1 = command = "holdfwd"
+sysvar(1) = 1
+
+[State 0, VarAdd] ;Jump Cancel - Craze Cost
+type = VarAdd
+trigger1 = !time && prevstateno = 39
+v = 18
+value = -1000
+ignorehitpause = 1
+[State 0, VarAdd] ;Jump Cancel - Craze Cost
+type = VarAdd
+trigger1 = !time && prevstateno = 39
+v = 30
+value = 1
+ignorehitpause = 1
+[State 700, Flash] ;Jump Cancel - Flash Effect
+type = palfx
+trigger1 = !time && prevstateno = 39
+add = 255, 30, 200
+sinadd = -255, -30, -200, 60
+time = 15
+
 [State 50, 1]
 type = VarSet
 trigger1 = Time = 0
@@ -346,7 +439,7 @@ value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
 type = VelSet
 trigger1 = NumHelper(56)
 trigger1 = map(p_Fd) || map(p_Bk)
-x = min(const(velocity.jump.fwd.x)*1.25+const(velocity.jump.fwd.x)*0.5*sysvar(2),max(const(velocity.jump.fwd.x)*0.5+const(velocity.jump.fwd.x)*0.5*sysvar(2),Vel X + const(velocity.jump.fwd.x) * 0.2 * !!Map(p_Fd) + const(velocity.jump.back.x) * 0.2 * !!Map(p_Bk)))
+x = min(const(velocity.jump.fwd.x)*1.25+const(velocity.jump.fwd.x)*0.5*sysvar(2),max(const(velocity.jump.fwd.x)*0.5+const(velocity.jump.fwd.x)*0.5*sysvar(2),Vel X + const(velocity.jump.fwd.x) * 0.2 * !!Map(p_Fd) + const(velocity.jump.back.x) * 0.2 * !!Map(p_Bk)))*sysvar(1)
 
 [State 0, PalFX]
 type = PalFX
@@ -378,7 +471,7 @@ ctrl = 0
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = Time = 4
+trigger1 = 1
 value = 1
 
 ;---------------------------------------------------------------------------
@@ -458,7 +551,7 @@ ctrl = 1
 
 ;---------------------------------------------------------------------------
 ; S.Jump Start
-[Statedef 55]
+[Statedef 55] ;Superjump
 type    = S
 physics = S
 anim = 40 + 4000 * (Name="BAXT"&&Map(BaxtFullPal))
@@ -467,26 +560,33 @@ velset = Vel X * (Name="CICX"),0
 sprpriority = 1
 facep2 = 1
 
-[State 0, MapSet]
-type = VarSet
-trigger1 = !Time
-sysvar(2) = !!Map(DashJumpBuffer)
-
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = 1
 value = ,NT,ST,HT
 time = 1
 
+[State 0, MapSet]
+type = VarSet
+trigger1 = !Time
+sysvar(1) = 0
+[State 0, MapSet]
+type = VarSet
+trigger1 = command = "holdback"
+sysvar(1) = -1
+[State 0, MapSet]
+type = VarSet
+trigger1 = command = "holdfwd"
+sysvar(1) = 1
+
 [State 40, 4]
 type = VelSet
 trigger1 = Time = 4
-x = const(velocity.jump.fwd.x) * 0.875 + const(velocity.jump.fwd.x) * 0.5 * sysvar(2)
 y = const(velocity.jump.y) * 1.125
 [State 0, VelSet]
 type = VelSet
 trigger1 = Time = 4
-x = Vel X * (1.0+Map(SpeedMod)) * 0.5
+x = Vel X * (1.0+Map(SpeedMod)) * 0.5 * SYSVAR(1)
 
 [State 0, Helper SJump Helper]
 type = Helper
@@ -711,6 +811,12 @@ trigger2 = !Time
 value = SCA,NA,SA,HA,NP,SP,HP
 time = 1
 
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 3
+statetype = A
+physics = A
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = Time = 3
@@ -720,17 +826,12 @@ value = 106 + 4000 * (Name="BAXT"&&Map(BaxtFullPal))
 type = VelSet
 trigger1 = Time = 3
 x = const(velocity.run.back.x) * (1+Map(SpeedMod)) * 0.5
-;y = const(velocity.run.back.y)
+y = const(velocity.run.back.y) * 2
 
-[State 0, VelMul]
+[State 105, 1]
 type = VelMul
-trigger1 = 1
-x = 0.925
-
-;[State 105, 1]
-;type = VelAdd
-;trigger1 = Time >= 3
-;y = const(movement.yaccel) * 0.125 * (1+Map(SpeedMod))
+trigger1 = Time > 3
+y = 0.5
 
 [State 0, MapSet]
 type = MapSet
@@ -740,7 +841,7 @@ value = -8
 
 [State 105, 3]
 type = ChangeState
-trigger1 = Map(Temp) > 0
+trigger1 = pos y > 0
 value = 106
 
 ;---------------------------------------------------------------------------
@@ -784,7 +885,7 @@ value = 2
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = Time = 2
+trigger1 = Time = 1
 value = 1
 
 [State 106, 5]
@@ -792,6 +893,316 @@ type = ChangeState
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
+
+;---------------------------------------------------------------------------
+; AirDash Cancel - Backward
+[Statedef 108]
+type    = A
+physics = N
+anim = cond(selfanimexist(110), 110, 100)
+velset = 0,0
+ctrl = 0
+sprpriority = 1
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = 1
+v = 18
+value = -1000
+ignorehitpause = 1
+
+[State 120, Transition to Airdash]
+type = ChangeState
+trigger1 = 1
+value = 115 + 1*(name = "TERI" || name = "TERX" || name = "TERK") + 1*(name = "CICI" || name = "CICX" ||  name = "CICK")
+
+;---------------------------------------------------------------------------
+; AirDash Cancel - Forward
+[Statedef 109]
+type    = A
+physics = N
+anim = cond(selfanimexist(110), 110, 100)
+velset = 0,0
+ctrl = 0
+sprpriority = 1
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = 1
+v = 18
+value = -1000
+ignorehitpause = 1
+
+[State 120, Transition to Airdash]
+type = ChangeState
+trigger1 = 1
+value = 110 + 1*(name = "TERI" || name = "TERX" || name = "TERK") + 5*(name = "CICI" || name = "CICX" ||  name = "CICK")
+;---------------------------------------------------------------------------
+; AirDash Fwd
+[Statedef 110]
+type    = A
+physics = N
+anim = cond(selfanimexist(110), 110, cond(selfanimexist(100), 100, 102))
+velset = 0,0
+ctrl = 0
+sprpriority = 1
+
+[State 110, Flash]
+type = palfx
+triggerall = prevstateno = 109
+trigger1 = !time
+add = 255, 30, 200
+sinadd = -255, -30, -200, 60
+time = 15
+
+[State 120, 1]
+type = ChangeAnim
+trigger1 = name != "Ikue" && name != "Ikux" && name != "Ikuk"
+trigger1 = vel y > 2
+value = 41
+elem = 6
+
+
+[State 0, Snd DashStart]
+type = PlaySnd
+trigger1 = !Time
+value = F2,3
+channel = 1
+[State 100, 1]
+type = VelSet
+trigger1 = Time <= 8
+x = const(velocity.run.fwd.x)
+[State 0, VelMul]
+type = VelMul
+trigger1 = time
+x = 0.95
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = Time = 4
+value = 1
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = !Time
+v = 1
+value = -1
+
+[State 120, 1]
+type = ChangeState
+trigger1 = animtime = 0 || time > 15
+value = 50
+
+;---------------------------------------------------------------------------
+; AirDash - Teri
+[Statedef 111]
+type    = A
+physics = N
+anim = cond(selfanimexist(110), 110, cond(selfanimexist(100), 100, 102))
+velset = 0,0
+ctrl = 0
+sprpriority = 1
+
+[State 700, Flash]
+type = palfx
+triggerall = prevstateno = 109
+trigger1 = !time
+add = 255, 30, 100
+sinadd = -255, -30, -100, 60
+time = 15
+
+[State 0, Snd DashStart]
+type = PlaySnd
+trigger1 = !Time
+value = F2,3
+channel = 1
+
+[State 0, Explod SLAYER]
+type = Explod
+trigger1 = Anim = 110
+trigger1 = AnimElem = 2
+trigger2 = Time = 20 ;AnimElem = 4 
+anim = 111 + (Var(7)&&Time>8)*7 + (Var(5)&&Var(7))
+ID = 3000
+postype = p1
+shadow = -1
+removetime = 4
+removeongethit = 1
+[State 0, Explod SLAYER]
+type = Explod
+triggerall = Anim = 110
+trigger1 = AnimElem = 3
+trigger2 = AnimElem = 3, 12 
+anim = 112 + (Var(7)&&Time>8)*5
+ID = 3000
+pos = ifelse(Var(5),12,-12) * (Time<=8),0
+postype = p1
+facing = ifelse(Var(7)&&Time>8&&Var(5),-1,1)
+vel = ifelse(Var(5),-8,8),0
+shadow = -1
+removeongethit = 1
+
+[State 0, PosAdd]
+type = PosAdd
+triggerall = Anim = 110 && command != "holdback"
+trigger1 = AnimElem = 4
+trigger1 = p2dist x = [-enemynear,const(size.ground.back),enemynear,const(size.ground.back)]
+x = p2dist x + enemynear,const(size.ground.back);,-enemynear,const(size.ground.front)-16)
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Anim = 110 && command != "holdback"
+trigger1 = AnimElemNo(0) = [2,3]
+x = 4.25
+[State 0, VelMul]
+type = VelMul
+;trigger1 = Anim = 110
+trigger1 = AnimElem = 4
+x = 0.5
+y = 0.5
+[State 0, VelMul]
+type = VelMul
+trigger1 = Anim = 110
+trigger1 = AnimElemNo(0) >= 4
+x = 0.8
+
+[State 0, PlayerPush]
+type = PlayerPush
+triggerall = Anim = 110
+trigger1 = AnimElemNo(0) = [3,4]
+value = 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+triggerall = Anim = 110
+trigger1 = !Time
+value = ,NA,SA,HA,NP,SP,HP,NT,ST
+time = 6
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = Time = 6
+trigger2 = Anim = 100
+trigger2 = Time = 0
+value = ,NP,SP,HP
+time = 12
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = Time = 4
+value = 1
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = !Time
+v = 1
+value = -1
+
+[State 120, 1]
+type = ChangeState
+trigger1 = animtime = 0
+value = 50
+
+;---------------------------------------------------------------------------
+; AirDash Back
+[Statedef 115]
+type    = A
+physics = N
+anim = 106
+velset = 0,0
+ctrl = 0
+sprpriority = 1
+
+[State 110, Flash]
+type = palfx
+triggerall = prevstateno = 108
+trigger1 = !time
+add = 255, 30, 200
+sinadd = -255, -30, -200, 60
+time = 15
+
+[State 100, 1]
+type = VelSet
+trigger1 = !time
+x = const(velocity.run.back.x)
+[State 0, Snd DashStart]
+type = PlaySnd
+trigger1 = !Time
+value = F2,3
+channel = 1
+[State 0, VelMul]
+type = VelMul
+trigger1 = time
+x = 0.9
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 5
+trigger1 = StateType = A
+physics = A
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = Time = 4
+value = 1
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = !Time
+v = 1
+value = -1
+
+[State 120, 1]
+type = ChangeState
+trigger1 = animtime = 0 || time >= 10
+value = 50
+-------------------------------------------------
+; AirDash Back - Cloned State for Teri
+[Statedef 116]
+type    = A
+physics = N
+anim = 106
+velset = 0,0
+ctrl = 0
+sprpriority = 1
+
+[State 110, Flash]
+type = palfx
+triggerall = prevstateno = 108
+trigger1 = !time
+add = 255, 30, 200
+sinadd = -255, -30, -200, 60
+time = 15
+
+[State 100, 1]
+type = VelSet
+trigger1 = !time
+x = const(velocity.run.back.x)
+[State 0, Snd DashStart]
+type = PlaySnd
+trigger1 = !Time
+value = F2,3
+channel = 1
+[State 0, VelMul]
+type = VelMul
+trigger1 = time
+x = 0.9
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 5
+trigger1 = StateType = A
+physics = A
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = Time = 4
+value = 1
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = !Time
+v = 1
+value = -1
+
+[State 120, 1]
+type = ChangeState
+trigger1 = animtime = 0 || time >= 10
+value = 50
 
 ;---------------------------------------------------------------------------
 ; GUARD (start)
@@ -2880,7 +3291,7 @@ color = 64
 type = ReversalDef
 trigger1 = EnemyNear,StateNo != 3200
 reversal.attr = SCA,NA,SA,HA,NP,SP,HP
-pausetime = 0,0
+pausetime = 0,15
 sparkno = -1
 hitsound = -1
 p1stateno = 3121
@@ -2921,23 +3332,6 @@ trigger1 = 1
 value = SCA
 time = 3
 
-[State 0, HitDef]
-type = HitDef
-trigger1 = !MoveContact && !MoveReversed
-attr = S,HA
-hitflag = MAF
-animtype = heavy
-priority = 5,Hit
-damage = 0,0
-pausetime = 0,0
-sparkno = -1
-hitsound = -1
-p2facing = 1
-getpower = 0,0
-givepower = 0,0
-p1stateno = 3122
-p2stateno = 3125
-
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = Time >= 4
@@ -2950,22 +3344,25 @@ type    = S
 movetype= I
 physics = N
 velset = 0,0
-movehitpersist = 1
 ctrl = 0
 facep2 = 1
 sprpriority = 5
 
+[State 0, Var LucidMeter Reduc]
+type = VarAdd
+trigger1 = !Time
+v = 18
+value = 1000
+
 [State 0, ChangeAnim]
 type = ChangeAnim
 trigger1 = Time < 8
-trigger1 = MoveHit
 trigger2 = !Time
 value = 3000
 
 [State 0, BGPalFX]
 type = BGPalFX
 trigger1 = Time < 8
-trigger1 = MoveHit
 time = 1
 mul = 216,216,232
 color = 192
@@ -2983,6 +3380,13 @@ add = 16,48,128
 mul = 32,96,248
 color = 64
 ignorehitpause = 1
+[State 0, PalFX]
+type = PalFX
+trigger1 = Time < 8
+time = 1
+mul = 216,216,232
+color = 40
+redirectid = enemynear, id
 
 [State 0, RemoveExplod]
 type = RemoveExplod
@@ -2993,7 +3397,6 @@ ignorehitpause = 1
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = !Time
-trigger1 = MoveHit
 time = 8
 anim = -1;95 + Var(5)
 pos = 0,-40
@@ -3027,7 +3430,6 @@ supermovetime = 666
 [State 0, Explod Ring]
 type = Explod
 trigger1 = Time = 8
-trigger1 = MoveHit
 anim = F20
 pos = 0,const(size.mid.pos.y) + (-const(size.mid.pos.y) + const(size.head.pos.y)) * 0.5
 postype = p1
@@ -3039,7 +3441,6 @@ supermovetime = 666
 [State 0, Var EnvShake]
 type = VarSet
 trigger1 = Time = [8,12)
-trigger1 = MoveHit
 v = 9
 value = 4
 
@@ -3052,27 +3453,23 @@ edge = P2Dist X - EnemyNear,Vel X * 1.1,0
 [State 0, Common Voice Throw Break]
 type = VarSet
 trigger1 = !Time
-trigger1 = MoveHit
 v = 33
 value = 5380
 [State 0, Common Voice Armor Break]
 type = VarSet
 trigger1 = !Time
-trigger1 = MoveHit
 v = 34
 value = random % const(BC.VoiceBankThrowTech)
 [State 0, Var Voice Bank]
 type = VarSet
 triggerall = !Time
-trigger1 = !MoveHit
-trigger2 = Name = "SHER" || Name = "SHEX" || Name = "JANE" || Name = "JANX" || Name = "JANK"
+trigger1 = Name = "SHER" || Name = "SHEX" || Name = "JANE" || Name = "JANX" || Name = "JANK"
 v = 33
 value = 3000
 [State 0, Var Voice Variant]
 type = VarSet
 triggerall = !Time
-trigger1 = !MoveHit
-trigger2 = Name = "SHER" || Name = "SHEX" || Name = "JANE" || Name = "JANX" || Name = "JANK"
+trigger1 = Name = "SHER" || Name = "SHEX" || Name = "JANE" || Name = "JANX" || Name = "JANK"
 v = 34
 value = random % const(BC.VoiceBankCrazeCancel)
 [State 0, Var Voice Bank]
@@ -3099,13 +3496,11 @@ type = ChangeState
 triggerall = map(p_Fd) || map(p_Bk)
 trigger1 = Time = 28 - (Name="WALL"||Name="WALX"||Name="WALK"||Name="REAP"||Name="REAX"||Name="BOUN"||Name="BOUX"||Name="BOUK"||Name="BAXT"||Name="BAXX"||Name="BAXK"||Name="GOLI"||Name="GOLX"||Name="GOLK"||Name="TYRA"||Name="TYRX"||Name="TYRK"||Name="IKUE"||Name="IKUX"||Name="IKUK"||Name="BERN"||Name="BERX"||Name="BERK"||Name="JANE"||Name="JANX"||Name="JANK")
 trigger2 = Time = 12 - (Name="WALL"||Name="WALX"||Name="WALK"||Name="REAP"||Name="REAX"||Name="BOUN"||Name="BOUX"||Name="BOUK"||Name="BAXT"||Name="BAXX"||Name="BAXK"||Name="GOLI"||Name="GOLX"||Name="GOLK"||Name="TYRA"||Name="TYRX"||Name="TYRK"||Name="IKUE"||Name="IKUX"||Name="IKUK"||Name="BERN"||Name="BERX"||Name="BERK"||Name="JANE"||Name="JANX"||Name="JANK")
-trigger2 = !MoveHit
 value = 3130 + map(p_Bk)
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = Time = 40 - (Name="WALL"||Name="WALX"||Name="WALK"||Name="REAP"||Name="REAX"||Name="BOUN"||Name="BOUX"||Name="BOUK"||Name="BAXT"||Name="BAXX"||Name="BAXK"||Name="GOLI"||Name="GOLX"||Name="GOLK"||Name="TYRA"||Name="TYRX"||Name="TYRK"||Name="IKUE"||Name="IKUX"||Name="IKUK"||Name="BERN"||Name="BERX"||Name="BERK"||Name="JANE"||Name="JANX"||Name="JANK")
 trigger2 = Time = 24 - (Name="WALL"||Name="WALX"||Name="WALK"||Name="REAP"||Name="REAX"||Name="BOUN"||Name="BOUX"||Name="BOUK"||Name="BAXT"||Name="BAXX"||Name="BAXK"||Name="GOLI"||Name="GOLX"||Name="GOLK"||Name="TYRA"||Name="TYRX"||Name="TYRK"||Name="IKUE"||Name="IKUX"||Name="IKUK"||Name="BERN"||Name="BERX"||Name="BERK"||Name="JANE"||Name="JANX"||Name="JANK")
-trigger2 = !MoveHit
 value = 0
 ctrl = 1
 
@@ -4344,12 +4739,6 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
 
 [State 5110, 12]
 type = VarSet
@@ -4494,12 +4883,6 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
 
 [State 5110, 12]
 type = VarSet
@@ -4635,12 +5018,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5110, 12]
 type = VarSet
@@ -4670,7 +5048,7 @@ value = 5030
 [State 5030, 2]
 type = VelAdd
 trigger1 = 1
-y = GetHitVar(yaccel)
+y = GetHitVar(yaccel) * cond((enemy, map(SetJuggle)), 1, map(JuggleMul))
 
 [State 5030, 3]
 type = HitVelSet
@@ -4852,12 +5230,6 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
 
 [State 5110, 12]
 type = VarSet
@@ -4953,12 +5325,6 @@ type = VarAdd
 trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
-ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
 ignorehitpause = 1
 
 [State 5110, 12]
@@ -5154,12 +5520,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5110, 12]
 type = VarSet
@@ -5250,12 +5611,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5020, 5]
 type = SelfState
@@ -5780,12 +6136,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5000, 6]
 type = ChangeState
@@ -6182,12 +6533,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5110, 12]
 type = VarSet
@@ -6288,12 +6634,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5110, 12]
 type = VarSet
@@ -6407,12 +6748,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 0, ChangeAnim2]
 type = ChangeAnim
@@ -6454,12 +6790,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5110, 12]
 type = VarSet
@@ -6618,12 +6949,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5110, 12]
 type = VarSet
@@ -6697,12 +7023,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 0, Turn]
 type = Turn
@@ -6900,12 +7221,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 1025, State]
 type = ChangeState
@@ -7052,12 +7368,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5110, 12]
 type = VarSet
@@ -7250,12 +7561,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5110, 12]
 type = VarSet
@@ -7427,12 +7733,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 5110, 12]
 type = VarSet
@@ -7721,12 +8022,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 0, Turn]
 type = Turn
@@ -7973,12 +8269,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 0, Snd FREEEEEEEEEEEEZE]
 type = PlaySnd
@@ -8251,12 +8542,7 @@ trigger1 = !Time
 v = 22
 value = -ceil(gethitvar(damage) * const(BC.GetHitPLife))
 ignorehitpause = 1
-[State 0, VarAdd Lucid Meter Gain]
-type = VarAdd
-trigger1 = !Time
-v = 18
-value = floor(gethitvar(damage) * const(BC.GetHitGaugeGain) * FVar(18))
-ignorehitpause = 1
+
 
 [State 0, Turn]
 type = Turn
@@ -17787,9 +18073,201 @@ trigger2 = Root,Map(HitFXTimer) > 0 || Root,NumHelper(15371) > 1 && Time
 trigger3 = Root,StateNo < 5000 || Root,StateNo = [5120,5300)
 
 ;---------------------------------------------------------------------------
-;[Statedef -1]
+[Statedef -1]
+;=======================================================================
+; SUperjump Buffer
+;=======================================================================
+[State -1, S.Jump]
+Type = ChangeState
+value = 55
+triggerall = Ctrl || StateNo = 40 || StateNo = 100
+triggerall = statetype != A
+trigger1 = command = "DU" && !Var(15)
+trigger2 = Var(17) = 55 && Var(15)
+
 
 [Statedef -2]
+;=======================================================================
+; FULL GAME FUNTIMES: Special Moves Don't Juggle Decay
+;=======================================================================
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= stateno = [900, 3000)
+map 		= "SetJuggle"
+value 		= 1
+ignorehitpause 	= 1
+persistent 	= 1
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1 	= stateno != [900, 3000)
+map 		= "SetJuggle"
+value 		= 0
+ignorehitpause 	= 1
+persistent 	= 1
+
+;=======================================================================
+; FULL GAME FUNTIMES: YOURE FREE NOW!
+;=======================================================================
+[State 0, ctrlset]
+type = ctrlset
+triggerall = stateno = [100, 102] && name != "TERX"
+trigger1 = time = 5
+value = 1
+
+[State 0, ctrlset]
+type = changestate
+triggerall = stateno = [600, 800)
+trigger1 = !animtime
+value = 50
+
+;No Proximity Block.
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+persistent = 1
+
+;=======================================================================
+; FULL GAME FUNTIMES: IM CRAZINGGGG!!!
+;=======================================================================
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = movehit = 1 && var(10)
+v = 18
+value = 1000
+ignorehitpause = 0
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = movetype != H && stateno != [110, 111]
+trigger1 = vel x > 0
+v = 18
+value = vel x * 2
+ignorehitpause = 1
+;persistent = 
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = movehit = 1
+v = 18
+value = (enemy,gethitvar(damage))*fvar(10)*2
+ignorehitpause = 1
+persistent = 1
+
+
+
+;=======================================================================
+; FULL GAME FUNTIMES: IM AIRDASHINNNNG
+;=======================================================================
+; AirDash Fwd
+[State -1, AirDash Fwd]
+type = ChangeState
+value = 110 + 1*(name = "TERI" || name = "TERX" || name = "TERK") + 5*(name = "CICI" || name = "CICX" ||  name = "CICK")
+triggerall = ctrl
+triggerall = Vel Y >= -1 || Time >= 3
+triggerall = !(StateNo = [110,115] && Time < 12)
+triggerall = statetype = A && Var(1)
+trigger1 = (command="FF" || map(b_66)) && !Var(15)
+trigger2 = Var(17) = 110 && Var(15)
+
+; AirDash Back
+[State -1, AirDash Back]
+type = ChangeState
+value = 115 + 1*(name = "TERI" || name = "TERX" || name = "TERK" || name = "CICI" || name = "CICX" ||  name = "CICK")
+triggerall = ctrl
+triggerall = Vel Y >= -1 || Time >= 3
+triggerall = !(StateNo = [110,115] && Time < 12)
+triggerall = statetype = A && Var(1)
+trigger1 = (command="BB" || map(b_44)) && !Var(15)
+trigger2 = Var(17) = 110 && Var(15)
+
+[State - Airdash Hang]
+type = mapset
+trigger1 = stateno = 110 && time = 0
+map = "ADM" ;AirDash Momentum Preserve
+value = 10
+
+[State 0, VelMul]
+type = VelMul
+triggerall = name != "CICI" && name != "CICK" && name != "CICX"
+triggerall = name != "IKUE" && name != "IKUK" && name != "IKUX"
+trigger1 = map(ADM) > 0
+y = 0
+ignorehitpause = 1
+
+; AirDash Cancel
+[State -1, AirDash Fwd]
+type = ChangeState
+value = 109
+triggerall = movecontact && var(18) >= 1000
+triggerall = statetype = A
+trigger1 = (command="FF" || map(b_66)) && !Var(15)
+trigger2 = Var(17) = 109 && Var(15)
+
+; AirDash Cancel Backward
+[State -1, AirDash Backward]
+type = ChangeState
+value = 108
+triggerall = movecontact && var(18) >= 1000
+triggerall = statetype = A
+trigger1 = (command="BB" || map(b_44)) && !Var(15)
+trigger2 = Var(17) = 109 && Var(15)
+
+;Jump Cancelling
+[State -1, JC]
+type = ChangeState
+value = 39
+triggerall = movehit && stateno = [200,510]
+triggerall = var(18) >= 1000
+trigger1 = command ="holdup"
+
+;======================================================================
+; FULL GAME FUNTIMES: Juggle Decay Groundwork
+;======================================================================
+
+[State -2, Juggle State Check]
+type = MapSet
+trigger1 = movetype = H && statetype = A
+trigger1 = !(stateno = [5320, 5392] || enemy, stateno = [3000,3005])
+map = "JuggleStateCheck"
+value = 1
+ignorehitpause = 1
+persistent = 1
+[State -2, Juggle State Check]
+type = MapSet
+trigger1 = !(movetype = H && statetype = A) || stateno = [5320, 5392] || enemy, stateno = [3000,3005]
+map = "JuggleStateCheck"
+value = 0
+ignorehitpause = 1
+[State -2, Juggle Timer Tick]
+type = MapAdd
+trigger1 = map(JuggleStateCheck) && stateno != [900, 3000)
+map = "JuggleTime"
+value = 1
+ignorehitpause = 1
+[State -2, Juggle Timer Reset]
+type = MapSet
+trigger1 = !map(JuggleStateCheck) || stateno = [5320, 5392] || enemy, stateno = [3000,3005] || enemy, statetype = L
+map = "JuggleTime"
+value = 0
+ignorehitpause = 1
+
+[State -2, Juggle State Check]
+type = MapSet
+trigger1 = map(JuggleTime) < 60 
+map = "JuggleMul"
+value = 1.3
+ignorehitpause = 1
+persistent = 1
+[State -2, Juggle State Check]
+type = MapSet
+trigger1 = map(JuggleTime)
+map = "JuggleMul"
+value = 1.3*(map(juggleTime) * 0.01 * 0.95)
+ignorehitpause = 1
+persistent = 1
 
 ;========================================================
 ; FULL GAME FUNTIMES: DASH JUMP BUFFER
@@ -18413,14 +18891,8 @@ value = max(0,min(48,Map(Training1Hit)-1 + 32 * (StateNo=[120,160)||StateNo=[500
 ignorehitpause = 1
 
 [State 0, AI Guard]
-Type = ChangeState
-Value = 120
-triggerall = StateType != A && Ctrl
-triggerall = Map(IsTraining) || EnemyNear,Map(IsTraining)
-triggerall = TeamSide = 2
-triggerall = EnemyNear,Map(TrainingOpt2) >= 1
-triggerall = inguarddist
-triggerall = !Map(TrainReact)
+Type = AssertSpecial
+flag = autoguard
 trigger1 = EnemyNear,Map(TrainingOpt2) = 1 || EnemyNear,Map(TrainingOpt2) = 3 
 trigger2 = EnemyNear,Map(TrainingOpt2) = 2
 trigger2 = Map(Training1Hit) > 0
@@ -20244,10 +20716,10 @@ text2 = "<p1>I DUNNO, MY SISTER GAVE IT TO ME AS A BIRTHDAY PRESENT."
 text3 = "<p2>I call bull... that's the same reason why I got this outfit!"
 text4 = "<p1>SMALL WORLD, HUH? AND LET ME GUESS, YOUR SISTER IS ALSO NAMED ROBO-HOTSUKI?"
 text5 = "<p2>Just Hotsuki. This all can't be a coincidence... Are you built to replace me?"
-text6 = "<p1>”I DON'T THINK SO. BOXING WASN'T EVEN MY CALLING, IT JUST INSTALLED INTO MY HARD DRIVE BY ACCIDENT, BEEP BEEP."
+text6 = "<p1>ï¿½I DON'T THINK SO. BOXING WASN'T EVEN MY CALLING, IT JUST INSTALLED INTO MY HARD DRIVE BY ACCIDENT, BEEP BEEP."
 text7 = "<p2>And your fondness for chickens as well?"
 text8 = "<p1>CHICKENS? I HATE CHICKENS."
-text9 = "<p2>You’re evil... I'm going to shut you down for good!"
+text9 = "<p2>Youï¿½re evil... I'm going to shut you down for good!"
 [State 191, Dialogue] ; Robo-Tsug > Emi
 type = Dialogue
 triggerall = Map(ArcadeDialogue)
@@ -20362,7 +20834,7 @@ trigger1 = name="SHEK"
 trigger1 = enemy,name="JUSK"
 hidebars = 0
 text1 = "<p2>..."
-text2 = "<p1>”...Hmph. You know evil, but you aren't TRUE evil."
+text2 = "<p1>ï¿½...Hmph. You know evil, but you aren't TRUE evil."
 text3 = "<p2>...Nah, I don't think so. I'm the purest kind of evil there is, true brutality and a lack of kindness! I trash wimps like you for kicks!"
 text4 = "<p1>And yet, there is something you refuse to let go. I will TEAR whatever you latch onto from your facade and chew it to pieces!"
 [State 191, Dialogue] ; Evil Sherm > Isabella

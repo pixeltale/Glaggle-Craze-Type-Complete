@@ -123,14 +123,6 @@ triggerall = !(StateNo = 50 && NumHelper(56))
 trigger1 = (command="BB" || map(b_44)) && !Var(15)
 trigger2 = Var(17) = 115 && Var(15)
 
-;---------------------------------------------------------------------------
-[State -1, S.Jump]
-Type = ChangeState
-value = 55
-triggerall = Ctrl || StateNo = 40 || StateNo = 100
-triggerall = statetype != A
-trigger1 = command = "DU" && !map(QCF) && !map(QCB) && !Var(15)
-trigger2 = Var(17) = 55 && Var(15)
 
 ;---------------------------------------------------------------------------
 [State -1, Jump]

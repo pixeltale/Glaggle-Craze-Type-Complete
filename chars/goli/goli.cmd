@@ -133,14 +133,6 @@ triggerall = !(StateNo = 50 && NumHelper(56))
 trigger1 = (map(BB) || command = "BB") && !Var(15)
 trigger2 = Var(17) = 110 && Var(15)
 
-;---------------------------------------------------------------------------
-[State -1, S.Jump]
-Type = ChangeState
-value = 55
-triggerall = Ctrl || StateNo = 40 || StateNo = 100
-triggerall = statetype != A
-trigger1 = command = "DU" && !map(QCF) && !map(QCB) && !Var(15)
-trigger2 = Var(17) = 55 && Var(15)
 
 ;---------------------------------------------------------------------------
 [State -1, Jump]
@@ -414,7 +406,7 @@ trigger3 = map(b_ab) && (map(p_Dn)>0)
 type = ChangeState
 value = 1301 + 200 * (Name="GOLK")
 triggerall = statetype != A
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
+triggerall = ctrl || StateNo = [39,40]  || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
 trigger1 = map(b_b) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger2 = Var(17) = 1300 && Var(15) && Random < 250
@@ -425,7 +417,7 @@ trigger2 = Var(17) = 1300 && Var(15) && Random < 250
 type = ChangeState
 value = 1300 + 200 * (Name="GOLK")
 triggerall = statetype != A
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
+triggerall = ctrl || StateNo = [39,40]  || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
 trigger1 = map(b_a) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger2 = Var(17) = 1100 && Var(15) && Random < 250
@@ -437,7 +429,7 @@ type = ChangeState
 value = 1201
 triggerall = statetype != A
 triggerall = Name != "GOLK"
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
+triggerall = ctrl || StateNo = [39,40]  || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
 trigger1 = map(b_y) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger2 = Var(17) = 1300 && Var(15) && Random < 250
@@ -449,7 +441,7 @@ type = ChangeState
 value = 1200
 triggerall = statetype != A
 triggerall = Name != "GOLK"
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
+triggerall = ctrl || StateNo = [39,40]  || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
 trigger1 = map(b_x) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger2 = Var(17) = 1100 && Var(15) && Random < 250

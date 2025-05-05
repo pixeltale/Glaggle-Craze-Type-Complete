@@ -129,7 +129,7 @@ trigger1 = Name = "JUSX"
 trigger1 = Var(40) < 500
 trigger1 = !NumHelper(920)
 v = 40
-value = 1; min(3,abs(500-Var(40))) + (RoundState < 2)*7
+value = 2; min(3,abs(500-Var(40))) + (RoundState < 2)*7
 ;what the hell was i doing??
 ignorehitpause = 1
 [State 0, Var Chair Timer Reset]

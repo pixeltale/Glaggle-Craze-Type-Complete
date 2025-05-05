@@ -95,14 +95,6 @@ trigger1 = (command="BB" || map(b_44)) && p2dist x >= -8 && !Var(15)
 trigger2 = (command="FF" || map(b_66)) && p2dist x < -8 && !Var(15)
 trigger3 = Var(17) = 105 && Var(15)
 
-;---------------------------------------------------------------------------
-[State -1, S.Jump]
-Type = ChangeState
-value = 55
-triggerall = Ctrl || StateNo = 40 || StateNo = 100
-triggerall = statetype != A
-trigger1 = command = "DU" && !map(QCF) && !map(QCB) && !Var(15)
-trigger2 = Var(17) = 55 && Var(15)
 
 ;---------------------------------------------------------------------------
 [State -1, Jump]
@@ -528,7 +520,7 @@ type = ChangeState
 value = 1301
 triggerall = Name = "SHER"
 triggerall = statetype != A
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || StateNo = 167 || StateNo = 1400) && MoveContact || StateNo = [200,800) && Time <= 2
+triggerall = ctrl || StateNo = [39,40] || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || StateNo = 167 || StateNo = 1400) && MoveContact || StateNo = [200,800) && Time <= 2
 trigger1 = map(b_b) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger2 = (Var(17) = 1600 || Var(17) = 1700) && Var(15) && Random < 250
@@ -540,7 +532,7 @@ type = ChangeState
 value = 1300
 triggerall = Name = "SHER"
 triggerall = statetype != A
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || StateNo = 167 || StateNo = 1400) && MoveContact || StateNo = [200,800) && Time <= 2
+triggerall = ctrl || StateNo = [39,40] || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || StateNo = 167 || StateNo = 1400) && MoveContact || StateNo = [200,800) && Time <= 2
 trigger1 = map(b_a) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger2 = (Var(17) = 1600 || Var(17) = 1700) && Var(15) && Random < 250
@@ -552,7 +544,7 @@ type = ChangeState
 value = 1101
 triggerall = Name = "SHER"
 triggerall = statetype != A
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || StateNo = 167 || StateNo = 1400) && MoveContact || StateNo = [200,800) && Time <= 2 || StateNo = 1105 && PrevStateNo = 930 && MoveHit
+triggerall = ctrl || StateNo = [39,40] || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || StateNo = 167 || StateNo = 1400) && MoveContact || StateNo = [200,800) && Time <= 2 || StateNo = 1105 && PrevStateNo = 930 && MoveHit
 trigger1 = map(b_y) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger2 = (Var(17) = 1100 || Var(17) = 1300) && Var(15) && Random < 500
@@ -564,7 +556,7 @@ type = ChangeState
 value = 1100
 triggerall = Name = "SHER"
 triggerall = statetype != A
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || StateNo = 167 || StateNo = 1400) && MoveContact || StateNo = [200,800) && Time <= 2 || StateNo = 1105 && PrevStateNo = 930 && MoveHit
+triggerall = ctrl || StateNo = [39,40] || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || StateNo = 167 || StateNo = 1400) && MoveContact || StateNo = [200,800) && Time <= 2 || StateNo = 1105 && PrevStateNo = 930 && MoveHit
 trigger1 = map(b_x) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger2 = (Var(17) = 1100 || Var(17) = 1300) && Var(15) && Random < 500

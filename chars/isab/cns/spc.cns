@@ -2318,12 +2318,22 @@ yaccel = 0.5
 air.fall = 1
 ground.velocity = -4,0
 air.velocity = -3,-1
+down.velocity	= 0, -5
 getpower = floor(Var(12)*const(BC.PowerGetHit)*Parent,FVar(15)),floor(Var(12)*const(BC.PowerGetGuard)*Parent,FVar(15))
 givepower = floor(Var(12)*const(BC.PowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
+
+[State 0, ChangeState]
+type = TargetState
+triggerall = MoveHit && !MoveReversed
+triggerall = NumTarget && EnemyNear,MoveType = H
+trigger1 = EnemyNear,StateType = L
+trigger1 = Var(8) = 1
+value = 5020
+ignorehitpause = 1
 
 [State 0, ParentVarSet]
 type = ParentVarSet
@@ -2552,12 +2562,22 @@ air.fall = 1
 guard.dist = 32
 ground.velocity = -2.5,0
 air.velocity = -1,-1.5
+down.velocity	= 0, -5
 getpower = floor(Var(12)*const(BC.PowerGetHit)*Parent,FVar(15)),floor(Var(12)*const(BC.PowerGetGuard)*Parent,FVar(15))
 givepower = floor(Var(12)*const(BC.PowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 down.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
+
+[State 0, ChangeState]
+type = TargetState
+triggerall = MoveHit && !MoveReversed
+triggerall = NumTarget && EnemyNear,MoveType = H
+trigger1 = EnemyNear,StateType = L
+trigger1 = Var(8) = 1
+value = 5020
+ignorehitpause = 1
 
 [State 0, ParentVarSet Counter Message]
 type = ParentVarSet
@@ -3661,8 +3681,8 @@ sprpriority = 5
 type = ChangeAnim
 triggerall = Anim = 1405
 triggerall = AnimElem = 14
-trigger1 = Time < 48 && !Var(5)
-trigger2 = Time < 72 && Var(5)
+trigger1 = Time < 15 && !Var(5)
+trigger2 = Time < 15 && Var(5)
 value = anim
 elem = 2
 

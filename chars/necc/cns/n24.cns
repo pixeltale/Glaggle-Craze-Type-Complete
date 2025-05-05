@@ -451,6 +451,6 @@ value = 0.5
 [State 0, DisplayToClipboard]
 type = DisplayToClipboard
 trigger1 = 0
-text = "%d    %d    %d"; %d %f"
-params = floor(Map(Cutscene)),Var(20),EnemyNear,Var(20)
+text = "%i"
+params = enemy, BackEdgeBodyDist
 ignorehitpause = 1

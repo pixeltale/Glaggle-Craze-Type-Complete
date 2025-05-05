@@ -517,24 +517,9 @@ time = 40
 buffer.time = 8
 [Command]
 name = "DU"
-command = D, U
-time = 14
-buffer.time = 8
-[Command]
-name = "DU"
-command = D, UF
-time = 14
-buffer.time = 8
-[Command]
-name = "DU"
-command = DF, UF
-time = 14
-buffer.time = 8
-[Command]
-name = "DU"
-command = DF, U
-time = 14
-buffer.time = 8
+command = $D, $U
+time = 8
+buffer.time = 1
 
 ;===================================
 ; RECOVERY

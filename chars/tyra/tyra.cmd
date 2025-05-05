@@ -96,14 +96,6 @@ triggerall = statetype != A
 trigger1 = (map(p_Fd)>0) && (map(p_Dn)>0) && !Var(15)
 trigger2 = Var(17) = 30 && Var(15)
 
-;---------------------------------------------------------------------------
-[State -1, S.Jump]
-Type = ChangeState
-value = 55
-triggerall = Ctrl || StateNo = 40 || StateNo = 100
-triggerall = statetype != A
-trigger1 = command = "DU" && !map(QCF) && !map(QCB) && !Var(15)
-trigger2 = Var(17) = 55 && Var(15)
 
 ;---------------------------------------------------------------------------
 [State -1, Jump]

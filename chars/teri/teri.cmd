@@ -24,6 +24,11 @@ command = F
 time = 2
 buffer.time = 2
 [Command]
+name = "holdfwd_unbuffer"
+command = /F
+time = 2
+buffer.time = 0
+[Command]
 name = "up"
 command = U
 time = 1
@@ -77,32 +82,30 @@ trigger1 = (Var(17) = 20 || Var(17) = 21) && Var(15)
 ;Run Fwd
 [State -1, Run Fwd]
 type = ChangeState
-value = 102
+value = 102 + 8 * (Name="TERX")
 triggerall = ctrl
 triggerall = statetype = S || statetype = C && Var(15)
-trigger1 = (command="FF" || map(b_66)) && p2dist x >= -8 && !Var(15)
-trigger2 = (command="BB" || map(b_44)) && p2dist x < -8 && !Var(15)
-trigger3 = Var(17) = 100 && Var(15)
+trigger1 = (command="FF" || map(b_66)) && !Var(15)
+trigger2 = Var(17) = 100 && Var(15)
+
+;Run Fwd
+[State -1, Run Fwd]
+type = ChangeState
+value = 110
+triggerall = name = "TERX"
+trigger1 = command = "FF"
+trigger1 = stateno = [200, 500] && movecontact = 1
 
 ;---------------------------------------------------------------------------
 ;Run Back
 [State -1, Run Back]
 type = ChangeState
-value = 105
+value = 105 + 10 * name = "TERX"
 triggerall = ctrl
 triggerall = statetype = S || statetype = C && Var(15)
 trigger1 = (command="BB" || map(b_44)) && p2dist x >= -8 && !Var(15)
 trigger2 = (command="FF" || map(b_66)) && p2dist x < -8 && !Var(15)
 trigger3 = Var(17) = 105 && Var(15)
-
-;---------------------------------------------------------------------------
-[State -1, S.Jump]
-Type = ChangeState
-value = 55
-triggerall = Ctrl || StateNo = 40 || StateNo = 100
-triggerall = statetype != A
-trigger1 = command = "DU" && !map(QCF) && !map(QCB) && !Var(15)
-trigger2 = Var(17) = 55 && Var(15)
 
 ;---------------------------------------------------------------------------
 [State -1, Jump]
@@ -293,7 +296,7 @@ type = ChangeState
 value = 950 + (StateType=A)
 triggerall = Name = "TERX"
 triggerall = StateType != A || Var(1)
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact
+triggerall = ctrl || StateNo = [39,40] || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact
 trigger1 = (map(b_y) && map(b_b) || map(b_yb)) && !Var(15)
 trigger2 = (Var(17) = 100 || Var(17) = 1700) && Var(15) && Random < 250
 

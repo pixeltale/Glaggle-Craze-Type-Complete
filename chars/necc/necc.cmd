@@ -110,14 +110,6 @@ trigger1 = (command="BB" || map(b_44)) && p2dist x >= -8 && !Var(15)
 trigger2 = (command="FF" || map(b_66)) && p2dist x < -8 && !Var(15)
 trigger3 = Var(17) = 105 && Var(15)
 
-;---------------------------------------------------------------------------
-[State -1, S.Jump]
-Type = ChangeState
-value = 55
-triggerall = Ctrl || StateNo = 40 || StateNo = 100
-triggerall = statetype != A
-trigger1 = command = "DU" && !map(QCF) && !map(QCB) && !Var(15)
-trigger2 = Var(17) = 55 && Var(15)
 
 ;---------------------------------------------------------------------------
 [State -1, Jump]
@@ -600,7 +592,7 @@ trigger1 = map(QCF) && map(b_x) && !Var(15)
 trigger2 = Var(17) = 1200 && Var(15) && Random < 250
 
 ;---------------------------------------------------------------------------
-; SK Principalities’ Demand
+; SK PrincipalitiesDemand
 [State -1, DP,b]
 type = ChangeState
 value = 1401
@@ -611,7 +603,7 @@ trigger1 = map(DP) && map(b_b) && !Var(15)
 trigger2 = Var(17) = 1200 && Var(15) && Random < 250
 
 ;---------------------------------------------------------------------------
-; LK Principalities’ Demand
+; LK PrincipalitiesDemand
 [State -1, DP,a]
 type = ChangeState
 value = 1400

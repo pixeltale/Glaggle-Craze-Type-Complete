@@ -485,7 +485,7 @@ type = ChangeState
 value = 1201
 triggerall = statetype != A
 triggerall = Name != "EMIK"
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
+triggerall = ctrl || StateNo = [39,40]  || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
 trigger1 = map(b_y) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger1 = Name = "EMIX"
@@ -500,7 +500,7 @@ type = ChangeState
 value = 1200
 triggerall = statetype != A
 triggerall = Name != "EMIK"
-triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
+triggerall = ctrl || StateNo = [39,40]  || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
 trigger1 = map(b_x) && !Var(15)
 trigger1 = Var(44) >= 24 && ((map(p_Up)>0) || command = "up")
 trigger1 = Name = "EMIX"

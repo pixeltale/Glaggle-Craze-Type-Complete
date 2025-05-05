@@ -598,12 +598,6 @@ v = 5
 value = 1
 [State 0, VarSet]
 type = VarSet
-trigger1 = Var(5) && Time = [1,8]
-trigger1 = !(command = "holdy" && command = "holdb" || command = "holdc")
-v = 5
-value = 0
-[State 0, VarSet]
-type = VarSet
 trigger1 = !Time 
 v = 6
 value = 5 + 3 * (PrevStateNo=40)
