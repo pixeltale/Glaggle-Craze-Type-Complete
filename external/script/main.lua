@@ -927,8 +927,8 @@ function main.f_tableMerge(t1, t2, key)
 			if type(t1[k] or false) == "table" then
 				main.f_tableMerge(t1[k] or {}, t2[k] or {}, k)
 			elseif (t1[k] ~= nil and type(t1[k]) ~= type(v)) then
-				--panicError("\n" .. k:gsub('_', '.') .. ": Incorrect data type (" .. type(t1[k]) .. " expected, got " .. type(v) .. "): " .. f_printValue(v))
-				print(k:gsub('_', '.') .. ": Incorrect data type (" .. type(t1[k]) .. " expected, got " .. type(v) .. "): " .. f_printValue(v))
+				--panicError("\n" .. (k or ''):gsub('_', '.') .. ": Incorrect data type (" .. type(t1[k]) .. " expected, got " .. type(v) .. "): " .. f_printValue(v))
+				print((k or ''):gsub('_', '.') .. ": Incorrect data type (" .. type(t1[k]) .. " expected, got " .. type(v) .. "): " .. f_printValue(v))
 			else
 				t1[k] = v
 			end
@@ -940,8 +940,8 @@ function main.f_tableMerge(t1, t2, key)
 			if type(t1[k]) == "string" then
 				t1[k] = tostring(v)
 			else
-				--panicError("\n" .. k:gsub('_', '.') .. ": Incorrect data type (" .. type(t1[k]) .. " expected, got " .. type(v) .. "): " .. f_printValue(v))
-				print(k:gsub('_', '.') .. ": Incorrect data type (" .. type(t1[k]) .. " expected, got " .. type(v) .. "): " .. f_printValue(v))
+				--panicError("\n" .. (k or ''):gsub('_', '.') .. ": Incorrect data type (" .. type(t1[k]) .. " expected, got " .. type(v) .. "): " .. f_printValue(v))
+				print((k or ''):gsub('_', '.') .. ": Incorrect data type (" .. type(t1[k]) .. " expected, got " .. type(v) .. "): " .. f_printValue(v))
 			end
 		else
 			t1[k] = v
@@ -1332,7 +1332,6 @@ function main.f_commandLine()
 	local roundTime = config.RoundTime
 	if main.flags['-loadmotif'] == nil then
 		loadLifebar(main.lifebarDef)
-		loadCommonFx()
 	end
 	setLifebarElements({guardbar = config.BarGuard, stunbar = config.BarStun, redlifebar = config.BarRedLife})
 	local frames = framespercount()
@@ -1520,7 +1519,6 @@ main.txt_loading = main.f_createTextImg(motif.title_info, 'loading')
 main.txt_loading:draw()
 refresh()
 loadLifebar(main.lifebarDef)
-loadCommonFx()
 main.f_loadingRefresh(main.txt_loading)
 main.timeFramesPerCount = framespercount()
 main.f_updateRoundsNum()
@@ -2399,6 +2397,7 @@ function main.f_default()
 	setAutoLevel(false)
 	setConsecutiveWins(1, 0)
 	setConsecutiveWins(2, 0)
+	setConsecutiveRounds(false)
 	setContinue(false)
 	setGameMode('')
 	setHomeTeam(2) --http://mugenguild.com/forum/topics/ishometeam-triggers-169132.0.html
@@ -2589,6 +2588,7 @@ main.t_itemname = {
 		main.teamMenu[2].tag = true
 		main.teamMenu[2].turns = true
 		main.txt_mainSelect:update({text = motif.select_info.title_netplaysurvivalcoop_text})
+		setConsecutiveRounds(true)
 		setGameMode('netplaysurvivalcoop')
 		hook.run("main.t_itemname")
 		return start.f_selectMode
@@ -2757,6 +2757,7 @@ main.t_itemname = {
 		main.teamMenu[2].tag = true
 		main.teamMenu[2].turns = true
 		main.txt_mainSelect:update({text = motif.select_info.title_survival_text})
+		setConsecutiveRounds(true)
 		setGameMode('survival')
 		hook.run("main.t_itemname")
 		return start.f_selectMode
@@ -2796,6 +2797,7 @@ main.t_itemname = {
 		main.teamMenu[2].tag = true
 		main.teamMenu[2].turns = true
 		main.txt_mainSelect:update({text = motif.select_info.title_survivalcoop_text})
+		setConsecutiveRounds(true)
 		setGameMode('survivalcoop')
 		hook.run("main.t_itemname")
 		return start.f_selectMode

@@ -5,7 +5,7 @@ type    = A
 physics = N
 anim = 110
 velset = 0,0
-ctrl = 0
+ctrl = prevstateno = 109
 sprpriority = 1
 
 [State 100, 1]
@@ -65,7 +65,7 @@ type    = A
 physics = N
 anim = 115
 velset = 0,0
-ctrl = 0
+ctrl = prevstateno = 108
 sprpriority = 1
 
 [State 100, 1]

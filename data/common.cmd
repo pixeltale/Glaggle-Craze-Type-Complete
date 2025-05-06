@@ -519,7 +519,7 @@ buffer.time = 8
 name = "DU"
 command = $D, $U
 time = 8
-buffer.time = 1
+buffer.time = 8
 
 ;===================================
 ; RECOVERY

@@ -439,7 +439,7 @@ value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
 type = VelSet
 trigger1 = NumHelper(56)
 trigger1 = map(p_Fd) || map(p_Bk)
-x = min(const(velocity.jump.fwd.x)*1.25+const(velocity.jump.fwd.x)*0.5*sysvar(2),max(const(velocity.jump.fwd.x)*0.5+const(velocity.jump.fwd.x)*0.5*sysvar(2),Vel X + const(velocity.jump.fwd.x) * 0.2 * !!Map(p_Fd) + const(velocity.jump.back.x) * 0.2 * !!Map(p_Bk)))*sysvar(1)
+x = const(velocity.jump.fwd.x) * sysvar(1)
 
 [State 0, PalFX]
 type = PalFX
@@ -3247,6 +3247,11 @@ velset = 0,0
 sprpriority = -2
 anim = 120
 
+[State 0, No...More...]
+type = ChangeAnim
+trigger1 = time = 9
+value = 140
+
 [State 0, Var LucidMeter Reduc]
 type = VarAdd
 trigger1 = !Time
@@ -3289,6 +3294,7 @@ color = 64
 
 [State 0, ReversalDef]
 type = ReversalDef
+trigger1 = time < 6
 trigger1 = EnemyNear,StateNo != 3200
 reversal.attr = SCA,NA,SA,HA,NP,SP,HP
 pausetime = 0,15
@@ -3297,6 +3303,7 @@ hitsound = -1
 p1stateno = 3121
 [State 0, ReversalDef]
 type = ReversalDef
+trigger1 = time < 6
 trigger1 = EnemyNear,StateNo = 3200
 reversal.attr = SCA,NP,SP,HP
 pausetime = 0,0
@@ -3491,12 +3498,6 @@ trigger1 = !Time
 value = F20,5
 ;channel = 1
 
-[State 0, ChangeState]
-type = ChangeState
-triggerall = map(p_Fd) || map(p_Bk)
-trigger1 = Time = 28 - (Name="WALL"||Name="WALX"||Name="WALK"||Name="REAP"||Name="REAX"||Name="BOUN"||Name="BOUX"||Name="BOUK"||Name="BAXT"||Name="BAXX"||Name="BAXK"||Name="GOLI"||Name="GOLX"||Name="GOLK"||Name="TYRA"||Name="TYRX"||Name="TYRK"||Name="IKUE"||Name="IKUX"||Name="IKUK"||Name="BERN"||Name="BERX"||Name="BERK"||Name="JANE"||Name="JANX"||Name="JANK")
-trigger2 = Time = 12 - (Name="WALL"||Name="WALX"||Name="WALK"||Name="REAP"||Name="REAX"||Name="BOUN"||Name="BOUX"||Name="BOUK"||Name="BAXT"||Name="BAXX"||Name="BAXK"||Name="GOLI"||Name="GOLX"||Name="GOLK"||Name="TYRA"||Name="TYRX"||Name="TYRK"||Name="IKUE"||Name="IKUX"||Name="IKUK"||Name="BERN"||Name="BERX"||Name="BERK"||Name="JANE"||Name="JANX"||Name="JANK")
-value = 3130 + map(p_Bk)
 [State 0, ChangeState]
 type = ChangeState
 trigger1 = Time = 40 - (Name="WALL"||Name="WALX"||Name="WALK"||Name="REAP"||Name="REAX"||Name="BOUN"||Name="BOUX"||Name="BOUK"||Name="BAXT"||Name="BAXX"||Name="BAXK"||Name="GOLI"||Name="GOLX"||Name="GOLK"||Name="TYRA"||Name="TYRX"||Name="TYRK"||Name="IKUE"||Name="IKUX"||Name="IKUK"||Name="BERN"||Name="BERX"||Name="BERK"||Name="JANE"||Name="JANX"||Name="JANK")
@@ -18138,13 +18139,20 @@ trigger1 = movehit = 1 && var(10)
 v = 18
 value = 1000
 ignorehitpause = 0
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = movehit = 1 && var(10)
+v = 18
+value = -1000
+ignorehitpause = 0
+redirectid = enemynear, id
 
 [State 0, VarAdd]
 type = VarAdd
 triggerall = movetype != H && stateno != [110, 111]
 trigger1 = vel x > 0
 v = 18
-value = vel x * 2
+value = vel x
 ignorehitpause = 1
 ;persistent = 
 
@@ -18152,7 +18160,7 @@ ignorehitpause = 1
 type = VarAdd
 trigger1 = movehit = 1
 v = 18
-value = (enemy,gethitvar(damage))*fvar(10)*2
+value = (enemy,gethitvar(damage))*2
 ignorehitpause = 1
 persistent = 1
 
@@ -18165,7 +18173,7 @@ persistent = 1
 [State -1, AirDash Fwd]
 type = ChangeState
 value = 110 + 1*(name = "TERI" || name = "TERX" || name = "TERK") + 5*(name = "CICI" || name = "CICX" ||  name = "CICK")
-triggerall = ctrl
+triggerall = ctrl && var(1)
 triggerall = Vel Y >= -1 || Time >= 3
 triggerall = !(StateNo = [110,115] && Time < 12)
 triggerall = statetype = A && Var(1)
@@ -18176,7 +18184,7 @@ trigger2 = Var(17) = 110 && Var(15)
 [State -1, AirDash Back]
 type = ChangeState
 value = 115 + 1*(name = "TERI" || name = "TERX" || name = "TERK" || name = "CICI" || name = "CICX" ||  name = "CICK")
-triggerall = ctrl
+triggerall = ctrl && var(1)
 triggerall = Vel Y >= -1 || Time >= 3
 triggerall = !(StateNo = [110,115] && Time < 12)
 triggerall = statetype = A && Var(1)
@@ -18201,6 +18209,7 @@ ignorehitpause = 1
 [State -1, AirDash Fwd]
 type = ChangeState
 value = 109
+triggerall = !map(CCDisable)
 triggerall = movecontact && var(18) >= 1000
 triggerall = statetype = A
 trigger1 = (command="FF" || map(b_66)) && !Var(15)
@@ -18210,6 +18219,7 @@ trigger2 = Var(17) = 109 && Var(15)
 [State -1, AirDash Backward]
 type = ChangeState
 value = 108
+triggerall = !map(CCDisable)
 triggerall = movecontact && var(18) >= 1000
 triggerall = statetype = A
 trigger1 = (command="BB" || map(b_44)) && !Var(15)
