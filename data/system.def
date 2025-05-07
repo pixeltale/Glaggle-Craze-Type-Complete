@@ -189,17 +189,26 @@ start = -320, 0
 mask = 1
 trans = add
 
+[TitleBG 0]
+type  = normal
+spriteno = 0, 4
+layerno = 0
+start = -320, 0
+mask = 1
+xscale = 0.15
+yscale = 0.15
+
 [Begin Action 10] ;big lotus 1 ref anim
-0,23, 0,0, 18, V, AS128D128
-0,24, 0,0, 18, V, AS128D128
-0,23, 0,0, 18, V, AS128D128
-0,25, 0,0, 18, V, AS128D128
+0,23, 0,0, 30, V, AS128D128
+0,24, 0,0, 30, V, AS128D128
+0,23, 0,0, 30, V, AS128D128
+0,25, 0,0, 30, V, AS128D128
 
 [Begin Action 11] ;big lotus 1 anim
-0,20, 0,0, 18
-0,21, 0,0, 18
-0,20, 0,0, 18
-0,22, 0,0, 18
+0,20, 0,0, 30
+0,21, 0,0, 30
+0,20, 0,0, 30
+0,22, 0,0, 30
 
 [TitleBG 1] ;big lotus 1 reflect
 type  = anim
@@ -234,16 +243,16 @@ sin.x = -18, 800
 sin.y = 4, 250
 
 [Begin Action 12] ;med lotus 1 ref anim
-0,33, 0,0, 17, V, AS128D128
-0,34, 0,0, 17, V, AS128D128
-0,33, 0,0, 17, V, AS128D128
-0,35, 0,0, 17, V, AS128D128
+0,33, 0,0, 32, V, AS128D128
+0,34, 0,0, 32, V, AS128D128
+0,33, 0,0, 32, V, AS128D128
+0,35, 0,0, 32, V, AS128D128
 
 [Begin Action 13] ;med lotus 1 anim
-0,30, 0,0, 17
-0,31, 0,0, 17
-0,30, 0,0, 17
-0,32, 0,0, 17
+0,30, 0,0, 32
+0,31, 0,0, 32
+0,30, 0,0, 32
+0,32, 0,0, 32
 
 [TitleBG 1] ;med lotus 1 reflect
 type  = anim
@@ -278,16 +287,16 @@ sin.x = 6, 400
 sin.y = -8, 700
 
 [Begin Action 14] ;small lotus 1 ref anim
-0,43, 0,0, 16, V, AS128D128
-0,44, 0,0, 16, V, AS128D128
-0,43, 0,0, 16, V, AS128D128
-0,45, 0,0, 16, V, AS128D128
+0,43, 0,0, 28, V, AS128D128
+0,44, 0,0, 28, V, AS128D128
+0,43, 0,0, 28, V, AS128D128
+0,45, 0,0, 28, V, AS128D128
 
 [Begin Action 15] ;small lotus 1 anim
-0,40, 0,0, 16
-0,41, 0,0, 16
-0,40, 0,0, 16
-0,42, 0,0, 16
+0,40, 0,0, 28
+0,41, 0,0, 28
+0,40, 0,0, 28
+0,42, 0,0, 28
 
 [TitleBG 1] ;small lotus 1 reflect
 type  = anim

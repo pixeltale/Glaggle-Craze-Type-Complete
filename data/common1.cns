@@ -17895,7 +17895,7 @@ y = 0.95
 
 [State 0, Explod Damage Counter ..X]
 type = Explod
-triggerall = !const(BC.HideHUD)
+triggerall = const(BC.HideHUD)
 trigger1 = Var(5) > 0
 anim = F4520 + (Var(5) % 10)
 pos = 0 + (Var(5)>9)*4 + (Var(5)>99)*4,0
@@ -17909,7 +17909,7 @@ scale = 0.5,0.5
 ignorehitpause = 1
 [State 0, Explod Damage Counter .X.]
 type = Explod
-triggerall = !const(BC.HideHUD)
+triggerall = const(BC.HideHUD)
 trigger1 = Var(5) > 9
 anim = F4520 + floor((Var(5) % 100) * 0.1)
 pos = -4 + (Var(5)>99)*4,0
@@ -17923,7 +17923,7 @@ scale = 0.5,0.5
 ignorehitpause = 1
 [State 0, Explod Damage Counter X..]
 type = Explod
-triggerall = !const(BC.HideHUD)
+triggerall = const(BC.HideHUD)
 trigger1 = Var(5) > 99
 anim = F4520 + floor((Var(5) % 1000) * 0.01)
 pos = -8,0
@@ -18259,7 +18259,7 @@ value = 1
 ignorehitpause = 1
 [State -2, Juggle Timer Reset]
 type = MapSet
-trigger1 = !map(JuggleStateCheck) || stateno = [5320, 5392] || enemy, stateno = [3000,3005] || enemy, statetype = L
+trigger1 = !map(JuggleStateCheck) || enemy, (statetype = L && stateno != [5350,5392]) || enemy, stateno = [3000,3005]
 map = "JuggleTime"
 value = 0
 ignorehitpause = 1
@@ -19104,7 +19104,7 @@ ignorehitpause = 1
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = !!const(BC.HideHUD)
+trigger1 = !const(BC.HideHUD)
 trigger2 = Map(IsTraining) && EnemyNear,Map(IsTraining)
 trigger3 = Name = "TRAI" && EnemyNear,Name = "TRAI"
 v = 20
