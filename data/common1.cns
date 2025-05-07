@@ -17895,7 +17895,7 @@ y = 0.95
 
 [State 0, Explod Damage Counter ..X]
 type = Explod
-triggerall = const(BC.HideHUD)
+triggerall = !const(BC.HideHUD)
 trigger1 = Var(5) > 0
 anim = F4520 + (Var(5) % 10)
 pos = 0 + (Var(5)>9)*4 + (Var(5)>99)*4,0
@@ -17909,7 +17909,7 @@ scale = 0.5,0.5
 ignorehitpause = 1
 [State 0, Explod Damage Counter .X.]
 type = Explod
-triggerall = const(BC.HideHUD)
+triggerall = !const(BC.HideHUD)
 trigger1 = Var(5) > 9
 anim = F4520 + floor((Var(5) % 100) * 0.1)
 pos = -4 + (Var(5)>99)*4,0
@@ -17923,7 +17923,7 @@ scale = 0.5,0.5
 ignorehitpause = 1
 [State 0, Explod Damage Counter X..]
 type = Explod
-triggerall = const(BC.HideHUD)
+triggerall = !const(BC.HideHUD)
 trigger1 = Var(5) > 99
 anim = F4520 + floor((Var(5) % 1000) * 0.01)
 pos = -8,0
@@ -18175,7 +18175,7 @@ type = ChangeState
 value = 110 + 1*(name = "TERI" || name = "TERX" || name = "TERK") + 5*(name = "CICI" || name = "CICX" ||  name = "CICK")
 triggerall = ctrl && var(1)
 triggerall = Vel Y >= -1 || Time >= 3
-triggerall = !(StateNo = [110,115] && Time < 12)
+triggerall = !(StateNo = [110,115])
 triggerall = statetype = A && Var(1)
 trigger1 = (command="FF" || map(b_66)) && !Var(15)
 trigger2 = Var(17) = 110 && Var(15)
@@ -18186,7 +18186,7 @@ type = ChangeState
 value = 115 + 1*(name = "TERI" || name = "TERX" || name = "TERK" || name = "CICI" || name = "CICX" ||  name = "CICK")
 triggerall = ctrl && var(1)
 triggerall = Vel Y >= -1 || Time >= 3
-triggerall = !(StateNo = [110,115] && Time < 12)
+triggerall = !(StateNo = [110,115])
 triggerall = statetype = A && Var(1)
 trigger1 = (command="BB" || map(b_44)) && !Var(15)
 trigger2 = Var(17) = 110 && Var(15)
@@ -19104,7 +19104,7 @@ ignorehitpause = 1
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = !const(BC.HideHUD)
+trigger1 = !!const(BC.HideHUD)
 trigger2 = Map(IsTraining) && EnemyNear,Map(IsTraining)
 trigger3 = Name = "TRAI" && EnemyNear,Name = "TRAI"
 v = 20
