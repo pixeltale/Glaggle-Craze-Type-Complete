@@ -3404,7 +3404,11 @@ movetype = I
 type = CtrlSet
 trigger1 = AnimElem = 11
 value = 1
-
+[State 200, 3]
+type = ChangeState
+trigger1 = movehit && command = "DU"
+value = 55
+ctrl = 0
 [State 1000, 7]
 type = ChangeState
 trigger1 = AnimTime = 0

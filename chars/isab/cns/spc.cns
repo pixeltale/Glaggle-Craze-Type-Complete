@@ -2865,6 +2865,11 @@ trigger1 = AnimTime = 0
 value = 1
 [State 200, 3]
 type = ChangeState
+trigger1 = movehit && command = "DU"
+value = 55
+ctrl = 0
+[State 200, 3]
+type = ChangeState
 trigger1 = Anim = 1
 value = 0
 ctrl = 1
@@ -4452,6 +4457,11 @@ type = ChangeAnim
 trigger1 = AnimTime = 0
 value = 1
 elem = 4
+[State 200, 3]
+type = ChangeState
+trigger1 = movehit && command = "DU"
+value = 55
+ctrl = 0
 [State 200, 3]
 type = ChangeState
 trigger1 = Anim = 1

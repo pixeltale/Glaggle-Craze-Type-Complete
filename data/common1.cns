@@ -908,7 +908,7 @@ sprpriority = 1
 type = VarAdd
 trigger1 = 1
 v = 18
-value = -1000
+value = -1000 - 1000 * (map(AirdashGuardCheck))
 ignorehitpause = 1
 
 [State 120, Transition to Airdash]
@@ -930,7 +930,7 @@ sprpriority = 1
 type = VarAdd
 trigger1 = 1
 v = 18
-value = -1000
+value = -1000 - 1000 * (map(AirdashGuardCheck))
 ignorehitpause = 1
 
 [State 120, Transition to Airdash]
@@ -18088,6 +18088,18 @@ trigger2 = Var(17) = 55 && Var(15)
 
 
 [Statedef -2]
+
+[State 0, MapAdd]
+type = MapSet
+trigger1 = moveguarded && statetype = A
+map = "AirdashGuardCheck"
+value = moveguarded = 1
+[State 0, MapAdd]
+type = MapSet
+trigger1 = stateno = [110,116] && time > 3 || movehit
+map = "AirdashGuardCheck"
+value = 0
+
 ;=======================================================================
 ; FULL GAME FUNTIMES: Special Moves Don't Juggle Decay
 ;=======================================================================
@@ -18152,7 +18164,7 @@ type = VarAdd
 triggerall = movetype != H && stateno != [110, 111]
 trigger1 = vel x > 0
 v = 18
-value = vel x
+value = vel x * 0.75
 ignorehitpause = 1
 ;persistent = 
 
@@ -18210,7 +18222,7 @@ ignorehitpause = 1
 type = ChangeState
 value = 109
 triggerall = !map(CCDisable)
-triggerall = movecontact && var(18) >= 1000
+triggerall = movecontact && var(18) >= 1000 + 1000 * (moveguarded > 0)
 triggerall = statetype = A
 trigger1 = (command="FF" || map(b_66)) && !Var(15)
 trigger2 = Var(17) = 109 && Var(15)
@@ -18220,7 +18232,7 @@ trigger2 = Var(17) = 109 && Var(15)
 type = ChangeState
 value = 108
 triggerall = !map(CCDisable)
-triggerall = movecontact && var(18) >= 1000
+triggerall = movecontact && var(18) >= 1000 + 1000 * (moveguarded > 0)
 triggerall = statetype = A
 trigger1 = (command="BB" || map(b_44)) && !Var(15)
 trigger2 = Var(17) = 109 && Var(15)
@@ -18255,11 +18267,11 @@ ignorehitpause = 1
 type = MapAdd
 trigger1 = map(JuggleStateCheck) && stateno != [900, 3000)
 map = "JuggleTime"
-value = 1
+value = 0.5
 ignorehitpause = 1
 [State -2, Juggle Timer Reset]
 type = MapSet
-trigger1 = !map(JuggleStateCheck) || enemy, (statetype = L && stateno != [5350,5392]) || enemy, stateno = [3000,3005]
+trigger1 = !map(JuggleStateCheck) || enemy, statetype = L && enemy, stateno != [5350,5392] || enemy, stateno = [3000,3005]
 map = "JuggleTime"
 value = 0
 ignorehitpause = 1
