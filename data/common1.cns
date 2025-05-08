@@ -18259,7 +18259,7 @@ ignorehitpause = 1
 persistent = 1
 [State -2, Juggle State Check]
 type = MapSet
-trigger1 = !(movetype = H && statetype = A) || stateno = [5320, 5392] || enemy, stateno = [3000,3005]
+trigger1 = !(movetype = H && statetype = A) || stateno = 5109 || enemy, stateno = [3000,3005]
 map = "JuggleStateCheck"
 value = 0
 ignorehitpause = 1
@@ -18271,7 +18271,7 @@ value = 0.5
 ignorehitpause = 1
 [State -2, Juggle Timer Reset]
 type = MapSet
-trigger1 = !map(JuggleStateCheck) || enemy, statetype = L && enemy, stateno != [5350,5392] || enemy, stateno = [3000,3005]
+trigger1 = !map(JuggleStateCheck) || stateno = 5109 || enemy, stateno = [3000,3005]
 map = "JuggleTime"
 value = 0
 ignorehitpause = 1
