@@ -18161,7 +18161,7 @@ redirectid = enemynear, id
 
 [State 0, VarAdd]
 type = VarAdd
-triggerall = movetype != H && stateno != [110, 111]
+triggerall = movetype != H && stateno != [110, 111] && stateno != [2000, 3000)
 trigger1 = vel x > 0
 v = 18
 value = vel x * 0.75
@@ -18170,7 +18170,7 @@ ignorehitpause = 1
 
 [State 0, VarAdd]
 type = VarAdd
-trigger1 = movehit = 1
+trigger1 = movehit = 1 && stateno != [2000, 3000)
 v = 18
 value = (enemy,gethitvar(damage))*2
 ignorehitpause = 1
