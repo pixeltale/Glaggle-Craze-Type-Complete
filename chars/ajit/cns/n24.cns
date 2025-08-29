@@ -499,5 +499,5 @@ value = 1.0 + (Var(40) * 0.05)
 type = DisplayToClipboard
 trigger1 = 1
 text = "%f";  %d %f"
-params = p2dist x
+params = map(IBTIMER)
 ignorehitpause = 1

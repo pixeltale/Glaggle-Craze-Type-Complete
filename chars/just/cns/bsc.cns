@@ -1876,7 +1876,7 @@ guardsound = 5,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime = 12
-guard.hittime = 9
+guard.hittime = 10
 yaccel = 0.5
 air.fall = 1
 ground.velocity = -4,0
@@ -1970,7 +1970,7 @@ guardsound = 5,0
 ground.type = Low
 ground.slidetime = 12
 ground.hittime = 12
-guard.hittime = 8
+guard.hittime = 6
 yaccel = 0.5
 air.fall = 1
 ground.velocity = -2.5,0
@@ -3544,15 +3544,6 @@ trigger1 = AnimElem = 3
 v = 34
 value = ifelse(Name="JUSK",random%2,random%3)
 
-[State 0, VelSet]
-type = VelSet
-trigger1 = Time = 4
-x = Vel X * 0.25
-y = const(velocity.jump.y) * 0.5 - Pos Y * 0.02
-[State 0, VelSet]
-type = VelAdd
-trigger1 = Time > 4
-y = const(movement.yaccel) * -0.25
 
 ;---------------------------------------------------------------------------
 ; ju.Throw S

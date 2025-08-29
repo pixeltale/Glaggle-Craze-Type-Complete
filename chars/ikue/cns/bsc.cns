@@ -2343,15 +2343,6 @@ trigger1 = AnimElem = 3
 v = 34
 value = random%4
 
-[State 0, VelSet]
-type = VelSet
-trigger1 = Time = 4
-x = Vel X * 0.25
-y = const(velocity.jump.y) * 0.5 - Pos Y * 0.02
-[State 0, VelSet]
-type = VelAdd
-trigger1 = Time > 4
-y = const(movement.yaccel) * -0.25
 
 ;---------------------------------------------------------------------------
 ; ju.Throw S

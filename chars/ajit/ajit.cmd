@@ -415,7 +415,7 @@ triggerall = statetype != A
 triggerall = Name = "AJIX"
 triggerall = Var(18) >= 1000
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = 200 || StateNo = 210 || StateNo = 300 || StateNo = 310 || StateNo = 400 || StateNo = 410 || StateNo = 500 || StateNo = 205 || StateNo = 305 || StateNo = 306) && MoveContact || (StateNo = [200,800) || StateNo = 1300) && Time <= 2 
-trigger1 = map(HCB) && map(b_xy) && !Var(15)
+trigger1 = map(HCB) || COMMAND = "HCB" && map(b_xy) && !Var(15)
 trigger2 = Var(17) = 1200 && Var(15) && Random < 125
 
 ;---------------------------------------------------------------------------
@@ -451,7 +451,7 @@ value = 1301
 triggerall = statetype != A
 triggerall = Name != "AJIK"
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = 200 || StateNo = 210 || StateNo = 300 || StateNo = 310 || StateNo = 400 || StateNo = 410 || StateNo = 500 || StateNo = 205 || StateNo = 305 || StateNo = 306) && MoveContact || StateNo = [200,800) && Time <= 2
-trigger1 = map(HCB) && map(b_y) && !Var(15)
+trigger1 = map(HCB) || COMMAND = "HCB" && map(b_y) && !Var(15)
 trigger2 = Var(17) = 1600 && Var(15) && Random < 500
 
 ;---------------------------------------------------------------------------
@@ -462,7 +462,7 @@ value = 1300
 triggerall = statetype != A
 triggerall = Name != "AJIK"
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = 200 || StateNo = 210 || StateNo = 300 || StateNo = 310 || StateNo = 400 || StateNo = 410 || StateNo = 500 || StateNo = 205 || StateNo = 305 || StateNo = 306) && MoveContact || StateNo = [200,800) && Time <= 2
-trigger1 = map(HCB) && map(b_x) && !Var(15)
+trigger1 = map(HCB) || COMMAND = "HCB" && map(b_x) && !Var(15)
 trigger2 = Var(17) = 1700 && Var(15) && Random < 500
 
 ;---------------------------------------------------------------------------

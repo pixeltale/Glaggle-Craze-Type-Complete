@@ -2097,13 +2097,6 @@ pos = 32,-64
 postype = p1
 supermovetime = Var(54)
 
-[State 0, ChangeAnim]
-type = ChangeAnim
-trigger1 = AnimElemNo(0) = 8
-trigger1 = Var(5) > 0
-value = Anim
-elem = 8
-
 [State 0, StateTypeSet]
 type = StateTypeSet
 trigger1 = AnimElem = 7
@@ -2236,7 +2229,7 @@ type    = A
 movetype= I
 physics = N
 ctrl = 0
-velset = 16,0
+velset = 8,0
 anim = 666
 sprpriority = 3
 
@@ -2307,7 +2300,7 @@ x = ifelse(Time<6,Vel X * 0.5,0)
 type = VelSet
 trigger1 = Time = 41
 trigger2 = MoveContact > 4
-x = 8
+x = 2
 
 [State 0, VarAdd]
 type = VarAdd
@@ -2319,7 +2312,7 @@ ignorehitpause = 1
 type = VarSet
 trigger1 = !Time
 v = 12
-value = 31
+value = 12
 ignorehitpause = 1
 
 [State 0, HitDef]

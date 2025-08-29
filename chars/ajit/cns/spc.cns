@@ -2394,13 +2394,12 @@ value = (PrevStateNo=1101)
 [State 0, VarSet]
 type = VarSet
 trigger1 = !Time
-trigger2 = Var(6) = -1
 v = 6
-value = -1 + (!Var(5)&&!map(b_x)||Var(5)&&map(b_y))
+value = 0
 [State 0, VarSet]
 type = VarSet
-triggerall = Var(6) = 0
-trigger1 = map(b_x) || map(b_y)
+triggerall = var(5) && movehit
+trigger1 = command = "y"
 v = 6
 value = 1
 
@@ -2409,8 +2408,7 @@ type = ChangeAnim
 triggerall = Anim = [1100,1101] && AnimElem = 7
 triggerall = RoundState = 2
 triggerall = MoveHit
-trigger1 = Var(6)
-trigger2 = Var(10) = 2 || Var(11) > 1
+trigger1 = var(6)
 value = 1105
 
 [State 0, PosAdd]
@@ -2498,7 +2496,7 @@ guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * FVar(10) * FVar(20)),Ceil(Var(12)*const(BC.ChipLight))
-guardpoints = floor((32 + Var(12)) * 0.5)
+guardpoints = floor((32 + Var(12)) * (0.5 + (1.5 * enemy, statetype = A)))
 pausetime = 12,12
 sparkno = 10 + random%4 + (Var(10)=1) * 5
 guard.sparkno = 40
@@ -2513,7 +2511,7 @@ yaccel = 0.5
 fall = 1
 fall.xvelocity = -0.25
 ground.velocity = -3 + (P2Dist X * 0.025),-8 - (Var(5) * 2)
-air.velocity = -3 + (P2Dist X * 0.025),-8.5 - (Var(5) * 1.5) - P2Dist Y * 0.033
+air.velocity = -3 + (P2Dist X * 0.025),-8.5 - (Var(5) * 1.5) - P2Dist Y * 0.033 - 2 * (enemy, movetype != H)
 p2facing = 1
 getpower = floor(Var(12)*Map(ScaledPowerGetHit)),floor(Var(12)*const(BC.PowerGetGuard))
 givepower = floor(Var(12)*Map(ScaledPowerGiveHit)),floor(Var(12)*const(BC.PowerGiveGuard))
@@ -2522,7 +2520,7 @@ type = HitDef
 trigger1 = Anim = 1105 && AnimElem = 7
 attr = A,SA
 hitflag = MAF
-guardflag = MA
+guardflag = M
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * FVar(10) * FVar(20)),Ceil(Var(12)*const(BC.ChipLight))
@@ -2642,7 +2640,7 @@ x = 4 + Var(5)
 [State 0, VelSet]
 type = VelSet
 trigger1 = Anim = [1100,1101] && AnimElem = 4
-y = -7 - (Var(5) * 2)
+y = -6 - ((Var(5) * 2) + 1)
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = Anim = [1100,1101] && AnimElemNo(0) >= 4

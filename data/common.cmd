@@ -529,6 +529,21 @@ name = "UNBUFFER_UP"
 command = /$U
 time = 1
 buffer.time = 0
+[Command]
+name = "UNBUFFER_BACK"
+command = /$B
+time = 1
+buffer.time = 0
+
+;===================================
+; ALT HALF CIRCLES
+;===================================
+[Command]
+name = "HCB"
+command = ~F, D, $B
+[Command]
+name = "HCF"
+command = ~B, D, $F
 
 ;===================================
 ; RECOVERY

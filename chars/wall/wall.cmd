@@ -169,7 +169,7 @@ triggerall = statetype != A
 triggerall = Power >= 3000
 triggerall = Name != "WALK"
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveHit || StateNo = [200,800) && Time <= 2
-trigger1 = (map(HCB) || map(f360) || map(r360)) && map(b_ab) && !Var(15)
+trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_ab) && !Var(15)
 trigger2 = (Var(17) = 1300 || Var(17) = 800) && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 
@@ -193,7 +193,7 @@ triggerall = statetype != A
 triggerall = Name != "WALL"
 triggerall = Power >= 1000
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || (StateNo = [200,800) || StateNo = 1400) && Time <= 2
-trigger1 = (map(HCB) || map(f360) || map(r360)) && map(b_xy) && !Var(15)
+trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_xy) && !Var(15)
 trigger2 = (Var(17) = 1300 || Var(17) = 800) && Var(15) && Random < 250
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 
@@ -340,7 +340,7 @@ value = 1701
 triggerall = statetype != A
 triggerall = Name = "WALK"
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 && StateNo != 420) && MoveContact || (StateNo = 1000 || StateNo = 1500) && Time <= 2
-trigger1 = (map(HCB) || map(f360) || map(r360)) && map(b_y) && !Var(15)
+trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_y) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15)
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 
@@ -352,7 +352,7 @@ value = 1700
 triggerall = statetype != A
 triggerall = Name = "WALK"
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 && StateNo != 420) && MoveContact || (StateNo = 1000 || StateNo = 1500) && Time <= 2
-trigger1 = (map(HCB) || map(f360) || map(r360)) && map(b_x) && !Var(15)
+trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_x) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15)
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 
@@ -364,7 +364,7 @@ value = 1401
 triggerall = statetype != A
 triggerall = Name != "WALK"
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveHit || StateNo = [200,800) && Time <= 2
-trigger1 = map(HCB) && map(b_y) && !Var(15)
+trigger1 = map(HCB) || COMMAND = "HCB" && map(b_y) && !Var(15)
 trigger2 = Var(17) = 1000 && Var(15) && Random < 100
 trigger2 = EnemyNear,StateType = A && P2Dist X = [112,168]
 trigger3 = Var(17) = 1100 && Var(15) && Random < 500
@@ -377,7 +377,7 @@ value = 1400
 triggerall = statetype != A
 triggerall = Name != "WALK"
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveHit || StateNo = [200,800) && Time <= 2
-trigger1 = map(HCB) && map(b_x) && !Var(15)
+trigger1 = map(HCB) || COMMAND = "HCB" && map(b_x) && !Var(15)
 trigger2 = Var(17) = 1000 && Var(15) && Random < 100
 trigger2 = EnemyNear,StateType != A && P2Dist X = [112,168]
 
@@ -434,7 +434,7 @@ type = ChangeState
 value = 1001
 triggerall = statetype != A
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
-trigger1 = map(HCF) && map(b_y) && !Var(15)
+trigger1 = (map(HCF) || COMMAND = "HCF") && map(b_y) && !Var(15)
 trigger2 = Var(17) = 1200 && Var(15) && Random < 500
 
 ;---------------------------------------------------------------------------
@@ -444,7 +444,7 @@ type = ChangeState
 value = 1000
 triggerall = statetype != A
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
-trigger1 = map(HCF) && map(b_x) && !Var(15)
+trigger1 = (map(HCF) || COMMAND = "HCF") && map(b_x) && !Var(15)
 trigger2 = Var(17) = 1200 && Var(15) && Random < 500
 
 ;---------------------------------------------------------------------------

@@ -1468,11 +1468,11 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = S,SA
 hitflag = MAF
-guardflag = MA
+guardflag = M
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * FVar(10)),Ceil(Var(12)*const(BC.ChipLight))
-guardpoints = floor((32 + Var(12)) * 0.5)
+guardpoints = floor((32 + Var(12)) * (0.5 + (1.5 * enemy, statetype = A)))
 pausetime = 12,12+Var(13)
 guard.pausetime = 12,12
 sparkno = ifelse(Var(10)=2||Var(11)>=2,30,10 + random%4 + (Var(10)=1) * 5)
@@ -1487,7 +1487,7 @@ guard.hittime = 13 + ceil(Var(5)*0.33) - 2 * (PrevStateNo=900)
 yaccel = 0.5
 fall = 1
 ground.velocity = -0.5 + (Var(5)*0.025),-7 - (Var(5)*0.25)
-air.velocity = -0.5 + (Var(5)*0.025),-3 - (Var(5)*0.25)
+air.velocity = -0.5 + (Var(5)*0.025),-3 - (Var(5)*0.25) - 2 * (enemy, movetype != H)
 guard.velocity = -4
 fall.yvelocity = -4
 p2facing = 1
@@ -1664,7 +1664,7 @@ guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * FVar(10) * (0.75 + 1.25 * (!MoveHit))),Ceil(Var(12)*const(BC.ChipLight))
-guardpoints = floor((16 + Var(12)) * 0.5)
+guardpoints = floor((16 + Var(12)) * (0.5 + (1.5 * enemy, statetype = A)))
 pausetime = 8,8
 sparkno = 10 + random%4 + (Var(10)=1) * 5
 guard.sparkno = 40
@@ -1694,7 +1694,7 @@ guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * FVar(10) * (0.75 + 1.25 * (!MoveHit))),Ceil(Var(12)*const(BC.ChipMid))
-guardpoints = floor((16 + Var(12)) * 0.5)
+guardpoints = floor((16 + Var(12)) * (0.5 + (1.5 * enemy, statetype = A)))
 pausetime = 12,12+Var(13)
 guard.pausetime = 12,12
 sparkno = ifelse(Var(10)=2||Var(11)>=2,30,10 + random%4 + (Var(10)=1) * 5)

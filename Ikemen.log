@@ -1,12 +1,9 @@
-.\external\script\start.lua:1403: data/common1.cns:309:
-const(velocity.jump.y) * 0.75 * (command != "UNBUFFER_UP")
-y: Command doesn't exist: UNBUFFER_UP
+external/script/main.lua:713: <game end>
 stack traceback:
-	[G]: in function 'game'
-	.\external\script\start.lua:1403: in function 'f_game'
-	.\external\script\start.lua:1836: in function 'launchFight'
-	external/script/default.lua:2: in function <external/script/default.lua:0>
-	.\external\script\start.lua:1457: in function 'f'
+	[G]: in function 'refresh'
+	external/script/main.lua:713: in function 'f_refresh'
+	.\external\script\start.lua:2242: in function 'f_selectScreen'
+	.\external\script\start.lua:1421: in function 'f'
 	external/script/main.lua:3069: in function 'loop'
 	external/script/main.lua:3189: in function 'loop'
 	external/script/main.lua:4156: in main chunk

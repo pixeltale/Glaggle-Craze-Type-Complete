@@ -2045,8 +2045,7 @@ type = TargetState
 triggerall = MoveHit && !MoveReversed
 triggerall = NumTarget && EnemyNear,MoveType = H
 trigger1 = Var(8) = 1
-trigger1 = Var(10) != 2 ;&& Var(11) <= 1
-trigger1 = EnemyNear,StateType = A
+trigger1 = Var(10) != 2
 value = 5355
 ignorehitpause = 1
 [State 0, Map Dire Trigger]
@@ -2748,15 +2747,6 @@ trigger1 = AnimElem = 3
 v = 34
 value = random%3
 
-[State 0, VelSet]
-type = VelSet
-trigger1 = Time = 4
-x = Vel X * 0.25
-y = const(velocity.jump.y) * 0.5 - Pos Y * 0.02
-[State 0, VelSet]
-type = VelAdd
-trigger1 = Time > 4
-y = const(movement.yaccel) * -0.25
 
 [State 0, ChangeState]
 type = ChangeState

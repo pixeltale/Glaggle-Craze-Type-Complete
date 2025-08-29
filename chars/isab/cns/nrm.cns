@@ -1,4 +1,50 @@
 ;---------------------------------------------------------------------------
+; Dash Forward
+[Statedef 102]
+type    = S
+physics = S
+anim = 102
+ctrl = 0
+sprpriority = 1
+
+[State 100, 1]
+type = VelSet
+trigger1 = Time <= 8
+trigger1 = AnimElemNo(0) = 1
+x = 7.5 * 0.5 * Map(SpeedMod)
+[State 100, 1]
+type = VelSet
+trigger1 = AnimElemNo(0) = [2,3]
+trigger2 = AnimElemNo(0) = 4 && Time < 12
+x = 7.5 * Map(SpeedMod)
+
+[State 100, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+[State 100, 2]
+type = AssertSpecial
+trigger1 = AnimElemNo(0) <= 4 + (Name="TERI"&&Var(41))
+flag = NoCrouch
+flag2 = NoWalk
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = !Time
+map = "DashDustFX"
+value = 1
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = AnimElem = 4
+value = 1
+
+[State 100, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
 ; Taunt
 [Statedef 165]
 type = S

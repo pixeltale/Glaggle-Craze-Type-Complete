@@ -376,7 +376,7 @@ value = 1201
 triggerall = statetype != A
 triggerall = Name != "TERK"
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || StateNo = [200,510) && MoveContact
-trigger1 = (map(HCB) || map(f360) || map(r360)) && map(b_b) && !Var(15)
+trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_b) && !Var(15)
 trigger2 = Var(17) = 1700 && Var(15) && Random < 350
 
 ;---------------------------------------------------------------------------
@@ -387,7 +387,7 @@ value = 1200
 triggerall = statetype != A
 triggerall = Name != "TERK"
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || StateNo = [200,510) && MoveContact
-trigger1 = (map(HCB) || map(f360) || map(r360)) && map(b_a) && !Var(15)
+trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_a) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 

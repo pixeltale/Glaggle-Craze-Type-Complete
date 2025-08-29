@@ -2810,7 +2810,7 @@ guardflag = MA
 animtype = heavy
 priority = 3,Hit
 damage = Ceil(Var(12) * FVar(10) * FVar(20)),Ceil(Var(12)*const(BC.ChipLight))
-guardpoints = floor((const(BC.GuardFlat) + Var(12)) * const(BC.GuardScaleHeavy))
+guardpoints = floor((const(BC.GuardFlat) + Var(12)) * const(BC.GuardScaleHeavy) + Var(12) * (enemy, statetype = A))
 pausetime = 12,12+Var(13)
 guard.pausetime = 12,12
 sparkno = ifelse(Var(10)=2||Var(11)>=2,30,25 + random%4)
@@ -2914,11 +2914,10 @@ value = 0
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-triggerall = !Var(5)
 trigger1 = MoveContact && NumTarget
-trigger1 = AnimElemNo(0) = [4,7]
+trigger1 = AnimElemNo(0) = [4,5]
 value = Anim
-elem = 8
+elem = 6
 
 [State 210, 1]
 type = PlaySnd
@@ -2990,7 +2989,7 @@ guardsound = 5,0
 ground.type = Low
 ground.slidetime = 14
 ground.hittime = 14
-guard.hittime = 8
+guard.hittime = 10 + 40 * (prevstateno = 1201)
 yaccel = 0.5
 fall = Var(5)
 air.fall = 1
@@ -4401,7 +4400,7 @@ guardflag = MA
 animtype = heavy
 priority = 3,Hit
 damage = Ceil(Var(12) * FVar(10) * FVar(20)),Ceil(136*0.5*const(BC.ChipLight))
-guardpoints = floor((const(BC.GuardFlat) + Var(12)) * const(BC.GuardScaleLight))
+guardpoints = floor((const(BC.GuardFlat) + Var(12)) * const(BC.GuardScaleHeavy) + const(BC.GuardScaleLight) * (1.5 * enemy, statetype = A))
 pausetime = ifelse(AnimElemNo(0)<7,6,12),ifelse(AnimElemNo(0)<7,6,12+var(13))
 guard.pausetime = ifelse(AnimElemNo(0)<7,6,12),ifelse(AnimElemNo(0)<7,6,12)
 sparkno = ifelse((Var(10)=2||Var(11)>=2)&&AnimElemNo(0)>=7,30,25 + random%4)
@@ -4515,15 +4514,16 @@ value = 0
 [State 0, VelSet]
 type = VelAdd
 trigger1 = Time <= 4
-x = 1 + 0.5 * Var(5)
+x = 1 + 1 * Var(5)
 [State 0, VelMul]
 type = VelMul
 trigger1 = AnimElemNo(0) >= 3
 trigger2 = AnimElemNo(0) = [1,2]
-trigger2 = P2BodyDist X = [-8,32]
+trigger2 = P2BodyDist X = [-8,32] && !var(5)
 x = 0.80
 [State 0, VelMul]
 type = VelMul
+triggerall = !var(5)
 trigger1 = AnimElemNo(0) >= 3
 trigger1 = P2BodyDist X = [-8,16]
 x = 0.50
@@ -4561,6 +4561,11 @@ trigger1 = Time = 10 + 4 * Var(5) + 1
 type = PlaySnd
 trigger1 = AnimElem = 1, 1
 value = F2,3
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = var(5)
+value = 0 
 
 [State 0, StateTypeSet]
 type = StateTypeSet

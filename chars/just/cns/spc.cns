@@ -4763,7 +4763,7 @@ guardflag = MA
 animtype = heavy
 priority = 3,Hit
 damage = Ceil(Var(12) * FVar(10)),Ceil(Var(12)*const(BC.ChipLight))
-guardpoints = floor((32 + Var(12)) * 0.5)
+guardpoints = floor((32 + Var(12)) * (0.5 + (1.5 * enemy, statetype = A)))
 pausetime = 12,12+Var(13)
 guard.pausetime = 12,12
 sparkno = ifelse((Var(10)=2||Var(11)>1)&&!Var(6),30,10 + random%4 + (Var(10)=1 * 5))
@@ -4873,7 +4873,7 @@ value = 1
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = Time = 8
+trigger1 = Time = 4
 value = 1
 
 [State 1000, 7]

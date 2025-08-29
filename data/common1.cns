@@ -612,6 +612,10 @@ physics = N
 anim = 666
 
 [State 0, BindToRoot]
+type = Turn
+trigger1 = !time && root, sysvar(1) = -1
+
+[State 0, BindToRoot]
 type = BindToRoot
 trigger1 = 1
 time = 1
@@ -941,14 +945,6 @@ anim = cond(selfanimexist(110), 110, cond(selfanimexist(100), 100, 102))
 velset = 0,0
 ctrl = 0
 sprpriority = 1
-
-[State 110, Flash]
-type = palfx
-triggerall = prevstateno = 109
-trigger1 = !time
-add = 255, 30, 200
-sinadd = -255, -30, -200, 60
-time = 15
 
 [State 120, 1]
 type = ChangeAnim
@@ -1463,12 +1459,45 @@ physics = N
 velset = 0,0
 sprpriority = -2
 
-[State 0, Perfect Guard Check]
-type = VarSet
-trigger1 = !Time
-v = 5
-value = (Var(4)>8)
+[State 0, MapSet] ;Instant Block Check
+type = MapSet
+trigger1 = time = 0
+map = "IBCheck"
+value = cond(map(IBTimer) > 20, 1, 0)
+[State 0, MapSet] ;Instant Block Timer Reset
+type = MapSet
+trigger1 = time = 1 && map(IBTimer)
+map = "IBTimer"
+value = 0
+
+[State 0, PalFX Perfect Guard]
+type = PalFX
+trigger1 = map(IBCHECK)
+time = 1
+add = 64,96,128
+mul = 128,192,256
+color = 128
 ignorehitpause = 1
+
+[State 0, LifeAdd Perfect Guard]
+type = LifeAdd
+trigger1 = map(IBCHECK)
+trigger1 = !Time
+value = gethitvar(Damage) + gethitvar(hittime)*(Var(22)-Life>gethitvar(hittime)) + (Var(22)-Life)*(Var(22)-Life<=gethitvar(hittime))
+absolute = 1
+[State 0, PowerAdd Perfect Guard]
+type = PowerAdd
+trigger1 = map(IBCHECK)
+trigger1 = !Time
+value = gethitvar(hittime) * 4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = map(IBCHECK)
+trigger1 = !Time
+v = 4
+value = 1
+
 
 [State 0, Heartbreaker Check]
 type = VarSet
@@ -1478,34 +1507,6 @@ trigger3 = EnemyNear,Map(TrainingOpt2) = 3
 v = 7
 value = (map(y) && map(b) && command = "holdback"||EnemyNear,Map(TrainingOpt2) = 3)
 ignorehitpause = 1
-
-[State 0, PalFX Perfect Guard]
-type = PalFX
-trigger1 = Var(5) = 1
-time = 1
-add = 64,96,128
-mul = 128,192,256
-color = 128
-ignorehitpause = 1
-
-[State 0, LifeAdd Perfect Guard]
-type = LifeAdd
-trigger1 = Var(5) = 1
-trigger1 = !Time
-value = gethitvar(Damage) + gethitvar(hittime)*(Var(22)-Life>gethitvar(hittime)) + (Var(22)-Life)*(Var(22)-Life<=gethitvar(hittime))
-absolute = 1
-[State 0, PowerAdd Perfect Guard]
-type = PowerAdd
-trigger1 = Var(5) = 1
-trigger1 = !Time
-value = gethitvar(hittime) * 4
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = Var(5) = 1
-trigger1 = !Time
-v = 4
-value = 1
 
 [State 0, MapSet]
 type = MapSet
@@ -1541,10 +1542,10 @@ physics = S
 
 [State 0, VarAdd Reduce Guard Bar]
 type = VarAdd
-triggerall = !Var(5)
+triggerall = !map(IBCHECK)
 trigger1 = Time = 0
 v = 25
-value = -GetHitVar(GuardPoints)
+value = -GetHitVar(GuardPoints) - (GetHitVar(GuardPoints) * (statetype = A && enemy, statetype != A))
 ignorehitpause = 1
 [State 0, VarSet Guard Meter Minimal]
 type = VarSet
@@ -1645,12 +1646,45 @@ physics = N
 velset = 0,0
 sprpriority = -2
 
-[State 0, Perfect Guard Check]
-type = VarSet
-trigger1 = !Time
-v = 5
-value = (Var(4)>8)
+[State 0, MapSet] ;Instant Block Check
+type = MapSet
+trigger1 = time = 0
+map = "IBCheck"
+value = cond(map(IBTimer) > 20, 1, 0)
+[State 0, MapSet] ;Instant Block Timer Reset
+type = MapSet
+trigger1 = time = 1 && map(IBTimer)
+map = "IBTimer"
+value = 0
+
+[State 0, PalFX Perfect Guard]
+type = PalFX
+trigger1 = map(IBCHECK)
+time = 1
+add = 64,96,128
+mul = 128,192,256
+color = 128
 ignorehitpause = 1
+
+[State 0, LifeAdd Perfect Guard]
+type = LifeAdd
+trigger1 = map(IBCHECK)
+trigger1 = !Time
+value = gethitvar(Damage) + gethitvar(hittime)*(Var(22)-Life>gethitvar(hittime)) + (Var(22)-Life)*(Var(22)-Life<=gethitvar(hittime))
+absolute = 1
+[State 0, PowerAdd Perfect Guard]
+type = PowerAdd
+trigger1 = map(IBCHECK)
+trigger1 = !Time
+value = gethitvar(hittime) * 4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = map(IBCHECK)
+trigger1 = !Time
+v = 4
+value = 1
+
 
 [State 0, Heartbreaker Check]
 type = VarSet
@@ -1660,34 +1694,6 @@ trigger3 = EnemyNear,Map(TrainingOpt2) = 3
 v = 7
 value = (map(y) && map(b) && command = "holdback"||EnemyNear,Map(TrainingOpt2) = 3)
 ignorehitpause = 1
-
-[State 0, PalFX Perfect Guard]
-type = PalFX
-trigger1 = Var(5) = 1
-time = 1
-add = 64,96,128
-mul = 128,192,256
-color = 128
-ignorehitpause = 1
-
-[State 0, LifeAdd Perfect Guard]
-type = LifeAdd
-trigger1 = Var(5) = 1
-trigger1 = !Time
-value = gethitvar(Damage) + gethitvar(hittime)*(Var(22)-Life>gethitvar(hittime)) + (Var(22)-Life)*(Var(22)-Life<=gethitvar(hittime))
-absolute = 1
-[State 0, PowerAdd Perfect Guard]
-type = PowerAdd
-trigger1 = Var(5) = 1
-trigger1 = !Time
-value = gethitvar(hittime) * 4
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = Var(5) = 1
-trigger1 = !Time
-v = 4
-value = 1
 
 [State 152, 1]
 type = ChangeAnim
@@ -1822,16 +1828,20 @@ physics = N
 velset = 0,0
 sprpriority = -2
 
-[State 0, Perfect Guard Check]
-type = VarSet
-trigger1 = !Time
-v = 5
-value = (Var(4)>8)
-ignorehitpause = 1
+[State 0, MapSet] ;Instant Block Check
+type = MapSet
+trigger1 = time = 0
+map = "IBCheck"
+value = cond(map(IBTimer) > 20, 1, 0)
+[State 0, MapSet] ;Instant Block Timer Reset
+type = MapSet
+trigger1 = time = 1 && map(IBTimer)
+map = "IBTimer"
+value = 0
 
 [State 0, PalFX Perfect Guard]
 type = PalFX
-trigger1 = Var(5) = 1
+trigger1 = map(IBCHECK)
 time = 1
 add = 64,96,128
 mul = 128,192,256
@@ -1840,15 +1850,23 @@ ignorehitpause = 1
 
 [State 0, LifeAdd Perfect Guard]
 type = LifeAdd
-trigger1 = Var(5) = 1
+trigger1 = map(IBCHECK)
 trigger1 = !Time
 value = gethitvar(Damage) + gethitvar(hittime)*(Var(22)-Life>gethitvar(hittime)) + (Var(22)-Life)*(Var(22)-Life<=gethitvar(hittime))
 absolute = 1
 [State 0, PowerAdd Perfect Guard]
 type = PowerAdd
-trigger1 = Var(5) = 1
+trigger1 = map(IBCHECK)
 trigger1 = !Time
 value = gethitvar(hittime) * 4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = map(IBCHECK)
+trigger1 = !Time
+v = 4
+value = 1
+
 
 [State 154, 1]
 type = ChangeAnim
@@ -1862,9 +1880,9 @@ value = 155 ;AGUARDHIT2
 
 [State 0, VarAdd Reduce Guard Bar]
 type = VarAdd
-trigger1 = Time = 0
+trigger1 = Time = 0 && !map(IBCheck)
 v = 25
-value = -GetHitVar(GuardPoints)
+value = -GetHitVar(GuardPoints) - GetHitVar(GuardPoints) * (statetype = A && enemy, statetype != A)
 ignorehitpause = 1
 [State 0, VarSet Guard Meter Minimal]
 type = VarSet
@@ -6468,7 +6486,7 @@ ownpal = 1
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1
-y = 0.2
+y = 0.15
 
 [State 0, Offset]
 type = Offset
@@ -10205,8 +10223,8 @@ ignorehitpause = 1
 
 [State 0, Explod PERFECT GUARD!]
 type = Explod
-triggerall = Parent,Var(20) >= 0 && EnemyNear,Var(20) >= 0
-trigger1 = Parent,Var(32) = 72
+trigger1 = parent, map(IBCheck)
+trigger1 = parent, !time
 anim = f812 + (TeamSide=2)
 id = 8000
 postype = left
@@ -18083,6 +18101,93 @@ trigger2 = Var(17) = 55 && Var(15)
 
 
 [Statedef -2]
+
+[State 110, Flash]
+type = palfx
+triggerall = stateno = 110 || stateno = 115
+triggerall = prevstateno = 109 || prevstateno = 108
+trigger1 = time = [0,1]
+add = 255, 30, 200
+sinadd = -255, -30, -200, 60
+time = 15
+ignoreHitPause = 1
+persistent = 1
+
+;============================
+; Instant Block Timer       ||
+;============================
+[State 0, Perfect Guard Timer]
+type = MapAdd
+trigger1 = map(IBTimer) > 0
+map = "IBTimer"
+value = -1
+ignorehitpause = 1
+
+[State 0, Perfect Guard Check]
+type = MapSet
+triggerall = map(IBTimer) <= 0
+trigger1 = command = "UNBUFFER_BACK"
+map = "IBTimer"
+value = 28
+ignorehitpause = 0
+
+;================================
+;Instant Block - Extras
+;================================
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1    = stateno = 150 || stateno = 152 || stateno = 154
+trigger1 	= map(IBTimer) > 20 && time = 0
+value = gethitvar(hittime) + 30
+ignorehitpause = 1
+persistent = 0
+
+[State 100, 3] ;No Chip Damage
+type = AssertSpecial
+trigger1 	= map(IBTimer) > 20
+flag = NoGuardDamage
+
+[State 0. MapSet]
+type 		= MapSet
+trigger1    = stateno = 150 || stateno = 152 || stateno = 154
+trigger1 	= map(IBTimer) > 20 && time = 0
+map 		= "IBPalFX"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 1
+
+[State 0. MapSet]
+type 		= MapAdd
+trigger1 	= map(IBPalFX)
+map 		= "IBPalFX"
+value 		= 1
+ignorehitpause 	= 1
+persistent 		= 1
+
+[State 0, PalFX Perfect Guard]
+type = PalFX
+trigger1 = map(IBPalFX)
+time = 1
+add = cond(170 - map(IBPalFX) * 8 >= 0, 170 - map(IBPalFX) * 8, 0),cond(170 - map(IBPalFX) * 8 >= 0, 170 - map(IBPalFX) * 8, 0),cond(170 - map(IBPalFX) * 8 >= 0, 170 - map(IBPalFX) * 8, 0)
+ignorehitpause = 1
+
+[State 0, MapSet] ;Map for "remembering" that you instant blocked
+type = MapSet
+trigger1 = map(IBTimer) > 20 && time = 0
+map = "IBparam"
+value = 10
+[State 0, MapSet] ;Tick Down
+type = MapAdd
+trigger1 = map(IBParam)
+map = "IBparam"
+value = -1
+
+;Block Attacks In Midair after jumping over
+[State 0, AttackDist]
+type = Turn
+trigger1 = ctrl && (stateno != [903,904] && stateno != [60,61])
+trigger1 = enemy, movetype = A
+trigger1 = p2dist x < 0 && statetype = A
 
 [State 0, MapAdd]
 type = MapSet
