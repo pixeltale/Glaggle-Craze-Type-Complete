@@ -1178,7 +1178,7 @@ keymenu.itemname.b = "SK"                          ;Ikemen feature
 keymenu.itemname.z = "Grab"                          ;Ikemen feature
 keymenu.itemname.c = "Craze Tech"                          ;Ikemen feature
 keymenu.itemname.d = "Craze Cancel"                          ;Ikemen feature
-keymenu.itemname.w = "Unused"                          ;Ikemen feature
+keymenu.itemname.w = "Hop Macro"                          ;Ikemen feature
 keymenu.itemname.start = "Taunt"                  ;Ikemen featur
 keymenu.itemname.menu = "Pause"                    ;Ikemen feature
 

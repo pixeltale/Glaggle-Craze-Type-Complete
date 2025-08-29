@@ -65,6 +65,7 @@ type = Explod
 trigger1 = Anim = [120,130)
 trigger2 = Anim = [140,150)
 anim = 123 + (Anim%10=1)
+pos = 0, (40 * statetype = A)
 postype = p1
 pausemovetime = 1
 sprpriority = -1
@@ -75,6 +76,7 @@ type = Explod
 trigger1 = Anim = [130,140)
 trigger2 = (Anim = [150,160)) && AnimElemNo(0) = 2
 anim = 133 + floor(0.5 * (GameTime%4)) + (Anim%10=1) * 2
+pos	= 0, (40 * statetype = A)
 postype = p1
 pausemovetime = 1
 sprpriority = -1
@@ -84,7 +86,7 @@ ignorehitpause = 1
 type = Explod
 trigger1 = (Anim = [150,160)) && AnimElemNo(0) = 1
 anim = 153 + floor(0.5 * (GameTime%4)) + (Anim%10=1) * 2
-pos = (-1+GameTime%3)*!HitShakeOver,0
+pos = (-1+GameTime%3)*!HitShakeOver , 0 + (40 * statetype = A)
 postype = p1
 pausemovetime = 1
 sprpriority = -1

@@ -787,7 +787,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = S,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 4,Hit
 damage = Ceil(Var(12) * FVar(10)),Ceil(Var(12)*const(BC.ChipLight))
@@ -1000,7 +1000,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = A,SA
 hitflag = MAF
-guardflag = H
+guardflag = HA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * FVar(10)),Ceil(Var(12)*const(BC.ChipMid))
@@ -1275,7 +1275,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = C,SA
 hitflag = MAFD
-guardflag = L
+guardflag = LA
 animtype = heavy
 priority = 4,Hit
 damage = Ceil(Var(12) * FVar(10)),Ceil(Var(12)*const(BC.ChipLight))
@@ -1468,7 +1468,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = S,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * FVar(10)),Ceil(Var(12)*const(BC.ChipLight))
@@ -1660,7 +1660,7 @@ trigger1 = AnimElem = 3
 trigger2 = AnimElem = 4
 attr = A,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * FVar(10) * (0.75 + 1.25 * (!MoveHit))),Ceil(Var(12)*const(BC.ChipLight))
@@ -1690,7 +1690,7 @@ trigger2 = !MoveContact && !MoveReversed
 trigger2 = !Var(5)
 attr = A,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * FVar(10) * (0.75 + 1.25 * (!MoveHit))),Ceil(Var(12)*const(BC.ChipMid))
@@ -1904,7 +1904,7 @@ trigger3 = AnimElem = 9
 trigger4 = AnimElem = 11
 attr = S,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 4,Hit
 damage = Ceil(1 + Var(12) * FVar(10) * (0.75 + 1.25 * (!MoveHit))),Ceil(128*0.25*const(BC.ChipLight))
@@ -2123,7 +2123,7 @@ trigger3 = AnimElem = 9
 trigger4 = AnimElem = 11
 attr = S,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 4,Hit
 damage = Ceil(1 + Var(12) * FVar(10) * (0.75 + 1.25 * (!MoveHit))),Ceil(128*0.25*const(BC.ChipLight))
@@ -2156,7 +2156,7 @@ triggerall = Anim = 1205
 trigger1 = AnimElem = 3
 attr = S,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 4,Hit
 damage = Ceil(1 + Var(12) * FVar(10) * (0.75 + 1.25 * (!MoveHit))),Ceil(Var(12)*const(BC.ChipLight))
@@ -2414,7 +2414,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = S,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 4,Hit
 damage = Ceil(Var(12) * FVar(10) * (1.5 - 1.25 * (Var(51) && Var(7))) + Ceil(Var(5) * (4 + 4 * (Var(41)=0)) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage)))),Ceil(Var(12)*const(BC.ChipLight))
@@ -2720,7 +2720,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = C,SA
 hitflag = MAFD
-guardflag = L
+guardflag = LA
 animtype = heavy
 priority = 4,Hit
 damage = Ceil(Var(12) * FVar(10) * (1.5 - 1.25 * (Var(51) && Var(7))) + Ceil(Var(5) * (4 + 4 * (Var(41)=0)) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage)))),Ceil(Var(12)*const(BC.ChipLight))
@@ -3034,7 +3034,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = S,SA
 hitflag = MAF
-guardflag = H
+guardflag = HA
 animtype = heavy
 priority = 4,Hit
 damage = Ceil(Var(12) * FVar(10) * (1.5 - 1.25 * (Var(51) && Var(7))) + Ceil(Var(5) * (4 + 4 * (Var(41)=0)) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage)))),Ceil(Var(12)*const(BC.ChipMid))
@@ -3279,7 +3279,7 @@ trigger3 = AnimElem = 7 && Var(5)
 trigger4 = AnimElem = 8 && Var(5) && Var(6) < 3
 attr = S,SA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 4,Hit
 damage = Ceil(Var(12) * FVar(10) * (1.5 - 1.25 * !!MoveHit) + Ceil(Var(5) * 8 * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage)))),Ceil(30*const(BC.ChipLight))

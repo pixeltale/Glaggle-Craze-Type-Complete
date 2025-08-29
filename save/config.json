@@ -54,7 +54,8 @@
   "InputButtonAssistWindow": 1,
   "InputSOCDResolution": 1,
   "IP": {
-    "cusws": "26.156.96.85"
+    "cusws": "26.156.96.85",
+    "jsoh": "71.136.249.39"
   },
   "LifeMul": 100,
   "ListenPort": "7500",

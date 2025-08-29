@@ -362,12 +362,18 @@ Clsn2Default: 1
   Clsn2[0] = -15, -58, 15, 0
 121,1, 0,0, 2
 
-; Guard FX1
+; Guard A
 [Begin Action 132]
+Clsn2Default: 1
+  Clsn2[0] = -15, -58, 15, 0
+121,1, 0,0, 2
+
+; Guard FX1
+[Begin Action 133]
 120,101, 0,0, 1
 
 ; Guard FX2
-[Begin Action 133]
+[Begin Action 134]
 120,102, 0,0, 1
 
 ; Guard S End
@@ -382,8 +388,14 @@ Clsn2Default: 1
   Clsn2[0] = -15, -58, 15, 0
 121,0, 0,0, 2
 
-; Guard FX End
+; Guard A End
 [Begin Action 142]
+Clsn2Default: 1
+  Clsn2[0] = -15, -58, 15, 0
+121,0, 0,0, 2
+
+; Guard FX End
+[Begin Action 143]
 120,100, 0,0, 1
 
 ; Guard S Hit
@@ -402,8 +414,15 @@ Clsn2Default: 1
 121,2, 0,0, 4
 121,1, 0,0, -1
 
-; Guard FX Hit
+; Guard A Hit
 [Begin Action 152]
+Clsn2Default: 1
+  Clsn2[0] = -15, -58, 15, 0
+121,2, 0,0, 4
+121,1, 0,0, -1
+
+; Guard FX Hit
+[Begin Action 153]
 120,103, 0,0, 1
 
 ;-----------------------------------

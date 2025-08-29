@@ -306,7 +306,7 @@ time = 1
 type = VelSet
 trigger1 = Time = 4
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
-y = const(velocity.jump.y)
+y = const(velocity.jump.y) + (const(velocity.jump.y) * -0.25 * (COMMAND != "UNBUFFER_UP" || COMMAND = "M_MACRO"))
 [State 40, 5]
 type = VelSet
 trigger1 = Time = 4
@@ -423,11 +423,13 @@ trigger1 = !time && prevstateno = 39
 add = 255, 30, 200
 sinadd = -255, -30, -200, 60
 time = 15
-
-[State 50, 1]
-type = VarSet
-trigger1 = Time = 0
-sysvar(1) = 0
+[State 0, Helper SJump Helper]
+type = Helper
+trigger1 = !time && prevstateno = 39
+name = "Game Afoot"
+ID = 56
+stateno = 56
+postype = p1
 
 [State 50, 2]
 type = ChangeAnim
@@ -437,13 +439,13 @@ value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
 
 [State 0, VelAdd]
 type = VelSet
-trigger1 = NumHelper(56)
+trigger1 = NumHelper(56) && Time = 1
 trigger1 = map(p_Fd) || map(p_Bk)
 x = const(velocity.jump.fwd.x) * sysvar(1)
 
 [State 0, PalFX]
 type = PalFX
-trigger1 = NumHelper(56)
+trigger1 = NumHelper(56) && PREVSTATENO != 39
 trigger1 = Time < 6
 time = 1
 add = 128-24*Time,128-24*Time,128-24*Time
@@ -490,7 +492,7 @@ trigger1 = 1
 type    = S
 physics = S
 facep2 = 1
-ctrl = 0
+ctrl = 1
 anim = 47 + 4000 * (Name="BAXT"&&Map(BaxtFullPal)) + ((Name="ISAB"||Name="ISAX"||Name="ISAK")&&(PrevStateNo=610||PrevStateNo=710))
 
 [State 52, 1]
@@ -586,7 +588,7 @@ y = const(velocity.jump.y) * 1.125
 [State 0, VelSet]
 type = VelSet
 trigger1 = Time = 4
-x = Vel X * (1.0+Map(SpeedMod)) * 0.5 * SYSVAR(1)
+x = Vel X * const(velocity.jump.y) * SYSVAR(1)
 
 [State 0, Helper SJump Helper]
 type = Helper
@@ -633,13 +635,6 @@ accel = 0,-0.5
 sprpriority = GameTime%5
 angle = 80 - 10 * !!root,sysvar(2)
 ownpal = 1
-
-[State 0, VelAdd]
-type = VelAdd
-trigger1 = Root,Vel Y < 0
-trigger1 = Root,StateNo = [40,60] || StateNo = [600,800)
-y = root,const(movement.yaccel) * -0.2
-redirectid = Root,ID
 
 ;[State 0, VarSet]
 ;type = RootVarSet
@@ -18185,7 +18180,7 @@ persistent = 1
 [State -1, AirDash Fwd]
 type = ChangeState
 value = 110 + 1*(name = "TERI" || name = "TERX" || name = "TERK") + 5*(name = "CICI" || name = "CICX" ||  name = "CICK")
-triggerall = ctrl && var(1)
+triggerall = ctrl && var(1) && (name = "TERI" || name = "TERX" || name = "TERK") + 5*(name = "CICI" || name = "CICX" ||  name = "CICK" || name = "IKUE" || name = "IKUK" || name = "IKUX" || name = "LUCK")
 triggerall = Vel Y >= -1 || Time >= 3
 triggerall = !(StateNo = [110,115])
 triggerall = statetype = A && Var(1)
@@ -18196,7 +18191,7 @@ trigger2 = Var(17) = 110 && Var(15)
 [State -1, AirDash Back]
 type = ChangeState
 value = 115 + 1*(name = "TERI" || name = "TERX" || name = "TERK" || name = "CICI" || name = "CICX" ||  name = "CICK")
-triggerall = ctrl && var(1)
+triggerall = ctrl && var(1) && (name = "TERI" || name = "TERX" || name = "TERK") + 5*(name = "CICI" || name = "CICX" ||  name = "CICK" || name = "IKUE" || name = "IKUK" || name = "IKUX" || name = "LUCK")
 triggerall = Vel Y >= -1 || Time >= 3
 triggerall = !(StateNo = [110,115])
 triggerall = statetype = A && Var(1)
@@ -18221,8 +18216,8 @@ ignorehitpause = 1
 [State -1, AirDash Fwd]
 type = ChangeState
 value = 109
-triggerall = !map(CCDisable)
-triggerall = movecontact && var(18) >= 1000 + 1000 * (moveguarded > 0)
+triggerall = !map(CCDisable) && pos y < -10
+triggerall = movehit && var(18) >= 1000
 triggerall = statetype = A
 trigger1 = (command="FF" || map(b_66)) && !Var(15)
 trigger2 = Var(17) = 109 && Var(15)
@@ -18231,8 +18226,8 @@ trigger2 = Var(17) = 109 && Var(15)
 [State -1, AirDash Backward]
 type = ChangeState
 value = 108
-triggerall = !map(CCDisable)
-triggerall = movecontact && var(18) >= 1000 + 1000 * (moveguarded > 0)
+triggerall = !map(CCDisable) && pos y < -10
+triggerall = movehit && var(18) >= 1000
 triggerall = statetype = A
 trigger1 = (command="BB" || map(b_44)) && !Var(15)
 trigger2 = Var(17) = 109 && Var(15)
@@ -18243,7 +18238,7 @@ type = ChangeState
 value = 39
 triggerall = movehit && stateno = [200,510]
 triggerall = var(18) >= 1000
-trigger1 = command ="holdup"
+trigger1 = command ="DU"
 
 ;======================================================================
 ; FULL GAME FUNTIMES: Juggle Decay Groundwork
@@ -19568,16 +19563,6 @@ triggerall = Map(WinQuoteNum) < 10
 trigger1 = Name = "JANE" || Name = "JANX" || Name = "JANK"
 map = "WinQuoteNum"
 value = 33
-
-;============================
-; FULL GAME FUNTIMES: NOGUARD
-;============================
-
-[State 0, AssertSpecial]
-type = AssertSpecial
-trigger1 = 1
-flag = noairguard
-ignorehitpause = 1
 
 ;==================================
 ; FULL GAME FUNTIMES: OTG LIMITER

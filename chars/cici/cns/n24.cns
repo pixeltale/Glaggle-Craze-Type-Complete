@@ -60,7 +60,7 @@ triggerall = GameTime%2 = 0
 triggerall = !(Name = "CICK" && NumHelper(4000))
 trigger1 = Anim = [120,121]
 trigger2 = Anim = [140,141]
-anim = 122
+anim = 123
 pos = 0,17 * (Anim%10=1)
 postype = p1
 bindtime = 1
@@ -74,7 +74,7 @@ type = Explod
 triggerall = !(Name = "CICK" && NumHelper(4000))
 trigger1 = Anim = [130,131]
 trigger1 = GameTime%2 = 0
-anim = 132 + floor(0.5*(GameTime%4))
+anim = 133 + floor(0.5*(GameTime%4))
 pos = 0,17 * (Anim%10=1)
 postype = p1
 bindtime = 1
@@ -88,7 +88,7 @@ type = Explod
 triggerall = !(Name = "CICK" && NumHelper(4000))
 triggerall = GameTime%2 = 0
 trigger1 = Anim = [150,151]
-anim = 152
+anim = 153
 pos = 0,17 * (Anim%10=1)
 postype = p1
 bindtime = 1

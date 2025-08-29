@@ -307,9 +307,9 @@ Clsn2Default: 1
 ; Guard A Start
 [Begin Action 122]
 Clsn2Default: 2
-  Clsn2[0] = -12, -60, 18, -18
-  Clsn2[1] = -5, -76, 10, -58
-122,0, 0,0, 2
+  Clsn2[0] = -12, -60, 21, -15
+  Clsn2[1] = -5, -76, 14, -58
+121,0, -5,-6, 2
 
 ; Guard S
 [Begin Action 130]
@@ -326,9 +326,9 @@ Clsn2Default: 1
 ; Guard A
 [Begin Action 132]
 Clsn2Default: 2
-  Clsn2[0] = -12, -60, 18, -18
-  Clsn2[1] = -5, -76, 10, -58
-122,1, 0,0, 2
+  Clsn2[0] = -12, -60, 21, -15
+  Clsn2[1] = -5, -76, 14, -58
+121,1, -5,-6, 2
 
 ; Guard S End
 [Begin Action 140]
@@ -345,10 +345,10 @@ Clsn2Default: 1
 ; Guard A End
 [Begin Action 142]
 Clsn2Default: 2
-  Clsn2[0] = -12, -60, 18, -18
-  Clsn2[1] = -5, -76, 10, -58
-122,0, 0,0, 2
-41,5, 0,0, 3
+  Clsn2[0] = -12, -60, 21, -15
+  Clsn2[1] = -5, -76, 14, -58
+121,0, -5,-6, 2
+41,5, 1,4, 3
 41,6, 0,0, 3
 41,7, 0,0, -1
 
@@ -371,10 +371,10 @@ Clsn2Default: 1
 ; Guard A Hit
 [Begin Action 152]
 Clsn2Default: 2
-  Clsn2[0] = -12, -60, 18, -18
-  Clsn2[1] = -5, -76, 10, -58
-122,2, 0,0, 4
-122,1, 0,0, -1
+  Clsn2[0] = -12, -60, 21, -15
+  Clsn2[1] = -5, -76, 14, -58
+121,2, -5,-6, 2
+122,1, -5,-6, -1
 
 ;-----------------------------------
 ; Heartbreaker

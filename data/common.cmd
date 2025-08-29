@@ -501,6 +501,10 @@ name = "BB"
 command = B, B
 time = 10
 [Command]
+name = "M_MACRO"
+command = /w
+time = 1
+[Command]
 name = "UU"
 command = ~U, U
 time = 10
@@ -520,6 +524,11 @@ name = "DU"
 command = $D, $U
 time = 8
 buffer.time = 8
+[Command]
+name = "UNBUFFER_UP"
+command = /$U
+time = 1
+buffer.time = 0
 
 ;===================================
 ; RECOVERY

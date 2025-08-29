@@ -985,7 +985,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = S,HA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage))),Ceil(248*const(BC.ChipHeavy))
@@ -1551,7 +1551,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = S,HA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * ((const(BC.Super2MaxDamage)*FVar(9))+const(BC.Super2MinDamage))),Ceil(320*const(BC.ChipHeavy))
@@ -2263,7 +2263,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = S,HA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * ((const(BC.Super3MaxDamage)*FVar(9))+const(BC.Super3MinDamage))),Ceil(400*const(BC.ChipHeavy))
@@ -3428,7 +3428,7 @@ trigger3 = AnimElem = 15
 trigger4 = AnimElem = 20
 attr = S,HA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * ((const(BC.Super1MaxDamage)*FVar(9))+const(BC.Super1MinDamage))),Ceil(248*0.25*const(BC.ChipHeavy))
@@ -3674,7 +3674,7 @@ trigger6 = AnimElem = 30
 trigger7 = AnimElem = 35
 attr = S,HA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * ((const(BC.Super2MaxDamage)*FVar(9))+const(BC.Super2MinDamage)) * (0.5+1.0*!MoveHit)),Ceil(320*0.143*const(BC.ChipHeavy))
@@ -4189,7 +4189,7 @@ trigger3 = AnimElem = 15
 trigger4 = AnimElem = 20
 attr = S,HA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 5,Hit
 damage = Ceil(Var(12) * ((const(BC.Super3MaxDamage)*FVar(9))+const(BC.Super3MinDamage))),Ceil(400*0.0714*const(BC.ChipHeavy))
@@ -4460,7 +4460,7 @@ trigger3 = AnimElem = 16
 trigger4 = AnimElem = 21
 attr = S,HA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = medium
 priority = 3,Hit
 damage = Ceil(Var(12) * ((const(BC.Super3MaxDamage)*Parent,FVar(9))+const(BC.Super3MinDamage))),Ceil(200*0.0714*const(BC.ChipHeavy))
@@ -4490,7 +4490,7 @@ type = HitDef
 trigger1 = AnimElem = 30
 attr = S,HA
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = heavy
 priority = 3,Hit
 damage = Ceil(Var(12) * ((const(BC.Super3MaxDamage)*Parent,FVar(9))+const(BC.Super3MinDamage))),Ceil(400*0.0714*const(BC.ChipHeavy))
@@ -4683,7 +4683,7 @@ trigger2 = AnimElem = 8
 trigger3 = AnimElem = 10
 attr = S,HP
 hitflag = MAF
-guardflag = M
+guardflag = MA
 animtype = medium
 priority = 3,Hit
 damage = Ceil(Var(12) * ((const(BC.Super3MaxDamage)*Parent,FVar(9))+const(BC.Super3MinDamage))),Ceil(100*0.0714*const(BC.ChipHeavy))
@@ -4791,7 +4791,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = S,SP
 hitflag = MAF
-guardflag = MA
+guardflag = MAA
 animtype = medium
 priority = 3,Hit
 damage = Ceil(Var(12) * ((const(BC.Super3MaxDamage)*Parent,FVar(9))+const(BC.Super3MinDamage))),Ceil(400*0.0714*const(BC.ChipHeavy))
@@ -5103,7 +5103,7 @@ type = HitDef
 trigger1 = !MoveContact && !MoveReversed
 attr = A,HP
 hitflag = MAF
-guardflag = MA
+guardflag = MAA
 animtype = medium
 priority = 3,Hit
 damage = Ceil(Var(12) * ((const(BC.Super1MaxDamage)*Parent,FVar(9))+const(BC.Super1MinDamage))),Ceil(Var(12)*const(BC.ChipHeavy))
