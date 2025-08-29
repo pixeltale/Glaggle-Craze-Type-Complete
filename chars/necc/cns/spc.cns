@@ -890,6 +890,7 @@ trigger1 = !MoveContact && !MoveReversed
 trigger1 = Anim = 1005
 attr = S,SA
 hitflag = AF
+guardflag = MA
 animtype = heavy
 priority = 4,Hit
 damage = Ceil(Var(12) * FVar(10)),Ceil(Var(12)*const(BC.ChipLight))

@@ -1911,6 +1911,13 @@ movetype= H
 physics = N
 anim = 152
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = ,NT,ST,HT
+time = 2
+
+
 [State 155, 1]
 type = HitVelSet
 trigger1 = Time = 0
