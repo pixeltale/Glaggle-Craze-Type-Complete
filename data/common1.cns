@@ -1489,7 +1489,7 @@ absolute = 1
 type = PowerAdd
 trigger1 = map(IBCHECK)
 trigger1 = !Time
-value = gethitvar(hittime) * 4
+value = gethitvar(hittime)
 
 [State 0, VarSet]
 type = VarSet
@@ -1676,7 +1676,7 @@ absolute = 1
 type = PowerAdd
 trigger1 = map(IBCHECK)
 trigger1 = !Time
-value = gethitvar(hittime) * 4
+value = gethitvar(hittime)
 
 [State 0, VarSet]
 type = VarSet
@@ -1858,7 +1858,7 @@ absolute = 1
 type = PowerAdd
 trigger1 = map(IBCHECK)
 trigger1 = !Time
-value = gethitvar(hittime) * 4
+value = gethitvar(hittime)
 
 [State 0, VarSet]
 type = VarSet
@@ -18247,15 +18247,15 @@ persistent = 1
 ;=======================================================================
 [State 0, VarAdd]
 type = VarAdd
-trigger1 = movehit = 1 && var(10)
+trigger1 = movehit = 1 && !movecontact && !MoveReversed && var(10)
 v = 18
 value = 1000
 ignorehitpause = 0
 [State 0, VarAdd]
 type = VarAdd
-trigger1 = movehit = 1 && var(10)
+trigger1 = movehit = 1 && !movecontact && !MoveReversed && var(10)
 v = 18
-value = -1000
+value = -500
 ignorehitpause = 0
 redirectid = enemynear, id
 
