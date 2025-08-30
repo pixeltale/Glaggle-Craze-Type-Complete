@@ -18262,9 +18262,9 @@ redirectid = enemynear, id
 [State 0, VarAdd]
 type = VarAdd
 triggerall = movetype != H && stateno != [110, 111] && stateno != [2000, 3000)
-trigger1 = vel x > 0
+trigger1 = vel x >= 3
 v = 18
-value = vel x * 0.75
+value = vel x * 0.5
 ignorehitpause = 1
 ;persistent = 
 

@@ -152,24 +152,12 @@ type = MapSet
 trigger1 = Map(NeccChargeEffect)
 map = "NeccPal"
 value = 8 + 4 * (Name!="NECK")
-[State 0, LifeSubtract]
-type = LifeAdd
-trigger1 = Name = "NECC"
-trigger1 = Map(NeccChargeEffect)
-value = -40 - 30 * (Var(51)>0)
-kill = 0
 [State 0, Var Regen Timer]
 type = VarSet
 trigger1 = Name = "NECC"
 trigger1 = Map(NeccChargeEffect)
 v = 23
 value = 96
-[State 0, Var Gauge Gain]
-type = VarAdd
-trigger1 = Name = "NECC"
-trigger1 = Map(NeccChargeEffect)
-v = 18
-value = 50
 [State 0, Var Reset]
 type = MapSet
 trigger1 = Map(NeccChargeEffect)
