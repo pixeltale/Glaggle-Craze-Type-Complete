@@ -531,7 +531,7 @@ time = 1
 buffer.time = 0
 [Command]
 name = "UNBUFFER_BACK"
-command = /$B
+command = $B
 time = 1
 buffer.time = 0
 

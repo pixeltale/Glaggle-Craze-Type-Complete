@@ -1466,7 +1466,7 @@ map = "IBCheck"
 value = cond(map(IBTimer) > 20, 1, 0)
 [State 0, MapSet] ;Instant Block Timer Reset
 type = MapSet
-trigger1 = time = 1 && map(IBTimer)
+trigger1 = map(IBTimer)
 map = "IBTimer"
 value = 0
 
@@ -18141,13 +18141,6 @@ ignorehitpause = 0
 ;================================
 ;Instant Block - Extras
 ;================================
-[State 0, PowerAdd]
-type = PowerAdd
-trigger1    = stateno = 150 || stateno = 152 || stateno = 154
-trigger1 	= map(IBTimer) > 20 && time = 0
-value = gethitvar(hittime) + 30
-ignorehitpause = 1
-persistent = 0
 
 [State 100, 3] ;No Chip Damage
 type = AssertSpecial
