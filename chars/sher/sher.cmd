@@ -389,7 +389,7 @@ value = 1901
 triggerall = Name = "SHEX"
 triggerall = statetype != A
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || StateNo = 167 || StateNo = 1400) && MoveContact || StateNo = [200,800) && Time <= 2
-trigger1 = (map(HCF) || COMMAND = "HCF") && map(b_b) && !Var(15)
+trigger1 = ((map(HCF) || COMMAND = "HCF")) && map(b_b) && !Var(15)
 trigger2 = Var(17) = 1600 && Var(15) && Random < 500
 
 ;---------------------------------------------------------------------------
@@ -400,7 +400,7 @@ value = 1900
 triggerall = Name = "SHEX"
 triggerall = statetype != A
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 || StateNo = 167 || StateNo = 1400) && MoveContact || StateNo = [200,800) && Time <= 2
-trigger1 = (map(HCF) || COMMAND = "HCF") && map(b_a) && !Var(15)
+trigger1 = ((map(HCF) || COMMAND = "HCF")) && map(b_a) && !Var(15)
 trigger2 = Var(17) = 1600 && Var(15) && Random < 500
 
 ;---------------------------------------------------------------------------
@@ -476,7 +476,7 @@ triggerall = Name = "SHEK"
 triggerall = statetype != A
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
 triggerall = !NumHelper(1010)
-trigger1 = map(HCB) || COMMAND = "HCB" && map(b_y) && !Var(15)
+trigger1 = (map(HCB) || COMMAND = "HCB") && map(b_y) && !Var(15)
 trigger2 = Var(17) = 1000 && Var(15) && Random < 100
 
 ;---------------------------------------------------------------------------
@@ -488,7 +488,7 @@ triggerall = Name = "SHEK"
 triggerall = statetype != A
 triggerall = ctrl || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || StateNo = [200,800) && Time <= 2
 triggerall = !NumHelper(1010)
-trigger1 = map(HCB) || COMMAND = "HCB" && map(b_x) && !Var(15)
+trigger1 = (map(HCB) || COMMAND = "HCB") && map(b_x) && !Var(15)
 trigger2 = Var(17) = 1000 && Var(15) && Random < 100
 
 ;---------------------------------------------------------------------------

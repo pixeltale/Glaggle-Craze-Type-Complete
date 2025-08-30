@@ -230,7 +230,7 @@ triggerall = statetype != A
 triggerall = Name = "NECC"
 triggerall = Power >= 2000
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveHit || (StateNo = 1100) && Time <= 2
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_ab) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_ab) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 
@@ -289,7 +289,7 @@ triggerall = statetype != A
 triggerall = Name != "NECK"
 triggerall = Power >= 1000
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveHit || (StateNo = 1200) && Time <= 2
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_xy) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_xy) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 
@@ -443,7 +443,7 @@ value = 1851
 triggerall = Map(CmdChain)
 triggerall = statetype != A
 triggerall = Name = "NECK" && Map(NeckDoll)
-trigger1 = (map(HCF) || COMMAND = "HCF") && map(b_b) && !Var(15)
+trigger1 = ((map(HCF) || COMMAND = "HCF")) && map(b_b) && !Var(15)
 trigger2 = Var(17) = 1600 && Var(15) && Random < 250
 
 ;---------------------------------------------------------------------------
@@ -454,7 +454,7 @@ value = 1850
 triggerall = Map(CmdChain)
 triggerall = statetype != A
 triggerall = Name = "NECK" && Map(NeckDoll)
-trigger1 = (map(HCF) || COMMAND = "HCF") && map(b_a) && !Var(15)
+trigger1 = ((map(HCF) || COMMAND = "HCF")) && map(b_a) && !Var(15)
 trigger2 = Var(17) = 1600 && Var(15) && Random < 250
 
 ;---------------------------------------------------------------------------
@@ -487,7 +487,7 @@ value = 1301
 triggerall = statetype != A
 triggerall = Name = "NECC"
 triggerall = Map(CmdChain)
-trigger1 = (map(HCF) || COMMAND = "HCF") && map(b_b) && !Var(15)
+trigger1 = ((map(HCF) || COMMAND = "HCF")) && map(b_b) && !Var(15)
 trigger2 = Var(17) = 1700 && Var(15) && Random < 250
 
 ;---------------------------------------------------------------------------
@@ -498,7 +498,7 @@ value = 1300
 triggerall = statetype != A
 triggerall = Name = "NECC"
 triggerall = Map(CmdChain)
-trigger1 = (map(HCF) || COMMAND = "HCF") && map(b_a) && !Var(15)
+trigger1 = ((map(HCF) || COMMAND = "HCF")) && map(b_a) && !Var(15)
 trigger2 = Var(17) = 1700 && Var(15) && Random < 250
 
 ;---------------------------------------------------------------------------
@@ -509,7 +509,7 @@ value = 1201
 triggerall = statetype != A
 triggerall = Name != "NECK"
 triggerall = Map(CmdChain) || StateNo = 40 || StateNo = 55 || StateNo = 1000 && Time <= 2
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_y) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_y) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 
@@ -521,7 +521,7 @@ value = 1200
 triggerall = statetype != A
 triggerall = Name != "NECK"
 triggerall = Map(CmdChain) || StateNo = 40 || StateNo = 55 || StateNo = 1000 && Time <= 2
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_x) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_x) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 

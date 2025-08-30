@@ -182,7 +182,7 @@ triggerall = Name = "TYRK"
 triggerall = !(StateNo = 225 && MoveHit) && !(StateNo = 226 && AnimElem = 15, <= 1)
 triggerall = Power >= 2000
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveHit || (StateNo = [200,800)) && Time <= 2
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_ab) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_ab) && !Var(15)
 trigger2 = Var(17) = 1300 && Var(15) && Random < 350
 trigger3 = Var(17) = 800 && Var(15) && Random < 350
 trigger3 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
@@ -210,7 +210,7 @@ triggerall = Name != "TYRA"
 triggerall = !(StateNo = 225 && MoveHit) && !(StateNo = 226 && AnimElem = 15, <= 1)
 triggerall = Power >= 1000
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveHit || (StateNo = [200,800) || StateNo = 1000 || StateNo = 1170) && Time <= 2 || StateNo = 930 && Map(TyrxDoom)
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_xy) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_xy) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 
@@ -481,7 +481,7 @@ value = 1171
 triggerall = statetype != A
 triggerall = Name = "TYRX"
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 && StateNo != 420) && MoveContact || (StateNo = 1000 || StateNo = 1175 && PrevStateNo != [900,2000)) && Time <= 2 || StateNo = 930 && MoveContact && Map(TyrxDoom)
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_y) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_y) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 
@@ -493,7 +493,7 @@ value = 1170
 triggerall = statetype != A
 triggerall = Name = "TYRX"
 triggerall = ctrl || StateNo = 40 || StateNo = 55 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510 && StateNo != 420) && MoveContact || (StateNo = 1000 || StateNo = 1175 && PrevStateNo != [900,2000)) && Time <= 2 || StateNo = 930 && MoveContact && Map(TyrxDoom)
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_x) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_x) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 

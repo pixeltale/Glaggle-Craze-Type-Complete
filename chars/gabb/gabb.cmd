@@ -721,7 +721,7 @@ value = 1101
 triggerall = StateType != A
 triggerall = Name = "GABB"
 triggerall = ctrl || (StateNo = [100,101]) || StateNo = [200,800) && (Time <= 2 || MoveContact && StateNo != 510)
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_y) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_y) && !Var(15)
 trigger2 = Var(17) = 1700 && Var(15) && Random < 125
 
 ;---------------------------------------------------------------------------
@@ -732,7 +732,7 @@ value = 1100 + 2 * (MoveHit=1&&EnemyNear,StateType!=A&&P2BodyDist X=[-1,12])
 triggerall = StateType != A
 triggerall = Name = "GABB"
 triggerall = ctrl || (StateNo = [100,101]) || StateNo = [200,800) && (Time <= 2 || MoveContact && StateNo != 510)
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_x) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_x) && !Var(15)
 trigger2 = (Var(17) = 1200 || Var(17) = 1700) && Var(15) && Random < 250
 
 ;---------------------------------------------------------------------------

@@ -535,7 +535,7 @@ value = 1641
 triggerall = Name = "BOUK"
 triggerall = statetype != A
 triggerall = ctrl || StateNo = 40 || (StateNo = [100,101]) || StateNo = [200,800) && StateNo != 510 && MoveContact || StateNo = 1700 && MoveContact && (Var(44)=[4,5])
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_y) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_y) && !Var(15)
 trigger2 = Var(17) = 1700 && Var(15) && Random < 250
 
 ;---------------------------------------------------------------------------
@@ -546,7 +546,7 @@ value = 1640
 triggerall = Name = "BOUK"
 triggerall = statetype != A
 triggerall = ctrl || StateNo = 40 || (StateNo = [100,101]) || StateNo = [200,800) && StateNo != 510 && MoveContact || StateNo = 1700 && MoveContact && (Var(44)=[4,5])
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_x) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_x) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 

@@ -255,7 +255,7 @@ triggerall = statetype != A
 triggerall = Name = "LUCK"
 triggerall = Power >= 1000
 triggerall = ctrl || StateNo = 40 || (StateNo = [100,101]) || (StateNo = [200,800) && StateNo != 510) && MoveContact || (StateNo = [200,800) || StateNo = 1050 || StateNo = 1700 || StateNo = 1705) && Time <= 2
-trigger1 = (map(HCB) || COMMAND = "HCB" || map(f360) || map(r360)) && map(b_xy) && !Var(15)
+trigger1 = ((map(HCB) || COMMAND = "HCB") || map(f360) || map(r360)) && map(b_xy) && !Var(15)
 trigger2 = Var(17) = 800 && Var(15) && Random < 500
 trigger2 = P2BodyDist X = [-8,const(size.ground.front)] && StateType != A && EnemyNear,StateType != A || P2BodyDist X <= 40 && !numtarget(860) && StateType = A && EnemyNear,StateType = A
 
