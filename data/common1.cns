@@ -302,11 +302,17 @@ trigger1 = 1
 value = ,NT,ST,HT
 time = 1
 
+[State - Airdash Hang]
+type = mapset
+trigger1 = Time = 4
+map = "HOP.CHECK" ;AirDash Momentum Preserve
+value = (COMMAND != "UNBUFFER_UP" || COMMAND = "M_MACRO")
+
 [State 40, 4]
 type = VelSet
 trigger1 = Time = 4
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
-y = const(velocity.jump.y) + (const(velocity.jump.y) * -0.25 * (COMMAND != "UNBUFFER_UP" || COMMAND = "M_MACRO"))
+y = const(velocity.jump.y) + (const(velocity.jump.y) * -0.25 * map(HOP.CHECK))
 [State 40, 5]
 type = VelSet
 trigger1 = Time = 4
@@ -492,7 +498,7 @@ trigger1 = 1
 type    = S
 physics = S
 facep2 = 1
-ctrl = 1
+ctrl = 1 - map(HOP.CHECK)
 anim = 47 + 4000 * (Name="BAXT"&&Map(BaxtFullPal)) + ((Name="ISAB"||Name="ISAX"||Name="ISAK")&&(PrevStateNo=610||PrevStateNo=710))
 
 [State 52, 1]
@@ -504,14 +510,6 @@ y = 0
 type = PosSet
 trigger1 = Time = 0
 y = 0
-
-[State 52, 3]
-type = CtrlSet
-trigger1 = Time = 3
-trigger2 = !Time
-trigger2 = Map(WakeUpInvul) >= 1
-value = 1
-
 [State 52, 4]
 type = VelSet
 triggerall = Name != "CICX"
@@ -546,8 +544,7 @@ value = 1
 elem = 3
 [State 52, 5]
 type = ChangeState
-trigger1 = AnimTime = 0
-trigger2 = Anim = 1
+trigger1 = time = 6
 value = 0
 ctrl = 1
 
@@ -903,6 +900,23 @@ velset = 0,0
 ctrl = 0
 sprpriority = 1
 
+[State 0, MapSet]
+type = MapSet
+trigger1 = 1
+map = "ADC.DARKTIME"
+value = 30
+ignorehitpause = 1
+[State 0, EVERYTHING WILL FREEZE!]
+type = SuperPause
+trigger1 = !time
+time = 2
+anim = 99999
+pos = 0,0
+movetime = 100
+darken = 0
+p2defmul = 1
+unhittable = 1
+
 [State 0, VarAdd]
 type = VarAdd
 trigger1 = 1
@@ -924,6 +938,24 @@ anim = cond(selfanimexist(110), 110, 100)
 velset = 0,0
 ctrl = 0
 sprpriority = 1
+
+[State 0, MapSet]
+type = MapSet
+trigger1 = 1
+map = "ADC.DARKTIME"
+value = 30
+ignorehitpause = 1
+[State 0, AfterImage] ;SKOOMA Afterimage Effect ============ ++
+type 		= AfterImage			        ;+
+trigger1 		= 1		        ;+
+time 		= 30				        ;+
+length 		= 10   				        ;+
+timegap 		= 1			        ;+
+ignorehitpause 	= 1 				        ;+
+paladd		= 191, 64, 191			        ;+
+trans 		= add				        ;+
+persistent 	= 0				        ;+
+;==================================================++
 
 [State 0, VarAdd]
 type = VarAdd
@@ -1490,6 +1522,11 @@ type = PowerAdd
 trigger1 = map(IBCHECK)
 trigger1 = !Time
 value = gethitvar(hittime)
+[State 0, CrazeAdd Perfect Guard]
+type        = VarAdd
+trigger1    = map(IBCHECK) && !time
+v           = 18
+value       = 75
 
 [State 0, VarSet]
 type = VarSet
@@ -1677,6 +1714,11 @@ type = PowerAdd
 trigger1 = map(IBCHECK)
 trigger1 = !Time
 value = gethitvar(hittime)
+[State 0, CrazeAdd Perfect Guard]
+type        = VarAdd
+trigger1    = map(IBCHECK) && !time
+v           = 18
+value       = 75
 
 [State 0, VarSet]
 type = VarSet
@@ -1859,6 +1901,11 @@ type = PowerAdd
 trigger1 = map(IBCHECK)
 trigger1 = !Time
 value = gethitvar(hittime)
+[State 0, CrazeAdd Perfect Guard]
+type        = VarAdd
+trigger1    = map(IBCHECK) && !time
+v           = 18
+value       = 75
 
 [State 0, VarSet]
 type = VarSet
@@ -18109,6 +18156,37 @@ trigger2 = Var(17) = 55 && Var(15)
 
 [Statedef -2]
 
+[State - Airdash Hang]
+type = mapset
+trigger1 = stateno >= 800
+map = "HOP.CHECK" ;AirDash Momentum Preserve
+value = 0
+
+[State 0, EVERYTHING WILL FREEZE!]
+type = SuperPause
+trigger1 = map(ADC.DARKTIME) = 29
+time = 2
+anim = 99999
+pos = 0,0
+movetime = 0
+darken = 0
+p2defmul = 1
+unhittable = 1
+[State 0, MapAdd]
+type = MapADD
+trigger1 = MAP(ADC.DARKTIME)
+map = "ADC.DARKTIME"
+value = -1
+ignorehitpause = 1
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = map(ADC.DARKTIME)
+time = 5
+add = -(map(ADC.DARKTIME))*1.1,-(map(ADC.DARKTIME))*1.5,-(map(ADC.DARKTIME))*1.1
+persistent = 1
+ignorehitpause = 1
+
 [State 110, Flash]
 type = palfx
 triggerall = stateno = 110 || stateno = 115
@@ -18247,24 +18325,11 @@ persistent = 1
 ;=======================================================================
 [State 0, VarAdd]
 type = VarAdd
-trigger1 = movehit = 1 && !movecontact && !MoveReversed && var(10)
-v = 18
-value = 1000
-ignorehitpause = 0
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movehit = 1 && !movecontact && !MoveReversed && var(10)
-v = 18
-value = -500
-ignorehitpause = 0
-redirectid = enemynear, id
-
-[State 0, VarAdd]
-type = VarAdd
 triggerall = movetype != H && stateno != [110, 111] && stateno != [2000, 3000)
+triggerall = enemy, movetype != H
 trigger1 = vel x >= 3
 v = 18
-value = vel x * 0.5
+value = vel x * 0.85
 ignorehitpause = 1
 ;persistent = 
 
