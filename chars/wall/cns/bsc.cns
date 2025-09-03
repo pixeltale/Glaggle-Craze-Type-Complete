@@ -1162,7 +1162,7 @@ type    = A
 movetype= A
 physics = A
 ctrl = 0
-anim = 610
+anim = 610 + map(Hop.check)
 sprpriority = 2
 
 [State 610, 2]
@@ -1300,7 +1300,7 @@ guardsound = 5,0
 ground.type = High
 ground.slidetime = 18
 ground.hittime = 18
-guard.hittime = 12
+guard.hittime = 12 - 2 * map(hop.check)
 yaccel = 0.5
 fall = 1
 ground.velocity = -3,6
