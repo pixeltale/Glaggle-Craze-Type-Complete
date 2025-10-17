@@ -1807,11 +1807,6 @@ trigger1 = AnimElem = 2
 v = 34
 value = random%6
 
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = Var(5) && Time <= 17
-value = ,NA,SA,NP,SP,NT,ST,HT
-time = 1
 [State 0, HitBy]
 type = NotHitBy
 trigger1 = !Var(5) && Time <= 8
